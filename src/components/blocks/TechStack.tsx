@@ -1,31 +1,92 @@
 "use client";
 import { motion } from "framer-motion";
+import { 
+  Atom, 
+  CodeXml, 
+  Palette, 
+  Globe, 
+  FileCode, 
+  Paintbrush, 
+  Activity, 
+  Server, 
+  Terminal, 
+  Database, 
+  Smartphone, 
+  Target, 
+  Coffee, 
+  Cpu, 
+  Code, 
+  Table, 
+  GitBranch, 
+  Box, 
+  Cloud, 
+  Boxes, 
+  Mail, 
+  Layout, 
+  Ghost, 
+  HardDrive, 
+  Grid 
+} from "lucide-react";
 
 // Logiczny podział technologii bez sztucznych procentów
 const skillCategories = [
   {
     title: "Frontend",
-    skills: ["React", "TypeScript", "Tailwind CSS", "Next.js", "HTML5", "CSS3", "Framer Motion"],
+    skills: [
+      { name: "React", icon: Atom },
+      { name: "TypeScript", icon: CodeXml },
+      { name: "Tailwind CSS", icon: Palette },
+      { name: "Next.js", icon: Globe },
+      { name: "HTML5", icon: FileCode },
+      { name: "CSS3", icon: Paintbrush },
+      { name: "Framer Motion", icon: Activity },
+    ],
   },
   {
     title: "Backend",
-    skills: ["Node.js", "Python", "MongoDB"],
+    skills: [
+      { name: "Node.js", icon: Server },
+      { name: "Python", icon: Terminal },
+      { name: "MongoDB", icon: Database },
+    ],
   },
   {
     title: "Aplikacje Mobilne",
-    skills: ["Flutter", "React Native", "Dart"],
+    skills: [
+      { name: "Flutter", icon: Smartphone },
+      { name: "React Native", icon: Smartphone },
+      { name: "Dart", icon: Target },
+    ],
   },
   {
     title: "Języki Obiektowe & Skryptowe",
-    skills: ["Java", "Python", "C++", "JavaScript", "SQL"],
+    skills: [
+      { name: "Java", icon: Coffee },
+      { name: "Python", icon: Terminal },
+      { name: "C++", icon: Cpu },
+      { name: "JavaScript", icon: Code },
+      { name: "SQL", icon: Table },
+    ],
   },
   {
     title: "Narzędzia & Inne",
-    skills: ["Git", "Docker", "AWS", "Linux", "Kubernetes"],
+    skills: [
+      { name: "Git", icon: GitBranch },
+      { name: "Docker", icon: Box },
+      { name: "AWS", icon: Cloud },
+      { name: "Linux", icon: Terminal },
+      { name: "Kubernetes", icon: Boxes },
+    ],
   },
   {
     title: "Organizacja & Biuro",
-    skills: ["Iterable", "Beehiiv", "Ghost", "Amazon S3", "Google Workspace"],
+    skills: [
+      { name: "Iterable", icon: Mail },
+      { name: "Beehiiv", icon: Layout },
+      { name: "Ghost", icon: Ghost },
+      { name: "Amazon S3", icon: HardDrive },
+      { name: "Google Workspace", icon: Grid },
+    ]
   }
 ];
 
@@ -55,9 +116,10 @@ export function TechStack() {
               {category.skills.map((skill, skillIdx) => (
                 <span
                   key={skillIdx}
-                  className="px-4 py-2 text-sm font-mono text-muted-foreground bg-background/50 border border-border/50 rounded-lg hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-colors duration-300 cursor-default"
+                  className="flex items-center gap-2 px-3 py-1.5 text-sm font-mono text-muted-foreground bg-background/50 border border-border/50 rounded-lg hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-colors duration-300 cursor-default"
                 >
-                  {skill}
+                  <skill.icon size={14} className="opacity-70 group-hover:opacity-100" />
+                  {skill.name}
                 </span>
               ))}
             </div>

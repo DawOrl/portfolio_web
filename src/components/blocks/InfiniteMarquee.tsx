@@ -1,6 +1,32 @@
 "use client";
 import { motion } from "framer-motion";
 import { cvData } from "@/data/cv-data";
+import { 
+  FileCode, 
+  Globe, 
+  Smartphone, 
+  Palette, 
+  Monitor, 
+  Grid, 
+  HardDrive, 
+  Mail, 
+  Layout, 
+  Ghost 
+} from "lucide-react";
+
+const skillIcons: Record<string, any> = {
+  "HTML/CSS": FileCode,
+  "Next.js": Globe,
+  "React Native": Smartphone,
+  "Tailwind CSS": Palette,
+  "Flutter": Smartphone,
+  "MS Office": Monitor,
+  "Google Workspace": Grid,
+  "Amazon S3": HardDrive,
+  "Iterable": Mail,
+  "Beehiiv": Layout,
+  "Ghost": Ghost,
+};
 
 export function InfiniteMarquee() {
   // Pobieramy i formatujemy pozostałe doświadczenie oraz listę umiejętności
@@ -21,14 +47,18 @@ export function InfiniteMarquee() {
         animate={{ x: ["0%", "-33.33%"] }}
         transition={{ ease: "linear", duration: 35, repeat: Infinity }}
       >
-        {duplicatedItems.map((item, index) => (
-          <span
-            key={index}
-            className="text-muted-foreground text-xs md:text-sm font-mono px-5 py-2 rounded-full border border-primary/20 bg-primary/5 shrink-0"
-          >
-            {item}
-          </span>
-        ))}
+        {duplicatedItems.map((item, index) => {
+          const Icon = skillIcons[item];
+          return (
+            <span
+              key={index}
+              className="flex items-center gap-2 text-muted-foreground text-xs md:text-sm font-mono px-5 py-2 rounded-full border border-primary/20 bg-primary/5 shrink-0"
+            >
+              {Icon && <Icon size={14} className="text-primary/60" />}
+              {item}
+            </span>
+          );
+        })}
       </motion.div>
     </div>
   );
