@@ -4,8 +4,7 @@ import { cvData } from "@/data/cv-data";
 
 export function InfiniteMarquee() {
   // Pobieramy i formatujemy pozostałe doświadczenie oraz listę umiejętności
-  const otherExp = cvData.otherExperience.map((exp) => `${exp.company} (${exp.role})`);
-  const items = [...otherExp, ...cvData.skills];
+  const items = [...cvData.skills];
 
   // Powielamy tablicę, aby animacja była płynna i domykała się w idealnej pętli
   const duplicatedItems = [...items,...items,...items];
