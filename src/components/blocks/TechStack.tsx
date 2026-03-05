@@ -28,7 +28,6 @@ import {
   Grid 
 } from "lucide-react";
 
-// Logiczny podział technologii bez sztucznych procentów
 const skillCategories = [
   {
     title: "Frontend",
