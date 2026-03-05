@@ -8,6 +8,9 @@ import { DevOpsTerminal } from "@/components/blocks/DevOpsTerminal";
 import { EmailDashboard } from "@/components/blocks/EmailDashboard";
 import { InfiniteMarquee } from "@/components/blocks/InfiniteMarquee";
 import { TechStack } from "@/components/blocks/TechStack";
+import { MacbookProject } from "@/components/blocks/MacbookProject";
+import { ProjectGallery } from "@/components/blocks/ProjectGallery";
+import { SocialLinks } from "@/components/blocks/SocialLinks";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -150,6 +153,15 @@ export default function Home() {
         >
           <TechStack />
         </motion.div>
+
+        {/* Sekcja Projektów 3D */}
+        <MacbookProject />
+
+        {/* Galeria Pozostałych Projektów z Filtrami */}
+        <ProjectGallery />
+
+        {/* Sekcja Mediów Społecznościowych */}
+        <SocialLinks />
 
         {/* Stopka */}
         <motion.footer 
