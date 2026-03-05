@@ -1,45 +1,59 @@
 "use client";
 import { motion } from "framer-motion";
 
-const skills = [
-  { name: "HTML", level: 90 },
-  { name: "CSS/SCSS", level: 85 },
-  { name: "JavaScript", level: 80 },
-  { name: "React", level: 70 },
-  { name: "Node.js", level: 70 },
-  { name: "Tailwind CSS", level: 70 },
-  { name: "Python", level: 60 },
-  { name: "Java", level: 60 },
-  { name: "C++", level: 50 },
+// Logiczny podział technologii bez sztucznych procentów
+const skillCategories = [
+  {
+    title: "Frontend",
+    skills: ["React", "TypeScript", "Tailwind CSS"],
+  },
+  {
+    title: "Backend",
+    skills: ["Node.js", "Python", "PostgreSQL"],
+  },
+  {
+    title: "Aplikacje Mobilne",
+    skills: ["Flutter", "React Native"],
+  },
+  {
+    title: "Języki Obiektowe & Skryptowe",
+    skills: ["Java", "Python", "C++"],
+  }
 ];
 
 export function TechStack() {
   return (
-    <div className="w-full bg-card/40 border border-border rounded-xl p-6 md:p-10 backdrop-blur-sm hover:border-primary/30 transition-colors duration-500">
-      <div className="flex items-center gap-3 mb-8">
+    <div className="w-full bg-card/40 border border-border rounded-xl p-6 md:p-10 backdrop-blur-sm">
+      <div className="flex items-center gap-3 mb-10">
         <div className="h-8 w-2 bg-primary rounded-full"></div>
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Technologie i Języki</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground">Stack Technologiczny</h2>
       </div>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-        {skills.map((skill, index) => (
-          <div key={index} className="flex flex-col gap-2.5">
-            <div className="flex justify-between text-sm font-medium px-1">
-              <span className="text-foreground/90 tracking-wide">{skill.name}</span>
-              <span className="text-primary/90 font-mono">{skill.level}%</span>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        {skillCategories.map((category, idx) => (
+          <motion.div
+            key={idx}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: idx * 0.15 }}
+            className="flex flex-col p-6 rounded-2xl bg-black/20 border border-border/50 hover:border-primary/40 hover:shadow-[0_0_20px_rgba(20,184,166,0.05)] transition-all duration-500"
+          >
+            <h3 className="text-lg font-semibold text-foreground/90 mb-6 tracking-wide border-b border-border/50 pb-4">
+              {category.title}
+            </h3>
+            
+            <div className="flex flex-wrap gap-3">
+              {category.skills.map((skill, skillIdx) => (
+                <span
+                  key={skillIdx}
+                  className="px-4 py-2 text-sm font-mono text-muted-foreground bg-background/50 border border-border/50 rounded-lg hover:text-primary hover:border-primary/50 hover:bg-primary/10 transition-colors duration-300 cursor-default"
+                >
+                  {skill}
+                </span>
+              ))}
             </div>
-            <div className="h-2.5 w-full bg-background/80 rounded-full overflow-hidden border border-border/50">
-              <motion.div
-                initial={{ width: 0 }}
-                whileInView={{ width: `${skill.level}%` }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 1.2, delay: index * 0.1, ease: "easeOut" }}
-                className="h-full bg-linear-to-r from-primary to-blue-500 rounded-full relative"
-              >
-                <div className="absolute right-0 top-0 bottom-0 w-4 bg-white/30 blur-[2px] rounded-full"></div>
-              </motion.div>
-            </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
