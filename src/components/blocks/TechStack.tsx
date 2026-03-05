@@ -18,6 +18,14 @@ const skillCategories = [
   {
     title: "Języki Obiektowe & Skryptowe",
     skills: ["Java", "Python", "C++"],
+  },
+  {
+    title: "Narzędzia & Inne",
+    skills: ["Git", "Docker", "AWS", "Linux"],
+  },
+  {
+    title: "Organizacja & Biuro",
+    skills: ["Iterable", "Beehiiv", "Ghost", "Amazon S3", "Google Workspace"],
   }
 ];
 
