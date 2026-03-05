@@ -5,7 +5,7 @@ export const cvData = {
     email: "dawid.orlowski2002@gmail.com",
     phone: "667 258 786",
     location: "Kraków",
-    about: "Jestem absolwentem studiów informatycznych z doświadczeniem w obszarze digital marketingu. Obecnie pracuję jako Email Marketing Specialist, łącząc wiedzę techniczną z umiejętnościami w tworzeniu skutecznych kampanii online, a w wolnym czasie rozwijam się w obszarze budowy stron internetowych i aplikacji mobilnych."
+    about: "Jestem osobą po ukończonych studiach informatycznych z doświadczeniem w obszarze digital marketingu. Obecnie pracuję jako Email Marketing Specialist, łącząc wiedzę techniczną z umiejętnościami tworzenia skutecznych kampanii online, a w wolnym czasie rozwijam się w obszarze budowy stron internetowych oraz aplikacji mobilnych."
   },
   experience: {
     role: "Email Marketing Specialist",
