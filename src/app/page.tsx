@@ -178,7 +178,7 @@ export default function Home() {
           className="mt-6 py-6 border-t border-border/30 text-center text-muted-foreground text-sm font-mono"
         >
           <p>© {new Date().getFullYear()} Dawid Orłowski. Wszelkie prawa zastrzeżone.</p>
-          <p className="mt-1 opacity-60">Zbudowano z Next.js 15, Tailwind v4 & Framer Motion.</p>
+          
         </motion.footer>
 
       </main>
