@@ -61,7 +61,7 @@ const filteredProjects = projects.filter(
                 
                 {/* Miejsce na miniaturkę projektu */}
                 <div className="h-48 w-full bg-black/60 border-b border-border/50 relative overflow-hidden flex items-center justify-center">
-                   <div className="absolute inset-0 bg-gradient-to-t from-[#090E17] to-transparent z-10 opacity-60"></div>
+                   <div className="absolute inset-0 bg-linear-to-t from-[#090E17] to-transparent z-10 opacity-60"></div>
                    {/* W przyszłości podmień to na <img src="/twoj-projekt.jpg" /> */}
                    <span className="text-muted-foreground/40 font-mono text-sm group-hover:scale-110 transition-transform duration-500">
                      [ Miniatura Projektu ]

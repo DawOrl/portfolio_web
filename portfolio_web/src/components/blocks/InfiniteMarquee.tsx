@@ -13,8 +13,8 @@ export function InfiniteMarquee() {
   return (
     <div className="relative w-full overflow-hidden bg-card/30 border border-border rounded-xl py-6 flex items-center">
       {/* Efekt płynnego zanikania po bokach (Cienie) */}
-      <div className="absolute inset-y-0 left-0 w-12 md:w-24 bg-gradient-to-r from-[#090E17] to-transparent z-10"></div>
-      <div className="absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-[#090E17] to-transparent z-10"></div>
+      <div className="absolute inset-y-0 left-0 w-12 md:w-24 bg-linear-to-r from-[#090E17] to-transparent z-10"></div>
+      <div className="absolute inset-y-0 right-0 w-12 md:w-24 bg-linear-to-l from-[#090E17] to-transparent z-10"></div>
 
       {/* Silnik animacji przesuwający element w osi X */}
       <motion.div
@@ -25,7 +25,7 @@ export function InfiniteMarquee() {
         {duplicatedItems.map((item, index) => (
           <span
             key={index}
-            className="text-muted-foreground text-xs md:text-sm font-mono px-5 py-2 rounded-full border border-primary/20 bg-primary/5 flex-shrink-0"
+            className="text-muted-foreground text-xs md:text-sm font-mono px-5 py-2 rounded-full border border-primary/20 bg-primary/5 shrink-0"
           >
             {item}
           </span>

@@ -40,7 +40,7 @@ export function MacbookProject() {
             transformOrigin: "bottom",
             transformStyle: "preserve-3d",
           }}
-          className="w-[90%] max-w-[800px] aspect-[16/10] bg-[#09090b] rounded-t-2xl md:rounded-t-3xl border-[6px] md:border-[12px] border-[#27272a] relative overflow-hidden shadow-2xl flex flex-col"
+          className="w-[90%] max-w-200 aspect-16/10 bg-[#09090b] rounded-t-2xl md:rounded-t-3xl border-[6px] md:border-12 border-[#27272a] relative overflow-hidden shadow-2xl flex flex-col"
         >
           {/* Kamerka na środku ramki */}
           <div className="absolute top-1 md:top-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-black border border-[#3f3f46] z-20"></div>
@@ -52,7 +52,7 @@ export function MacbookProject() {
             {/* <img src="/moj-projekt.jpg" alt="Projekt" className="w-full object-cover" /> */}
             
             {/* Tymczasowy zastępczy design projektu */}
-            <div className="w-full h-full bg-gradient-to-b from-blue-900/40 via-primary/10 to-background flex flex-col items-center pt-16 md:pt-24 px-6 md:px-12 text-center">
+            <div className="w-full h-full bg-linear-to-b from-blue-900/40 via-primary/10 to-background flex flex-col items-center pt-16 md:pt-24 px-6 md:px-12 text-center">
               <span className="text-xs font-mono text-primary bg-primary/10 px-3 py-1 rounded-full mb-4 border border-primary/20">E-Commerce / SaaS</span>
               <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">Nowoczesna Platforma Webowa</h3>
               <p className="text-white/70 max-w-md text-sm md:text-base">Aplikacja zrealizowana przy pomocy React, Next.js oraz Tailwind CSS, zintegrowana z systemami automatyzacji e-mail.</p>
@@ -74,7 +74,7 @@ export function MacbookProject() {
         {/* Baza Laptopa (Dolna część z klawiaturą) */}
         <motion.div 
           style={{ opacity }}
-          className="w-[95%] max-w-[850px] h-3 md:h-6 bg-[#3f3f46] rounded-b-2xl md:rounded-b-3xl relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex justify-center"
+          className="w-[95%] max-w-212.5 h-3 md:h-6 bg-[#3f3f46] rounded-b-2xl md:rounded-b-3xl relative z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex justify-center"
         >
           {/* Wycięcie na palec do otwierania klapy */}
           <div className="w-20 md:w-32 h-1 md:h-2 bg-[#27272a] rounded-b-xl absolute top-0"></div>

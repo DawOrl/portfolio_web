@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 
 import { cvData } from "@/data/cv-data";
@@ -20,7 +21,6 @@ const cardVariants = {
 export default function Home() {
   return (
     <>
-      {/* Nowoczesne tło: Subtelna siatka kropek reagująca z ciemnym tłem */}
       <div className="fixed inset-0 -z-10 h-full w-full bg-[radial-gradient(#1F2937_1px,transparent_1px)][background-size:24px_24px] opacity-40"></div>
 
       <main className="min-h-screen p-6 md:p-12 lg:p-24 max-w-6xl mx-auto flex flex-col gap-12 overflow-hidden">
@@ -32,11 +32,11 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:mt-10"
         >
-          {/* Lewa strona: Tekst i przycisk */}
+          {/* Lewa strona */}
           <div className="flex flex-col gap-5 max-w-2xl text-center md:text-left">
             <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-foreground">
               Cześć, jestem <br/>
-              <span className="bg-gradient-to-r from-primary to-blue-500 bg-clip-text text-transparent pb-2 inline-block">
+              <span className="bg-linear-to-r from-primary to-blue-500 bg-clip-text text-transparent pb-2 inline-block">
                 {cvData.personal.name}
               </span>.
             </h1>
@@ -53,15 +53,14 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Prawa strona: Zdjęcie z animacją i poświatą */}
+          {/* Prawa strona */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="relative shrink-0 group"
           >
-            {/* Gradientowa poświata wokół zdjęcia */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-500 rounded-full blur-md opacity-40 group-hover:opacity-70 transition duration-500"></div>
+            <div className="absolute -inset-1 bg-linear-to-r from-primary to-blue-500 rounded-full blur-md opacity-40 group-hover:opacity-70 transition duration-500"></div>
             {/* Ramka na zdjęcie */}
             <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-border/50 shadow-2xl">
               <img
@@ -80,12 +79,11 @@ export default function Home() {
           variants={{
             visible: { transition: { staggerChildren: 0.2 } }
           }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[auto]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto"
         >
           
           {/* Moduł 1: Doświadczenie */}
           <motion.div variants={cardVariants} className="md:col-span-2">
-            {/* Dodano efekty hover: shadow-lg i shadow-primary/10 */}
             <Card className="h-full bg-card/80 backdrop-blur-sm border-border flex flex-col hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500">
               <CardHeader>
                 <CardTitle className="text-2xl text-primary tracking-wide">01. Doświadczenie</CardTitle>

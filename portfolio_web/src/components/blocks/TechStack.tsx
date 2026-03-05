@@ -28,17 +28,14 @@ export function TechStack() {
               <span className="text-foreground/90 tracking-wide">{skill.name}</span>
               <span className="text-primary/90 font-mono">{skill.level}%</span>
             </div>
-            {/* Tło paska */}
             <div className="h-2.5 w-full bg-background/80 rounded-full overflow-hidden border border-border/50">
-              {/* Animowany wypełniacz paska */}
               <motion.div
                 initial={{ width: 0 }}
                 whileInView={{ width: `${skill.level}%` }}
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 1.2, delay: index * 0.1, ease: "easeOut" }}
-                className="h-full bg-gradient-to-r from-primary to-blue-500 rounded-full relative"
+                className="h-full bg-linear-to-r from-primary to-blue-500 rounded-full relative"
               >
-                {/* Delikatny błysk na końcu paska */}
                 <div className="absolute right-0 top-0 bottom-0 w-4 bg-white/30 blur-[2px] rounded-full"></div>
               </motion.div>
             </div>
