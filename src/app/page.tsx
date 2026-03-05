@@ -12,6 +12,7 @@ import { TechStack } from "@/components/blocks/TechStack";
 import { MacbookProject } from "@/components/blocks/MacbookProject";
 import { ProjectGallery } from "@/components/blocks/ProjectGallery";
 import { SocialLinks } from "@/components/blocks/SocialLinks";
+import Squares from "@/components/blocks/Squares";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -21,7 +22,15 @@ const cardVariants = {
 export default function Home() {
   return (
     <>
-      <div className="fixed inset-0 -z-10 h-full w-full bg-[radial-gradient(#1F2937_1px,transparent_1px)][background-size:24px_24px] opacity-40"></div>
+      <div className="fixed inset-0 -z-10 h-full w-full bg-[#090E17]">
+        <Squares 
+            direction="diagonal"
+            speed={0.4}
+            squareSize={40}
+            borderColor="#1F2937" 
+            hoverFillColor="#14B8A6" 
+        />
+      </div>
 
       <main className="min-h-screen p-6 md:p-12 lg:p-24 max-w-6xl mx-auto flex flex-col gap-12 overflow-hidden">
         
