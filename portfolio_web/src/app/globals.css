@@ -1,0 +1,49 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Przypinanie zmiennych systemowych do palety Tailwinda */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+}
+
+/* Tryb Jasny (Zostawiamy jako zabezpieczenie) */
+:root {
+  --background: #F8FAFC;
+  --foreground: #090E17;
+  --card: #FFFFFF;
+  --card-foreground: #090E17;
+  --primary: #14B8A6;
+  --primary-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --radius: 0.75rem;
+}
+
+/* Nasz główny Tryb Ciemny (Cybernetic Navy & Teal) */
+.dark {
+  --background: #090E17;
+  --foreground: #F3F4F6;
+  --card: #111827;
+  --card-foreground: #F3F4F6;
+  --primary: #14B8A6; /* Neonowy Turkus */
+  --primary-foreground: #090E17;
+  --border: #1F2937;
+}
+
+@layer base {
+  * {
+    @apply border-[var(--border)];
+  }
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)];
+  }
+}
