@@ -7,14 +7,14 @@ import { Button } from "@/components/ui/button";
 const projects = [
   {
     id: 1,
-    title: "Nowoczesna Platforma Webowa",
-    category: "E-Commerce",
+    title: "Strona Mechanika Samochodowego",
+    category: "Web",
     tech: "React, Next.js, Tailwind CSS",
-    desc: "Aplikacja zrealizowana przy pomocy React, Next.js oraz Tailwind CSS, zintegrowana z systemami automatyzacji e-mail.",
-    mainImage: "/twoj-screen-glowny-1.jpg",
-    gallery: ["/detal-1.jpg", "/detal-2.jpg", "/detal-3.jpg"],
-    githubUrl: "https://github.com/twoj-profil",
-    liveUrl: "https://twoj-projekt.vercel.app"
+    desc: "Strona zbudowana przy pomocy React, Next.js oraz Tailwind CSS, z dynamicznym ładowaniem treści i animacjami. Zoptymalizowana pod kątem SEO i szybkości ładowania.",
+    mainImage: "/mechanic-main.png",
+    gallery: ["/mechanic-photo1.png", "/mechanic-photo2.png", "/mechanic-photo3.png", "/mechanic-photo4.png", "/mechanic-photo5.png"],
+    githubUrl: "https://github.com/DawOrl/mechanic-website",
+    liveUrl: "https://mechanic-website-rose.vercel.app/"
   },
   {
     id: 2,
