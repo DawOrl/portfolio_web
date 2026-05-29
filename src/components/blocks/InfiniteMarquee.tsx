@@ -1,60 +1,58 @@
 "use client";
+/* eslint-disable @next/next/no-img-element */
 import { motion } from "framer-motion";
 import { cvData } from "@/data/cv-data";
-import { 
-  FileCode, 
-  Globe, 
-  Smartphone, 
-  Palette, 
-  Monitor, 
-  Grid, 
-  HardDrive, 
-  Mail, 
-  Layout, 
-  Ghost 
-} from "lucide-react";
 
-const skillIcons: Record<string, any> = {
-  "HTML/CSS": FileCode,
-  "Next.js": Globe,
-  "React Native": Smartphone,
-  "Tailwind CSS": Palette,
-  "Flutter": Smartphone,
-  "MS Office": Monitor,
-  "Google Workspace": Grid,
-  "Amazon S3": HardDrive,
-  "Iterable": Mail,
-  "Beehiiv": Layout,
-  "Ghost": Ghost,
+// Nazwa technologii -> plik logo w /public/ikony
+const iconMap: Record<string, string> = {
+  "Next.js": "nextjs",
+  React: "react",
+  TypeScript: "typescript",
+  "Tailwind CSS": "tailwind",
+  "Framer Motion": "framer",
+  "Node.js": "nodejs",
+  Python: "python",
+  "REST API": "api",
+  Git: "git",
+  Vercel: "vercel",
+  Claude: "claude",
+  "Claude Code": "claude-code",
+  Gemini: "gemini",
+  "Nano Banana 2": "nano-banana",
+  Obsidian: "obsidian",
 };
 
 export function InfiniteMarquee() {
-  // Pobieramy i formatujemy pozostałe doświadczenie oraz listę umiejętności
   const items = [...cvData.skills];
-
-  // Powielamy tablicę, aby animacja była płynna i domykała się w idealnej pętli
-  const duplicatedItems = [...items,...items,...items];
+  // Powielamy listę, aby pętla domykała się płynnie
+  const duplicatedItems = [...items, ...items, ...items];
 
   return (
-    <div className="relative w-full overflow-hidden bg-card/30 border border-border rounded-xl py-6 flex items-center">
-      {/* Efekt płynnego zanikania po bokach (Cienie) */}
-      <div className="absolute inset-y-0 left-0 w-12 md:w-24 bg-linear-to-r from-[#090E17] to-transparent z-10"></div>
-      <div className="absolute inset-y-0 right-0 w-12 md:w-24 bg-linear-to-l from-[#090E17] to-transparent z-10"></div>
+    <div className="relative flex w-full items-center overflow-hidden rounded-xl border border-border bg-card/30 py-6">
+      {/* Płynne zanikanie po bokach */}
+      <div className="absolute inset-y-0 left-0 z-10 w-12 bg-linear-to-r from-background to-transparent md:w-24" />
+      <div className="absolute inset-y-0 right-0 z-10 w-12 bg-linear-to-l from-background to-transparent md:w-24" />
 
-      {/* Silnik animacji przesuwający element w osi X */}
       <motion.div
-        className="flex whitespace-nowrap gap-6 md:gap-10 w-max"
+        className="flex w-max gap-6 whitespace-nowrap md:gap-10"
         animate={{ x: ["0%", "-33.33%"] }}
         transition={{ ease: "linear", duration: 35, repeat: Infinity }}
       >
         {duplicatedItems.map((item, index) => {
-          const Icon = skillIcons[item];
+          const icon = iconMap[item];
           return (
             <span
               key={index}
-              className="flex items-center gap-2 text-muted-foreground text-xs md:text-sm font-mono px-5 py-2 rounded-full border border-primary/20 bg-primary/5 shrink-0"
+              className="flex shrink-0 items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-5 py-2 font-mono text-xs text-muted-foreground md:text-sm"
             >
-              {Icon && <Icon size={14} className="text-primary/60" />}
+              {icon && (
+                <img
+                  src={`/icons/${icon}.svg`}
+                  alt=""
+                  aria-hidden
+                  className="h-4 w-4 shrink-0"
+                />
+              )}
               {item}
             </span>
           );

@@ -38,7 +38,7 @@ const socials = [
 export function SocialLinks() {
   return (
     <div className="w-full flex flex-col items-center py-16">
-      <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-10">
+      <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-10">
         Znajdź mnie w sieci
       </h2>
       

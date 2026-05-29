@@ -1,187 +1,171 @@
-/* eslint-disable @next/next/no-img-element */
-"use client";
-
 import { cvData } from "@/data/cv-data";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { easeOut, motion } from "framer-motion";
-import { DevOpsTerminal } from "@/components/blocks/DevOpsTerminal";
-import { EmailDashboard } from "@/components/blocks/EmailDashboard";
+import { Aurora } from "@/components/blocks/Aurora";
+import { Navbar } from "@/components/blocks/Navbar";
+import { Hero } from "@/components/blocks/Hero";
 import { InfiniteMarquee } from "@/components/blocks/InfiniteMarquee";
-import { TechStack } from "@/components/blocks/TechStack";
-import { MacbookProject } from "@/components/blocks/MacbookProject";
+import { ServicesSection } from "@/components/blocks/ServicesSection";
 import { ProjectGallery } from "@/components/blocks/ProjectGallery";
+import { ProcessSection } from "@/components/blocks/ProcessSection";
+import { CtaBand } from "@/components/blocks/CtaBand";
+import { AboutSection } from "@/components/blocks/AboutSection";
+import { TechStack } from "@/components/blocks/TechStack";
+import { PricingSection } from "@/components/blocks/PricingSection";
+import { FaqSection } from "@/components/blocks/FaqSection";
+import { ContactSection } from "@/components/blocks/ContactSection";
 import { SocialLinks } from "@/components/blocks/SocialLinks";
-import Squares from "@/components/blocks/Squares";
+import { FooterWordmark } from "@/components/blocks/FooterWordmark";
+import { BrandMark } from "@/components/ui/brand-mark";
+import { Button } from "@/components/ui/button";
+import { ArrowRight, ArrowUp } from "lucide-react";
 
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: easeOut } }
-};
+const footerLinks = [
+  { label: "Usługi", href: "#uslugi" },
+  { label: "Realizacje", href: "#realizacje" },
+  { label: "Proces", href: "#proces" },
+  { label: "O mnie", href: "#o-mnie" },
+  { label: "Cennik", href: "#cennik" },
+  { label: "FAQ", href: "#faq" },
+  { label: "Kontakt", href: "#kontakt" },
+];
 
 export default function Home() {
   return (
     <>
-      <div className="fixed inset-0 -z-10 h-full w-full bg-[#090E17]">
-        <Squares 
-            direction="diagonal"
-            speed={0.4}
-            squareSize={40}
-            borderColor="#1F2937" 
-            hoverFillColor="#14B8A6" 
+      {/* Tło "Aurora" — świetliste plamy w kolorach brandu */}
+      <div className="fixed inset-0 -z-10 bg-background">
+        <Aurora />
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(245,158,11,0.08),transparent_70%)]"
         />
       </div>
 
-      <main className="min-h-screen p-6 md:p-12 lg:p-24 max-w-6xl mx-auto flex flex-col gap-12 overflow-hidden">
-        
-        {/* Sekcja Header */}
-        <motion.header 
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:mt-10"
-        >
-          {/* Lewa strona */}
-          <div className="flex flex-col gap-5 max-w-2xl text-center md:text-left">
-            <h1 className="text-4xl md:text-7xl font-bold tracking-tight text-foreground">
-              Cześć, jestem <br/>
-              <span className="bg-linear-to-r from-primary to-blue-500 bg-clip-text text-transparent pb-2 inline-block">
-                {cvData.personal.name}
-              </span>.
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
-              {cvData.personal.about}
-            </p>
-            <div className="pt-6">
-              <a href="/Dawid_Orlowski_CV.pdf" download="Dawid_Orlowski_CV.pdf" target="_blank" rel="noopener noreferrer" className="inline-block">
-                <Button size="lg" className="relative group font-semibold tracking-wide text-md px-8 py-6 shadow-[0_0_20px_rgba(20,184,166,0.25)] hover:shadow-[0_0_35px_rgba(20,184,166,0.5)] hover:-translate-y-1 transition-all duration-300">
-                  Pobierz pełne CV
-                  <div className="absolute inset-0 h-full w-full rounded-md bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <Navbar />
+
+      <main className="overflow-hidden">
+        <Hero />
+
+        {/* Pasek technologii */}
+        <div className="mx-auto w-full max-w-6xl px-6 py-6 md:px-10">
+          <InfiniteMarquee />
+        </div>
+
+        <ServicesSection />
+        <ProjectGallery />
+        <ProcessSection />
+
+        <CtaBand />
+
+        <AboutSection />
+
+        {/* Kompetencje (część sekcji "O mnie") */}
+        <div className="mx-auto w-full max-w-6xl px-6 pb-20 md:px-10 md:pb-28">
+          <TechStack />
+        </div>
+
+        <PricingSection />
+        <FaqSection />
+        <ContactSection />
+        <SocialLinks />
+      </main>
+
+      {/* Stopka */}
+      <footer className="relative overflow-hidden border-t border-border/60">
+        {/* Ogromny napis w tle z animacją shimmer */}
+        <FooterWordmark />
+
+        <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-32 pt-14 md:px-10 md:pb-40">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-3 md:items-start">
+            {/* Kolumna 1 — marka */}
+            <div className="flex flex-col items-start gap-4">
+              <a
+                href="#top"
+                aria-label="dorlowski.dev — na górę"
+                className="font-display text-2xl font-bold lowercase tracking-tight text-foreground"
+              >
+                dorlowski<span className="text-primary">.dev</span>
+              </a>
+              <p className="max-w-xs text-sm text-muted-foreground">
+                Strony internetowe dla firm i działalności · {cvData.personal.location},
+                zdalnie w całej Polsce.
+              </p>
+              <span className="inline-flex items-center gap-2 rounded-full border border-border bg-card/60 px-3 py-1.5 text-xs text-muted-foreground backdrop-blur-sm">
+                <span className="relative flex h-2 w-2">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75 motion-reduce:hidden" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
+                </span>
+                {cvData.personal.availability}
+              </span>
+              <a
+                href="#top"
+                aria-label="dorlowski.dev — na górę"
+                className="mt-2"
+              >
+                <BrandMark className="h-30 w-30 transition-transform duration-300 hover:scale-105" />
+              </a>
+            </div>
+
+            {/* Kolumna 2 — nawigacja */}
+            <div className="md:justify-self-center">
+              <h3 className="mb-4 text-sm font-semibold text-foreground">Nawigacja</h3>
+              <nav className="flex flex-col gap-2.5">
+                {footerLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="group inline-flex w-fit items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  >
+                    <span className="h-px w-0 bg-primary transition-all duration-300 group-hover:w-4" />
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </div>
+
+            {/* Kolumna 3 — CTA */}
+            <div className="flex flex-col items-start gap-4">
+              <h3 className="font-display text-lg font-semibold text-foreground">
+                Masz pomysł na projekt?
+              </h3>
+              <p className="max-w-xs text-sm text-muted-foreground">
+                Napisz — przygotuję bezpłatną wycenę i podpowiem najlepsze rozwiązanie.
+              </p>
+              <a href="#kontakt">
+                <Button className="group font-semibold">
+                  Wyceń projekt
+                  <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
                 </Button>
+              </a>
+              <a
+                href={`mailto:${cvData.personal.email}`}
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {cvData.personal.email}
               </a>
             </div>
           </div>
+        </div>
 
-          {/* Prawa strona */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative shrink-0 group"
-          >
-            <div className="absolute -inset-1 bg-linear-to-r from-primary to-blue-500 rounded-full blur-md opacity-40 group-hover:opacity-70 transition duration-500"></div>
-            {/* Ramka na zdjęcie */}
-            <div className="relative w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-2 border-border/50 shadow-2xl">
-              <img
-                src="/profile.jpg"
-                alt="Dawid Orłowski"
-                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+        {/* Dolny pasek */}
+        <div className="relative z-10 border-t border-border/40">
+          <div className="mx-auto flex w-full max-w-6xl flex-col items-center justify-between gap-3 px-6 py-5 font-mono text-xs text-muted-foreground sm:flex-row md:px-10">
+            <span>
+              © {new Date().getFullYear()} {cvData.personal.name}. Wszelkie prawa
+              zastrzeżone.
+            </span>
+            <a
+              href="#top"
+              className="group inline-flex items-center gap-1.5 transition-colors hover:text-foreground"
+            >
+              Na górę
+              <ArrowUp
+                size={14}
+                className="transition-transform duration-300 group-hover:-translate-y-0.5"
               />
-            </div>
-          </motion.div>
-        </motion.header>
-
-        {/* Siatka Bento Grid */}
-        <motion.div 
-          initial="hidden"
-          animate="visible"
-          variants={{
-            visible: { transition: { staggerChildren: 0.2 } }
-          }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-auto"
-        >
-          
-          {/* Moduł 1: Doświadczenie */}
-          <motion.div variants={cardVariants} className="md:col-span-2">
-            <Card className="h-full bg-card/80 backdrop-blur-sm border-border flex flex-col hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500">
-              <CardHeader>
-                <CardTitle className="text-2xl text-primary tracking-wide">01. Doświadczenie</CardTitle>
-              </CardHeader>
-              <CardContent className="flex-1 flex flex-col gap-4">
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">{cvData.experience.role}</h3>
-                  <p className="text-muted-foreground font-mono mt-1">{cvData.experience.company} / {cvData.experience.period}</p>
-                  <p className="text-foreground/80 mt-4 leading-relaxed">{cvData.experience.description}</p>
-                </div>
-                <div className="mt-4 pt-4 border-t border-border/50">
-                  <EmailDashboard />
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Kolumna boczna */}
-          <div className="flex flex-col gap-6">
-            {/* Moduł 2: DevOps */}
-            <motion.div variants={cardVariants} className="flex-1">
-              <Card className="h-full bg-card/80 backdrop-blur-sm border-border flex flex-col hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-primary text-lg tracking-wide">02. DevOps & Infrastruktura</CardTitle>
-                </CardHeader>
-                <CardContent className="flex flex-col h-full gap-4">
-                  <div className="flex-1">
-                     <DevOpsTerminal />
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-
-            {/* Moduł 3: Edukacja */}
-            <motion.div variants={cardVariants} className="flex-1">
-              <Card className="h-full bg-card/80 backdrop-blur-sm border-border flex flex-col hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 transition-all duration-500">
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-primary text-lg tracking-wide">03. Edukacja</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="font-bold text-lg leading-tight">{cvData.education.school}</p>
-                  <p className="text-sm text-primary mt-2 font-medium">{cvData.education.degree}</p>
-                  <p className="text-xs text-muted-foreground mt-2 font-mono">{cvData.education.period}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+            </a>
           </div>
-        </motion.div>
-
-        {/* Pas Kompetencji */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <InfiniteMarquee />
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <TechStack />
-        </motion.div>
-
-        {/* Sekcja Projektów 3D */}
-        <MacbookProject />
-
-        {/* Galeria Pozostałych Projektów z Filtrami */}
-        <ProjectGallery />
-
-        {/* Sekcja Mediów Społecznościowych */}
-        <SocialLinks />
-
-        {/* Stopka */}
-        <motion.footer 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="mt-6 py-6 border-t border-border/30 text-center text-muted-foreground text-sm font-mono"
-        >
-          <p>© {new Date().getFullYear()} Dawid Orłowski. Wszelkie prawa zastrzeżone.</p>
-          
-        </motion.footer>
-
-      </main>
+        </div>
+      </footer>
     </>
   );
 }
