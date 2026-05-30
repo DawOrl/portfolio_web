@@ -42,22 +42,24 @@ export function ProjectGallery() {
         subtitle="Kilka realizacji pokazujących podejście do designu, kodu i konkretnego efektu dla klienta."
       />
 
-      {/* Filtry */}
-      <div className="mb-10 flex flex-wrap gap-3">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveTab(category)}
-            className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
-              activeTab === category
-                ? "bg-primary text-primary-foreground"
-                : "border border-border bg-card/50 text-muted-foreground hover:border-primary/40 hover:text-foreground"
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+      {/* Filtry — tylko gdy jest realnie z czego wybierać */}
+      {categories.length > 2 && (
+        <div className="mb-10 flex flex-wrap gap-3">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveTab(category)}
+              className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
+                activeTab === category
+                  ? "bg-primary text-primary-foreground"
+                  : "border border-border bg-card/50 text-muted-foreground hover:border-primary/40 hover:text-foreground"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+      )}
 
       {/* Siatka projektów */}
       <motion.div
@@ -107,6 +109,26 @@ export function ProjectGallery() {
             </motion.div>
           ))}
         </AnimatePresence>
+
+        {/* Karta-CTA — utrzymuje siatkę pełną i zachęca do kontaktu */}
+        <motion.a
+          layout
+          href="#kontakt"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.35, type: "spring", bounce: 0.2 }}
+          className="group flex min-h-64 flex-col items-center justify-center gap-3 rounded-2xl border border-dashed border-border bg-card/30 p-8 text-center transition-colors duration-300 hover:border-primary/50 hover:bg-card/50"
+        >
+          <span className="flex h-12 w-12 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+            <ArrowUpRight size={22} />
+          </span>
+          <span className="font-display text-lg font-semibold text-foreground">
+            Twój projekt może być tutaj
+          </span>
+          <span className="max-w-xs text-sm text-muted-foreground">
+            Porozmawiajmy o Twojej stronie — bezpłatna wycena.
+          </span>
+        </motion.a>
       </motion.div>
 
       {/* Modal ze szczegółami */}

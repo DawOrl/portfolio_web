@@ -9,17 +9,17 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 /**
- * Wysyłka maili bez własnego backendu przez Web3Forms (darmowe, ~250 wiadomości/mies.).
+ * Formularz wysyła zapytanie bezpośrednio do Web3Forms.
+ * (Darmowy plan Web3Forms dopuszcza wyłącznie wysyłkę po stronie przeglądarki —
+ * server-side jest zablokowany, dlatego nie używamy własnego API route.)
  *
- * Jak aktywować (30 sekund):
- *  1. Wejdź na https://web3forms.com → wpisz swój e-mail (dawid.orlowski2002@gmail.com).
- *  2. Klucz dostępu przyjdzie na Twoją skrzynkę.
- *  3. Wklej go poniżej w WEB3FORMS_ACCESS_KEY.
- * Wiadomości z formularza będą przychodzić na e-mail użyty do wygenerowania klucza.
- *
- * Dopóki klucz jest pusty, formularz używa fallbacku mailto (otwiera klienta poczty).
+ * Klucz pochodzi z NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY w .env.local → NIE trafia do
+ * repozytorium. Uwaga: klucze Web3Forms są z założenia publiczne (widoczne w
+ * przeglądarce) i mają ochronę antyspamową — to standardowe, bezpieczne użycie.
+ * Gdy klucz nie jest ustawiony, formularz robi fallback mailto.
  */
-const WEB3FORMS_ACCESS_KEY = "";
+
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -50,40 +50,53 @@ export function ContactSection() {
     if (!validate()) return;
     setStatus("sending");
 
-    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.trim());
+    const mailtoFallback = () => {
+      const subject = encodeURIComponent(`Zapytanie o projekt — ${name}`);
+      const body = encodeURIComponent(
+        `Imię: ${name}\nKontakt: ${contact}\nUsługa: ${service || "—"}\n\nWiadomość:\n${message}`
+      );
+      window.location.href = `mailto:${cvData.personal.email}?subject=${subject}&body=${body}`;
+    };
 
-    try {
-      if (WEB3FORMS_ACCESS_KEY) {
-        const res = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            access_key: WEB3FORMS_ACCESS_KEY,
-            subject: `Nowe zapytanie ze strony — ${name}`,
-            from_name: "Formularz portfolio",
-            Imię: name,
-            Kontakt: contact,
-            "Czego dotyczy": service || "—",
-            message,
-            // gdy kontakt to e-mail, ustaw jako reply-to
-            ...(isEmail ? { email: contact.trim() } : {}),
-          }),
-        });
-        const json = await res.json();
-        if (!json.success) throw new Error("Request failed");
-      } else {
-        // Fallback bez klucza — otwiera klienta poczty z uzupełnioną treścią
-        const subject = encodeURIComponent(`Zapytanie o projekt — ${name}`);
-        const body = encodeURIComponent(
-          `Imię: ${name}\nKontakt: ${contact}\nUsługa: ${service || "—"}\n\nWiadomość:\n${message}`
-        );
-        window.location.href = `mailto:${cvData.personal.email}?subject=${subject}&body=${body}`;
-      }
-      setStatus("success");
+    const resetFields = () => {
       setName("");
       setContact("");
       setService("");
       setMessage("");
+    };
+
+    // Brak klucza → fallback mailto (otwiera klienta poczty)
+    if (!WEB3FORMS_ACCESS_KEY) {
+      mailtoFallback();
+      setStatus("success");
+      resetFields();
+      return;
+    }
+
+    const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.trim());
+
+    try {
+      // FormData = "prosty" request (multipart/form-data) → brak preflightu OPTIONS,
+      // więc nie napotykamy blokady CORS, którą zwraca Web3Forms dla żądań JSON.
+      const formData = new FormData();
+      formData.append("access_key", WEB3FORMS_ACCESS_KEY);
+      formData.append("subject", `Nowe zapytanie ze strony — ${name}`);
+      formData.append("from_name", "Formularz dorlowski.dev");
+      formData.append("Imię", name);
+      formData.append("Kontakt", contact);
+      formData.append("Czego dotyczy", service || "—");
+      formData.append("message", message);
+      if (isEmail) formData.append("replyto", contact.trim());
+
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const json = await res.json().catch(() => ({}));
+      if (!json.success) throw new Error("send failed");
+
+      setStatus("success");
+      resetFields();
     } catch {
       setStatus("error");
     }
@@ -155,7 +168,7 @@ export function ContactSection() {
                   Dziękuję!
                 </h3>
                 <p className="max-w-sm text-muted-foreground">
-                  Wiadomość została przygotowana. Odezwę się najszybciej jak to możliwe.
+                  Twoja wiadomość dotarła. Odezwę się najszybciej, jak to możliwe.
                 </p>
                 <Button variant="outline" onClick={() => setStatus("idle")}>
                   Wyślij kolejną

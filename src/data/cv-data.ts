@@ -209,30 +209,8 @@ export const cvData = {
       githubUrl: "https://github.com/DawOrl/mechanic-website",
       liveUrl: "https://mechanic-website-rose.vercel.app/",
     },
-    {
-      id: 2,
-      title: "System Automatyzacji E-mail",
-      category: "Marketing",
-      tech: "HTML/CSS, JS, Iterable",
-      desc: "Zestaw responsywnych szablonów e-mail zoptymalizowanych pod kątem Dark Mode dla klientów pocztowych. Podpięty pod zaawansowane testy A/B.",
-      result: "Spójne szablony gotowe do kampanii i testów A/B.",
-      mainImage: "/twoj-screen-glowny-2.jpg",
-      gallery: ["/detal-4.jpg", "/detal-5.jpg"],
-      githubUrl: "https://github.com/twoj-profil",
-      liveUrl: "https://twoj-projekt.vercel.app",
-    },
-    {
-      id: 3,
-      title: "Infrastruktura K8s",
-      category: "DevOps",
-      tech: "Kubernetes, Docker, Linux",
-      desc: "Sklastrowane środowisko do wdrażania aplikacji mikroserwisowych, z automatycznym load-balancingiem i monitoringiem logów.",
-      result: "Niezawodne, skalowalne środowisko pod aplikacje.",
-      mainImage: "/twoj-screen-glowny-3.jpg",
-      gallery: ["/detal-6.jpg", "/detal-7.jpg"],
-      githubUrl: "https://github.com/twoj-profil",
-      liveUrl: "https://twoj-projekt.vercel.app",
-    },
+    // Kolejne realizacje dodawaj tutaj wg tego samego schematu.
+    // Pamiętaj o wgraniu zdjęć do /public i podaniu prawdziwych linków.
   ],
 
   experience: {
