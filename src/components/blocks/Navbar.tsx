@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -9,11 +10,11 @@ import { BrandMark } from "@/components/ui/brand-mark";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Usługi", href: "#uslugi" },
-  { label: "Realizacje", href: "#realizacje" },
-  { label: "Proces", href: "#proces" },
-  { label: "O mnie", href: "#o-mnie" },
-  { label: "Cennik", href: "#cennik" },
+  { label: "Usługi", href: "/#uslugi" },
+  { label: "Realizacje", href: "/realizacje" },
+  { label: "Proces", href: "/#proces" },
+  { label: "O mnie", href: "/#o-mnie" },
+  { label: "Cennik", href: "/#cennik" },
 ];
 
 export function Navbar() {
@@ -39,34 +40,34 @@ export function Navbar() {
       <ScrollProgress />
       <nav className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-6 md:h-20 md:px-10">
         {/* Logo */}
-        <a
-          href="#top"
+        <Link
+          href="/#top"
           className="flex items-center gap-2.5 font-display text-xl font-bold lowercase tracking-tight text-foreground"
         >
           <BrandMark className="h-11 w-11 md:h-12 md:w-12" />
           <span>
             dorlowski<span className="text-primary">.dev</span>
           </span>
-        </a>
+        </Link>
 
         {/* Linki — desktop */}
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <a
+            <Link
               key={link.href}
               href={link.href}
               className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
 
         {/* CTA — desktop */}
         <div className="hidden md:block">
-          <a href="#kontakt">
+          <Link href="/#kontakt">
             <Button className="font-medium">Wyceń projekt</Button>
-          </a>
+          </Link>
         </div>
 
         {/* Hamburger — mobile */}
@@ -91,22 +92,22 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-1 px-6 py-4">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setOpen(false)}
                   className="rounded-lg px-3 py-3 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground"
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
-              <a
-                href="#kontakt"
+              <Link
+                href="/#kontakt"
                 onClick={() => setOpen(false)}
                 className="mt-2"
               >
                 <Button className="w-full font-medium">Wyceń projekt</Button>
-              </a>
+              </Link>
             </div>
           </motion.div>
         )}

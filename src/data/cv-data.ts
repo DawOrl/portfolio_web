@@ -189,28 +189,45 @@ export const cvData = {
     },
   ],
 
-  // Realizacje (przeniesione z komponentu ProjectGallery — jedno źródło prawdy)
+  // Realizacje — jedno źródło prawdy (biblioteka projektów + podstrony case study).
+  //
+  // Konwencja zdjęć: pliki trzymamy w public/projects/<slug>/.
+  // Zrzuty z live można generować automatycznie: `npm run shots <slug>`
+  // (konfiguracja w scripts/shots.config.json) → tworzy desktop.png i mobile.png.
+  //
+  // Pola: slug (URL), category (filtr), tagline (krótki opis na karcie),
+  // problem/solution/result (case study), stack[] + scope[] (zakres),
+  // cover (miniatura/okładka), gallery[] (zdjęcia), liveUrl/githubUrl, featured.
   projects: [
     {
-      id: 1,
-      title: "Strona Mechanika Samochodowego",
-      category: "Web",
-      tech: "React, Next.js, Tailwind CSS",
-      desc: "Strona zbudowana przy pomocy React, Next.js oraz Tailwind CSS, z dynamicznym ładowaniem treści i animacjami. Zoptymalizowana pod kątem SEO i szybkości ładowania.",
-      result: "Czytelna prezentacja usług i szybszy kontakt z warsztatem.",
-      mainImage: "/mechanic-main.png",
+      slug: "zbychu-garage",
+      title: "Zbychu Garage — strona warsztatu",
+      category: "Strona firmowa",
+      year: "2025",
+      client: "Warsztat samochodowy",
+      tagline:
+        "Nowoczesna wizytówka warsztatu z czytelną ofertą usług i szybkim kontaktem.",
+      problem:
+        "Lokalny warsztat nie miał profesjonalnej strony — klienci trafiali głównie z polecenia, a oferta i zakres usług nie były nigdzie jasno przedstawione.",
+      solution:
+        "Zaprojektowałem i zakodowałem od zera jednostronicową witrynę: sekcja usług, proces obsługi krok po kroku, opinie i wyróżniki budujące zaufanie oraz wyeksponowany kontakt (telefon zawsze pod ręką). Całość zoptymalizowana pod urządzenia mobilne i szybkość ładowania.",
+      result:
+        "Czytelna prezentacja usług i znacznie łatwiejszy kontakt — klient ma teraz profesjonalną wizytówkę, którą może podać w reklamie i wizytówkach.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      scope: ["Projekt UI/UX", "Kodowanie", "Optymalizacja SEO", "Wdrożenie"],
+      cover: "/projects/zbychu-garage/desktop.png",
       gallery: [
-        "/mechanic-photo1.png",
-        "/mechanic-photo2.png",
-        "/mechanic-photo3.png",
-        "/mechanic-photo4.png",
-        "/mechanic-photo5.png",
+        "/projects/zbychu-garage/desktop.png",
+        "/projects/zbychu-garage/mobile.png",
       ],
       githubUrl: "https://github.com/DawOrl/mechanic-website",
       liveUrl: "https://mechanic-website-rose.vercel.app/",
+      featured: true,
     },
-    // Kolejne realizacje dodawaj tutaj wg tego samego schematu.
-    // Pamiętaj o wgraniu zdjęć do /public i podaniu prawdziwych linków.
+    // Kolejne realizacje dodawaj wg tego samego schematu:
+    // 1) dodaj wpis do scripts/shots.config.json (slug + url),
+    // 2) uruchom `npm run shots <slug>` aby pobrać zrzuty do public/projects/<slug>/,
+    // 3) dodaj obiekt projektu poniżej (slug musi się zgadzać).
   ],
 
   experience: {
