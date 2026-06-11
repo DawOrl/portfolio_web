@@ -7,6 +7,22 @@
     {
       "slug": "zbychu-garage",
       "url": "https://mechanic-website-rose.vercel.app/"
+    },
+    {
+      "slug": "restauracja-bella",
+      "url": "https://restauracja-bella.vercel.app/"
+    },
+    {
+      "slug": "salon-glow",
+      "url": "https://salon-glow-gamma.vercel.app/"
+    },
+    {
+      "slug": "sklep-craft-coffee",
+      "url": "https://sklep-craft-coffee.vercel.app/"
+    },
+    {
+      "slug": "asystent-ai",
+      "url": "https://asystent-ai-three.vercel.app/"
     }
   ]
 }

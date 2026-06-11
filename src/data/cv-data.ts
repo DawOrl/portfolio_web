@@ -226,17 +226,16 @@ export const cvData = {
       featured: true,
     },
 
-    // ───────────── SZKICE (draft) — projekty autorskie/demo ─────────────
-    // Ukryte z biblioteki/teasera/sitemap do czasu uzupełnienia treści i zdjęć.
-    // Po gotowości: dodaj wpis do scripts/shots.config.json, uruchom
-    // `npm run shots <slug>`, uzupełnij treść i usuń `draft: true`.
+    // ───────────── Projekty autorskie (demo) — live na Vercelu ─────────────
+    // Nowy projekt: dodaj wpis do scripts/shots.config.json, uruchom
+    // `npm run shots <slug>`, dodaj obiekt poniżej (draft: true ukrywa
+    // z biblioteki/teasera/sitemap do czasu uzupełnienia treści).
 
     {
       slug: "restauracja-bella",
       title: "Bella Cucina — strona restauracji",
       category: "Strona firmowa",
       kind: "demo" as const,
-      draft: true,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
@@ -254,8 +253,8 @@ export const cvData = {
         "/projects/restauracja-bella/desktop.png",
         "/projects/restauracja-bella/mobile.png",
       ],
-      githubUrl: "",
-      liveUrl: "",
+      githubUrl: "https://github.com/DawOrl/restauracja-bella",
+      liveUrl: "https://restauracja-bella.vercel.app/",
       featured: false,
     },
 
@@ -264,7 +263,6 @@ export const cvData = {
       title: "Glow Studio — rezerwacja wizyt online",
       category: "Strona usługowa",
       kind: "demo" as const,
-      draft: true,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
@@ -282,8 +280,8 @@ export const cvData = {
         "/projects/salon-glow/desktop.png",
         "/projects/salon-glow/mobile.png",
       ],
-      githubUrl: "",
-      liveUrl: "",
+      githubUrl: "https://github.com/DawOrl/salon-glow",
+      liveUrl: "https://salon-glow-gamma.vercel.app/",
       featured: false,
     },
 
@@ -292,7 +290,6 @@ export const cvData = {
       title: "Craft Coffee — sklep internetowy",
       category: "Sklep internetowy",
       kind: "demo" as const,
-      draft: true,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
@@ -310,9 +307,9 @@ export const cvData = {
         "/projects/sklep-craft-coffee/desktop.png",
         "/projects/sklep-craft-coffee/mobile.png",
       ],
-      githubUrl: "",
-      liveUrl: "",
-      featured: false,
+      githubUrl: "https://github.com/DawOrl/sklep-craft-coffee",
+      liveUrl: "https://sklep-craft-coffee.vercel.app/",
+      featured: true,
     },
 
     {
@@ -320,7 +317,6 @@ export const cvData = {
       title: "Asystent AI dla firmy — chatbot i generator ofert",
       category: "Aplikacja & AI",
       kind: "demo" as const,
-      draft: true,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
@@ -338,9 +334,9 @@ export const cvData = {
         "/projects/asystent-ai/desktop.png",
         "/projects/asystent-ai/mobile.png",
       ],
-      githubUrl: "",
-      liveUrl: "",
-      featured: false,
+      githubUrl: "https://github.com/DawOrl/asystent-ai",
+      liveUrl: "https://asystent-ai-three.vercel.app/",
+      featured: true,
     },
   ],
 
