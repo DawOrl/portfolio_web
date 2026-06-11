@@ -54,7 +54,7 @@ export function PricingSection() {
             </div>
 
             <div>
-              <span className="font-display text-3xl font-bold text-foreground">
+              <span className="font-display text-3xl font-bold tabular-nums text-foreground">
                 {plan.price}
               </span>
             </div>
@@ -75,14 +75,15 @@ export function PricingSection() {
               ))}
             </ul>
 
-            <a href="#kontakt" className="mt-auto pt-2">
+            <div className="mt-auto pt-2">
               <Button
+                asChild
                 className="w-full font-semibold"
                 variant={plan.featured ? "default" : "outline"}
               >
-                {plan.cta}
+                <a href="#kontakt">{plan.cta}</a>
               </Button>
-            </a>
+            </div>
           </motion.div>
         ))}
       </motion.div>

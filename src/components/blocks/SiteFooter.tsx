@@ -77,12 +77,12 @@ export function SiteFooter() {
             <p className="max-w-xs text-sm text-muted-foreground">
               Napisz — przygotuję bezpłatną wycenę i podpowiem najlepsze rozwiązanie.
             </p>
-            <Link href="/#kontakt">
-              <Button className="group font-semibold">
+            <Button asChild className="group font-semibold">
+              <Link href="/#kontakt">
                 Wyceń projekt
                 <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
             <a
               href={`mailto:${cvData.personal.email}`}
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"

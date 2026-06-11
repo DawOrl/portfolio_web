@@ -82,6 +82,11 @@ export default async function ProjectCaseStudy({
             <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-medium text-primary">
               {project.category}
             </span>
+            {project.kind === "demo" && (
+              <span className="rounded-full border border-border bg-card/60 px-3 py-1 font-medium text-foreground">
+                Projekt autorski
+              </span>
+            )}
             {project.year && <span>{project.year}</span>}
             {project.client && (
               <>
@@ -99,19 +104,19 @@ export default async function ProjectCaseStudy({
 
           <div className="mt-8 flex flex-wrap gap-4">
             {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="group font-semibold">
+              <Button asChild size="lg" className="group font-semibold">
+                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                   Zobacz na żywo
                   <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </Button>
-              </a>
+                </a>
+              </Button>
             )}
             {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                <Button size="lg" variant="outline" className="font-medium">
+              <Button asChild size="lg" variant="outline" className="font-medium">
+                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                   <Github size={18} /> Kod na GitHub
-                </Button>
-              </a>
+                </a>
+              </Button>
             )}
           </div>
         </Reveal>
@@ -202,12 +207,12 @@ export default async function ProjectCaseStudy({
               Opowiedz mi o swojej firmie — przygotuję bezpłatną wycenę i propozycję
               rozwiązania.
             </p>
-            <Link href="/#kontakt" className="mt-6 inline-block">
-              <Button size="lg" className="group font-semibold">
+            <Button asChild size="lg" className="group mt-6 font-semibold">
+              <Link href="/#kontakt">
                 Wyceń projekt
                 <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
         </Reveal>
       </main>

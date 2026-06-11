@@ -65,9 +65,9 @@ export function Navbar() {
 
         {/* CTA — desktop */}
         <div className="hidden md:block">
-          <Link href="/#kontakt">
-            <Button className="font-medium">Wyceń projekt</Button>
-          </Link>
+          <Button asChild className="font-medium">
+            <Link href="/#kontakt">Wyceń projekt</Link>
+          </Button>
         </div>
 
         {/* Hamburger — mobile */}
@@ -101,13 +101,11 @@ export function Navbar() {
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href="/#kontakt"
-                onClick={() => setOpen(false)}
-                className="mt-2"
-              >
-                <Button className="w-full font-medium">Wyceń projekt</Button>
-              </Link>
+              <Button asChild className="mt-2 w-full font-medium">
+                <Link href="/#kontakt" onClick={() => setOpen(false)}>
+                  Wyceń projekt
+                </Link>
+              </Button>
             </div>
           </motion.div>
         )}

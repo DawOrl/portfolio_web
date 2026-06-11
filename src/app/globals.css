@@ -147,6 +147,12 @@
     color: transparent;
   }
 
+  /* Ziarno filmowe — statyczna tekstura szumu łamiąca "plastikową" gładkość gradientów */
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+  }
+
   /* Delikatny grid w tle sekcji */
   .bg-grid {
     background-image:
@@ -164,6 +170,12 @@
   to {
     transform: translateX(-33.333%);
   }
+}
+
+/* Światło przesuwające się po linii wskaźnika scrollowania w hero */
+@keyframes scroll-cue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(220%); }
 }
 
 /* Powolny dryf świetlistych plam tła (Aurora) */

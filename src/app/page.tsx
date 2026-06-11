@@ -24,6 +24,11 @@ export default function Home() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_55%_45%_at_50%_0%,rgba(245,158,11,0.08),transparent_70%)]"
         />
+        {/* Ziarno filmowe na całym tle — łamie cyfrową gładkość gradientów */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 bg-noise opacity-[0.05]"
+        />
       </div>
 
       <Navbar />
