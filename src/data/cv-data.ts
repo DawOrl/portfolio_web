@@ -203,6 +203,7 @@ export const cvData = {
       slug: "zbychu-garage",
       title: "Zbychu Garage — strona warsztatu",
       category: "Strona firmowa",
+      kind: "demo" as const,
       year: "2025",
       client: "Warsztat samochodowy",
       tagline:
@@ -224,10 +225,123 @@ export const cvData = {
       liveUrl: "https://mechanic-website-rose.vercel.app/",
       featured: true,
     },
-    // Kolejne realizacje dodawaj wg tego samego schematu:
-    // 1) dodaj wpis do scripts/shots.config.json (slug + url),
-    // 2) uruchom `npm run shots <slug>` aby pobrać zrzuty do public/projects/<slug>/,
-    // 3) dodaj obiekt projektu poniżej (slug musi się zgadzać).
+
+    // ───────────── SZKICE (draft) — projekty autorskie/demo ─────────────
+    // Ukryte z biblioteki/teasera/sitemap do czasu uzupełnienia treści i zdjęć.
+    // Po gotowości: dodaj wpis do scripts/shots.config.json, uruchom
+    // `npm run shots <slug>`, uzupełnij treść i usuń `draft: true`.
+
+    {
+      slug: "restauracja-bella",
+      title: "Bella Cucina — strona restauracji",
+      category: "Strona firmowa",
+      kind: "demo" as const,
+      draft: true,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Strona restauracji z menu online, galerią dań i rezerwacją stolika — bez konieczności dzwonienia.",
+      problem:
+        "Większość lokali gastronomicznych w Polsce działa wyłącznie na Instagramie i Facebooku. Menu krąży jako zdjęcie sprzed miesięcy, nie da się zarezerwować stolika online, a Google nie ma czego zaindeksować — lokal jest niewidoczny dla nowych gości.",
+      solution:
+        "Zaprojektowałem stronę, która sprzedaje atmosferę lokalu: apetyczna sekcja hero, menu online łatwe do aktualizacji, galeria dań, godziny otwarcia, mapa dojazdu i prosty formularz rezerwacji stolika. Mobile-first, bo gości najczęściej szukają w telefonie.",
+      result:
+        "Gość w kilka sekund widzi menu, lokalizację i rezerwuje stolik — bez telefonu i przeszukiwania social mediów. Lokal zyskuje profesjonalny wizerunek i widoczność w Google.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      scope: ["Projekt UI/UX", "Menu online", "Formularz rezerwacji", "SEO lokalne"],
+      cover: "/projects/restauracja-bella/desktop.png",
+      gallery: [
+        "/projects/restauracja-bella/desktop.png",
+        "/projects/restauracja-bella/mobile.png",
+      ],
+      githubUrl: "",
+      liveUrl: "",
+      featured: false,
+    },
+
+    {
+      slug: "salon-glow",
+      title: "Glow Studio — rezerwacja wizyt online",
+      category: "Strona usługowa",
+      kind: "demo" as const,
+      draft: true,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Strona salonu beauty/barber z cennikiem usług i rezerwacją wizyt online — niezależna od prowizji platform.",
+      problem:
+        "Salony fryzjerskie, barber shopy i gabinety beauty są uzależnione od platform typu Booksy, które pobierają prowizje i „pożyczają” im klientów. Brakuje własnego kanału, który buduje markę salonu i nie oddaje bazy klientów pośrednikowi.",
+      solution:
+        "Stworzyłem stronę z pełnym cennikiem usług, prezentacją zespołu i portfolio realizacji oraz własnym systemem rezerwacji wizyt (wybór usługi, terminu i pracownika). Klient rezerwuje bezpośrednio u salonu — bez prowizji i przekierowań do zewnętrznych aplikacji.",
+      result:
+        "Salon ma własny, profesjonalny kanał rezerwacji i przestaje oddawać prowizję pośrednikom. Marka buduje rozpoznawalność, a baza klientów należy do salonu.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      scope: ["Projekt UI/UX", "System rezerwacji", "Cennik usług", "SEO lokalne"],
+      cover: "/projects/salon-glow/desktop.png",
+      gallery: [
+        "/projects/salon-glow/desktop.png",
+        "/projects/salon-glow/mobile.png",
+      ],
+      githubUrl: "",
+      liveUrl: "",
+      featured: false,
+    },
+
+    {
+      slug: "sklep-craft-coffee",
+      title: "Craft Coffee — sklep internetowy",
+      category: "Sklep internetowy",
+      kind: "demo" as const,
+      draft: true,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Sklep e-commerce lokalnej palarni kawy: katalog produktów, koszyk i płatności online.",
+      problem:
+        "Małe, lokalne marki (palarnie kawy, rękodzieło, produkty regionalne) sprzedają głównie stacjonarnie lub przez wiadomości na social mediach. Brakuje im sklepu, który przyjmie zamówienie i płatność o każdej porze — tracą sprzedaż poza godzinami otwarcia.",
+      solution:
+        "Zbudowałem lekki sklep internetowy: estetyczny katalog produktów z filtrowaniem, koszyk, proces zamówienia i integracja z płatnościami online. Wydajny, szybki i prosty w zarządzaniu asortymentem.",
+      result:
+        "Marka sprzedaje online 24/7, przyjmuje płatności automatycznie i dociera poza swój region. Klient zarządza produktami samodzielnie, bez programisty przy każdej zmianie.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Stripe"],
+      scope: ["Projekt UI/UX", "Katalog i koszyk", "Płatności online", "Panel zarządzania"],
+      cover: "/projects/sklep-craft-coffee/desktop.png",
+      gallery: [
+        "/projects/sklep-craft-coffee/desktop.png",
+        "/projects/sklep-craft-coffee/mobile.png",
+      ],
+      githubUrl: "",
+      liveUrl: "",
+      featured: false,
+    },
+
+    {
+      slug: "asystent-ai",
+      title: "Asystent AI dla firmy — chatbot i generator ofert",
+      category: "Aplikacja & AI",
+      kind: "demo" as const,
+      draft: true,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Aplikacja webowa z AI: chatbot odpowiadający na pytania klientów i generator spersonalizowanych ofert.",
+      problem:
+        "Małe firmy tracą zapytania poza godzinami pracy i marnują czas na powtarzalne pytania klientów (cennik, dostępność, zakres usług). Ręczne przygotowywanie ofert jest wolne i niespójne.",
+      solution:
+        "Zbudowałem aplikację webową opartą o model językowy (LLM): chatbot odpowiada na pytania klientów na podstawie wiedzy o firmie 24/7, a generator ofert na podstawie kilku pól tworzy gotową, spersonalizowaną propozycję. Integracja przez API, z naciskiem na szybkość i bezpieczeństwo danych.",
+      result:
+        "Firma odpowiada klientom natychmiast o każdej porze i automatyzuje powtarzalną pracę. Pokazuje praktyczne zastosowanie AI w obsłudze klienta — mój główny wyróżnik jako Fullstack AI Developer.",
+      stack: ["Next.js", "React", "TypeScript", "OpenAI API", "Vercel"],
+      scope: ["Projekt UI/UX", "Integracja LLM", "Chatbot Q&A", "Generator ofert"],
+      cover: "/projects/asystent-ai/desktop.png",
+      gallery: [
+        "/projects/asystent-ai/desktop.png",
+        "/projects/asystent-ai/mobile.png",
+      ],
+      githubUrl: "",
+      liveUrl: "",
+      featured: false,
+    },
   ],
 
   experience: {

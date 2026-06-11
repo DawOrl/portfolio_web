@@ -25,9 +25,16 @@ export function ProjectCard({ project, index = 0 }: { project: Project; index?: 
             loading="lazy"
             className="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.04]"
           />
-          <span className="absolute left-3 top-3 rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-foreground backdrop-blur-sm">
-            {project.category}
-          </span>
+          <div className="absolute left-3 top-3 flex flex-wrap gap-2">
+            <span className="rounded-full border border-border bg-background/70 px-3 py-1 text-xs font-medium text-foreground backdrop-blur-sm">
+              {project.category}
+            </span>
+            {project.kind === "demo" && (
+              <span className="rounded-full border border-primary/30 bg-primary/15 px-3 py-1 text-xs font-medium text-primary backdrop-blur-sm">
+                Projekt autorski
+              </span>
+            )}
+          </div>
           <span className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/70 text-foreground opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100">
             <ArrowUpRight size={16} />
           </span>
