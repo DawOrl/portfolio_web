@@ -23,6 +23,18 @@
     {
       "slug": "asystent-ai",
       "url": "https://asystent-ai-three.vercel.app/"
+    },
+    {
+      "slug": "eko-solar",
+      "url": "https://eko-solar-nu.vercel.app/"
+    },
+    {
+      "slug": "fotograf-lena",
+      "url": "https://fotograf-lena.vercel.app/"
+    },
+    {
+      "slug": "kalkulator-wyceny",
+      "url": "https://kalkulator-wyceny-three.vercel.app/"
     }
   ]
 }

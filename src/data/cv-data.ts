@@ -223,7 +223,7 @@ export const cvData = {
       ],
       githubUrl: "https://github.com/DawOrl/mechanic-website",
       liveUrl: "https://mechanic-website-rose.vercel.app/",
-      featured: true,
+      featured: false,
     },
 
     // ───────────── Projekty autorskie (demo) — live na Vercelu ─────────────
@@ -337,6 +337,87 @@ export const cvData = {
       githubUrl: "https://github.com/DawOrl/asystent-ai",
       liveUrl: "https://asystent-ai-three.vercel.app/",
       featured: true,
+    },
+
+    {
+      slug: "eko-solar",
+      title: "EkoSolar — landing fotowoltaiki z wyceną",
+      category: "Landing page",
+      kind: "demo" as const,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Landing pod kampanie reklamowe z kalkulatorem oszczędności i formularzem wyceny — jedna strona, jeden cel: lead.",
+      problem:
+        "Firmy usługowe (fotowoltaika, ocieplenia, instalacje) płacą za reklamy Google i Facebook, a ruch kierują na ogólną stronę firmową, która nie prowadzi do żadnej akcji. Klient klika, błądzi i wychodzi — budżet reklamowy się pali, a zapytań brak.",
+      solution:
+        "Zaprojektowałem landing skupiony na jednej akcji: bezpłatnej wycenie. Interaktywny kalkulator oszczędności (suwak rachunku → dobrana moc instalacji i roczne oszczędności) angażuje i prowadzi prosto do formularza. Po drodze: liczby budujące zaufanie, proces w 4 krokach, realizacje z okolicy, opinie z Google, sekcja dotacji i FAQ rozwiewające obiekcje.",
+      result:
+        "Każdy element strony pracuje na konwersję — odwiedzający z reklamy w kilkadziesiąt sekund rozumie korzyść, sprawdza oszczędności na własnym rachunku i zostawia kontakt. Wzorzec gotowy do adaptacji dla dowolnej usługi lokalnej rozliczanej z leadów.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      scope: ["Projekt UI/UX", "Kalkulator oszczędności", "Formularz leadowy", "Optymalizacja konwersji"],
+      cover: "/projects/eko-solar/desktop.png",
+      gallery: [
+        "/projects/eko-solar/desktop.png",
+        "/projects/eko-solar/mobile.png",
+      ],
+      githubUrl: "https://github.com/DawOrl/eko-solar",
+      liveUrl: "https://eko-solar-nu.vercel.app/",
+      featured: true,
+    },
+
+    {
+      slug: "fotograf-lena",
+      title: "Lena Czarnecka — portfolio fotografki",
+      category: "Portfolio",
+      kind: "demo" as const,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Jasne, magazynowe portfolio fotografki ślubnej: galeria z filtrowaniem, pakiety i zapytania o terminy.",
+      problem:
+        "Fotografowie i inni twórcy pokazują prace głównie na Instagramie, gdzie portfolio miesza się z relacjami, a algorytm decyduje, co zobaczy klientka. Brakuje miejsca, które prezentuje dorobek w pełnej jakości, porządkuje ofertę i zbiera zapytania o terminy.",
+      solution:
+        "Zbudowałem stronę, w której bohaterem są zdjęcia: minimalistyczny, jasny layout z serifową typografią, galeria z filtrowaniem kategorii (śluby, portrety, rodzinne), czytelne pakiety cenowe i formularz zapytania z datą wydarzenia. Estetyka „editorial” zamiast szablonu — strona ma wyglądać jak rozkładówka magazynu.",
+      result:
+        "Klientka w minutę ogląda wyselekcjonowane portfolio, zna ceny pakietów i wysyła zapytanie z konkretną datą. Fotografka dostaje profesjonalną wizytówkę niezależną od algorytmów — wzorzec dla każdej branży kreatywnej.",
+      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      scope: ["Projekt UI/UX", "Galeria z filtrowaniem", "Pakiety i cennik", "Formularz zapytań"],
+      cover: "/projects/fotograf-lena/desktop.png",
+      gallery: [
+        "/projects/fotograf-lena/desktop.png",
+        "/projects/fotograf-lena/mobile.png",
+      ],
+      githubUrl: "https://github.com/DawOrl/fotograf-lena",
+      liveUrl: "https://fotograf-lena.vercel.app/",
+      featured: false,
+    },
+
+    {
+      slug: "kalkulator-wyceny",
+      title: "Kalkulator wyceny strony www — wizard",
+      category: "Aplikacja & automatyzacja",
+      kind: "demo" as const,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Interaktywny wizard: 6 pytań i klient widzi widełki cenowe z rozpisem kosztów — automatyzacja pierwszego kontaktu.",
+      problem:
+        "Pierwsze pytanie każdego klienta brzmi „ile to kosztuje?”, a odpowiedź wymaga maili, telefonów i ręcznego liczenia. Część zainteresowanych odpada, zanim dostanie jakąkolwiek liczbę, a usługodawca traci czas na wyceny, z których nic nie wynika.",
+      solution:
+        "Zbudowałem konwersacyjny kalkulator: jedno pytanie na ekran (typ strony, podstrony, design, treści, funkcje, termin), płynne przejścia między krokami i wynik od razu — widełki cenowe, szacowany czas realizacji i kosztorys pozycja po pozycji. Bez żargonu, bez podawania maila, bez zobowiązań.",
+      result:
+        "Klient dostaje orientacyjną cenę w 60 sekund o dowolnej porze, a do rozmowy trafia już z realnymi oczekiwaniami. Wzorzec automatyzacji pierwszego kontaktu do wpięcia w stronę dowolnej firmy usługowej.",
+      stack: ["Next.js", "React", "TypeScript", "Framer Motion"],
+      scope: ["Projekt UI/UX", "Wizard 6 kroków", "Silnik wyceny", "Kosztorys pozycja po pozycji"],
+      cover: "/projects/kalkulator-wyceny/desktop.png",
+      gallery: [
+        "/projects/kalkulator-wyceny/desktop.png",
+        "/projects/kalkulator-wyceny/mobile.png",
+      ],
+      githubUrl: "https://github.com/DawOrl/kalkulator-wyceny",
+      liveUrl: "https://kalkulator-wyceny-three.vercel.app/",
+      featured: false,
     },
   ],
 
