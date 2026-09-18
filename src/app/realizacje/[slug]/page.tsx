@@ -10,7 +10,6 @@ import {
   TrendingUp,
   Check,
 } from "lucide-react";
-import { Aurora } from "@/components/blocks/Aurora";
 import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ProjectGalleryLightbox } from "@/components/blocks/ProjectGalleryLightbox";
@@ -56,19 +55,23 @@ export default async function ProjectCaseStudy({
 
   const blocks = [
     { icon: Target, label: "Wyzwanie", text: project.problem, key: "problem" },
-    { icon: Lightbulb, label: "Rozwiązanie", text: project.solution, key: "solution" },
+    {
+      icon: Lightbulb,
+      label: "Rozwiązanie",
+      text: project.solution,
+      key: "solution",
+    },
     { icon: TrendingUp, label: "Efekt", text: project.result, key: "result" },
   ];
 
   return (
     <>
-      <div className="fixed inset-0 -z-10 bg-background">
-        <Aurora />
-      </div>
-
       <Navbar />
 
-      <main className="mx-auto w-full max-w-5xl px-6 pb-24 pt-32 md:px-10 md:pt-40">
+      <main
+        id="main-content"
+        className="portfolio-inner mx-auto w-full max-w-5xl px-6 pb-24 pt-32 md:px-10 md:pt-40"
+      >
         <Link
           href="/realizacje"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -105,15 +108,28 @@ export default async function ProjectCaseStudy({
           <div className="mt-8 flex flex-wrap gap-4">
             {project.liveUrl && (
               <Button asChild size="lg" className="group font-semibold">
-                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                <a
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Zobacz na żywo
                   <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               </Button>
             )}
             {project.githubUrl && (
-              <Button asChild size="lg" variant="outline" className="font-medium">
-                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="font-medium"
+              >
+                <a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <Github size={18} /> Kod na GitHub
                 </a>
               </Button>
@@ -193,7 +209,10 @@ export default async function ProjectCaseStudy({
                 Galeria
               </h2>
             </Reveal>
-            <ProjectGalleryLightbox images={project.gallery} title={project.title} />
+            <ProjectGalleryLightbox
+              images={project.gallery}
+              title={project.title}
+            />
           </div>
         )}
 
@@ -204,8 +223,8 @@ export default async function ProjectCaseStudy({
               Chcesz podobny projekt?
             </h2>
             <p className="mx-auto mt-3 max-w-xl text-muted-foreground md:text-lg">
-              Opowiedz mi o swojej firmie — przygotuję bezpłatną wycenę i propozycję
-              rozwiązania.
+              Opowiedz mi o swojej firmie — przygotuję bezpłatną wycenę i
+              propozycję rozwiązania.
             </p>
             <Button asChild size="lg" className="group mt-6 font-semibold">
               <Link href="/#kontakt">

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Sora } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cvData } from "@/data/cv-data";
@@ -7,13 +7,7 @@ import { SITE_URL } from "@/lib/site";
 
 const inter = Inter({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-sans",
-  display: "swap",
-});
-
-const sora = Sora({
-  subsets: ["latin", "latin-ext"],
-  variable: "--font-display",
+  variable: "--font-inter",
   display: "swap",
 });
 
@@ -50,14 +44,14 @@ export const metadata: Metadata = {
     siteName: "Dawid Orłowski",
     locale: "pl_PL",
     type: "website",
-    images: ["/og.png"],
+    images: ["/opengraph-image"],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dawid Orłowski | Strony internetowe dla firm",
     description:
       "Projektuję i koduję nowoczesne, szybkie strony internetowe dla firm i działalności.",
-    images: ["/og.png"],
+    images: ["/opengraph-image"],
   },
 };
 
@@ -70,7 +64,7 @@ const jsonLd = {
   description:
     "Projektowanie i kodowanie nowoczesnych stron internetowych oraz landing page dla firm.",
   areaServed: "PL",
-  priceRange: "od 1500 zł",
+  priceRange: "od 990 zł",
   email: cvData.personal.email,
   telephone: `+48${cvData.personal.phone.replace(/\D/g, "")}`,
   address: {
@@ -91,12 +85,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="pl"
-      suppressHydrationWarning
-      className={`${inter.variable} ${sora.variable}`}
-    >
+    <html lang="pl" suppressHydrationWarning className={`${inter.variable}`}>
       <body className="font-sans antialiased min-h-screen">
+        <a className="skip-link" href="#main-content">
+          Przejdź do treści
+        </a>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

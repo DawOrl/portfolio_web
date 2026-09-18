@@ -11,9 +11,9 @@
 //   node scripts/shots.mjs mechanik     # tylko wybrany slug (można podać kilka)
 //
 // Po wygenerowaniu zrzuty trafiają np. do:
-//   public/projects/zbychu-garage/desktop.png
-//   public/projects/zbychu-garage/mobile.png
-// i odwołujesz się do nich w cv-data.ts jako "/projects/zbychu-garage/desktop.png".
+//   public/projects/topauto-serwis/desktop.png
+//   public/projects/topauto-serwis/mobile.png
+// i odwołujesz się do nich w cv-data.ts jako "/projects/topauto-serwis/desktop.png".
 
 import puppeteer from "puppeteer-core";
 import { readFile, mkdir } from "node:fs/promises";

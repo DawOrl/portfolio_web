@@ -1,12 +1,8 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { Mail, Phone, MapPin, Send, CheckCircle2, Loader2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cvData } from "@/data/cv-data";
-import { Section, SectionHeading } from "@/components/ui/section";
-import { Reveal } from "@/components/ui/reveal";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 
 /**
  * Formularz wysyła zapytanie bezpośrednio do Web3Forms.
@@ -21,10 +17,7 @@ import { cn } from "@/lib/utils";
 
 const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
-type Status = "idle" | "sending" | "success" | "error";
-
-const inputClass =
-  "w-full rounded-xl border border-input bg-background/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground/70 outline-none transition-colors focus:border-primary focus:ring-2 focus:ring-ring/40";
+type Status = "idle" | "sending" | "success" | "error" | "mailto";
 
 export function ContactSection() {
   const [name, setName] = useState("");
@@ -40,7 +33,8 @@ export function ContactSection() {
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.trim());
     const isPhone = contact.replace(/\D/g, "").length >= 9;
     if (!isEmail && !isPhone) e.contact = "Podaj e-mail lub numer telefonu.";
-    if (message.trim().length < 10) e.message = "Opisz krótko projekt (min. 10 znaków).";
+    if (message.trim().length < 10)
+      e.message = "Opisz krótko projekt (min. 10 znaków).";
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -53,7 +47,7 @@ export function ContactSection() {
     const mailtoFallback = () => {
       const subject = encodeURIComponent(`Zapytanie o projekt — ${name}`);
       const body = encodeURIComponent(
-        `Imię: ${name}\nKontakt: ${contact}\nUsługa: ${service || "—"}\n\nWiadomość:\n${message}`
+        `Imię: ${name}\nKontakt: ${contact}\nUsługa: ${service || "—"}\n\nWiadomość:\n${message}`,
       );
       window.location.href = `mailto:${cvData.personal.email}?subject=${subject}&body=${body}`;
     };
@@ -68,8 +62,7 @@ export function ContactSection() {
     // Brak klucza → fallback mailto (otwiera klienta poczty)
     if (!WEB3FORMS_ACCESS_KEY) {
       mailtoFallback();
-      setStatus("success");
-      resetFields();
+      setStatus("mailto");
       return;
     }
 
@@ -103,178 +96,216 @@ export function ContactSection() {
   };
 
   return (
-    <Section id="kontakt">
-      <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
-        {/* Lewa kolumna — informacje */}
-        <div>
-          <SectionHeading
-            eyebrow="07 — Kontakt"
-            title="Zróbmy coś razem"
-            subtitle="Opisz krótko swój pomysł lub firmę. Odpiszę zwykle w ciągu 24h z bezpłatną wyceną i propozycją rozwiązania."
-          />
-
-          <div className="flex flex-col gap-4">
-            <a
-              href={`mailto:${cvData.personal.email}`}
-              className="group flex items-center gap-4 rounded-2xl border border-border bg-card/50 p-4 transition-colors hover:border-primary/40"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                <Mail size={18} />
-              </span>
-              <span>
-                <span className="block text-xs text-muted-foreground">E-mail</span>
-                <span className="text-sm font-medium text-foreground">
-                  {cvData.personal.email}
-                </span>
-              </span>
-            </a>
-
-            <a
-              href={`tel:${cvData.personal.phone.replace(/\s/g, "")}`}
-              className="group flex items-center gap-4 rounded-2xl border border-border bg-card/50 p-4 transition-colors hover:border-primary/40"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                <Phone size={18} />
-              </span>
-              <span>
-                <span className="block text-xs text-muted-foreground">Telefon</span>
-                <span className="text-sm font-medium text-foreground">
-                  {cvData.personal.phone}
-                </span>
-              </span>
-            </a>
-
-            <div className="flex items-center gap-4 rounded-2xl border border-border bg-card/50 p-4">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                <MapPin size={18} />
-              </span>
-              <span>
-                <span className="block text-xs text-muted-foreground">Lokalizacja</span>
-                <span className="text-sm font-medium text-foreground">
-                  {cvData.personal.location} · zdalnie w całej Polsce
-                </span>
-              </span>
-            </div>
-          </div>
+    <section
+      id="kontakt"
+      className="contact-editorial"
+      aria-labelledby="contact-heading"
+    >
+      <div className="shell">
+        <div className="contact-section-label">
+          <span>07 / KONTAKT</span>
+          <span>DOBRE RZECZY ZACZYNAJĄ SIĘ OD ROZMOWY.</span>
         </div>
-
-        {/* Prawa kolumna — formularz */}
-        <Reveal delay={0.1}>
-          <div className="rounded-3xl border border-border bg-card/50 p-6 md:p-8">
-            {status === "success" ? (
-              <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
-                <CheckCircle2 className="h-14 w-14 text-primary" />
-                <h3 className="font-display text-2xl font-bold text-foreground">
-                  Dziękuję!
+        <div className="contact-layout">
+          <div className="contact-form-column">
+            {status === "success" || status === "mailto" ? (
+              <div className="contact-success" role="status">
+                <CheckCircle2 size={42} />
+                <h3>
+                  {status === "mailto"
+                    ? "Jeszcze jeden krok."
+                    : "Dziękuję za wiadomość."}
                 </h3>
-                <p className="max-w-sm text-muted-foreground">
-                  Twoja wiadomość dotarła. Odezwę się najszybciej, jak to możliwe.
+                <p>
+                  {status === "mailto"
+                    ? "Otworzyłem program pocztowy z treścią zapytania. Wyślij wiadomość w swoim programie, aby do mnie dotarła."
+                    : "Twoja wiadomość dotarła. Odezwę się najszybciej, jak to możliwe."}
                 </p>
-                <Button variant="outline" onClick={() => setStatus("idle")}>
-                  Wyślij kolejną
-                </Button>
+                <button
+                  className="contact-submit"
+                  onClick={() => setStatus("idle")}
+                >
+                  {status === "mailto"
+                    ? "Wróć do formularza"
+                    : "Wyślij kolejną"}
+                  <ArrowUpRight size={18} />
+                </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
-                <div>
-                  <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">
-                    Imię *
+              <form
+                onSubmit={handleSubmit}
+                noValidate
+                className="contact-form"
+                aria-label="Zapytanie o projekt"
+                aria-busy={status === "sending"}
+              >
+                <div className="contact-field">
+                  <label htmlFor="name">
+                    Twoje imię <span>*</span>
                   </label>
                   <input
                     id="name"
-                    type="text"
+                    name="name"
+                    autoComplete="name"
+                    required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Jak się do Ciebie zwracać?"
-                    className={cn(inputClass, errors.name && "border-destructive")}
+                    aria-invalid={!!errors.name}
+                    aria-describedby={errors.name ? "name-error" : undefined}
                   />
                   {errors.name && (
-                    <p className="mt-1.5 text-xs text-destructive">{errors.name}</p>
+                    <p id="name-error" role="alert">
+                      {errors.name}
+                    </p>
                   )}
                 </div>
-
-                <div>
-                  <label htmlFor="contact" className="mb-1.5 block text-sm font-medium text-foreground">
-                    E-mail lub telefon *
+                <div className="contact-field">
+                  <label htmlFor="contact">
+                    E-mail lub telefon <span>*</span>
                   </label>
                   <input
                     id="contact"
-                    type="text"
+                    name="contact"
+                    required
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
-                    placeholder="abc@firma.pl lub 600 100 200"
-                    className={cn(inputClass, errors.contact && "border-destructive")}
+                    placeholder="Gdzie mogę się odezwać?"
+                    aria-invalid={!!errors.contact}
+                    aria-describedby={
+                      errors.contact ? "contact-error" : undefined
+                    }
                   />
                   {errors.contact && (
-                    <p className="mt-1.5 text-xs text-destructive">{errors.contact}</p>
+                    <p id="contact-error" role="alert">
+                      {errors.contact}
+                    </p>
                   )}
                 </div>
-
-                <div>
-                  <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-foreground">
-                    Czego dotyczy projekt?
+                <div className="contact-field">
+                  <label htmlFor="service">
+                    Co tworzymy? <span>opcjonalnie</span>
                   </label>
                   <select
                     id="service"
+                    name="service"
                     value={service}
                     onChange={(e) => setService(e.target.value)}
-                    className={cn(inputClass, "appearance-none")}
                   >
-                    <option value="">Wybierz (opcjonalnie)</option>
+                    <option value="">Wybierz rodzaj projektu</option>
                     {cvData.services.map((s) => (
                       <option key={s.id} value={s.title}>
                         {s.title}
                       </option>
                     ))}
-                    <option value="Inne">Inne / nie wiem jeszcze</option>
+                    <option value="Inne">
+                      Porozmawiajmy — jeszcze nie wiem
+                    </option>
                   </select>
                 </div>
-
-                <div>
-                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">
-                    Wiadomość *
+                <div className="contact-field">
+                  <label htmlFor="message">
+                    Opowiedz o swoim pomyśle <span>*</span>
                   </label>
                   <textarea
                     id="message"
-                    rows={5}
+                    name="message"
+                    required
+                    rows={3}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Opowiedz krótko o firmie i czego potrzebujesz…"
-                    className={cn(inputClass, "resize-y", errors.message && "border-destructive")}
+                    placeholder="Czym się zajmujesz i czego potrzebujesz?"
+                    aria-invalid={!!errors.message}
+                    aria-describedby={
+                      errors.message ? "message-error" : undefined
+                    }
                   />
                   {errors.message && (
-                    <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>
+                    <p id="message-error" role="alert">
+                      {errors.message}
+                    </p>
                   )}
                 </div>
-
                 {status === "error" && (
-                  <p className="text-sm text-destructive">
-                    Coś poszło nie tak. Napisz proszę bezpośrednio na {cvData.personal.email}.
+                  <p className="contact-error" role="alert">
+                    Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz
+                    na{" "}
+                    <a href={`mailto:${cvData.personal.email}`}>
+                      {cvData.personal.email}
+                    </a>
+                    .
                   </p>
                 )}
-
-                <Button
+                <button
                   type="submit"
-                  size="lg"
                   disabled={status === "sending"}
-                  className="group font-semibold"
+                  className="contact-submit"
                 >
                   {status === "sending" ? (
                     <>
-                      <Loader2 className="animate-spin" /> Wysyłanie…
+                      Wysyłanie…
+                      <Loader2 className="animate-spin" size={18} />
                     </>
                   ) : (
                     <>
                       Wyślij zapytanie
-                      <Send className="transition-transform duration-300 group-hover:translate-x-0.5" />
+                      <ArrowUpRight size={21} />
                     </>
                   )}
-                </Button>
+                </button>
+                <p className="contact-form-note">
+                  Bezpłatna wycena. Bez zobowiązań.{" "}
+                  <span>* Pola wymagane.</span>
+                </p>
               </form>
             )}
           </div>
-        </Reveal>
+          <div className="contact-invitation">
+            <div className="contact-title-art">
+              <svg
+                className="contact-contour"
+                viewBox="0 0 460 360"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="M83 50C159-2 372 19 409 99C446 179 341 329 260 336C179 343 176 251 95 219C14 187 7 102 83 50Z"
+                  stroke="currentColor"
+                />
+                <path
+                  d="M103 30C191-7 384 55 391 135C398 215 322 334 239 326C156 318 175 245 100 204C25 164 15 68 103 30Z"
+                  stroke="currentColor"
+                  opacity=".35"
+                />
+              </svg>
+              <span className="contact-mini-cube" aria-hidden="true" />
+              <h2 id="contact-heading">
+                Zróbmy
+                <br />
+                <span>
+                  <i aria-hidden="true" />
+                  coś <em>razem.</em>
+                </span>
+              </h2>
+            </div>
+            <p className="contact-invitation-copy">
+              Masz pomysł, pytanie albo potrzebujesz nowego spojrzenia na swoją
+              stronę? Napisz kilka słów. Zwykle odpowiadam w ciągu 24 godzin.
+            </p>
+            <div className="contact-direct">
+              <a href={`mailto:${cvData.personal.email}`}>
+                {cvData.personal.email}
+                <ArrowUpRight size={15} />
+              </a>
+              <a href={`tel:+48${cvData.personal.phone.replace(/\D/g, "")}`}>
+                +48 {cvData.personal.phone}
+                <ArrowUpRight size={15} />
+              </a>
+              <span>Kraków · współpraca zdalna w całej Polsce</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </Section>
+    </section>
   );
 }

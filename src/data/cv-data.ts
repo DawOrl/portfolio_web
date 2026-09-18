@@ -30,7 +30,12 @@ export const cvData = {
       title: "Strony firmowe",
       description:
         "Profesjonalna wizytówka Twojej działalności w sieci — buduje zaufanie i prezentuje ofertę.",
-      features: ["Strona wizytówka", "Strona usługowa", "Sekcja bloga", "Edycja treści"],
+      features: [
+        "Strona wizytówka",
+        "Strona usługowa",
+        "Sekcja bloga",
+        "Edycja treści",
+      ],
     },
     {
       id: "landing-page",
@@ -38,7 +43,12 @@ export const cvData = {
       title: "Landing page",
       description:
         "Strony jednocelowe pod kampanie reklamowe, nastawione na konkretną akcję i wysoką konwersję.",
-      features: ["Pod kampanie Ads", "Formularze leadowe", "A/B testy", "Analityka"],
+      features: [
+        "Pod kampanie Ads",
+        "Formularze leadowe",
+        "A/B testy",
+        "Analityka",
+      ],
     },
     {
       id: "sklepy",
@@ -46,7 +56,12 @@ export const cvData = {
       title: "Sklepy internetowe",
       description:
         "Lekkie sklepy i strony produktowe gotowe do sprzedaży, z wygodnym zarządzaniem.",
-      features: ["Katalog produktów", "Koszyk i płatności", "Panel zarządzania", "Integracje"],
+      features: [
+        "Katalog produktów",
+        "Koszyk i płatności",
+        "Panel zarządzania",
+        "Integracje",
+      ],
     },
     {
       id: "aplikacje",
@@ -54,7 +69,12 @@ export const cvData = {
       title: "Aplikacje & automatyzacje",
       description:
         "Aplikacje webowe i mobilne oraz narzędzia automatyzujące powtarzalne zadania w firmie.",
-      features: ["Aplikacje webowe", "Aplikacje mobilne", "Integracje API", "Automatyzacje"],
+      features: [
+        "Aplikacje webowe",
+        "Aplikacje mobilne",
+        "Integracje API",
+        "Automatyzacje",
+      ],
     },
   ],
 
@@ -92,7 +112,8 @@ export const cvData = {
       name: "Start",
       tagline: "Wizytówka one-page",
       price: "od 990 zł",
-      description: "Idealny dla nowych działalności, które chcą szybko zaistnieć w sieci.",
+      description:
+        "Idealny dla nowych działalności, które chcą szybko zaistnieć w sieci.",
       features: [
         "Strona one-page",
         "Pełna responsywność (RWD)",
@@ -107,7 +128,8 @@ export const cvData = {
       name: "Biznes",
       tagline: "Rozbudowana strona firmowa",
       price: "od 2 490 zł",
-      description: "Kompletna strona, która sprzedaje i buduje profesjonalny wizerunek.",
+      description:
+        "Kompletna strona, która sprzedaje i buduje profesjonalny wizerunek.",
       features: [
         "Do 6 podstron",
         "Indywidualny projekt UI/UX",
@@ -123,7 +145,8 @@ export const cvData = {
       name: "Indywidualny",
       tagline: "Sklep / aplikacja / integracje",
       price: "wycena indywidualna",
-      description: "Złożone projekty: e-commerce, panele, integracje i aplikacje.",
+      description:
+        "Złożone projekty: e-commerce, panele, integracje i aplikacje.",
       features: [
         "Sklep internetowy / e-commerce",
         "Integracje z systemami i API",
@@ -200,29 +223,35 @@ export const cvData = {
   // cover (miniatura/okładka), gallery[] (zdjęcia), liveUrl/githubUrl, featured.
   projects: [
     {
-      slug: "zbychu-garage",
-      title: "Zbychu Garage — strona warsztatu",
+      slug: "topauto-serwis",
+      title: "TopAuto Serwis — strona warsztatu",
       category: "Strona firmowa",
-      kind: "demo" as const,
-      year: "2025",
-      client: "Warsztat samochodowy",
+      kind: "client" as const,
+      year: "2026",
+      client: "TopAuto Serwis Zbigniew Orłowski",
       tagline:
-        "Nowoczesna wizytówka warsztatu z czytelną ofertą usług i szybkim kontaktem.",
+        "Strona lokalnego warsztatu w Nieskurzowie Starym: oferta serwisu, podstrony usług i bezpośredni kontakt z mechanikiem.",
       problem:
-        "Lokalny warsztat nie miał profesjonalnej strony — klienci trafiali głównie z polecenia, a oferta i zakres usług nie były nigdzie jasno przedstawione.",
+        "Przygotowujący się do otwarcia warsztat potrzebował czytelnej prezentacji oferty, lokalizacji i sposobu umawiania wizyt. Najważniejsze było ułatwienie kierowcom kontaktu telefonicznego oraz znalezienia dojazdu.",
       solution:
-        "Zaprojektowałem i zakodowałem od zera jednostronicową witrynę: sekcja usług, proces obsługi krok po kroku, opinie i wyróżniki budujące zaufanie oraz wyeksponowany kontakt (telefon zawsze pod ręką). Całość zoptymalizowana pod urządzenia mobilne i szybkość ładowania.",
+        "Strona prezentuje wulkanizację, serwis olejowy, klimatyzację i bieżące naprawy na osobnych podstronach. Wyeksponowane przyciski telefonu, informacje o warsztacie, FAQ oraz mapa z dojazdem prowadzą użytkownika od poznania oferty do kontaktu. Projekt obejmuje wersję mobilną oraz jasny i ciemny motyw.",
       result:
-        "Czytelna prezentacja usług i znacznie łatwiejszy kontakt — klient ma teraz profesjonalną wizytówkę, którą może podać w reklamie i wizytówkach.",
-      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-      scope: ["Projekt UI/UX", "Kodowanie", "Optymalizacja SEO", "Wdrożenie"],
-      cover: "/projects/zbychu-garage/desktop.png",
-      gallery: [
-        "/projects/zbychu-garage/desktop.png",
-        "/projects/zbychu-garage/mobile.png",
+        "Warsztat ma jedno miejsce z aktualną ofertą i danymi kontaktowymi. Kierowca może sprawdzić zakres usługi, zadzwonić w sprawie terminu i wyznaczyć trasę do warsztatu.",
+      stack: ["Next.js", "React"],
+      scope: [
+        "Projekt UI/UX",
+        "Podstrony usług",
+        "Wersja mobilna",
+        "Mapa i kontakt",
+        "Jasny i ciemny motyw",
       ],
-      githubUrl: "https://github.com/DawOrl/mechanic-website",
-      liveUrl: "https://mechanic-website-rose.vercel.app/",
+      cover: "/projects/topauto-serwis/desktop.png",
+      gallery: [
+        "/projects/topauto-serwis/desktop.png",
+        "/projects/topauto-serwis/mobile.png",
+      ],
+      githubUrl: "",
+      liveUrl: "https://topauto-serwis.vercel.app/",
       featured: false,
     },
 
@@ -247,7 +276,12 @@ export const cvData = {
       result:
         "Gość w kilka sekund widzi menu, lokalizację i rezerwuje stolik — bez telefonu i przeszukiwania social mediów. Lokal zyskuje profesjonalny wizerunek i widoczność w Google.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-      scope: ["Projekt UI/UX", "Menu online", "Formularz rezerwacji", "SEO lokalne"],
+      scope: [
+        "Projekt UI/UX",
+        "Menu online",
+        "Formularz rezerwacji",
+        "SEO lokalne",
+      ],
       cover: "/projects/restauracja-bella/desktop.png",
       gallery: [
         "/projects/restauracja-bella/desktop.png",
@@ -274,7 +308,12 @@ export const cvData = {
       result:
         "Salon ma własny, profesjonalny kanał rezerwacji i przestaje oddawać prowizję pośrednikom. Marka buduje rozpoznawalność, a baza klientów należy do salonu.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-      scope: ["Projekt UI/UX", "System rezerwacji", "Cennik usług", "SEO lokalne"],
+      scope: [
+        "Projekt UI/UX",
+        "System rezerwacji",
+        "Cennik usług",
+        "SEO lokalne",
+      ],
       cover: "/projects/salon-glow/desktop.png",
       gallery: [
         "/projects/salon-glow/desktop.png",
@@ -301,7 +340,12 @@ export const cvData = {
       result:
         "Marka sprzedaje online 24/7, przyjmuje płatności automatycznie i dociera poza swój region. Klient zarządza produktami samodzielnie, bez programisty przy każdej zmianie.",
       stack: ["Next.js", "React", "Tailwind CSS", "Stripe"],
-      scope: ["Projekt UI/UX", "Katalog i koszyk", "Płatności online", "Panel zarządzania"],
+      scope: [
+        "Projekt UI/UX",
+        "Katalog i koszyk",
+        "Płatności online",
+        "Panel zarządzania",
+      ],
       cover: "/projects/sklep-craft-coffee/desktop.png",
       gallery: [
         "/projects/sklep-craft-coffee/desktop.png",
@@ -328,7 +372,12 @@ export const cvData = {
       result:
         "Firma odpowiada klientom natychmiast o każdej porze i automatyzuje powtarzalną pracę. Pokazuje praktyczne zastosowanie AI w obsłudze klienta — mój główny wyróżnik jako Fullstack AI Developer.",
       stack: ["Next.js", "React", "TypeScript", "OpenAI API", "Vercel"],
-      scope: ["Projekt UI/UX", "Integracja LLM", "Chatbot Q&A", "Generator ofert"],
+      scope: [
+        "Projekt UI/UX",
+        "Integracja LLM",
+        "Chatbot Q&A",
+        "Generator ofert",
+      ],
       cover: "/projects/asystent-ai/desktop.png",
       gallery: [
         "/projects/asystent-ai/desktop.png",
@@ -355,7 +404,12 @@ export const cvData = {
       result:
         "Każdy element strony pracuje na konwersję — odwiedzający z reklamy w kilkadziesiąt sekund rozumie korzyść, sprawdza oszczędności na własnym rachunku i zostawia kontakt. Wzorzec gotowy do adaptacji dla dowolnej usługi lokalnej rozliczanej z leadów.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-      scope: ["Projekt UI/UX", "Kalkulator oszczędności", "Formularz leadowy", "Optymalizacja konwersji"],
+      scope: [
+        "Projekt UI/UX",
+        "Kalkulator oszczędności",
+        "Formularz leadowy",
+        "Optymalizacja konwersji",
+      ],
       cover: "/projects/eko-solar/desktop.png",
       gallery: [
         "/projects/eko-solar/desktop.png",
@@ -382,7 +436,12 @@ export const cvData = {
       result:
         "Klientka w minutę ogląda wyselekcjonowane portfolio, zna ceny pakietów i wysyła zapytanie z konkretną datą. Fotografka dostaje profesjonalną wizytówkę niezależną od algorytmów — wzorzec dla każdej branży kreatywnej.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-      scope: ["Projekt UI/UX", "Galeria z filtrowaniem", "Pakiety i cennik", "Formularz zapytań"],
+      scope: [
+        "Projekt UI/UX",
+        "Galeria z filtrowaniem",
+        "Pakiety i cennik",
+        "Formularz zapytań",
+      ],
       cover: "/projects/fotograf-lena/desktop.png",
       gallery: [
         "/projects/fotograf-lena/desktop.png",
@@ -409,7 +468,12 @@ export const cvData = {
       result:
         "Klient dostaje orientacyjną cenę w 60 sekund o dowolnej porze, a do rozmowy trafia już z realnymi oczekiwaniami. Wzorzec automatyzacji pierwszego kontaktu do wpięcia w stronę dowolnej firmy usługowej.",
       stack: ["Next.js", "React", "TypeScript", "Framer Motion"],
-      scope: ["Projekt UI/UX", "Wizard 6 kroków", "Silnik wyceny", "Kosztorys pozycja po pozycji"],
+      scope: [
+        "Projekt UI/UX",
+        "Wizard 6 kroków",
+        "Silnik wyceny",
+        "Kosztorys pozycja po pozycji",
+      ],
       cover: "/projects/kalkulator-wyceny/desktop.png",
       gallery: [
         "/projects/kalkulator-wyceny/desktop.png",
@@ -430,7 +494,8 @@ export const cvData = {
   },
   education: {
     school: "Politechnika Krakowska im. Tadeusza Kościuszki",
-    degree: "Informatyki w inżynierii komputerowej - brak obrony pracy dyplomowej",
+    degree:
+      "Informatyki w inżynierii komputerowej - brak obrony pracy dyplomowej",
     period: "2021 - 2025",
   },
   certifications: [

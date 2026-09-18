@@ -19,7 +19,7 @@ export function ProjectsLibrary({
   const filtered = useMemo(
     () =>
       projects.filter((p) => active === "Wszystkie" || p.category === active),
-    [projects, active]
+    [projects, active],
   );
 
   return (
@@ -31,6 +31,7 @@ export function ProjectsLibrary({
             <button
               key={category}
               onClick={() => setActive(category)}
+              aria-pressed={active === category}
               className={`rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 ${
                 active === category
                   ? "bg-primary text-primary-foreground"
@@ -45,7 +46,7 @@ export function ProjectsLibrary({
 
       <motion.div
         layout
-        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-2"
       >
         <AnimatePresence mode="popLayout">
           {filtered.map((project, i) => (

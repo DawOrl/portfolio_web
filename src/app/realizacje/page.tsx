@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import { Aurora } from "@/components/blocks/Aurora";
 import { Navbar } from "@/components/blocks/Navbar";
 import { ProjectsLibrary } from "@/components/blocks/ProjectsLibrary";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
@@ -20,13 +19,12 @@ export default function RealizacjePage() {
 
   return (
     <>
-      <div className="fixed inset-0 -z-10 bg-background">
-        <Aurora />
-      </div>
-
       <Navbar />
 
-      <main className="mx-auto w-full max-w-6xl px-6 pb-24 pt-32 md:px-10 md:pt-40">
+      <main
+        id="main-content"
+        className="portfolio-inner mx-auto w-full max-w-6xl px-6 pb-24 pt-32 md:px-10 md:pt-40"
+      >
         <Link
           href="/#realizacje"
           className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
@@ -43,9 +41,9 @@ export default function RealizacjePage() {
             Biblioteka projektów
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground md:text-lg">
-            Wybrane realizacje stron i aplikacji. Każdy projekt to osobne case
-            study — pokazuję problem klienta, przyjęte rozwiązanie i osiągnięty
-            efekt.
+            Realizacje dla klientów i autorskie projekty stron oraz aplikacji.
+            Zobacz założenia, decyzje projektowe i możliwości poszczególnych
+            rozwiązań.
           </p>
         </header>
 

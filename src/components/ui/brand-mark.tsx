@@ -1,30 +1,23 @@
-"use client";
-/* eslint-disable @next/next/no-img-element */
-import { useState } from "react";
 import { cn } from "@/lib/utils";
-
-/**
- * Logo marki z /public (przezroczyste tło). Domyślnie sam znak orła
- * (logo-mark.png); przez `src` można podać pełny lockup (logo-full.png).
- * Jeśli pliku nie ma jeszcze w projekcie — komponent po cichu się chowa,
- * więc nigdzie nie pojawi się "zepsuty" obrazek.
- */
-export function BrandMark({
-  className,
-  src = "/logo-mark.png",
-}: {
-  className?: string;
-  src?: string;
-}) {
-  const [ok, setOk] = useState(true);
-  if (!ok) return null;
-
+/** Geometry shared with the favicon and downloadable SVG. */
+export function BrandMark({ className }: { className?: string; src?: string }) {
   return (
-    <img
-      src={src}
-      alt="Logo dorlowski.dev"
-      onError={() => setOk(false)}
-      className={cn("object-contain", className)}
-    />
+    <svg
+      width="88"
+      height="64"
+      viewBox="0 0 88 64"
+      fill="none"
+      className={cn("brand-mark", className)}
+      role="img"
+      aria-label="Dawid Orłowski — monogram do"
+    >
+      <path
+        d="M34 8v36a14 14 0 1 1-14-14h14"
+        stroke="currentColor"
+        strokeWidth="8"
+      />
+      <circle cx="61" cy="44" r="14" stroke="currentColor" strokeWidth="8" />
+      <path d="M77 8h8v8h-8z" fill="currentColor" />
+    </svg>
   );
 }
