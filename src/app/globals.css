@@ -2824,3 +2824,21 @@ h2 em {
   .privacy-header { margin-top: 36px; }
   .privacy-summary { padding: 18px; }
 }
+
+/* Pricing details share the editorial grid of the package cards. */
+.pricing-included { display: flex; align-items: baseline; gap: 32px; padding: 25px 0; border-bottom: 1px solid var(--border); }
+.pricing-included .eyebrow { flex-shrink: 0; }
+.pricing-included p { font-size: 13px; line-height: 1.8; }
+.pricing-extras { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; padding: 32px 0; border-bottom: 1px solid var(--border); }
+.pricing-extras h3 { font-size: 22px; font-weight: 400; letter-spacing: -.5px; }
+.pricing-extras p { font-size: 13px; line-height: 1.8; color: var(--muted-foreground); margin-top: 12px; max-width: 390px; }
+.pricing-extras dl > div { display: flex; justify-content: space-between; gap: 20px; padding: 14px 0; }
+.pricing-extras dl > div + div { border-top: 1px solid var(--border); }
+.pricing-extras dt { font-size: 13px; }
+.pricing-extras dt span { display: block; font-size: 11px; color: var(--muted-foreground); margin-top: 4px; }
+.pricing-extras dd { white-space: nowrap; font-size: 18px; font-variant-numeric: tabular-nums; }
+.pricing-note { font-size: 12px; line-height: 1.8; max-width: 900px; }
+@media (max-width: 760px) {
+  .pricing-included { flex-direction: column; gap: 12px; }
+  .pricing-extras { grid-template-columns: 1fr; gap: 20px; }
+}

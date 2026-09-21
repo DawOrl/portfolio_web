@@ -106,57 +106,61 @@ export const cvData = {
     },
   ],
 
-  // Cennik / pakiety (orientacyjne — finalna wycena indywidualna)
+  // Ceny wejściowe dla określonego zakresu; dodatki wyceniane osobno.
   pricing: [
     {
       name: "Start",
-      tagline: "Wizytówka one-page",
+      tagline: "Wizytówka Twojej firmy",
       price: "od 990 zł",
-      description:
-        "Idealny dla nowych działalności, które chcą szybko zaistnieć w sieci.",
+      description: "Dla małej firmy, która potrzebuje dobrego pierwszego wrażenia i prostego sposobu na kontakt.",
       features: [
-        "Strona one-page",
-        "Pełna responsywność (RWD)",
+        "Jedna strona, do 5 sekcji",
+        "Wygląd dopasowany do Twojej marki",
+        "Wersja na telefon, tablet i komputer",
         "Formularz kontaktowy",
-        "Podstawowa optymalizacja SEO",
-        "Realizacja do 7 dni",
+        "Podstawowe ustawienia SEO",
+        "Podpięcie domeny i publikacja",
       ],
       featured: false,
-      cta: "Wybieram Start",
+      cta: "Zapytaj o wizytówkę",
     },
     {
       name: "Biznes",
-      tagline: "Rozbudowana strona firmowa",
-      price: "od 2 490 zł",
-      description:
-        "Kompletna strona, która sprzedaje i buduje profesjonalny wizerunek.",
+      tagline: "Strona firmowa",
+      price: "od 1 990 zł",
+      description: "Miejsce na Twoją ofertę, realizacje i historię firmy. Dla klientów, którzy chcą poznać Cię bliżej.",
       features: [
-        "Do 6 podstron",
-        "Indywidualny projekt UI/UX",
-        "Animacje i mikrointerakcje",
-        "Samodzielna edycja treści (CMS)",
-        "Zaawansowane SEO + Google Analytics",
-        "30 dni wsparcia po wdrożeniu",
+        "Do 5 stron, w tym strona główna",
+        "Indywidualny wygląd dopasowany do marki",
+        "Czytelna prezentacja usług i realizacji",
+        "Wersja na telefon, tablet i komputer",
+        "Formularz i podstawowe ustawienia SEO",
+        "Podpięcie domeny i publikacja",
       ],
       featured: true,
-      cta: "Wybieram Biznes",
+      cta: "Zapytaj o stronę firmową",
     },
     {
-      name: "Indywidualny",
-      tagline: "Sklep / aplikacja / integracje",
-      price: "wycena indywidualna",
-      description:
-        "Złożone projekty: e-commerce, panele, integracje i aplikacje.",
+      name: "Landing",
+      tagline: "Jedna oferta. Konkretny cel.",
+      price: "od 1 490 zł",
+      description: "Strona pod wybraną usługę lub kampanię. Pomaga zrozumieć ofertę i zrobić kolejny krok.",
       features: [
-        "Sklep internetowy / e-commerce",
-        "Integracje z systemami i API",
-        "Panel administracyjny",
-        "Automatyzacje procesów",
-        "Indywidualny zakres wsparcia",
+        "Jedna strona, do 8 sekcji",
+        "Układ dopasowany do celu kampanii",
+        "Uporządkowanie argumentów oferty",
+        "Wezwania do działania, formularz i FAQ",
+        "Wersja mobilna i podstawowe SEO",
+        "Podpięcie domeny i publikacja",
       ],
       featured: false,
-      cta: "Porozmawiajmy",
+      cta: "Zapytaj o landing page",
     },
+  ],
+  pricingExtras: [
+    { name: "Teksty na wizytówkę lub landing", detail: "Do 1 000 słów", price: "+350 zł" },
+    { name: "Teksty na stronę firmową", detail: "Do 2 500 słów", price: "+700 zł" },
+    { name: "Dodatkowa podstrona", detail: "W istniejącym układzie strony", price: "+250 zł" },
   ],
 
   // Opinie — TODO: zastąp prawdziwymi opiniami klientów (na razie przykładowe)
@@ -188,7 +192,7 @@ export const cvData = {
   faq: [
     {
       q: "Ile kosztuje strona internetowa?",
-      a: "Cena zależy od zakresu — prosta wizytówka zaczyna się od 990 zł, a rozbudowana strona firmowa od 2 490 zł. Wycenę zawsze przygotowuję bezpłatnie i indywidualnie po krótkiej rozmowie o Twoich potrzebach.",
+      a: "Wizytówka do 5 sekcji kosztuje od 990 zł, strona firmowa do 5 stron od 1 990 zł, a landing do 8 sekcji od 1 490 zł. Przed rozpoczęciem pracy otrzymujesz bezpłatną wycenę z pełną kwotą do zapłaty i ustalonym zakresem. Domena, hosting i płatne usługi są rozliczane osobno.",
     },
     {
       q: "Jak długo trwa realizacja?",
@@ -200,11 +204,11 @@ export const cvData = {
     },
     {
       q: "Czy będę mógł samodzielnie edytować treści?",
-      a: "W pakiecie Biznes wdrażam prosty system zarządzania treścią (CMS), dzięki któremu samodzielnie zmienisz teksty czy zdjęcia. Przy prostszych stronach edycję mogę przejąć w ramach wsparcia.",
+      a: "Tak, jeśli rozszerzymy projekt o system zarządzania treścią (CMS). Panel edycji i blog wyceniam osobno — nie są zawarte w podstawowych pakietach. Możesz też zlecać mi późniejsze zmiany według ustalonej wyceny.",
     },
     {
       q: "Co z hostingiem i domeną?",
-      a: "Doradzę i pomogę skonfigurować hosting oraz domenę. Strony stawiam na nowoczesnej, szybkiej infrastrukturze (np. Vercel) — często w darmowym lub bardzo tanim planie.",
+      a: "Pomogę dobrać i skonfigurować domenę oraz hosting odpowiedni do projektu i jego komercyjnego wykorzystania. Ich zakup, odnowienia oraz płatne usługi zewnętrzne są poza ceną wykonania strony. Koszty poznasz przed rozpoczęciem pracy.",
     },
     {
       q: "Czy kod strony należy do mnie?",

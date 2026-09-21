@@ -279,9 +279,9 @@ export default function Home() {
               <em>Uczciwe zasady.</em>
             </h2>
             <p>
-              Każdy projekt wyceniam po rozmowie.
+              Wybierz zakres dopasowany do swojej firmy.
               <br />
-              Te pakiety pomogą Ci zaplanować budżet.
+              Pełną wycenę poznasz przed rozpoczęciem pracy.
             </p>
           </div>
           <div className="pricing-grid">
@@ -297,7 +297,7 @@ export default function Home() {
                   {p.featured && <span>POLECANY</span>}
                 </div>
                 <h3>{p.tagline}</h3>
-                <p className={`plan-price ${i === 2 ? "plan-custom" : ""}`}>
+                <p className="plan-price">
                   {p.price}
                 </p>
                 <p>{p.description}</p>
@@ -316,9 +316,28 @@ export default function Home() {
               </article>
             ))}
           </div>
+          <div className="pricing-included">
+            <span className="eyebrow">W KAŻDYM PAKIECIE</span>
+            <p>Dwie rundy poprawek · Drobna redakcja Twoich tekstów · 30 dni pomocy przy błędach wdrożenia</p>
+          </div>
+          <div className="pricing-extras">
+            <div>
+              <h3>Teksty? Wybór należy do Ciebie.</h3>
+              <p>Możesz dostarczyć własne lub zlecić mi ich przygotowanie na podstawie informacji o Twojej firmie. Pisanie tekstów obejmuje jedną rundę korekty.</p>
+            </div>
+            <dl>
+              {cvData.pricingExtras.map((extra) => (
+                <div key={extra.name}>
+                  <dt>{extra.name}<span>{extra.detail}</span></dt>
+                  <dd>{extra.price}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
           <p className="pricing-note">
-            Ceny orientacyjne. Ostateczny zakres, termin i koszt ustalamy przed
-            rozpoczęciem pracy.
+            Ceny wejściowe dotyczą opisanego zakresu. Końcową kwotę do zapłaty i termin potwierdzam w wycenie.
+            Domena, hosting i płatne usługi zewnętrzne są rozliczane osobno.
+            CMS, sklep, rezerwacje oraz rozbudowane animacje wymagają dodatkowej wyceny.
           </p>
         </section>
         <section id="faq" className="faq-section shell">
