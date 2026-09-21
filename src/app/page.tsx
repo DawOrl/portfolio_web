@@ -6,6 +6,7 @@ import { DesignSignature } from "@/components/blocks/DesignSignature";
 import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ContactSection } from "@/components/blocks/ContactSection";
+import { smtpContactEnabled } from "@/lib/contact-config";
 import { cvData } from "@/data/cv-data";
 import { getProjects } from "@/lib/projects";
 export default function Home() {
@@ -345,7 +346,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <ContactSection />
+        <ContactSection smtpEnabled={smtpContactEnabled()} />
       </main>
       <SiteFooter />
     </>

@@ -61,24 +61,23 @@ src/
 | Kolory, fonty, promienie | `src/app/globals.css` (blok `.dark` + `@theme`) |
 | Tło (Aurora) | `src/components/blocks/Aurora.tsx` |
 | Logo technologii (stack/marquee) | pliki SVG w `public/icons/` + mapy w `TechStack.tsx` / `InfiniteMarquee.tsx` |
-| Klucz formularza (Web3Forms) | `WEB3FORMS_ACCESS_KEY` w `src/components/blocks/ContactSection.tsx` |
+| Klucz formularza (Web3Forms) | zmienna `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY` |
 | Adres serwisu (SEO, sitemap) | zmienna `NEXT_PUBLIC_SITE_URL` lub `src/lib/site.ts` |
 
 ### Formularz kontaktowy
 
-Wysyłka maili działa przez [Web3Forms](https://web3forms.com) (darmowe, bez własnego backendu):
+Formularz obsługuje dwa warianty:
 
-1. Wejdź na web3forms.com i wpisz swój e-mail (`dawid.orlowski2002@gmail.com`).
-2. Klucz dostępu przyjdzie na skrzynkę.
-3. Wklej go w `WEB3FORMS_ACCESS_KEY` w `ContactSection.tsx`.
+- **OVH SMTP + Turnstile:** własny szablon HTML w kolorach portfolio, wersja tekstowa i odpowiedź bezpośrednio do klienta. Instrukcja aktywacji: [konfiguracja poczty](design/contact-email-setup.md). Hasła wyłącznie w zmiennych serwerowych.
+- **Web3Forms:** dotychczasowa wysyłka działa do czasu skonfigurowania SMTP i Turnstile. Publiczny klucz ustaw w zmiennej `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`, nie w kodzie. Przy braku obu konfiguracji formularz otwiera program pocztowy.
 
-Wiadomości będą przychodzić na e-mail użyty do wygenerowania klucza. Dopóki klucz jest pusty, formularz korzysta z fallbacku `mailto:` (otwiera klienta poczty).
+Zmiana konfiguracji wymaga nowego wdrożenia. Testy bez wysyłania wiadomości: `node --test tests/contact.test.mjs`.
 
 ---
 
 ## Wdrożenie
 
-Projekt jest statyczny i gotowy do wdrożenia na **Vercel** (zalecane dla Next.js) — wystarczy podłączyć repozytorium. W ustawieniach środowiska warto ustawić `NEXT_PUBLIC_SITE_URL` na docelową domenę (używane w metadanych, `sitemap.xml` i danych strukturalnych).
+Projekt ma statyczne strony oraz serwerową trasę `/api/contact` (Node.js) i jest gotowy do wdrożenia na **Vercel** (zalecane dla Next.js) — wystarczy podłączyć repozytorium. W ustawieniach środowiska warto ustawić `NEXT_PUBLIC_SITE_URL` na docelową domenę (używane w metadanych, `sitemap.xml` i danych strukturalnych).
 
 ---
 

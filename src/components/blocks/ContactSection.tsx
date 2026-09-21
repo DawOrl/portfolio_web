@@ -3,9 +3,11 @@
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cvData } from "@/data/cv-data";
+import { ContactChallenge } from "@/components/ui/contact-challenge";
 
 /**
- * Formularz wysyła zapytanie bezpośrednio do Web3Forms.
+ * Po skonfigurowaniu SMTP i Turnstile formularz wysyła przez /api/contact.
+ * Do tego czasu wysyła zapytanie bezpośrednio do Web3Forms.
  * (Darmowy plan Web3Forms dopuszcza wyłącznie wysyłkę po stronie przeglądarki —
  * server-side jest zablokowany, dlatego nie używamy własnego API route.)
  *
@@ -19,13 +21,16 @@ const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 type Status = "idle" | "sending" | "success" | "error" | "mailto";
 
-export function ContactSection() {
+export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean }) {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
   const [service, setService] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [token, setToken] = useState("");
+  const [challengeVersion, setChallengeVersion] = useState(0);
+  const [website, setWebsite] = useState("");
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -41,6 +46,7 @@ export function ContactSection() {
 
   const handleSubmit = async (ev: FormEvent) => {
     ev.preventDefault();
+    if (status === "sending" || (smtpEnabled && !token)) return;
     if (!validate()) return;
     setStatus("sending");
 
@@ -60,7 +66,7 @@ export function ContactSection() {
     };
 
     // Brak klucza → fallback mailto (otwiera klienta poczty)
-    if (!WEB3FORMS_ACCESS_KEY) {
+    if (!smtpEnabled && !WEB3FORMS_ACCESS_KEY) {
       mailtoFallback();
       setStatus("mailto");
       return;
@@ -69,16 +75,31 @@ export function ContactSection() {
     const isEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contact.trim());
 
     try {
+      if (smtpEnabled) {
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, contact, service, message, website, token }),
+          signal: AbortSignal.timeout(35000),
+        });
+        const json = await res.json().catch(() => ({}));
+        if (!res.ok || !json.success) throw new Error("send failed");
+        setStatus("success");
+        resetFields();
+        return;
+      }
       // FormData = "prosty" request (multipart/form-data) → brak preflightu OPTIONS,
       // więc nie napotykamy blokady CORS, którą zwraca Web3Forms dla żądań JSON.
+      if (!WEB3FORMS_ACCESS_KEY) throw new Error("missing form configuration");
       const formData = new FormData();
       formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-      formData.append("subject", `Nowe zapytanie ze strony — ${name}`);
-      formData.append("from_name", "Formularz dorlowski.dev");
-      formData.append("Imię", name);
-      formData.append("Kontakt", contact);
-      formData.append("Czego dotyczy", service || "—");
-      formData.append("message", message);
+      formData.append("subject", `Nowe zapytanie | ${service || "Projekt indywidualny"} | ${name.trim()}`);
+      formData.append("from_name", "Dawid Orłowski | Zapytania ze strony");
+      // ASCII field names avoid corrupted multipart field labels in notification emails.
+      formData.append("Nadawca", name.trim());
+      formData.append("Kontakt", contact.trim());
+      formData.append("Projekt", service || "Do ustalenia");
+      formData.append("Opis projektu", message.trim());
       if (isEmail) formData.append("replyto", contact.trim());
 
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -86,12 +107,17 @@ export function ContactSection() {
         body: formData,
       });
       const json = await res.json().catch(() => ({}));
-      if (!json.success) throw new Error("send failed");
+      if (!res.ok || !json.success) throw new Error("send failed");
 
       setStatus("success");
       resetFields();
     } catch {
       setStatus("error");
+    } finally {
+      if (smtpEnabled) {
+        setToken("");
+        setChallengeVersion((value) => value + 1);
+      }
     }
   };
 
@@ -119,7 +145,7 @@ export function ContactSection() {
                 <p>
                   {status === "mailto"
                     ? "Otworzyłem program pocztowy z treścią zapytania. Wyślij wiadomość w swoim programie, aby do mnie dotarła."
-                    : "Twoja wiadomość dotarła. Odezwę się najszybciej, jak to możliwe."}
+                    : "Twoja wiadomość została wysłana. Odezwę się najszybciej, jak to możliwe."}
                 </p>
                 <button
                   className="contact-submit"
@@ -147,6 +173,7 @@ export function ContactSection() {
                     id="name"
                     name="name"
                     autoComplete="name"
+                    maxLength={100}
                     required
                     value={name}
                     onChange={(e) => setName(e.target.value)}
@@ -167,6 +194,7 @@ export function ContactSection() {
                   <input
                     id="contact"
                     name="contact"
+                    maxLength={254}
                     required
                     value={contact}
                     onChange={(e) => setContact(e.target.value)}
@@ -210,6 +238,7 @@ export function ContactSection() {
                   <textarea
                     id="message"
                     name="message"
+                    maxLength={5000}
                     required
                     rows={3}
                     value={message}
@@ -226,6 +255,13 @@ export function ContactSection() {
                     </p>
                   )}
                 </div>
+                {smtpEnabled && <>
+                  <div hidden aria-hidden="true">
+                    <label htmlFor="contact-website">Website</label>
+                    <input id="contact-website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
+                  </div>
+                  <ContactChallenge key={challengeVersion} onToken={setToken} />
+                </>}
                 {status === "error" && (
                   <p className="contact-error" role="alert">
                     Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz
@@ -238,7 +274,7 @@ export function ContactSection() {
                 )}
                 <button
                   type="submit"
-                  disabled={status === "sending"}
+                  disabled={status === "sending" || (smtpEnabled && !token)}
                   className="contact-submit"
                 >
                   {status === "sending" ? (

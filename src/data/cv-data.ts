@@ -2,7 +2,7 @@ export const cvData = {
   personal: {
     name: "Dawid Orłowski",
     role: "Fullstack AI Developer",
-    email: "dawid.orlowski2002@gmail.com",
+    email: "contact@dorlowski.dev",
     phone: "739 258 786",
     location: "Kraków",
     // Przekaz sprzedażowy (hero)
