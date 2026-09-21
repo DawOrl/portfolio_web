@@ -1,3 +1,4 @@
+import { dashboardConfigured } from "@/lib/dashboard/config";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   const smtp = smtpContactEnabled();
+  const dashboard = dashboardConfigured();
   return <>
     <Navbar />
     <main id="main-content" className="privacy-page shell">
@@ -35,6 +37,7 @@ export default function PrivacyPage() {
         <section aria-labelledby="dane">
           <h2 id="dane">02. Jakie dane otrzymuję</h2>
           <p>W formularzu podajesz imię, adres e-mail lub numer telefonu oraz treść wiadomości. Rodzaj projektu jest opcjonalny. Jeśli piszesz bezpośrednio e-mailem, otrzymuję też dane zawarte w korespondencji i ewentualnych załącznikach. Podanie danych jest dobrowolne, ale bez danych kontaktowych nie mogę odpowiedzieć na zapytanie.</p>
+          {dashboard && <p>Jeśli wypełniasz brief projektu, otrzymuję również informacje o Twojej firmie, celach strony, materiałach, budżecie i terminie. Zapytania, briefy, ustalenia, oferty oraz informacje o wpłatach mogę przechowywać w prywatnym panelu do obsługi współpracy. Link do briefu wygasa po 14 dniach; wygaśnięcie linku nie usuwa już przesłanych odpowiedzi, których dotyczy okres przechowywania opisany poniżej.</p>}
           <p>Nie podawaj w formularzu haseł, numeru PESEL ani danych wrażliwych. Wystarczy opis planowanej współpracy.</p>
           <p>Podczas odwiedzin infrastruktura strony może przetwarzać adres IP, czas żądania, adres odwiedzanej strony, informacje o przeglądarce i urządzeniu oraz błędach połączenia. Są to dane techniczne służące dostarczaniu strony i jej ochronie.</p>
         </section>
@@ -52,6 +55,7 @@ export default function PrivacyPage() {
           <h2 id="dostawcy">04. Usługi, które obsługują stronę</h2>
           <ul>
             <li><strong>Vercel:</strong> hosting i obsługa żądań do strony{smtp ? ", w tym przesłanie formularza przez funkcję serwerową" : ""}. <a href="https://vercel.com/legal/privacy-policy">Polityka prywatności Vercel</a>.</li>
+            {dashboard && <li><strong>Supabase:</strong> baza danych zapytań i projektów oraz uwierzytelnianie właściciela prywatnego panelu. <a href="https://supabase.com/privacy">Polityka prywatności Supabase</a> i <a href="https://supabase.com/legal/dpa">umowa przetwarzania danych</a>.</li>}
             <li><strong>OVHcloud:</strong> obsługa domeny i skrzynki contact@dorlowski.dev, w której przechowuję korespondencję. <a href="https://www.ovhcloud.com/pl/personal-data-protection/">Ochrona danych w OVHcloud</a>.</li>
             {smtp ? <li><strong>Cloudflare Turnstile:</strong> ochrona formularza przed botami. Cloudflare przetwarza sygnały techniczne, np. IP i informacje o przeglądarce, aby ocenić ruch. Nie przekazuję do Turnstile treści Twojego zapytania. Cloudflare działa również jako odrębny administrator przy ulepszaniu wykrywania botów. <a href="https://www.cloudflare.com/turnstile-privacy-policy/">Zasady prywatności Turnstile</a>.</li> : process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY ? <li><strong>Web3Forms:</strong> przekazanie danych formularza na moją skrzynkę pocztową oraz ochrona wysyłki przed spamem. <a href="https://web3forms.com/privacy">Polityka prywatności Web3Forms</a>.</li> : null}
           </ul>
@@ -72,6 +76,7 @@ export default function PrivacyPage() {
           <h2 id="przegladarka">07. Przeglądarka i narzędzia pomiarowe</h2>
           <p>Nie stosuję cookies reklamowych ani narzędzi do analizy zachowania użytkowników. Mechanizm motywu strony może zapisać ustawienie wyglądu w pamięci lokalnej przeglądarki (localStorage, klucz „theme”). Możesz usunąć je w ustawieniach danych witryny.</p>
           {smtp && <p>Turnstile wykorzystuje sygnały przeglądarki do weryfikacji bezpieczeństwa. Zakres danych i ewentualnych mechanizmów zapisu opisuje <a href="https://www.cloudflare.com/turnstile-privacy-policy/">dokumentacja prywatności Cloudflare</a>. Jeśli nie chcesz korzystać z formularza, możesz skontaktować się bezpośrednio e-mailem.</p>}
+          {dashboard && <p>Logowanie do prywatnego panelu właściciela korzysta z niezbędnych cookies sesyjnych Supabase. Klient wypełniający brief nie zakłada konta. Link do briefu jest indywidualnym kluczem dostępu — nie publikuj go ani nie przekazuj osobom nieupoważnionym.</p>}
           <p>Google Search Console służy mi do sprawdzania obecności strony w wynikach wyszukiwania. Jego weryfikacja przez DNS nie instaluje na stronie skryptu Google Analytics.</p>
           <p>Przed uruchomieniem dodatkowej analityki lub marketingu zaktualizuję tę politykę i, gdy będzie to wymagane, umożliwię dokonanie wyboru przed uruchomieniem takich narzędzi.</p>
         </section>

@@ -49,6 +49,7 @@ test("API validates origin, size, challenge and SMTP acceptance before success",
   let sent;
   let accepted = ["contact@dorlowski.dev"];
   const route = load("../src/app/api/contact/route.ts", {
+    "@/lib/dashboard/capture": { captureInquiry: async () => {} },
     nodemailer: { createTransport: () => ({ sendMail: async (mail) => { sent = mail; return { accepted }; } }) },
     "next/server": { NextResponse: { json: (data, init) => Response.json(data, init) } },
     "@/lib/contact-email": email,

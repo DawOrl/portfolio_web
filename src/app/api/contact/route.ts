@@ -1,3 +1,4 @@
+import { captureInquiry } from "@/lib/dashboard/capture";
 import nodemailer from "nodemailer";
 import { NextResponse } from "next/server";
 import { createContactEmail, parseInquiry } from "@/lib/contact-email";
@@ -5,7 +6,7 @@ import { smtpContactEnabled } from "@/lib/contact-config";
 import { SITE_URL } from "@/lib/site";
 
 export const runtime = "nodejs";
-export const maxDuration = 30;
+export const maxDuration = 60;
 
 const MAX_BYTES = 24_000;
 const failure = (status: number) => NextResponse.json({ success: false }, { status });
@@ -74,6 +75,7 @@ export async function POST(request: Request) {
       ...createContactEmail(inquiry),
     });
     if (!resultMail.accepted.length) return failure(502);
+    await captureInquiry(inquiry);
     return NextResponse.json({ success: true });
   } catch {
     // Do not log the inquiry, credentials or full SMTP errors (may contain addresses).
