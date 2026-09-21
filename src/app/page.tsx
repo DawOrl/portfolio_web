@@ -6,13 +6,14 @@ import { DesignSignature } from "@/components/blocks/DesignSignature";
 import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ContactSection } from "@/components/blocks/ContactSection";
+import { PortfolioMotion, IntroReplay } from "@/components/blocks/PortfolioMotion";
 import { smtpContactEnabled } from "@/lib/contact-config";
 import { cvData } from "@/data/cv-data";
 import { getProjects } from "@/lib/projects";
 export default function Home() {
   const projects = getProjects();
   return (
-    <>
+    <PortfolioMotion>
       <Navbar />
       <main id="main-content">
         <div id="top" />
@@ -26,11 +27,9 @@ export default function Home() {
           </div>
           <div className="hero-title-wrap">
             <h1 id="hero-heading">
-              Dobry design.
-              <br />
-              <span>Jeszcze lepsza</span>
-              <br />
-              strona<span className="hero-dot">.</span>
+              <span className="hero-line"><span className="hero-line-inner">Dobry design.</span></span>{" "}
+              <span className="hero-line"><span className="hero-line-inner hero-line-accent">Jeszcze lepsza</span></span>{" "}
+              <span className="hero-line"><span className="hero-line-inner">strona<span className="hero-dot">.</span></span></span>
             </h1>
             <DesignSignature />
           </div>
@@ -65,6 +64,7 @@ export default function Home() {
           </div>
           <div className="hero-baseline">
             <span>STRATEGIA / DESIGN / DEVELOPMENT</span>
+            <IntroReplay />
             <span>
               PRZEWIŃ, ŻEBY ZOBACZYĆ WIĘCEJ <ArrowDown size={13} />
             </span>
@@ -368,6 +368,6 @@ export default function Home() {
         <ContactSection smtpEnabled={smtpContactEnabled()} />
       </main>
       <SiteFooter />
-    </>
+    </PortfolioMotion>
   );
 }
