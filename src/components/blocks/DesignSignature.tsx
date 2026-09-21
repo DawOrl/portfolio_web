@@ -32,7 +32,7 @@ export function DesignSignature() {
           <path
             className="signature-dot"
             d="M260 42h22v22h-22z"
-            fill="currentColor"
+            fill="var(--accent-cool)"
           />
           <g className="signature-crosses" stroke="currentColor">
             <path d="M14 14h12m-6-6v12M294 14h12m-6-6v12M14 246h12m-6-6v12M294 246h12m-6-6v12" />

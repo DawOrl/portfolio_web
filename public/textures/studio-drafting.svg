@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" fill="none">
+  <defs>
+    <pattern id="grid" width="88" height="88" patternUnits="userSpaceOnUse">
+      <path d="M88 0H0V88" stroke="#9FC5D3" stroke-opacity=".075" stroke-width=".7"/>
+    </pattern>
+  </defs>
+  <path d="M0 0h1280v800H0z" fill="url(#grid)"/>
+  <g stroke="#9FC5D3" stroke-width=".7" stroke-opacity=".19" transform="rotate(-28 1060 410)">
+    <ellipse cx="1060" cy="410" rx="425" ry="290"/>
+    <ellipse cx="1060" cy="410" rx="376" ry="241"/>
+    <ellipse cx="1060" cy="410" rx="327" ry="192"/>
+    <path d="M600 410h920M1060 84v652" stroke-dasharray="2 8" stroke-opacity=".12"/>
+  </g>
+  <g stroke="#9FC5D3" stroke-width=".8" stroke-opacity=".45">
+    <path d="M786 92h12m-6-6v12M1138 708h12m-6-6v12M610 620h12m-6-6v12"/>
+  </g>
+</svg>

@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { ArrowUpRight, ArrowUp } from "lucide-react";
-import { BrandMark } from "@/components/ui/brand-mark";
+import { BrandBlock } from "@/components/ui/brand-block";
 export function SiteFooter() {
   return (
     <footer className="site-footer shell">
       <div className="footer-top">
         <Link href="/#top" className="brand">
-          <BrandMark />
+          <BrandBlock />
           <span>
             Dawid Orłowski<small>DESIGN & DEVELOPMENT</small>
           </span>
@@ -24,7 +24,7 @@ export function SiteFooter() {
           </Link>
           <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
           <a
-            href="/Dawid_Orlowski_CV.pdf"
+            href="/Dawid_Orlowski_CV.pdf?v=2026-09-22"
             target="_blank"
             rel="noopener noreferrer"
           >

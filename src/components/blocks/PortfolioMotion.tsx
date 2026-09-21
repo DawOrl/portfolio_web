@@ -38,35 +38,11 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
     let previousOverflow = "";
     let previousFocus: HTMLElement | null = null;
 
-    const animatePage = (entrance: boolean) => {
+    const animatePage = () => {
       pageContext?.revert();
       pageContext = undefined;
       if (preference.matches) return;
       pageContext = gsap.context(() => {
-        if (entrance && window.scrollY < 100 && !window.location.hash) {
-          gsap.from(".hero-line-inner", {
-            yPercent: 105,
-            rotation: 2,
-            duration: 1.05,
-            stagger: 0.12,
-            ease: "power3.out",
-            clearProps: "transform",
-          });
-          gsap.from(".hero-meta, .hero-bottom, .hero-baseline", {
-            opacity: 0,
-            y: 16,
-            duration: 0.7,
-            stagger: 0.1,
-            delay: 0.3,
-            clearProps: "all",
-          });
-          gsap.from(".design-signature", {
-            opacity: 0,
-            duration: 1,
-            delay: 0.55,
-            clearProps: "opacity",
-          });
-        }
         const reveal =
           ".section-heading, .design-interlude-copy, .portrait-story > div, .service-row, .process-grid article, .price-plan, .faq-section > div:first-child, .contact-invitation";
         gsap.utils.toArray<HTMLElement>(reveal, content).forEach((element) => {
@@ -97,28 +73,13 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
           });
         if (window.matchMedia("(min-width: 761px)").matches) {
           gsap.fromTo(
-            ".design-sculpture img",
-            { yPercent: 5, rotation: -3 },
+            ".about-portrait-image img",
+            { yPercent: 1 },
             {
-              yPercent: -5,
-              rotation: 2,
+              yPercent: -1,
               ease: "none",
               scrollTrigger: {
-                trigger: ".design-interlude",
-                start: "top bottom",
-                end: "bottom top",
-                scrub: 0.8,
-              },
-            },
-          );
-          gsap.fromTo(
-            ".portrait-editorial-image img",
-            { yPercent: 3 },
-            {
-              yPercent: -3,
-              ease: "none",
-              scrollTrigger: {
-                trigger: ".portrait-stage",
+                trigger: ".about-portrait-stage",
                 start: "top bottom",
                 end: "bottom top",
                 scrub: 0.8,
@@ -126,6 +87,28 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
             },
           );
         }
+        gsap.utils
+          .toArray<HTMLElement>(".type-word", content)
+          .forEach((word, index) => {
+            const direction = index === 1 ? -1 : 1;
+            const distance = () =>
+              Math.min(window.innerWidth * 0.025, 34) * direction;
+            gsap.fromTo(
+              word,
+              { x: () => -distance() },
+              {
+                x: distance,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: ".type-interlude",
+                  start: "top bottom",
+                  end: "bottom top",
+                  scrub: 0.6,
+                  invalidateOnRefresh: true,
+                },
+              },
+            );
+          });
         gsap.from(".footer-word", {
           y: 30,
           opacity: 0.3,
@@ -156,7 +139,7 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
       }
       if (previousFocus?.isConnected && previousFocus !== document.body)
         previousFocus.focus({ preventScroll: true });
-      animatePage(true);
+      animatePage();
     };
     dismiss.current = finish;
 
@@ -232,11 +215,11 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
       !preference.matches
     )
       play();
-    else animatePage(false);
+    else animatePage();
 
     const onPreference = () => {
       if (running) finish();
-      else animatePage(false);
+      else animatePage();
     };
     // Keyboard users should never focus an element that is waiting for a scroll reveal.
     const onFocus = (event: FocusEvent) => {
@@ -327,7 +310,7 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
                 <path
                   className="intro-accent"
                   d="M77 8h8v8h-8z"
-                  fill="#a00c30"
+                  fill="var(--accent-cool)"
                 />
               </svg>
               <span className="intro-annotation intro-annotation-bottom">

@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+
 /** Geometry shared with the favicon and downloadable SVG. */
 export function BrandMark({ className }: { className?: string; src?: string }) {
   return (
@@ -17,7 +18,7 @@ export function BrandMark({ className }: { className?: string; src?: string }) {
         strokeWidth="8"
       />
       <circle cx="61" cy="44" r="14" stroke="currentColor" strokeWidth="8" />
-      <path d="M77 8h8v8h-8z" fill="currentColor" />
+      <path d="M77 8h8v8h-8z" fill="#9FC5D3" />
     </svg>
   );
 }

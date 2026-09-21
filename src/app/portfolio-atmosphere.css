@@ -1,0 +1,169 @@
+/* Static, local textures: no extra animation loop or canvas behind the content. */
+.portfolio-home {
+  --studio-grain: url("/textures/studio-grain.svg");
+  --studio-fade-x: linear-gradient(
+    90deg,
+    transparent,
+    #000 14%,
+    #000 86%,
+    transparent
+  );
+  --studio-fade-y: linear-gradient(
+    transparent,
+    #000 12%,
+    #000 86%,
+    transparent
+  );
+  background-image:
+    radial-gradient(
+      ellipse 760px 600px at 96% 250px,
+      #9fc5d313,
+      transparent 76%
+    ),
+    radial-gradient(
+      ellipse 600px 520px at -12% 670px,
+      #a00c3024,
+      transparent 74%
+    ),
+    var(--studio-grain);
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-size:
+    auto,
+    auto,
+    160px 160px;
+}
+.portfolio-home .hero,
+.portfolio-home .work-section,
+.portfolio-home .design-interlude,
+.portfolio-home .process-section {
+  position: relative;
+  isolation: isolate;
+}
+.portfolio-home .hero::before,
+.portfolio-home .work-section::before,
+.portfolio-home .work-section::after,
+.portfolio-home .design-interlude::before,
+.portfolio-home .process-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+.portfolio-home .hero::before {
+  background: url("/textures/studio-drafting.svg") right top / cover no-repeat;
+  mask-image:
+    linear-gradient(90deg, transparent 24%, #000 64%, #000 82%, transparent),
+    linear-gradient(transparent, #000 8%, #000 62%, transparent);
+  mask-composite: intersect;
+}
+/* Every contained light field fades to zero before reaching the content edges. */
+.portfolio-home .design-interlude::before,
+.portfolio-home .work-section::before {
+  mask-image: var(--studio-fade-x), var(--studio-fade-y);
+  mask-composite: intersect;
+}
+.portfolio-home .design-interlude::before {
+  background: radial-gradient(ellipse at 77% 48%, #9fc5d311, transparent 57%);
+}
+.portfolio-home .work-section::before {
+  background:
+    radial-gradient(ellipse at 76% 57%, #9fc5d312, transparent 51%),
+    radial-gradient(ellipse at 27% 70%, #a00c3019, transparent 48%);
+}
+.portfolio-home .work-section::after {
+  inset: 22% 0 9%;
+  background-image:
+    linear-gradient(#9fc5d30b 1px, transparent 1px),
+    linear-gradient(90deg, #9fc5d30b 1px, transparent 1px);
+  background-size: 88px 88px;
+  mask-image:
+    radial-gradient(ellipse 53% 65% at 50% 56%, #000, transparent),
+    var(--studio-fade-x), var(--studio-fade-y);
+  mask-composite: intersect;
+}
+.portfolio-home .services-section {
+  background-image:
+    var(--studio-grain),
+    linear-gradient(115deg, #31030e66, transparent 49%, #9fc5d318),
+    repeating-linear-gradient(
+      115deg,
+      transparent 0 139px,
+      #f4f0eb07 139px 140px
+    );
+  background-size:
+    160px 160px,
+    auto,
+    auto;
+}
+.portfolio-home .process-section::before {
+  background-image: radial-gradient(#9fc5d333 0.65px, transparent 0.9px);
+  background-size: 24px 24px;
+  mask-image:
+    radial-gradient(ellipse 42% 65% at 100% 52%, #000, transparent),
+    var(--studio-fade-x), var(--studio-fade-y);
+  mask-composite: intersect;
+}
+.portfolio-home .type-interlude {
+  background-image:
+    linear-gradient(115deg, #9fc5d30a, transparent 55%), var(--studio-grain);
+  background-size:
+    auto,
+    160px 160px;
+}
+.portfolio-home .contact-editorial {
+  background-image:
+    radial-gradient(ellipse at 100% 44%, #9fc5d313, transparent 57%),
+    radial-gradient(ellipse at 85% 110%, #a00c3015, transparent 46%),
+    var(--studio-grain);
+  background-size:
+    auto,
+    auto,
+    160px 160px;
+}
+@media (max-width: 760px) {
+  .portfolio-home {
+    background-image:
+      radial-gradient(
+        ellipse 440px 570px at 100% 350px,
+        #9fc5d30e,
+        transparent 78%
+      ),
+      var(--studio-grain);
+    background-size:
+      auto,
+      160px 160px;
+    background-repeat: no-repeat, repeat;
+  }
+  .portfolio-home .hero::before {
+    inset: 21% 0 18%;
+    background-size: auto 100%;
+    opacity: 0.58;
+    mask-image:
+      var(--studio-fade-x),
+      linear-gradient(transparent, #000 20%, #000 68%, transparent);
+    mask-composite: intersect;
+  }
+  .portfolio-home .work-section::after {
+    background-size: 64px 64px;
+    opacity: 0.6;
+  }
+  .portfolio-home .process-section::before {
+    opacity: 0.55;
+  }
+}
+@media (forced-colors: active) {
+  .portfolio-home,
+  .portfolio-home .services-section,
+  .portfolio-home .type-interlude,
+  .portfolio-home .contact-editorial {
+    background-image: none;
+  }
+  .portfolio-home .hero::before,
+  .portfolio-home .work-section::before,
+  .portfolio-home .work-section::after,
+  .portfolio-home .design-interlude::before,
+  .portfolio-home .process-section::before {
+    display: none;
+  }
+}

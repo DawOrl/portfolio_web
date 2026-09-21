@@ -1,0 +1,120 @@
+.project-motion-preview {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  background: #1d1d1d;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.project-motion-preview[data-playing="true"] {
+  opacity: 1;
+}
+.project-preview-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  height: 28px;
+  padding-inline: 12px;
+  font-size: 7px;
+  letter-spacing: 1.5px;
+  color: #f4f0eb;
+}
+.project-preview-bar > span {
+  margin-left: auto;
+  font-size: 12px;
+}
+.project-preview-viewport {
+  display: block;
+  position: absolute;
+  inset: 28px 0 3px;
+  overflow: hidden;
+}
+.project-preview-screen {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.project-preview-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #f4f0eb30;
+}
+.project-preview-progress > span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--accent-cool);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.carousel-preview-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 12px;
+  margin: 15px auto 0;
+  border: 1px solid #ffffff30;
+  color: #d2ccc6;
+  cursor: pointer;
+  font-size: 10px;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+.carousel-preview-toggle:hover,
+.carousel-preview-toggle[aria-pressed="true"] {
+  border-color: #f4f0eb;
+  color: #f4f0eb;
+  background: #ffffff08;
+}
+.carousel-preview-toggle:focus-visible {
+  outline: 2px solid #f4f0eb;
+  outline-offset: 4px;
+}
+.carousel-preview-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.carousel-preview-hint {
+  display: none;
+}
+@media (min-width: 761px) and (hover: hover) and (pointer: fine) {
+  .carousel-preview-hint {
+    display: block;
+    margin-top: 10px;
+    color: #b0ada9;
+    font-size: 9px;
+  }
+}
+@media (max-width: 760px) {
+  .project-preview-bar {
+    height: 24px;
+    padding-inline: 8px;
+    font-size: 6px;
+    letter-spacing: 1px;
+  }
+  .project-preview-viewport {
+    top: 24px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .project-motion-preview {
+    transition: none;
+  }
+  .project-preview-screen {
+    height: 100%;
+    object-fit: contain;
+  }
+  .project-preview-progress {
+    display: none;
+  }
+}

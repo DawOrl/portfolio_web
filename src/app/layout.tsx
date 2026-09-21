@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cvData } from "@/data/cv-data";
 import { SITE_URL } from "@/lib/site";
 
-const inter = Inter({
+const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
-  variable: "--font-inter",
+  variable: "--font-montserrat",
   display: "swap",
 });
 
@@ -85,7 +85,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" suppressHydrationWarning className={`${inter.variable}`}>
+    <html lang="pl" suppressHydrationWarning className={montserrat.variable}>
       <body className="font-sans antialiased min-h-screen">
         <a className="skip-link" href="#main-content">
           Przejdź do treści

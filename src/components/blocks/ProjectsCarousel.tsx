@@ -3,19 +3,38 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Smartphone,
+  X,
+} from "lucide-react";
 import type { Project } from "@/lib/projects";
+import { ProjectMotionPreview } from "./ProjectMotionPreview";
 
 export function ProjectsCarousel({ projects }: { projects: Project[] }) {
   const [active, setActive] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
+  const [preview, setPreview] = useState<number | null>(null);
   const gesture = useRef<{ x: number; y: number } | null>(null);
   const suppressClick = useRef(false);
   if (!projects.length) return null;
   const selected = projects[active];
-  const move = (direction: number) =>
+  const mobileCover = (project: Project) =>
+    project.gallery.find((src) => src.endsWith("/mobile.png"));
+  const select = (index: number) => {
+    setActive(index);
+    setPreview(null);
+    setHovered(null);
+  };
+  const move = (direction: number) => {
+    setPreview(null);
+    setHovered(null);
     setActive(
       (index) => (index + direction + projects.length) % projects.length,
     );
+  };
   const offset = (index: number) => {
     let distance = (index - active + projects.length) % projects.length;
     if (distance > projects.length / 2) distance -= projects.length;
@@ -28,6 +47,12 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
       role="region"
       aria-roledescription="karuzela"
       aria-label="Wybrane projekty"
+      onKeyDown={(event) => {
+        if (event.key === "Escape") {
+          setPreview(null);
+          setHovered(null);
+        }
+      }}
     >
       <div className="carousel-top">
         <span>WYBRANE PRACE / DESIGN & DEVELOPMENT</span>
@@ -49,6 +74,8 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
           if (event.button !== 0) return;
           gesture.current = { x: event.clientX, y: event.clientY };
           suppressClick.current = false;
+          setPreview(null);
+          setHovered(null);
         }}
         onPointerUp={(event) => {
           const start = gesture.current;
@@ -79,6 +106,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
         <div className="spatial-orbit" aria-hidden="true" />
         {projects.map((project, index) => {
           const distance = offset(index);
+          const mobile = mobileCover(project);
           return (
             <button
               key={project.slug}
@@ -87,7 +115,13 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
               data-position={distance}
               data-active={index === active}
               style={{ zIndex: projects.length - Math.abs(distance) }}
-              onClick={() => setActive(index)}
+              onClick={() => {
+                if (index !== active) select(index);
+              }}
+              onPointerEnter={(event) => {
+                if (event.pointerType === "mouse") setHovered(index);
+              }}
+              onPointerLeave={() => setHovered(null)}
               aria-label={`Pokaż projekt ${index + 1}: ${project.title}`}
               aria-pressed={index === active}
             >
@@ -100,6 +134,14 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                   draggable={false}
                 />
               </div>
+              {index === active && mobile && (
+                <ProjectMotionPreview
+                  key={project.slug}
+                  src={mobile}
+                  id={`preview-${project.slug}`}
+                  playing={hovered === active || preview === active}
+                />
+              )}
               <span className="spatial-card-number">
                 {String(index + 1).padStart(2, "0")} / {project.year}
               </span>
@@ -111,6 +153,26 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
         })}
         <span className="spatial-stage-note" aria-hidden="true">
           PRZECIĄGNIJ LUB WYBIERZ KARTĘ
+        </span>
+      </div>
+      <div className="carousel-preview-actions">
+        {mobileCover(selected) && (
+          <button
+            type="button"
+            className="carousel-preview-toggle"
+            aria-pressed={preview === active}
+            aria-controls={`preview-${selected.slug}`}
+            onClick={() => {
+              setHovered(null);
+              setPreview(preview === active ? null : active);
+            }}
+          >
+            {preview === active ? <X size={13} /> : <Smartphone size={13} />}
+            {preview === active ? "Zamknij podgląd" : "Podgląd mobilny"}
+          </button>
+        )}
+        <span className="carousel-preview-hint">
+          Możesz też najechać na środkową kartę.
         </span>
       </div>
       <div className="spatial-caption" aria-live="polite" aria-atomic="true">
@@ -135,7 +197,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
           {projects.map((project, index) => (
             <button
               key={project.slug}
-              onClick={() => setActive(index)}
+              onClick={() => select(index)}
               aria-label={`Przejdź do projektu ${index + 1}: ${project.title}`}
               aria-current={active === index ? "true" : undefined}
             >

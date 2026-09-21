@@ -1,0 +1,128 @@
+.monogram-sculpture {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.38;
+  isolation: isolate;
+  overflow: hidden;
+}
+.monogram-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+.monogram-sculpture[data-ready="true"] .monogram-canvas {
+  opacity: 1;
+}
+.monogram-fallback {
+  position: absolute;
+  width: 72%;
+  height: 72%;
+  top: 10%;
+  left: 14%;
+  transform: rotate(-5deg) skewY(2deg);
+}
+.monogram-sculpture[data-ready="true"] .monogram-fallback {
+  visibility: hidden;
+}
+.monogram-guide {
+  position: absolute;
+  inset: 15% 6% 18%;
+  border: 1px solid #ffffff09;
+}
+.monogram-guide::before,
+.monogram-guide::after {
+  content: "";
+  position: absolute;
+  background: #ffffff08;
+}
+.monogram-guide::before {
+  top: 50%;
+  width: 100%;
+  height: 1px;
+}
+.monogram-guide::after {
+  left: 50%;
+  height: 100%;
+  width: 1px;
+}
+.monogram-guide i {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border: solid #716967;
+}
+.monogram-guide i:nth-child(1) {
+  left: -1px;
+  top: -1px;
+  border-width: 1px 0 0 1px;
+}
+.monogram-guide i:nth-child(2) {
+  right: -1px;
+  top: -1px;
+  border-width: 1px 1px 0 0;
+}
+.monogram-guide i:nth-child(3) {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 1px 1px 0;
+}
+.monogram-guide i:nth-child(4) {
+  left: -1px;
+  bottom: -1px;
+  border-width: 0 0 1px 1px;
+}
+.monogram-shadow {
+  position: absolute;
+  width: 65%;
+  height: 9%;
+  left: 18%;
+  bottom: 21%;
+  border-radius: 50%;
+  background: #0008;
+  filter: blur(18px);
+  transform: rotate(-4deg);
+}
+.monogram-caption,
+.monogram-material,
+.monogram-pointer-note {
+  position: absolute;
+  font-size: 8px;
+  letter-spacing: 1.3px;
+  color: #a8a1a6;
+}
+.monogram-caption {
+  left: 6%;
+  bottom: 10%;
+}
+.monogram-material {
+  top: 9%;
+  right: 6%;
+}
+.monogram-pointer-note {
+  bottom: 10%;
+  right: 6%;
+  color: #d08094;
+}
+.monogram-pointer-note span {
+  margin-left: 9px;
+}
+@media (max-width: 760px) {
+  .monogram-sculpture {
+    aspect-ratio: 1.15;
+  }
+  .monogram-caption,
+  .monogram-material {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .monogram-shadow {
+    filter: blur(12px);
+  }
+}
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) {
+  .monogram-pointer-note {
+    display: none;
+  }
+}

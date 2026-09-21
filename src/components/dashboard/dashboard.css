@@ -8,7 +8,7 @@
   background: var(--dash-bg);
   color: var(--dash-text);
   min-height: 100vh;
-  font-family: var(--font-inter), Arial, sans-serif;
+  font-family: var(--font-montserrat), Arial, sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color-scheme: dark;

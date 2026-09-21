@@ -1,0 +1,171 @@
+.type-interlude {
+  overflow: clip;
+  background: #171717;
+  border-block: 1px solid #ffffff14;
+  padding-block: 34px 28px;
+}
+.type-interlude-meta,
+.type-interlude-foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+  font-size: 8px;
+  letter-spacing: 1.3px;
+  color: #9b9690;
+}
+.type-interlude-meta {
+  padding-bottom: 22px;
+  border-bottom: 1px solid #ffffff14;
+}
+.type-composition {
+  position: relative;
+  padding-block: 35px 42px;
+}
+.type-row {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+.type-index {
+  font-size: 9px;
+  letter-spacing: 1px;
+  color: #8e8685;
+  align-self: flex-start;
+  margin-top: 20px;
+}
+.type-word {
+  display: inline-block;
+  font-size: clamp(75px, 12vw, 164px);
+  line-height: 0.96;
+  font-weight: 500;
+  letter-spacing: -0.075em;
+  color: #f4f0eb;
+}
+.type-row-form {
+  margin-left: 30%;
+}
+.type-row-form .type-word {
+  color: #a00c30;
+}
+.type-row-site {
+  margin-left: 9%;
+}
+.type-row-site .type-word {
+  color: transparent;
+  letter-spacing: -0.035em;
+  -webkit-text-stroke: 1px #c7c0b8;
+}
+.type-stop {
+  color: #a00c30;
+  -webkit-text-stroke: 0;
+}
+.type-row-form .type-stop {
+  color: var(--accent-cool);
+}
+.type-registration {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 58px;
+  right: 8%;
+}
+.type-registration::before,
+.type-registration::after {
+  content: "";
+  position: absolute;
+  background: var(--accent-cool);
+}
+.type-registration::before {
+  width: 30px;
+  height: 1px;
+  top: 15px;
+}
+.type-registration::after {
+  height: 30px;
+  width: 1px;
+  left: 15px;
+}
+.type-interlude-foot {
+  padding-top: 22px;
+  border-top: 1px solid #ffffff14;
+}
+.type-interlude-foot a {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  font-size: 12px;
+  letter-spacing: 0;
+  color: #f4f0eb;
+}
+.type-interlude-foot a span {
+  color: var(--accent-cool);
+  font-size: 19px;
+  transition: transform 0.2s;
+}
+.type-interlude-foot a:hover span {
+  transform: translateY(3px);
+}
+.type-interlude-foot a:focus-visible {
+  outline: 2px solid var(--accent-cool);
+  outline-offset: 6px;
+}
+@media (max-width: 760px) {
+  .type-interlude {
+    padding-block: 24px;
+  }
+  .type-interlude-meta,
+  .type-interlude-foot {
+    font-size: 7px;
+    letter-spacing: 0.9px;
+  }
+  .type-interlude-meta > span:first-child {
+    max-width: 220px;
+    line-height: 1.7;
+  }
+  .type-interlude-meta > span:last-child {
+    white-space: nowrap;
+  }
+  .type-composition {
+    padding-block: 34px;
+  }
+  .type-row {
+    gap: 12px;
+  }
+  .type-index {
+    font-size: 7px;
+    margin-top: 6px;
+  }
+  .type-word {
+    font-size: clamp(42px, 13.8vw, 98px);
+    line-height: 1.04;
+  }
+  .type-row-form {
+    margin-left: 22%;
+  }
+  .type-row-site {
+    margin-left: 5%;
+  }
+  .type-registration {
+    top: 38px;
+    right: 3%;
+    width: 16px;
+    height: 16px;
+  }
+  .type-registration::before {
+    width: 16px;
+    top: 8px;
+  }
+  .type-registration::after {
+    height: 16px;
+    left: 8px;
+  }
+  .type-interlude-foot {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .type-interlude-foot a {
+    font-size: 11px;
+  }
+}

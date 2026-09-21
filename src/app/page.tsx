@@ -1,8 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowDown, ArrowRight, Check, Plus } from "lucide-react";
+import { ArrowUpRight, ArrowDown, Check, Plus } from "lucide-react";
 import { ProjectsCarousel } from "@/components/blocks/ProjectsCarousel";
 import { DesignSignature } from "@/components/blocks/DesignSignature";
+import { AboutPortrait } from "@/components/blocks/AboutPortrait";
+import { MonogramSculpture } from "@/components/blocks/MonogramSculpture";
+import { TypeInterlude } from "@/components/blocks/TypeInterlude";
+import { ServiceShowcase } from "@/components/blocks/ServiceShowcase";
+import { MiniSculpture } from "@/components/ui/mini-sculpture";
 import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ContactSection } from "@/components/blocks/ContactSection";
@@ -10,12 +15,13 @@ import { PortfolioMotion, IntroReplay } from "@/components/blocks/PortfolioMotio
 import { smtpContactEnabled } from "@/lib/contact-config";
 import { cvData } from "@/data/cv-data";
 import { getProjects } from "@/lib/projects";
+import "./portfolio-atmosphere.css";
 export default function Home() {
   const projects = getProjects();
   return (
     <PortfolioMotion>
       <Navbar />
-      <main id="main-content">
+      <main id="main-content" className="portfolio-home">
         <div id="top" />
         <section className="hero shell" aria-labelledby="hero-heading">
           <div className="hero-meta">
@@ -71,6 +77,7 @@ export default function Home() {
           </div>
         </section>
         <section
+          id="studium-formy"
           className="design-interlude shell"
           aria-label="Design dopracowany w detalach"
         >
@@ -87,21 +94,7 @@ export default function Home() {
               gdzie kończą się gotowe rozwiązania.
             </p>
           </div>
-          <div className="design-sculpture" aria-hidden="true">
-            <Image
-              src="/design-sculpture-burgundy.png"
-              alt=""
-              width={1536}
-              height={1024}
-              sizes="(max-width: 760px) 95vw, 55vw"
-            />
-            <span className="sculpture-coordinate sculpture-coordinate-a">
-              FIG. 01 / STUDIUM FORMY
-            </span>
-            <span className="sculpture-coordinate sculpture-coordinate-b">
-              GRAFIT × BURGUND
-            </span>
-          </div>
+          <MonogramSculpture />
         </section>
         <section id="realizacje" className="work-section shell">
           <div className="section-topline">
@@ -147,65 +140,16 @@ export default function Home() {
                 przyda się Twojej firmie.
               </p>
             </div>
-            <div className="service-list">
-              {cvData.services.map((s, i) => (
-                <a href="#kontakt" key={s.id} className="service-row">
-                  <span className="service-number">0{i + 1}</span>
-                  <h3>{s.title}</h3>
-                  <div>
-                    <p>{s.description}</p>
-                    <span>{s.features.slice(0, 3).join(" / ")}</span>
-                  </div>
-                  <ArrowUpRight className="service-arrow" strokeWidth={1} />
-                </a>
-              ))}
-            </div>
+            <ServiceShowcase services={cvData.services} />
           </div>
         </section>
         <section
           id="o-mnie"
-          className="portrait-section shell"
+          className="about-editorial-section"
           aria-labelledby="about-heading"
         >
-          <div className="portrait-stage">
-            <div className="portrait-topline">
-              <span>03 / CZŁOWIEK ZA PROJEKTEM</span>
-              <span>KRAKÓW, POLSKA ↗</span>
-            </div>
-            <div className="portrait-editorial-image">
-              <Image
-                src="/profile-editorial.png"
-                alt="Czarno-biały portret Dawida Orłowskiego"
-                fill
-                sizes="(max-width: 760px) 90vw, 55vw"
-              />
-            </div>
-            <div className="portrait-greeting">
-              <span className="portrait-kicker">
-                DESIGNER Z WYOBRAŹNIĄ.
-                <br />
-                DEVELOPER Z KONKRETAMI.
-              </span>
-              <h2 id="about-heading">
-                Cześć<span>.</span>
-              </h2>
-              <p>
-                Jestem Dawid Orłowski.
-                <br />
-                <em>Miło Cię poznać.</em>
-              </p>
-            </div>
-            <div className="portrait-side-label" aria-hidden="true">
-              MNIEJ PRZYPADKU. WIĘCEJ CHARAKTERU.
-            </div>
-            <a href="#moje-podejscie" className="portrait-discover">
-              Poznaj mnie bliżej <ArrowDown size={15} />
-            </a>
-            <span className="portrait-signature" aria-hidden="true">
-              Dawid O.
-            </span>
-          </div>
-          <div id="moje-podejscie" className="portrait-story">
+          <AboutPortrait />
+          <div id="moje-podejscie" className="portrait-story shell">
             <div>
               <span className="eyebrow">DWA SPOJRZENIA. JEDEN PROJEKT.</span>
               <h3>
@@ -227,7 +171,7 @@ export default function Home() {
               </p>
               <a
                 className="text-link"
-                href="/Dawid_Orlowski_CV.pdf"
+                href="/Dawid_Orlowski_CV.pdf?v=2026-09-22"
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -240,6 +184,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <TypeInterlude />
         <section id="proces" className="process-section shell">
           <div className="section-topline">
             <span className="eyebrow">04 / WSPÓŁPRACA KROK PO KROKU</span>
@@ -256,11 +201,11 @@ export default function Home() {
             </p>
           </div>
           <div className="process-grid">
-            {cvData.processSteps.map((s) => (
+            {cvData.processSteps.map((s, i) => (
               <article key={s.step}>
                 <span className="process-number">
                   {s.step}
-                  <ArrowRight size={20} />
+                  <MiniSculpture shape={(["cube", "portal", "steps", "cube"] as const)[i % 4]} small />
                 </span>
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
@@ -296,7 +241,10 @@ export default function Home() {
                   </span>
                   {p.featured && <span>POLECANY</span>}
                 </div>
-                <h3>{p.tagline}</h3>
+                <div className="plan-heading">
+                  <h3>{p.tagline}</h3>
+                  <MiniSculpture shape={(["cube", "steps", "portal"] as const)[i % 3]} />
+                </div>
                 <p className="plan-price">
                   {p.price}
                 </p>

@@ -24,8 +24,8 @@
   --color-ring: var(--ring);
 
   /* --- Typografia --- */
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-inter), ui-sans-serif, sans-serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-montserrat), ui-sans-serif, sans-serif;
 
   /* --- Promienie --- */
   --radius-lg: var(--radius);
@@ -46,6 +46,7 @@
   --popover: #252525;
   --popover-foreground: #f4f0eb;
   --primary: #a00c30;
+  --accent-cool: #9fc5d3;
   --accent-ink: #f4f0eb;
   --primary-foreground: #ffffff;
   --secondary: #303030;
@@ -274,7 +275,7 @@
 h1,
 h2,
 h3 {
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-montserrat), sans-serif;
 }
 h2 {
   font-size: clamp(38px, 4.2vw, 62px);
@@ -313,7 +314,7 @@ h2 em {
   height: 6px;
   width: 6px;
   border-radius: 50%;
-  background: var(--primary);
+  background: var(--accent-cool);
 }
 .hero-title-wrap {
   position: relative;
@@ -908,6 +909,7 @@ h2 em {
   font-size: 11px;
 }
 .footer-word {
+  text-align: center;
   font-size: clamp(60px, 12vw, 172px);
   font-weight: 550;
   letter-spacing: -0.075em;
@@ -1071,8 +1073,8 @@ h2 em {
     padding: 38px 0 30px;
   }
   .hero h1 {
-    font-size: clamp(47px, 10.1vw, 78px);
-    letter-spacing: -3px;
+    font-size: clamp(34px, 11vw, 76px);
+    letter-spacing: -0.055em;
     line-height: 1.08;
   }
   .hero-orbit {
@@ -2824,6 +2826,12 @@ h2 em {
   .privacy-header { margin-top: 36px; }
   .privacy-summary { padding: 18px; }
 }
+
+/* Ice blue is a secondary accent; burgundy remains the main brand color. */
+.spatial-carousel .carousel-progress button[aria-current="true"] > span { background: var(--accent-cool); }
+.spatial-card[data-active="true"] { border-color: var(--accent-cool); }
+.contact-title-art h2 i { background: var(--accent-cool); }
+.contact-contour { color: color-mix(in srgb, var(--accent-cool) 35%, transparent); }
 
 /* Pricing details share the editorial grid of the package cards. */
 .pricing-included { display: flex; align-items: baseline; gap: 32px; padding: 25px 0; border-bottom: 1px solid var(--border); }

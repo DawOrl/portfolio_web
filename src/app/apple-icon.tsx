@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
-import { BrandMark } from "@/components/ui/brand-mark";
+import { BrandBlockIcon } from "@/components/ui/brand-block-icon";
+// Home-screen icons use an opaque background around the same 3D mark.
 export const size = { width: 180, height: 180 };
 export const contentType = "image/png";
 export default function Icon() {
@@ -11,12 +12,10 @@ export default function Icon() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        background: "#f4f0eb",
-        color: "#A00C30",
-        padding: "12%",
+        background: "#1d1d1d",
       }}
     >
-      <BrandMark />
+      <BrandBlockIcon size={156} />
     </div>,
     size,
   );

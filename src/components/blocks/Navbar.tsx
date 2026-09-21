@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import { BrandMark } from "@/components/ui/brand-mark";
+import { BrandBlock } from "@/components/ui/brand-block";
 const links = [
   { label: "Realizacje", href: "/realizacje" },
   { label: "Usługi", href: "/#uslugi" },
@@ -30,7 +30,7 @@ export function Navbar() {
           className="brand"
           aria-label="Dawid Orłowski — strona główna"
         >
-          <BrandMark />
+          <BrandBlock />
           <span>
             Dawid Orłowski<small>DESIGN & DEVELOPMENT</small>
           </span>

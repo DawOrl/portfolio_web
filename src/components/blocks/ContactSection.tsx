@@ -5,6 +5,7 @@ import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 import { ContactChallenge } from "@/components/ui/contact-challenge";
+import { MiniSculpture } from "@/components/ui/mini-sculpture";
 
 /**
  * Po skonfigurowaniu SMTP i Turnstile formularz wysyła przez /api/contact.
@@ -321,7 +322,7 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                   opacity=".35"
                 />
               </svg>
-              <span className="contact-mini-cube" aria-hidden="true" />
+              <MiniSculpture shape="portal" small className="contact-sculpture" />
               <h2 id="contact-heading">
                 Zróbmy
                 <br />
