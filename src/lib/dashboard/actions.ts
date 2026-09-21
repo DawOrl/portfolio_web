@@ -15,6 +15,7 @@ import {
   uuid,
   type ActionState,
 } from "./model";
+import { databaseErrorMessage } from "./errors";
 import { SITE_URL } from "@/lib/site";
 
 export async function login(
@@ -64,7 +65,7 @@ export async function mutate(
   const id = () => uuid.parse(fields.id);
   const projectId = () => uuid.parse(fields.project_id);
   const ensure = (result: { error: unknown; data?: unknown }) => {
-    if (result.error) throw new Error("database");
+    if (result.error) throw result.error;
   };
   try {
     switch (fields.operation) {
@@ -121,14 +122,12 @@ export async function mutate(
         const title = text(300).min(2).parse(fields.title);
         const due = date.parse(fields.due_date);
         ensure(
-          await db
-            .from("crm_tasks")
-            .insert({
-              owner_id,
-              project_id: projectId(),
-              title,
-              due_date: due || null,
-            }),
+          await db.from("crm_tasks").insert({
+            owner_id,
+            project_id: projectId(),
+            title,
+            due_date: due || null,
+          }),
         );
         break;
       }
@@ -147,15 +146,13 @@ export async function mutate(
         const value = amount.refine((v) => v > 0).parse(fields.amount);
         const paid_at = date.refine((v) => Boolean(v)).parse(fields.paid_at);
         ensure(
-          await db
-            .from("crm_payments")
-            .insert({
-              owner_id,
-              project_id: projectId(),
-              amount: value,
-              paid_at,
-              label: text(160).min(2).parse(fields.label),
-            }),
+          await db.from("crm_payments").insert({
+            owner_id,
+            project_id: projectId(),
+            amount: value,
+            paid_at,
+            label: text(160).min(2).parse(fields.label),
+          }),
         );
         break;
       }
@@ -264,10 +261,7 @@ export async function mutate(
           "Sprawdź wymagane pola, format dat, adresów i kwot. " +
           error.issues[0].message,
       };
-    return {
-      error:
-        "Nie udało się zapisać. Sprawdź połączenie i konfigurację bazy. Numer oferty musi być unikalny; klienta z projektami nie można usunąć.",
-    };
+    return { error: databaseErrorMessage(error) };
   }
   revalidatePath("/panel", "layout");
   if (destination) redirect(destination);

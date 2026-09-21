@@ -291,6 +291,7 @@ test("actions reject invalid mutations and detect stale edits without claiming s
     },
     "./config": {},
     "./model": model,
+    "./errors": load("../src/lib/dashboard/errors.ts"),
     "@/lib/site": { SITE_URL: "https://dorlowski.dev" },
   });
   const submit = async (fields) => {
@@ -351,4 +352,24 @@ test("contact capture failure never drops an already delivered email", async () 
   } finally {
     console.error = original;
   }
+});
+
+test("database diagnostics distinguish missing permissions from constraints without leaking details", () => {
+  const { databaseErrorMessage } = load("../src/lib/dashboard/errors.ts");
+  assert.match(
+    databaseErrorMessage({
+      code: "42501",
+      message: "private SQL and client data",
+    }),
+    /crm_admins/,
+  );
+  assert.ok(
+    !databaseErrorMessage({
+      code: "42501",
+      message: "private SQL and client data",
+    }).includes("private SQL"),
+  );
+  assert.match(databaseErrorMessage({ code: "23505" }), /unikalnego/);
+  assert.match(databaseErrorMessage({ code: "PGRST205" }), /migracje/);
+  assert.ok(!databaseErrorMessage(new Error("secret")).includes("secret"));
 });
