@@ -22,6 +22,7 @@ export function SiteFooter() {
           <Link href="/#kontakt">
             Kontakt <ArrowUpRight size={15} />
           </Link>
+          <Link href="/polityka-prywatnosci">Polityka prywatności</Link>
           <a
             href="/Dawid_Orlowski_CV.pdf"
             target="_blank"

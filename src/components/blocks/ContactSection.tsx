@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 import { ContactChallenge } from "@/components/ui/contact-challenge";
@@ -255,6 +256,12 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                     </p>
                   )}
                 </div>
+                <p className="contact-privacy-note">
+                  Administratorem danych jest Dawid Orłowski. Podane dane wykorzystam
+                  do odpowiedzi i ustalenia szczegółów współpracy. Informacje o podstawach
+                  przetwarzania, dostawcach usług i Twoich prawach znajdziesz w{" "}
+                  <Link href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">polityce prywatności (nowa karta)</Link>.
+                </p>
                 {smtpEnabled && <>
                   <div hidden aria-hidden="true">
                     <label htmlFor="contact-website">Website</label>
