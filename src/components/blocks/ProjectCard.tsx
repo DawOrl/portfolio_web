@@ -16,15 +16,14 @@ export function ProjectCard({
       className={`work-item work-${index % 4} library-card`}
     >
       <div className="work-image">
-        <Image
-          src={project.cover}
-          alt={project.title}
-          fill
-          sizes="(max-width: 640px) 90vw, 45vw"
-        />
-        <span className="work-open">
-          <ArrowUpRight size={23} />
-        </span>
+        <div className="library-preview">
+          <Image
+            src={project.cover}
+            alt={project.title}
+            fill
+            sizes="(max-width: 639px) calc(100vw - 72px), (max-width: 1152px) calc(50vw - 76px), 500px"
+          />
+        </div>
       </div>
       <div className="work-caption">
         <div>
@@ -34,7 +33,12 @@ export function ProjectCard({
           </span>
           <h3>{project.title.split(" — ")[0]}</h3>
         </div>
-        <span className="work-year">{project.year}</span>
+        <span className="library-card-meta">
+          <span className="work-year">{project.year}</span>
+          <span className="work-open" aria-hidden="true">
+            <ArrowUpRight size={20} />
+          </span>
+        </span>
       </div>
       <p className="library-description">{project.tagline}</p>
     </Link>

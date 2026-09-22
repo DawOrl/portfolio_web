@@ -1292,6 +1292,34 @@ h2 em {
   display: block;
   margin-bottom: 20px;
 }
+.library-card .work-image {
+  aspect-ratio: 16 / 10;
+  padding: clamp(12px, 1.4vw, 20px);
+}
+.library-preview {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.library-preview > img {
+  object-fit: contain;
+  object-position: center;
+}
+.library-card-meta {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.library-card .work-open {
+  position: static;
+  width: 34px;
+  height: 34px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--accent-ink);
+}
 .library-description {
   color: var(--muted-foreground);
   font-size: 13px;
@@ -2146,6 +2174,7 @@ h2 em {
   transform: rotateX(65deg);
 }
 .spatial-card {
+  --card-caption-height: 96px;
   position: absolute;
   left: 50%;
   top: 42px;
@@ -2167,37 +2196,38 @@ h2 em {
 }
 .spatial-card-image {
   position: absolute;
-  inset: 0;
+  inset: 0 0 var(--card-caption-height);
+  background: linear-gradient(145deg, #292929, #191919);
 }
 .spatial-card-image img {
-  object-fit: cover;
-  object-position: top;
+  object-fit: contain;
+  object-position: center;
   pointer-events: none;
 }
-.spatial-card::after {
-  content: "";
+.spatial-card-label {
   position: absolute;
-  inset: 50% 0 0;
-  background: linear-gradient(transparent, #111e);
+  z-index: 1;
+  inset: auto 0 0;
+  height: var(--card-caption-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  text-align: left;
+  border-top: 1px solid #ffffff12;
+  background: linear-gradient(145deg, #262626, #151515);
   pointer-events: none;
 }
 .spatial-card-number {
-  position: absolute;
-  z-index: 1;
-  bottom: 54px;
-  left: 20px;
   font-size: 8px;
+  line-height: 1.3;
   letter-spacing: 1.2px;
   color: var(--accent-ink);
 }
 .spatial-card-name {
-  position: absolute;
-  z-index: 1;
-  bottom: 20px;
-  left: 20px;
-  right: 15px;
-  text-align: left;
   font-size: 18px;
+  line-height: 1.25;
   letter-spacing: -0.6px;
   color: #fff;
 }
@@ -2275,6 +2305,7 @@ h2 em {
     overflow: hidden;
   }
   .spatial-card {
+    --card-caption-height: 80px;
     width: 185px;
     height: 240px;
     margin-left: -92.5px;
@@ -2303,14 +2334,14 @@ h2 em {
   .spatial-card[data-position="4"] {
     transform: translate3d(0, -135px, -440px) scale(0.6);
   }
+  .spatial-card-label {
+    gap: 6px;
+    padding: 12px 13px;
+  }
   .spatial-card-number {
-    left: 13px;
-    bottom: 43px;
     font-size: 7px;
   }
   .spatial-card-name {
-    left: 13px;
-    bottom: 16px;
     font-size: 14px;
   }
   .spatial-caption {
