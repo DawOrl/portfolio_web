@@ -5,7 +5,7 @@
   position: relative;
   height: clamp(680px, 56vw, 860px);
   isolation: isolate;
-  overflow: hidden;
+  overflow: clip;
   background: radial-gradient(
     ellipse at 52% 38%,
     #333639 0,

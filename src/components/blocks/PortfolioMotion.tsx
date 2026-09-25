@@ -44,33 +44,20 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
       if (preference.matches) return;
       pageContext = gsap.context(() => {
         const reveal =
-          ".section-heading, .design-interlude-copy, .portrait-story > div, .service-row, .process-grid article, .price-plan, .faq-section > div:first-child, .contact-invitation";
+          ".section-heading, .design-interlude-copy, .portrait-story > div, .faq-section > div:first-child, .contact-invitation";
         gsap.utils.toArray<HTMLElement>(reveal, content).forEach((element) => {
           // Keep already visible content and direct anchor destinations immediately readable.
           if (element.getBoundingClientRect().top < window.innerHeight * 0.92)
             return;
           gsap.from(element, {
-            y: 32,
-            opacity: 0,
-            duration: 0.85,
+            y: 16,
+            opacity: 0.65,
+            duration: 0.45,
             ease: "power3.out",
             clearProps: "transform,opacity",
             scrollTrigger: { trigger: element, start: "top 92%", once: true },
           });
         });
-        gsap.utils
-          .toArray<HTMLElement>(".section-topline", content)
-          .forEach((element) => {
-            if (element.getBoundingClientRect().top < window.innerHeight * 0.92)
-              return;
-            gsap.from(element, {
-              clipPath: "inset(0 100% 0 0)",
-              duration: 0.9,
-              ease: "power2.inOut",
-              scrollTrigger: { trigger: element, start: "top 92%", once: true },
-              clearProps: "clipPath",
-            });
-          });
         if (window.matchMedia("(min-width: 761px)").matches) {
           gsap.fromTo(
             ".about-portrait-image img",

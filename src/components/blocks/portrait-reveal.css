@@ -1,0 +1,97 @@
+.portrait-masks {
+  position: absolute;
+  pointer-events: none;
+}
+
+.portrait-human,
+.portrait-android {
+  position: absolute;
+  inset: 0;
+}
+
+.portrait-android {
+  opacity: 0;
+}
+
+.portrait-reveal-control {
+  position: absolute;
+  top: 60%;
+  left: 5.2%;
+  z-index: 4;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.portrait-reveal-control button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 15px;
+  gap: 10px;
+  border: 1px solid #9fc5d36b;
+  border-radius: 4px;
+  color: var(--accent-cool);
+  background: #202325;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.portrait-reveal-control button[aria-pressed="true"] {
+  color: #1d1d1d;
+  background: var(--accent-cool);
+}
+.portrait-reveal-control button:disabled {
+  color: #c4c2be;
+  cursor: default;
+}
+.portrait-reveal-control button:focus-visible {
+  outline: 2px solid var(--accent-cool);
+  outline-offset: 5px;
+}
+.portrait-reveal-hint {
+  display: none;
+  color: #c4c2be;
+  font-size: 10px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .portrait-reveal-control button:hover:not(:disabled) {
+    border-color: var(--accent-cool);
+  }
+}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  @supports (mask-image: radial-gradient(black, transparent)) {
+    .portrait-reveal-hint {
+      display: block;
+    }
+  }
+}
+@media (max-width: 760px) {
+  .about-portrait-stage::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 160px;
+    z-index: 2;
+    pointer-events: none;
+    background: linear-gradient(transparent, #1d1d1d);
+  }
+  .portrait-reveal-control {
+    top: auto;
+    bottom: 75px;
+    left: 20px;
+  }
+  .portrait-reveal-control button {
+    min-height: 44px;
+    font-size: 11px;
+    padding-inline: 12px;
+  }
+  .about-portrait-stage .about-last-name {
+    bottom: 140px;
+  }
+  .portrait-reveal-hint {
+    display: none;
+  }
+}

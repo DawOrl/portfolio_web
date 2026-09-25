@@ -37,7 +37,6 @@ export default function Home() {
               <span className="hero-line"><span className="hero-line-inner hero-line-accent">Jeszcze lepsza</span></span>{" "}
               <span className="hero-line"><span className="hero-line-inner">strona<span className="hero-dot">.</span></span></span>
             </h1>
-            <DesignSignature />
           </div>
           <div className="hero-bottom">
             <div className="hero-signature">
@@ -68,6 +67,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <DesignSignature />
           <div className="hero-baseline">
             <span>STRATEGIA / DESIGN / DEVELOPMENT</span>
             <IntroReplay />
@@ -236,17 +236,17 @@ export default function Home() {
                 className={`price-plan ${p.featured ? "price-featured" : ""}`}
               >
                 <div className="plan-top">
-                  <span>
-                    0{i + 1} / {p.name}
-                  </span>
+                  <h3>{p.name}</h3>
                   {p.featured && <span>POLECANY</span>}
                 </div>
                 <div className="plan-heading">
-                  <h3>{p.tagline}</h3>
+                  <p>{p.tagline}</p>
                   <MiniSculpture shape={(["cube", "steps", "portal"] as const)[i % 3]} />
                 </div>
                 <p className="plan-price">
-                  {p.price}
+                  <span>od</span>{" "}
+                  <strong>{p.price.replace(/^od\s+/, "").replace(/\s+zł$/, "")}</strong>{" "}
+                  <span>zł</span>
                 </p>
                 <p>{p.description}</p>
                 <ul>

@@ -24,7 +24,7 @@
   background: #f4f0eb;
   transform: scaleX(0);
   transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+  transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .service-showcase .service-row[data-active="true"]::before,
 .service-showcase .service-row:focus-visible::before {
@@ -34,7 +34,7 @@
   grid-column: 2;
   grid-row: 1;
   font-size: clamp(23px, 2.1vw, 30px);
-  transition: transform 0.35s;
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 }
 .service-showcase .service-number {
   grid-column: 1;
@@ -47,9 +47,12 @@
 .service-showcase .service-description p {
   max-width: 420px;
   color: #fff1f3;
+  font-size: 15px;
+  line-height: 1.7;
+  text-wrap: pretty;
 }
 .service-showcase .service-description > span {
-  font-size: 9px;
+  font-size: 12px;
   line-height: 1.6;
   color: #f4d8df;
 }
@@ -58,7 +61,7 @@
   grid-row: 1;
   width: 27px;
   height: 27px;
-  transition: transform 0.35s;
+  transition: transform 0.2s;
 }
 .service-showcase .service-row:focus-visible {
   outline-offset: 6px;
@@ -72,7 +75,7 @@
   margin-top: 1px;
   color: #1d1d1d;
   background: #eee8df;
-  box-shadow: 8px 8px 0 #740b26;
+  box-shadow: 0 2px 4px #410c1820, 0 16px 32px #410c1824;
 }
 .service-study-head {
   display: flex;
@@ -244,7 +247,7 @@
     background: #eee8df;
   }
   .service-showcase .service-description > span {
-    font-size: 8px;
+    font-size: 12px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

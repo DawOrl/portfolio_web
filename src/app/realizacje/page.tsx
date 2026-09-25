@@ -23,20 +23,16 @@ export default function RealizacjePage() {
 
       <main
         id="main-content"
-        className="portfolio-inner mx-auto w-full max-w-6xl px-6 pb-24 pt-32 md:px-10 md:pt-40"
+        className="portfolio-inner library-page mx-auto w-full max-w-6xl px-5 pb-24 pt-10 md:px-10 md:pt-16"
       >
         <Link
           href="/#realizacje"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+          className="mb-8 inline-flex min-h-11 items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
         >
           <ArrowLeft size={16} /> Strona główna
         </Link>
 
-        <header className="mb-12 max-w-3xl md:mb-16">
-          <span className="mb-4 inline-flex items-center gap-2 text-sm font-medium tracking-wide text-primary">
-            <span className="h-px w-8 bg-primary/50" />
-            Realizacje
-          </span>
+        <header className="mb-10 max-w-3xl md:mb-14">
           <h1 className="font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
             Biblioteka projektów
           </h1>
