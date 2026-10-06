@@ -7,9 +7,9 @@ import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { getProjects, getProjectCategories } from "@/lib/projects";
 
 export const metadata: Metadata = {
-  title: "Realizacje — portfolio stron internetowych",
+  title: "Realizacje - portfolio stron internetowych",
   description:
-    "Biblioteka zrealizowanych projektów: strony firmowe, landing page i aplikacje webowe. Zobacz case studies — problem, rozwiązanie i efekt.",
+    "Biblioteka zrealizowanych projektów: strony firmowe, landing page i aplikacje webowe. Zobacz case studies - problem, rozwiązanie i efekt.",
   alternates: { canonical: "/realizacje" },
 };
 

@@ -1,5 +1,5 @@
+import Image from "next/image";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
-import { PortraitReveal } from "./PortraitReveal";
 import "./about-portrait.css";
 
 export function AboutPortrait() {
@@ -21,12 +21,20 @@ export function AboutPortrait() {
       </div>
 
       <h2 id="about-heading" className="sr-only">
-        Dawid Orłowski — designer i developer
+        Dawid Orłowski - designer i developer
       </h2>
       <span className="about-first-name" aria-hidden="true">
         DAWID
       </span>
-      <PortraitReveal />
+      <div className="about-portrait-image">
+        <Image
+          src="/portrait-human-4k.webp"
+          alt="Portret Dawida Orłowskiego"
+          fill
+          quality={95}
+          sizes="(max-width: 760px) 460px, (max-width: 1100px) 542px, 780px"
+        />
+      </div>
       <span className="about-last-name" aria-hidden="true">
         ORŁOWSKI
       </span>

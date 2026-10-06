@@ -15,7 +15,7 @@ interface CtaBandProps {
  */
 export function CtaBand({
   title = "Masz pomysł na projekt?",
-  subtitle = "Opowiedz mi o swojej firmie — przygotuję bezpłatną wycenę i podpowiem najlepsze rozwiązanie.",
+  subtitle = "Opowiedz mi o swojej firmie - przygotuję bezpłatną wycenę i podpowiem najlepsze rozwiązanie.",
 }: CtaBandProps) {
   const segment = (
     <span className="flex shrink-0 items-center gap-6 pr-6 md:gap-10 md:pr-10">

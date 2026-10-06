@@ -11,7 +11,7 @@ export function ProjectsTeaser() {
   return (
     <Section id="realizacje">
       <SectionHeading
-        eyebrow="02 — Realizacje"
+        eyebrow="02 - Realizacje"
         title="Wybrane realizacje"
         subtitle="Kilka projektów pokazujących podejście do designu, kodu i konkretnego efektu dla klienta. Każdy to osobne case study."
       />

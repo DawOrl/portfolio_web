@@ -9,7 +9,7 @@ export function Testimonials() {
   return (
     <Section id="opinie">
       <SectionHeading
-        eyebrow="05 — Opinie"
+        eyebrow="05 - Opinie"
         title="Co mówią klienci"
         subtitle="Najważniejszy jest efekt i komfort współpracy. Oto, jak oceniają ją osoby, dla których pracowałem."
         align="center"

@@ -19,6 +19,6 @@ export function databaseErrorMessage(error: unknown) {
     case "PGRST303":
       return "Sesja wygasła. Wyloguj się i zaloguj ponownie.";
     default:
-      return "Nie udało się zapisać danych. Zachowaliśmy wpisane wartości — sprawdź połączenie i spróbuj ponownie.";
+      return "Nie udało się zapisać danych. Zachowaliśmy wpisane wartości - sprawdź połączenie i spróbuj ponownie.";
   }
 }

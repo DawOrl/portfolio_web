@@ -112,8 +112,9 @@ export function Navbar() {
           onClick={() => setOpen(false)}
         >
           <BrandBlock />
-          <span>
-            Dawid Orłowski<small>Design & development</small>
+          <span className="nav-brand-copy">
+            <span className="nav-brand-name">Dawid Orłowski</span>
+            <small>Design & development</small>
           </span>
         </Link>
         <div className="desktop-nav">
@@ -129,7 +130,8 @@ export function Navbar() {
             href="/#kontakt"
             onClick={() => setOpen(false)}
           >
-            Porozmawiajmy <ArrowUpRight size={18} aria-hidden="true" />
+            Porozmawiajmy
+            <ArrowUpRight size={16} strokeWidth={1.75} aria-hidden="true" />
           </Link>
           <button
             ref={toggle}
@@ -140,7 +142,7 @@ export function Navbar() {
             aria-controls="mobile-menu"
             aria-label={open ? "Zamknij menu" : "Otwórz menu"}
           >
-            <span>{open ? "Zamknij" : "Menu"}</span>
+            <span className="menu-toggle-label">{open ? "Zamknij" : "Menu"}</span>
             <span className="menu-toggle-icon" aria-hidden="true">
               <i />
               <i />
@@ -154,19 +156,17 @@ export function Navbar() {
         aria-label="Nawigacja mobilna"
         hidden={!open}
       >
-        {mobileLinks.map((l, index) => (
+        {mobileLinks.map((l) => (
           <Link
             key={l.href}
             href={l.href}
+            className={l.href === "/#kontakt" ? "mobile-nav-contact" : undefined}
             aria-current={currentFor(l.href)}
             onClick={() => setOpen(false)}
           >
-            <span className="mobile-nav-index" aria-hidden="true">
-              0{index + 1}
-            </span>
-            <span>{l.label}</span>
+            <span className="mobile-nav-label">{l.label}</span>
             {l.href === "/#kontakt" && (
-              <ArrowUpRight size={24} aria-hidden="true" />
+              <ArrowUpRight size={18} strokeWidth={1.75} aria-hidden="true" />
             )}
           </Link>
         ))}

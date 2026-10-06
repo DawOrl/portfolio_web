@@ -1,22 +1,15 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  ArrowLeft,
-  ArrowUpRight,
-  Github,
-  Target,
-  Lightbulb,
-  TrendingUp,
-  Check,
-} from "lucide-react";
+import { ArrowLeft, ArrowUpRight, Github } from "lucide-react";
 import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ProjectGalleryLightbox } from "@/components/blocks/ProjectGalleryLightbox";
-import { Button } from "@/components/ui/button";
-import { Reveal } from "@/components/ui/reveal";
+import { ContactIntentLink } from "@/components/ui/contact-intent-link";
 import { getProjects, getProjectBySlug } from "@/lib/projects";
 import { SITE_URL } from "@/lib/site";
+import "./case-study.css";
 
 export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }));
@@ -32,11 +25,11 @@ export async function generateMetadata({
   if (!project) return { title: "Nie znaleziono projektu" };
 
   return {
-    title: `${project.title} — case study`,
+    title: `${project.title} - case study`,
     description: project.tagline,
     alternates: { canonical: `/realizacje/${project.slug}` },
     openGraph: {
-      title: `${project.title} — case study`,
+      title: `${project.title} - case study`,
       description: project.tagline,
       images: [{ url: `${SITE_URL}${project.cover}` }],
       type: "article",
@@ -53,187 +46,204 @@ export default async function ProjectCaseStudy({
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const blocks = [
-    { icon: Target, label: "Wyzwanie", text: project.problem, key: "problem" },
-    {
-      icon: Lightbulb,
-      label: "Rozwiązanie",
-      text: project.solution,
-      key: "solution",
-    },
-    { icon: TrendingUp, label: "Efekt", text: project.result, key: "result" },
-  ];
+  const title = project.title.split(" - ")[0];
+  const mobile = project.gallery.find((src) => src.endsWith("/mobile.png"));
 
   return (
     <>
       <Navbar />
 
-      <main
-        id="main-content"
-        className="portfolio-inner mx-auto w-full max-w-5xl px-6 pb-24 pt-32 md:px-10 md:pt-40"
-      >
-        <Link
-          href="/realizacje"
-          className="mb-8 inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
-        >
-          <ArrowLeft size={16} /> Wszystkie realizacje
-        </Link>
+      <main id="main-content" className="case-study shell">
+        <nav className="case-navigation" aria-label="Nawigacja projektów">
+          <Link href="/#realizacje">
+            <ArrowLeft size={16} aria-hidden="true" /> Wybrane projekty
+          </Link>
+          <Link href="/realizacje">Biblioteka projektów</Link>
+        </nav>
 
-        {/* Nagłówek */}
-        <Reveal>
-          <div className="flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
-            <span className="rounded-full border border-primary/20 bg-primary/10 px-3 py-1 font-medium text-primary">
-              {project.category}
-            </span>
-            {project.kind === "demo" && (
-              <span className="rounded-full border border-border bg-card/60 px-3 py-1 font-medium text-foreground">
-                Projekt autorski
+        <article aria-labelledby="case-title">
+          <header className="case-header">
+            <div className="case-meta">
+              <span>{project.category}</span>
+              <span className="case-project-kind">
+                {project.kind === "demo"
+                  ? "Projekt autorski"
+                  : "Realizacja dla klienta"}
               </span>
-            )}
-            {project.year && <span>{project.year}</span>}
-            {project.client && (
-              <>
-                <span>·</span>
-                <span>{project.client}</span>
-              </>
-            )}
-          </div>
-          <h1 className="mt-4 font-display text-4xl font-bold tracking-tight text-foreground md:text-5xl lg:text-6xl">
-            {project.title}
-          </h1>
-          <p className="mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            {project.tagline}
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-4">
-            {project.liveUrl && (
-              <Button asChild size="lg" className="group font-semibold">
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Zobacz na żywo
-                  <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
-              </Button>
-            )}
-            {project.githubUrl && (
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="font-medium"
-              >
-                <a
-                  href={project.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github size={18} /> Kod na GitHub
-                </a>
-              </Button>
-            )}
-          </div>
-        </Reveal>
-
-        {/* Okładka */}
-        <Reveal delay={0.1} className="mt-12">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={project.cover}
-            alt={project.title}
-            className="w-full rounded-3xl border border-border object-cover object-top shadow-2xl"
-          />
-        </Reveal>
-
-        {/* Wyzwanie / Rozwiązanie / Efekt */}
-        <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
-          {blocks.map((b, i) => (
-            <Reveal key={b.key} delay={i * 0.08}>
-              <div className="flex h-full flex-col gap-4 rounded-2xl border border-border bg-card/50 p-6">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary">
-                  <b.icon size={20} strokeWidth={1.75} />
-                </div>
-                <h2 className="font-display text-lg font-semibold text-foreground">
-                  {b.label}
-                </h2>
-                <p className="text-sm leading-relaxed text-muted-foreground">
-                  {b.text}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
-
-        {/* Stack + zakres */}
-        <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-2">
-          <Reveal>
-            <h2 className="mb-4 font-display text-xl font-semibold text-foreground">
-              Technologie
-            </h2>
-            <div className="flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-lg border border-border bg-background/50 px-3 py-1.5 font-mono text-sm text-muted-foreground"
-                >
-                  {tech}
-                </span>
-              ))}
+              {project.year && (
+                <span className="case-year">{project.year}</span>
+              )}
             </div>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h2 className="mb-4 font-display text-xl font-semibold text-foreground">
-              Zakres prac
-            </h2>
-            <ul className="flex flex-col gap-2.5">
-              {project.scope.map((item) => (
-                <li
-                  key={item}
-                  className="flex items-start gap-2.5 text-sm text-foreground/90"
-                >
-                  <Check size={16} className="mt-0.5 shrink-0 text-primary" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
+            <div className="case-heading-layout">
+              <h1 id="case-title" tabIndex={-1}>
+                {title}
+              </h1>
+              <div className="case-header-copy">
+                <p>{project.tagline}</p>
+                <div className="case-public-links">
+                  {project.liveUrl && (
+                    <a
+                      className="case-live-link"
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Zobacz na żywo
+                      <ArrowUpRight size={18} aria-hidden="true" />
+                      <span className="sr-only"> (nowa karta)</span>
+                    </a>
+                  )}
+                  {project.githubUrl && (
+                    <a
+                      className="case-code-link"
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Github size={17} aria-hidden="true" /> Kod na GitHub
+                      <span className="sr-only"> (nowa karta)</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          </header>
 
-        {/* Galeria */}
-        {project.gallery.length > 0 && (
-          <div className="mt-16">
-            <Reveal>
-              <h2 className="mb-6 font-display text-xl font-semibold text-foreground">
-                Galeria
-              </h2>
-            </Reveal>
-            <ProjectGalleryLightbox
-              images={project.gallery}
-              title={project.title}
-            />
+          <div className="case-device-scene">
+            <div
+              className={`case-devices${mobile ? " case-devices-pair" : ""}`}
+            >
+              <figure className="case-desktop">
+                <div className="case-desktop-window">
+                  <div className="case-device-toolbar" aria-hidden="true">
+                    <span className="case-device-dots">
+                      <i />
+                      <i />
+                      <i />
+                    </span>
+                    <span>{title}</span>
+                  </div>
+                  <div className="case-device-screen">
+                    <Image
+                      src={project.cover}
+                      alt={`${title}, wersja desktopowa`}
+                      fill
+                      priority
+                      quality={95}
+                      sizes={
+                        mobile
+                          ? "(max-width: 760px) 70vw, (max-width: 1100px) 72vw, 1000px"
+                          : "(max-width: 1100px) 90vw, 1200px"
+                      }
+                      data-project-cover
+                      data-project-slug={project.slug}
+                    />
+                  </div>
+                </div>
+                <figcaption>Wersja desktopowa</figcaption>
+              </figure>
+              {mobile && (
+                <figure className="case-phone">
+                  <div className="case-phone-frame">
+                    <div className="case-phone-screen">
+                      <Image
+                        src={mobile}
+                        alt={`${title}, wersja mobilna`}
+                        fill
+                        quality={95}
+                        sizes="(max-width: 760px) 22vw, 200px"
+                      />
+                    </div>
+                  </div>
+                  <figcaption>Wersja mobilna</figcaption>
+                </figure>
+              )}
+            </div>
           </div>
-        )}
 
-        {/* CTA */}
-        <Reveal delay={0.1} className="mt-20">
-          <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-card/60 p-8 text-center backdrop-blur-sm md:p-12">
-            <h2 className="font-display text-2xl font-bold tracking-tight text-foreground md:text-3xl">
-              Chcesz podobny projekt?
-            </h2>
-            <p className="mx-auto mt-3 max-w-xl text-muted-foreground md:text-lg">
-              Opowiedz mi o swojej firmie — przygotuję bezpłatną wycenę i
-              propozycję rozwiązania.
-            </p>
-            <Button asChild size="lg" className="group mt-6 font-semibold">
-              <Link href="/#kontakt">
-                Wyceń projekt
-                <ArrowUpRight className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </Link>
-            </Button>
+          <div className="case-narrative">
+            <aside className="case-facts" aria-label="Informacje o projekcie">
+              <dl>
+                {project.client && (
+                  <div>
+                    <dt>Klient</dt>
+                    <dd>{project.client}</dd>
+                  </div>
+                )}
+                <div>
+                  <dt>Technologie</dt>
+                  <dd>
+                    <ul className="case-stack">
+                      {project.stack.map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+            </aside>
+
+            <div className="case-story">
+              <section aria-labelledby="case-challenge-title">
+                <h2 id="case-challenge-title">Wyzwanie</h2>
+                <p>{project.problem}</p>
+              </section>
+              <section aria-labelledby="case-solution-title">
+                <h2 id="case-solution-title">Rozwiązanie</h2>
+                <p>{project.solution}</p>
+                <div className="case-scope">
+                  <h3>Zakres projektu</h3>
+                  <ul>
+                    {project.scope.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </section>
+            </div>
           </div>
-        </Reveal>
+
+          <section className="case-result" aria-labelledby="case-result-title">
+            <h2 id="case-result-title">Efekt</h2>
+            <p>{project.result}</p>
+          </section>
+
+          {project.gallery.length > 0 && (
+            <section
+              className="case-gallery"
+              aria-labelledby="case-gallery-title"
+            >
+              <div className="case-gallery-heading">
+                <h2 id="case-gallery-title">Galeria projektu</h2>
+                <p>Wybierz widok, żeby zobaczyć go w pełnym rozmiarze.</p>
+              </div>
+              <ProjectGalleryLightbox
+                images={project.gallery}
+                title={project.title}
+              />
+            </section>
+          )}
+
+          <section
+            className="case-contact"
+            aria-labelledby="case-contact-title"
+          >
+            <div>
+              <h2 id="case-contact-title">Chcesz podobny projekt?</h2>
+              <p>
+                Opowiedz mi o swojej firmie. Przygotuję bezpłatną wycenę i
+                propozycję rozwiązania.
+              </p>
+            </div>
+            <ContactIntentLink
+              href="/#kontakt"
+              className="case-contact-link"
+              intent={{ kind: "project", label: title, value: project.slug }}
+            >
+              Wyceń projekt <ArrowUpRight size={18} aria-hidden="true" />
+            </ContactIntentLink>
+          </section>
+        </article>
       </main>
 
       <SiteFooter />

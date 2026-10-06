@@ -44,10 +44,10 @@ export default function PrivacyPage() {
         <section aria-labelledby="cele">
           <h2 id="cele">03. Po co i na jakiej podstawie</h2>
           <ul>
-            <li><strong>Przygotowanie oferty i ustalenia dotyczące współpracy:</strong> działania na Twoje żądanie przed zawarciem umowy lub jej wykonanie — art. 6 ust. 1 lit. b RODO.</li>
-            <li><strong>Pozostała korespondencja, w tym kontakt z przedstawicielem firmy:</strong> mój uzasadniony interes polegający na udzielaniu odpowiedzi i prowadzeniu kontaktu — art. 6 ust. 1 lit. f RODO.</li>
-            <li><strong>Działanie strony, ochrona przed spamem i nadużyciami oraz obrona roszczeń:</strong> mój uzasadniony interes — art. 6 ust. 1 lit. f RODO.</li>
-            <li><strong>Obowiązki wynikające z przepisów:</strong> jeżeli powstaną w związku ze współpracą, np. obowiązki podatkowe — art. 6 ust. 1 lit. c RODO.</li>
+            <li><strong>Przygotowanie oferty i ustalenia dotyczące współpracy:</strong> działania na Twoje żądanie przed zawarciem umowy lub jej wykonanie - art. 6 ust. 1 lit. b RODO.</li>
+            <li><strong>Pozostała korespondencja, w tym kontakt z przedstawicielem firmy:</strong> mój uzasadniony interes polegający na udzielaniu odpowiedzi i prowadzeniu kontaktu - art. 6 ust. 1 lit. f RODO.</li>
+            <li><strong>Działanie strony, ochrona przed spamem i nadużyciami oraz obrona roszczeń:</strong> mój uzasadniony interes - art. 6 ust. 1 lit. f RODO.</li>
+            <li><strong>Obowiązki wynikające z przepisów:</strong> jeżeli powstaną w związku ze współpracą, np. obowiązki podatkowe - art. 6 ust. 1 lit. c RODO.</li>
           </ul>
           <p>Wysłanie zapytania nie zapisuje Cię na marketing ani newsletter. Nie podejmuję wobec Ciebie decyzji wywołujących skutki prawne wyłącznie na podstawie automatycznego przetwarzania, w tym profilowania.</p>
         </section>
@@ -64,19 +64,19 @@ export default function PrivacyPage() {
         </section>
         <section aria-labelledby="okres">
           <h2 id="okres">05. Jak długo przechowuję dane</h2>
-          <p>Korespondencję przechowuję przez czas potrzebny do odpowiedzi, ustalenia zakresu współpracy i zakończenia sprawy. Po tym okresie zachowuję ją tylko wtedy, gdy jest potrzebna do realizacji umowy, wykonania obowiązków prawnych lub ustalenia, dochodzenia albo obrony roszczeń — do upływu właściwych terminów.</p>
+          <p>Korespondencję przechowuję przez czas potrzebny do odpowiedzi, ustalenia zakresu współpracy i zakończenia sprawy. Po tym okresie zachowuję ją tylko wtedy, gdy jest potrzebna do realizacji umowy, wykonania obowiązków prawnych lub ustalenia, dochodzenia albo obrony roszczeń - do upływu właściwych terminów.</p>
           <p>Przy ocenie dalszego przechowywania biorę pod uwagę, czy rozmowa nadal trwa, czy doszło do współpracy i czy istnieje spór lub obowiązek zachowania dokumentów. Zbędne dane usuwam. Dane techniczne są przechowywane zgodnie z okresem retencji danej usługi, przez czas potrzebny do działania infrastruktury, diagnostyki i ochrony przed nadużyciami.</p>
         </section>
         <section aria-labelledby="prawa">
           <h2 id="prawa">06. Twoje prawa</h2>
-          <p>Na zasadach określonych w RODO masz prawo dostępu do danych, sprostowania, usunięcia, ograniczenia przetwarzania oraz — gdy ma zastosowanie — przenoszenia danych. Możesz wnieść sprzeciw wobec przetwarzania opartego na uzasadnionym interesie ze względu na swoją szczególną sytuację.</p>
+          <p>Na zasadach określonych w RODO masz prawo dostępu do danych, sprostowania, usunięcia, ograniczenia przetwarzania oraz - gdy ma zastosowanie - przenoszenia danych. Możesz wnieść sprzeciw wobec przetwarzania opartego na uzasadnionym interesie ze względu na swoją szczególną sytuację.</p>
           <p>Aby skorzystać z praw, napisz na <a href="mailto:contact@dorlowski.dev">contact@dorlowski.dev</a>. Masz też prawo złożyć skargę do <a href="https://uodo.gov.pl/">Prezesa Urzędu Ochrony Danych Osobowych</a>.</p>
         </section>
         <section aria-labelledby="przegladarka">
           <h2 id="przegladarka">07. Przeglądarka i narzędzia pomiarowe</h2>
           <p>Nie stosuję cookies reklamowych ani narzędzi do analizy zachowania użytkowników. Mechanizm motywu strony może zapisać ustawienie wyglądu w pamięci lokalnej przeglądarki (localStorage, klucz „theme”). Możesz usunąć je w ustawieniach danych witryny.</p>
           {smtp && <p>Turnstile wykorzystuje sygnały przeglądarki do weryfikacji bezpieczeństwa. Zakres danych i ewentualnych mechanizmów zapisu opisuje <a href="https://www.cloudflare.com/turnstile-privacy-policy/">dokumentacja prywatności Cloudflare</a>. Jeśli nie chcesz korzystać z formularza, możesz skontaktować się bezpośrednio e-mailem.</p>}
-          {dashboard && <p>Logowanie do prywatnego panelu właściciela korzysta z niezbędnych cookies sesyjnych Supabase. Klient wypełniający brief nie zakłada konta. Link do briefu jest indywidualnym kluczem dostępu — nie publikuj go ani nie przekazuj osobom nieupoważnionym.</p>}
+          {dashboard && <p>Logowanie do prywatnego panelu właściciela korzysta z niezbędnych cookies sesyjnych Supabase. Klient wypełniający brief nie zakłada konta. Link do briefu jest indywidualnym kluczem dostępu - nie publikuj go ani nie przekazuj osobom nieupoważnionym.</p>}
           <p>Google Search Console służy mi do sprawdzania obecności strony w wynikach wyszukiwania. Jego weryfikacja przez DNS nie instaluje na stronie skryptu Google Analytics.</p>
           <p>Przed uruchomieniem dodatkowej analityki lub marketingu zaktualizuję tę politykę i, gdy będzie to wymagane, umożliwię dokonanie wyboru przed uruchomieniem takich narzędzi.</p>
         </section>

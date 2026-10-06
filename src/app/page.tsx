@@ -5,13 +5,18 @@ import { ProjectsCarousel } from "@/components/blocks/ProjectsCarousel";
 import { DesignSignature } from "@/components/blocks/DesignSignature";
 import { AboutPortrait } from "@/components/blocks/AboutPortrait";
 import { MonogramSculpture } from "@/components/blocks/MonogramSculpture";
-import { TypeInterlude } from "@/components/blocks/TypeInterlude";
+import { ProcessBuild } from "@/components/blocks/ProcessBuild";
 import { ServiceShowcase } from "@/components/blocks/ServiceShowcase";
 import { MiniSculpture } from "@/components/ui/mini-sculpture";
 import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ContactSection } from "@/components/blocks/ContactSection";
-import { PortfolioMotion, IntroReplay } from "@/components/blocks/PortfolioMotion";
+import { PortfolioFlow } from "@/components/blocks/PortfolioFlow";
+import { ContactIntentLink } from "@/components/ui/contact-intent-link";
+import {
+  PortfolioMotion,
+  IntroReplay,
+} from "@/components/blocks/PortfolioMotion";
 import { smtpContactEnabled } from "@/lib/contact-config";
 import { cvData } from "@/data/cv-data";
 import { getProjects } from "@/lib/projects";
@@ -20,9 +25,9 @@ export default function Home() {
   const projects = getProjects();
   return (
     <PortfolioMotion>
+      <div id="top" />
       <Navbar />
       <main id="main-content" className="portfolio-home">
-        <div id="top" />
         <section className="hero shell" aria-labelledby="hero-heading">
           <div className="hero-meta">
             <span>INDEPENDENT WEB DESIGNER & DEVELOPER</span>
@@ -33,9 +38,19 @@ export default function Home() {
           </div>
           <div className="hero-title-wrap">
             <h1 id="hero-heading">
-              <span className="hero-line"><span className="hero-line-inner">Dobry design.</span></span>{" "}
-              <span className="hero-line"><span className="hero-line-inner hero-line-accent">Jeszcze lepsza</span></span>{" "}
-              <span className="hero-line"><span className="hero-line-inner">strona<span className="hero-dot">.</span></span></span>
+              <span className="hero-line">
+                <span className="hero-line-inner">Dobry design.</span>
+              </span>{" "}
+              <span className="hero-line">
+                <span className="hero-line-inner hero-line-accent">
+                  Jeszcze lepsza
+                </span>
+              </span>{" "}
+              <span className="hero-line">
+                <span className="hero-line-inner">
+                  strona<span className="hero-dot">.</span>
+                </span>
+              </span>
             </h1>
           </div>
           <div className="hero-bottom">
@@ -67,7 +82,11 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <DesignSignature />
+          <div className="hero-signature-stage">
+            <div className="hero-signature-entry">
+              <DesignSignature />
+            </div>
+          </div>
           <div className="hero-baseline">
             <span>STRATEGIA / DESIGN / DEVELOPMENT</span>
             <IntroReplay />
@@ -161,7 +180,7 @@ export default function Home() {
             <div className="portrait-story-copy">
               <p>
                 Na co dzień pracuję jako Fullstack AI Developer. Wcześniej
-                zajmowałem się email marketingiem — dlatego patrzę na stronę
+                zajmowałem się email marketingiem - dlatego patrzę na stronę
                 zarówno od strony kodu, jak i potrzeb biznesu.
               </p>
               <p>
@@ -184,7 +203,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <TypeInterlude />
+        <ProcessBuild />
         <section id="proces" className="process-section shell">
           <div className="section-topline">
             <span className="eyebrow">04 / WSPÓŁPRACA KROK PO KROKU</span>
@@ -205,7 +224,12 @@ export default function Home() {
               <article key={s.step}>
                 <span className="process-number">
                   {s.step}
-                  <MiniSculpture shape={(["cube", "portal", "steps", "cube"] as const)[i % 4]} small />
+                  <MiniSculpture
+                    shape={
+                      (["cube", "portal", "steps", "cube"] as const)[i % 4]
+                    }
+                    small
+                  />
                 </span>
                 <h3>{s.title}</h3>
                 <p>{s.description}</p>
@@ -241,11 +265,15 @@ export default function Home() {
                 </div>
                 <div className="plan-heading">
                   <p>{p.tagline}</p>
-                  <MiniSculpture shape={(["cube", "steps", "portal"] as const)[i % 3]} />
+                  <MiniSculpture
+                    shape={(["cube", "steps", "portal"] as const)[i % 3]}
+                  />
                 </div>
                 <p className="plan-price">
                   <span>od</span>{" "}
-                  <strong>{p.price.replace(/^od\s+/, "").replace(/\s+zł$/, "")}</strong>{" "}
+                  <strong>
+                    {p.price.replace(/^od\s+/, "").replace(/\s+zł$/, "")}
+                  </strong>{" "}
                   <span>zł</span>
                 </p>
                 <p>{p.description}</p>
@@ -257,35 +285,50 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a className="action" href="#kontakt">
+                <ContactIntentLink
+                  className="action"
+                  href="/#kontakt"
+                  intent={{ kind: "package", label: p.name, value: p.name }}
+                >
                   {p.cta}
                   <ArrowUpRight size={18} />
-                </a>
+                </ContactIntentLink>
               </article>
             ))}
           </div>
           <div className="pricing-included">
             <span className="eyebrow">W KAŻDYM PAKIECIE</span>
-            <p>Dwie rundy poprawek · Drobna redakcja Twoich tekstów · 30 dni pomocy przy błędach wdrożenia</p>
+            <p>
+              Dwie rundy poprawek · Drobna redakcja Twoich tekstów · 30 dni
+              pomocy przy błędach wdrożenia
+            </p>
           </div>
           <div className="pricing-extras">
             <div>
               <h3>Teksty? Wybór należy do Ciebie.</h3>
-              <p>Możesz dostarczyć własne lub zlecić mi ich przygotowanie na podstawie informacji o Twojej firmie. Pisanie tekstów obejmuje jedną rundę korekty.</p>
+              <p>
+                Możesz dostarczyć własne lub zlecić mi ich przygotowanie na
+                podstawie informacji o Twojej firmie. Pisanie tekstów obejmuje
+                jedną rundę korekty.
+              </p>
             </div>
             <dl>
               {cvData.pricingExtras.map((extra) => (
                 <div key={extra.name}>
-                  <dt>{extra.name}<span>{extra.detail}</span></dt>
+                  <dt>
+                    {extra.name}
+                    <span>{extra.detail}</span>
+                  </dt>
                   <dd>{extra.price}</dd>
                 </div>
               ))}
             </dl>
           </div>
           <p className="pricing-note">
-            Ceny wejściowe dotyczą opisanego zakresu. Końcową kwotę do zapłaty i termin potwierdzam w wycenie.
-            Domena, hosting i płatne usługi zewnętrzne są rozliczane osobno.
-            CMS, sklep, rezerwacje oraz rozbudowane animacje wymagają dodatkowej wyceny.
+            Ceny wejściowe dotyczą opisanego zakresu. Końcową kwotę do zapłaty i
+            termin potwierdzam w wycenie. Domena, hosting i płatne usługi
+            zewnętrzne są rozliczane osobno. CMS, sklep, rezerwacje oraz
+            rozbudowane animacje wymagają dodatkowej wyceny.
           </p>
         </section>
         <section id="faq" className="faq-section shell">
@@ -314,6 +357,7 @@ export default function Home() {
           </div>
         </section>
         <ContactSection smtpEnabled={smtpContactEnabled()} />
+        <PortfolioFlow />
       </main>
       <SiteFooter />
     </PortfolioMotion>

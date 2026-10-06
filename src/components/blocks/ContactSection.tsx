@@ -1,11 +1,29 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import {
+  useCallback,
+  useRef,
+  useState,
+  useSyncExternalStore,
+  type FormEvent,
+} from "react";
 import Link from "next/link";
 import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 import { ContactChallenge } from "@/components/ui/contact-challenge";
 import { MiniSculpture } from "@/components/ui/mini-sculpture";
+import {
+  clearContactIntent,
+  CONTACT_MESSAGE_LIMIT,
+  formatContactIntentMessage,
+  getContactIntent,
+  getContactIntentLabel,
+  getContactIntentPrefix,
+  getServerContactIntent,
+  subscribeContactIntent,
+  type ContactIntent,
+} from "@/lib/contact-intent";
+import "./contact-intent.css";
 
 /**
  * Po skonfigurowaniu SMTP i Turnstile formularz wysyła przez /api/contact.
@@ -23,16 +41,70 @@ const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
 
 type Status = "idle" | "sending" | "success" | "error" | "mailto";
 
-export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean }) {
+function getSuggestedService(intent: ContactIntent | null): string {
+  if (!intent) return "";
+  let suggested = "";
+  if (intent.kind === "service") suggested = intent.value;
+  if (intent.kind === "package") {
+    if (intent.value === "Start" || intent.value === "Biznes")
+      suggested = "Strony firmowe";
+    if (intent.value === "Landing") suggested = "Landing page";
+  }
+  if (intent.kind === "project") {
+    const category = cvData.projects.find(
+      (project) => project.slug === intent.value,
+    )?.category;
+    const servicesByCategory: Record<string, string> = {
+      "Strona firmowa": "Strony firmowe",
+      "Strona usługowa": "Strony firmowe",
+      "Sklep internetowy": "Sklepy internetowe",
+      "Landing page": "Landing page",
+      "Aplikacja & AI": "Aplikacje & automatyzacje",
+      "Aplikacja & automatyzacja": "Aplikacje & automatyzacje",
+    };
+    suggested = category ? (servicesByCategory[category] ?? "") : "";
+  }
+  return cvData.services.some((option) => option.title === suggested)
+    ? suggested
+    : "";
+}
+
+export function ContactSection({
+  smtpEnabled = false,
+}: {
+  smtpEnabled?: boolean;
+}) {
   const [name, setName] = useState("");
   const [contact, setContact] = useState("");
-  const [service, setService] = useState("");
+  // A manual selection, including the empty option, takes precedence over suggestions.
+  const [serviceSelection, setServiceSelection] = useState<string | null>(null);
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [token, setToken] = useState("");
   const [challengeVersion, setChallengeVersion] = useState(0);
   const [website, setWebsite] = useState("");
+  const serviceRef = useRef<HTMLSelectElement>(null);
+  const subscribeIntent = useCallback(
+    (onChange: () => void) =>
+      subscribeContactIntent(() => {
+        if (getContactIntent()) {
+          setStatus((current) =>
+            current === "success" || current === "mailto" ? "idle" : current,
+          );
+        }
+        onChange();
+      }),
+    [],
+  );
+  const intent = useSyncExternalStore(
+    subscribeIntent,
+    getContactIntent,
+    getServerContactIntent,
+  );
+  const service = serviceSelection ?? getSuggestedService(intent);
+  const messageLimit =
+    CONTACT_MESSAGE_LIMIT - getContactIntentPrefix(intent).length;
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -42,6 +114,11 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
     if (!isEmail && !isPhone) e.contact = "Podaj e-mail lub numer telefonu.";
     if (message.trim().length < 10)
       e.message = "Opisz krótko projekt (min. 10 znaków).";
+    if (
+      formatContactIntentMessage(message, intent).length > CONTACT_MESSAGE_LIMIT
+    ) {
+      e.message = `Skróć opis o ${message.trim().length - messageLimit} znaków, aby zmieścić także wybrany kontekst.`;
+    }
     setErrors(e);
     return Object.keys(e).length === 0;
   };
@@ -51,11 +128,12 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
     if (status === "sending" || (smtpEnabled && !token)) return;
     if (!validate()) return;
     setStatus("sending");
+    const outgoingMessage = formatContactIntentMessage(message, intent);
 
     const mailtoFallback = () => {
-      const subject = encodeURIComponent(`Zapytanie o projekt — ${name}`);
+      const subject = encodeURIComponent(`Zapytanie o projekt - ${name}`);
       const body = encodeURIComponent(
-        `Imię: ${name}\nKontakt: ${contact}\nUsługa: ${service || "—"}\n\nWiadomość:\n${message}`,
+        `Imię: ${name}\nKontakt: ${contact}\nUsługa: ${service || "-"}\n\nWiadomość:\n${outgoingMessage}`,
       );
       window.location.href = `mailto:${cvData.personal.email}?subject=${subject}&body=${body}`;
     };
@@ -63,8 +141,15 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
     const resetFields = () => {
       setName("");
       setContact("");
-      setService("");
+      setServiceSelection(null);
       setMessage("");
+      const currentIntent = getContactIntent();
+      if (
+        currentIntent?.kind === intent?.kind &&
+        currentIntent?.value === intent?.value &&
+        currentIntent?.label === intent?.label
+      )
+        clearContactIntent();
     };
 
     // Brak klucza → fallback mailto (otwiera klienta poczty)
@@ -81,7 +166,14 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
         const res = await fetch("/api/contact", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ name, contact, service, message, website, token }),
+          body: JSON.stringify({
+            name,
+            contact,
+            service,
+            message: outgoingMessage,
+            website,
+            token,
+          }),
           signal: AbortSignal.timeout(35000),
         });
         const json = await res.json().catch(() => ({}));
@@ -95,13 +187,16 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
       if (!WEB3FORMS_ACCESS_KEY) throw new Error("missing form configuration");
       const formData = new FormData();
       formData.append("access_key", WEB3FORMS_ACCESS_KEY);
-      formData.append("subject", `Nowe zapytanie | ${service || "Projekt indywidualny"} | ${name.trim()}`);
+      formData.append(
+        "subject",
+        `Nowe zapytanie | ${service || "Projekt indywidualny"} | ${name.trim()}`,
+      );
       formData.append("from_name", "Dawid Orłowski | Zapytania ze strony");
       // ASCII field names avoid corrupted multipart field labels in notification emails.
       formData.append("Nadawca", name.trim());
       formData.append("Kontakt", contact.trim());
       formData.append("Projekt", service || "Do ustalenia");
-      formData.append("Opis projektu", message.trim());
+      formData.append("Opis projektu", outgoingMessage);
       if (isEmail) formData.append("replyto", contact.trim());
 
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -167,6 +262,42 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                 aria-label="Zapytanie o projekt"
                 aria-busy={status === "sending"}
               >
+                {intent && (
+                  <div className="contact-intent">
+                    <p
+                      className="contact-intent-copy"
+                      aria-live="polite"
+                      aria-atomic="true"
+                    >
+                      <span>{getContactIntentLabel(intent)}</span>
+                      <strong>{intent.label}</strong>
+                    </p>
+                    <div className="contact-intent-actions">
+                      <button
+                        type="button"
+                        disabled={status === "sending"}
+                        onClick={() => {
+                          clearContactIntent();
+                          serviceRef.current?.focus();
+                        }}
+                        aria-label="Zmień wybrany kontekst w rodzaju projektu"
+                      >
+                        Zmień
+                      </button>
+                      <button
+                        type="button"
+                        disabled={status === "sending"}
+                        onClick={() => {
+                          clearContactIntent();
+                          serviceRef.current?.focus();
+                        }}
+                        aria-label="Usuń wybrany kontekst"
+                      >
+                        Usuń
+                      </button>
+                    </div>
+                  </div>
+                )}
                 <div className="contact-field">
                   <label htmlFor="name">
                     Twoje imię <span>*</span>
@@ -217,10 +348,11 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                     Co tworzymy? <span>opcjonalnie</span>
                   </label>
                   <select
+                    ref={serviceRef}
                     id="service"
                     name="service"
                     value={service}
-                    onChange={(e) => setService(e.target.value)}
+                    onChange={(e) => setServiceSelection(e.target.value)}
                   >
                     <option value="">Wybierz rodzaj projektu</option>
                     {cvData.services.map((s) => (
@@ -229,7 +361,7 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                       </option>
                     ))}
                     <option value="Inne">
-                      Porozmawiajmy — jeszcze nie wiem
+                      Porozmawiajmy - jeszcze nie wiem
                     </option>
                   </select>
                 </div>
@@ -240,7 +372,7 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                   <textarea
                     id="message"
                     name="message"
-                    maxLength={5000}
+                    maxLength={messageLimit}
                     required
                     rows={3}
                     value={message}
@@ -258,18 +390,38 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                   )}
                 </div>
                 <p className="contact-privacy-note">
-                  Administratorem danych jest Dawid Orłowski. Podane dane wykorzystam
-                  do odpowiedzi i ustalenia szczegółów współpracy. Informacje o podstawach
-                  przetwarzania, dostawcach usług i Twoich prawach znajdziesz w{" "}
-                  <Link href="/polityka-prywatnosci" target="_blank" rel="noopener noreferrer">polityce prywatności (nowa karta)</Link>.
+                  Administratorem danych jest Dawid Orłowski. Podane dane
+                  wykorzystam do odpowiedzi i ustalenia szczegółów współpracy.
+                  Informacje o podstawach przetwarzania, dostawcach usług i
+                  Twoich prawach znajdziesz w{" "}
+                  <Link
+                    href="/polityka-prywatnosci"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    polityce prywatności (nowa karta)
+                  </Link>
+                  .
                 </p>
-                {smtpEnabled && <>
-                  <div hidden aria-hidden="true">
-                    <label htmlFor="contact-website">Website</label>
-                    <input id="contact-website" name="website" tabIndex={-1} autoComplete="off" value={website} onChange={(event) => setWebsite(event.target.value)} />
-                  </div>
-                  <ContactChallenge key={challengeVersion} onToken={setToken} />
-                </>}
+                {smtpEnabled && (
+                  <>
+                    <div hidden aria-hidden="true">
+                      <label htmlFor="contact-website">Website</label>
+                      <input
+                        id="contact-website"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        value={website}
+                        onChange={(event) => setWebsite(event.target.value)}
+                      />
+                    </div>
+                    <ContactChallenge
+                      key={challengeVersion}
+                      onToken={setToken}
+                    />
+                  </>
+                )}
                 {status === "error" && (
                   <p className="contact-error" role="alert">
                     Nie udało się wysłać wiadomości. Spróbuj ponownie lub napisz
@@ -322,12 +474,15 @@ export function ContactSection({ smtpEnabled = false }: { smtpEnabled?: boolean 
                   opacity=".35"
                 />
               </svg>
-              <MiniSculpture shape="portal" small className="contact-sculpture" />
+              <MiniSculpture
+                shape="portal"
+                small
+                className="contact-sculpture"
+              />
               <h2 id="contact-heading">
                 Zróbmy
                 <br />
                 <span>
-                  <i aria-hidden="true" />
                   coś <em>razem.</em>
                 </span>
               </h2>

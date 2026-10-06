@@ -32,7 +32,7 @@ export default async function SettingsPage() {
           <p className="dash-muted">
             Jeśli zapis zapytania do bazy się nie powiedzie, wiadomość nadal
             trafia na e-mail. Błąd CRM_CAPTURE_FAILED pojawi się w logach
-            Vercela — takie zapytanie dodaj ręcznie.
+            Vercela - takie zapytanie dodaj ręcznie.
           </p>
         </section>
         <section className="dash-card">

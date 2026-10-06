@@ -22,7 +22,7 @@ export default function LoginPage() {
           <em>W jednym miejscu.</em>
         </h1>
         <p>
-          Zlecenia, klienci i ustalenia — od pierwszego zapytania do publikacji.
+          Zlecenia, klienci i ustalenia - od pierwszego zapytania do publikacji.
         </p>
       </section>
       <section className="dash-card">

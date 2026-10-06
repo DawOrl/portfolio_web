@@ -1,0 +1,91 @@
+.library-card .library-preview {
+  --library-phone-width: clamp(58px, 25%, 124px);
+  --library-phone-overlap: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.library-device-browser {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #4a4743;
+  background: #242424;
+  box-shadow: 0 6px 18px #1d1d1d24;
+}
+
+.library-device-pair .library-device-browser {
+  width: calc(100% - var(--library-phone-width) + var(--library-phone-overlap));
+}
+
+.library-device-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 22px;
+  padding: 4px 8px;
+  border-bottom: 1px solid #4a4743;
+  color: #c8c2bd;
+}
+
+.library-device-pair .library-device-toolbar {
+  padding-right: calc(8px + var(--library-phone-overlap));
+}
+
+.library-device-dots {
+  display: flex;
+  flex-shrink: 0;
+  gap: 3px;
+}
+
+.library-device-dots i {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #9b958e;
+}
+
+.library-device-title {
+  min-width: 0;
+  overflow: hidden;
+  font-size: 8px;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.library-device-screen {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: #1d1d1d;
+}
+
+.library-device-pair .library-device-screen {
+  margin-right: var(--library-phone-overlap);
+}
+
+.library-device-screen img,
+.library-phone-screen img {
+  object-fit: contain;
+  object-position: center;
+}
+
+.library-phone {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  width: var(--library-phone-width);
+  padding: 3px;
+  border: 1px solid #615c55;
+  border-radius: 13px;
+  background: #1d1d1d;
+  box-shadow: 0 6px 14px #1d1d1d24;
+}
+
+.library-phone-screen {
+  position: relative;
+  aspect-ratio: 390 / 844;
+  overflow: hidden;
+  border-radius: 9px;
+  background: #1d1d1d;
+}

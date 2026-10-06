@@ -1,0 +1,98 @@
+.portfolio-home {
+  position: relative;
+}
+
+.portfolio-home > .portfolio-flow {
+  position: absolute;
+  inset-block: 0;
+  right: max(18px, calc((100% - 1280px) / 2 - 40px));
+  z-index: 0;
+  width: 32px;
+  height: 100%;
+  overflow: hidden;
+  contain: paint;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+
+.portfolio-home > .portfolio-flow[data-ready="true"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.portfolio-flow svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.portfolio-flow-track,
+.portfolio-flow-drawn,
+.portfolio-flow-lead {
+  fill: none;
+  stroke-width: 1;
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.portfolio-flow-track {
+  stroke: var(--accent-cool);
+  opacity: 0.12;
+}
+
+.portfolio-flow-drawn {
+  stroke: #bb385a;
+  opacity: 0.55;
+}
+
+.portfolio-flow-lead {
+  stroke: var(--accent-cool);
+  opacity: 0.75;
+}
+
+.portfolio-flow-stop {
+  fill: var(--background);
+  stroke: var(--accent-cool);
+  stroke-width: 1;
+  opacity: 0.25;
+}
+
+.portfolio-flow-stop[data-state="passed"] {
+  stroke: #bb385a;
+  opacity: 0.7;
+}
+
+.portfolio-flow-stop[data-state="current"] {
+  fill: var(--accent-cool);
+  opacity: 0.85;
+}
+
+.portfolio-flow-marker circle {
+  fill: var(--accent-cool);
+}
+
+.portfolio-flow-marker path {
+  fill: none;
+  stroke: var(--accent-cool);
+  stroke-width: 1;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+@media (max-width: 1100px) {
+  .portfolio-home > .portfolio-flow {
+    right: 6px;
+    width: 20px;
+  }
+}
+
+@media (max-width: 760px),
+  (prefers-reduced-motion: reduce),
+  (forced-colors: active) {
+  .portfolio-home > .portfolio-flow {
+    display: none;
+  }
+}

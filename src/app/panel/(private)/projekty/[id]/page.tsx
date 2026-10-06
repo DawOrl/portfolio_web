@@ -209,7 +209,7 @@ export default async function ProjectPage({
           <h2>Oferty i wersje wyceny</h2>
           <p className="dash-muted">
             Każda oferta zachowuje własny zakres, cenę i dane klienta. Zapis nie
-            wysyła wiadomości. Zmiana oferty nie zmienia wartości projektu —
+            wysyła wiadomości. Zmiana oferty nie zmienia wartości projektu -
             uzgodnioną kwotę zapisz w ustaleniach.
           </p>
           <ul className="dash-offer-list">

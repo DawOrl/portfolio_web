@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, ArrowUp } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { BrandBlock } from "@/components/ui/brand-block";
+import { BackToTopLink } from "@/components/ui/back-to-top-link";
 export function SiteFooter() {
   return (
     <footer className="site-footer shell">
@@ -38,9 +39,7 @@ export function SiteFooter() {
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Dawid Orłowski</span>
         <span>Zaprojektowane z pomysłem. Zakodowane z głową.</span>
-        <Link href="/#top">
-          Na górę <ArrowUp size={14} />
-        </Link>
+        <BackToTopLink />
       </div>
     </footer>
   );

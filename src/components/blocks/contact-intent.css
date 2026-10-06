@@ -1,0 +1,79 @@
+.contact-intent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  padding: 14px 0;
+  border-block: 1px solid rgb(244 240 235 / 20%);
+}
+
+.contact-intent-copy {
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+  margin: 0;
+}
+
+.contact-intent-copy span {
+  color: #9fc5d3;
+  text-transform: uppercase;
+  font-size: var(--type-label);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label);
+}
+
+.contact-intent-copy strong {
+  color: #f4f0eb;
+  font-weight: 500;
+  overflow-wrap: anywhere;
+  font-size: var(--type-body);
+  line-height: var(--leading-body);
+}
+
+.contact-intent-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: 2px;
+}
+
+.contact-intent-actions button {
+  min-height: 44px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: #f4f0eb;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  cursor: pointer;
+  font-size: var(--type-ui);
+  line-height: var(--leading-ui);
+  font-weight: var(--weight-ui);
+}
+
+.contact-intent-actions button:hover {
+  color: #9fc5d3;
+  background: rgb(159 197 211 / 8%);
+}
+
+.contact-intent-actions button:focus-visible {
+  outline: 2px solid #9fc5d3;
+  outline-offset: 2px;
+}
+
+.contact-intent-actions button:disabled {
+  opacity: 0.5;
+  cursor: wait;
+}
+
+@media (max-width: 480px) {
+  .contact-intent {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .contact-intent-actions {
+    margin-left: -10px;
+  }
+}

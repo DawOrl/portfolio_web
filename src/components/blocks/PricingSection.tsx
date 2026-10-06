@@ -13,9 +13,9 @@ export function PricingSection() {
   return (
     <Section id="cennik">
       <SectionHeading
-        eyebrow="05 — Cennik"
+        eyebrow="05 - Cennik"
         title="Przejrzyste pakiety"
-        subtitle="Ceny orientacyjne — finalną wycenę przygotowuję indywidualnie po poznaniu Twoich potrzeb. Bez ukrytych kosztów."
+        subtitle="Ceny orientacyjne - finalną wycenę przygotowuję indywidualnie po poznaniu Twoich potrzeb. Bez ukrytych kosztów."
         align="center"
       />
 

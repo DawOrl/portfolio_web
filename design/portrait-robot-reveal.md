@@ -1,5 +1,7 @@
 # Robot w sekcji „O mnie”
 
+Dokument historyczny. 6 października 2026 efekt robota został usunięty na prośbę Dawida. Aktualny portret i sposób przygotowania eksportu opisuje [portret bez robota](./portrait-restoration-2026-10-06.md).
+
 ## Kierunek
 
 Zgodnie z doprecyzowaniem Dawida robot jest osobną, całkowicie mechaniczną postacią. Ma własną głowę, szyję, ramiona i tors. Nie wykorzystuje jego twarzy ani bluzy. Paleta pozostaje zgodna ze stroną: kremowa ceramika, grafit, burgundowe łączenia i błękitne soczewki. Referencja użytkownika służyła jako inspiracja konstrukcji robota, nie jako gotowy zasób do wklejenia.

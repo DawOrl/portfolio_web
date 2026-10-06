@@ -20,9 +20,9 @@ export function ServicesSection() {
   return (
     <Section id="uslugi">
       <SectionHeading
-        eyebrow="01 — Oferta"
+        eyebrow="01 - Oferta"
         title="W czym mogę Ci pomóc"
-        subtitle="Buduję strony skrojone pod cel Twojej firmy — od prostej wizytówki, przez landing pod kampanię, po sklep czy aplikację."
+        subtitle="Buduję strony skrojone pod cel Twojej firmy - od prostej wizytówki, przez landing pod kampanię, po sklep czy aplikację."
       />
 
       <motion.div

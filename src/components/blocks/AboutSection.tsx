@@ -9,7 +9,7 @@ const reasons = [
   {
     icon: Sparkles,
     title: "Spojrzenie marketingowca",
-    text: "Z doświadczenia w marketingu wiem, co realnie sprzedaje online — projektuję strony pod cel: kontakt, zapytanie, sprzedaż, nie tylko ładny wygląd.",
+    text: "Z doświadczenia w marketingu wiem, co realnie sprzedaje online - projektuję strony pod cel: kontakt, zapytanie, sprzedaż, nie tylko ładny wygląd.",
   },
   {
     icon: Code2,
@@ -32,9 +32,9 @@ export function AboutSection() {
   return (
     <Section id="o-mnie">
       <SectionHeading
-        eyebrow="04 — O mnie"
+        eyebrow="04 - O mnie"
         title="Łączę kod, AI i marketing"
-        subtitle="Jako Fullstack AI Developer z przeszłością w marketingu wiem, co sprawia, że strona sprzedaje — i potrafię to samodzielnie zaprogramować."
+        subtitle="Jako Fullstack AI Developer z przeszłością w marketingu wiem, co sprawia, że strona sprzedaje - i potrafię to samodzielnie zaprogramować."
       />
 
       <div className="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">

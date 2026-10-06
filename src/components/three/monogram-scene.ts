@@ -1,5 +1,7 @@
 import * as THREE from "three";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 /** One small, on-demand scene. No external textures, models or continuous idle loop. */
 export function mountMonogram(host: HTMLElement, canvas: HTMLCanvasElement) {
@@ -56,8 +58,10 @@ export function mountMonogram(host: HTMLElement, canvas: HTMLCanvasElement) {
     roughness: 0.24,
   });
   const geometries: THREE.BufferGeometry[] = [];
+  const scrollGroup = new THREE.Group();
   const model = new THREE.Group();
-  scene.add(model);
+  scrollGroup.add(model);
+  scene.add(scrollGroup);
   const letterD = new THREE.Shape();
   letterD.moveTo(30, -8);
   letterD.lineTo(38, -8);
@@ -156,7 +160,10 @@ export function mountMonogram(host: HTMLElement, canvas: HTMLCanvasElement) {
   const reset = () => {
     targetX = baseX;
     targetY = baseY;
-    if (reduce.matches) model.rotation.set(baseX, baseY, -0.075);
+    if (reduce.matches) {
+      scrollGroup.rotation.set(0, 0, 0);
+      model.rotation.set(baseX, baseY, -0.075);
+    }
     requestRender();
   };
   const visibility = new IntersectionObserver(([entry]) => {
@@ -190,9 +197,68 @@ export function mountMonogram(host: HTMLElement, canvas: HTMLCanvasElement) {
   canvas.addEventListener("webglcontextrestored", onRestored);
   resize();
 
+  gsap.registerPlugin(ScrollTrigger);
+  const motionMedia = gsap.matchMedia();
+  const scrollContext = gsap.context(() => {
+    motionMedia.add(
+      {
+        motion: "(prefers-reduced-motion: no-preference)",
+        reduce: "(prefers-reduced-motion: reduce)",
+      },
+      (context) => {
+        if (context.conditions?.reduce) {
+          scrollGroup.rotation.set(0, 0, 0);
+          reset();
+          return;
+        }
+
+        // Scroll rotates the parent; the pointer retains ownership of the model.
+        const scrollTween = gsap.fromTo(
+          scrollGroup.rotation,
+          { x: -0.045, y: -0.5 },
+          {
+            x: 0.035,
+            y: 0.55,
+            ease: "none",
+            onUpdate: () => {
+              if (reduce.matches) scrollGroup.rotation.set(0, 0, 0);
+              requestRender();
+            },
+            scrollTrigger: {
+              trigger: host,
+              start: "top bottom",
+              end: "bottom top",
+              scrub: 0.75,
+              invalidateOnRefresh: true,
+              onRefresh: requestRender,
+            },
+          },
+        );
+
+        // A lazy-mounted scene starts at the current scroll pose, without a catch-up spin.
+        const trigger = scrollTween.scrollTrigger;
+        if (trigger) {
+          trigger.refresh();
+          trigger.update();
+          trigger.getTween()?.progress(1);
+          scrollTween.progress(trigger.progress, true);
+        }
+        requestRender();
+
+        return () => {
+          scrollGroup.rotation.set(0, 0, 0);
+          requestRender();
+        };
+      },
+      host,
+    );
+  }, host);
+
   return () => {
     disposed = true;
     cancelAnimationFrame(frame);
+    motionMedia.revert();
+    scrollContext.revert();
     visibility.disconnect();
     resizeObserver.disconnect();
     host.removeEventListener("pointermove", onMove);

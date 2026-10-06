@@ -10,7 +10,7 @@ export function BrandMark({ className }: { className?: string; src?: string }) {
       fill="none"
       className={cn("brand-mark", className)}
       role="img"
-      aria-label="Dawid Orłowski — monogram do"
+      aria-label="Dawid Orłowski - monogram do"
     >
       <path
         d="M34 8v36a14 14 0 1 1-14-14h14"

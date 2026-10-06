@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { cvData } from "@/data/cv-data";
 import { SITE_URL } from "@/lib/site";
+import { ProjectJourneyProvider } from "@/components/ui/project-journey";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "Dawid Orłowski — tworzenie stron internetowych",
+  name: "Dawid Orłowski - tworzenie stron internetowych",
   url: SITE_URL,
   description:
     "Projektowanie i kodowanie nowoczesnych stron internetowych oraz landing page dla firm.",
@@ -85,7 +86,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pl" suppressHydrationWarning className={montserrat.variable}>
+    <html
+      lang="pl"
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+      className={montserrat.variable}
+    >
       <body className="font-sans antialiased min-h-screen">
         <a className="skip-link" href="#main-content">
           Przejdź do treści
@@ -100,7 +106,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
-          {children}
+          <ProjectJourneyProvider>{children}</ProjectJourneyProvider>
         </ThemeProvider>
       </body>
     </html>

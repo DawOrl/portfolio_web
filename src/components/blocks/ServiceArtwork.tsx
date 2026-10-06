@@ -51,10 +51,10 @@ export function ServiceArtwork({ kind }: { kind: string }) {
             <text
               x="18"
               y="153"
-              fill="#1d1d1d"
+              fill="var(--primary)"
               fontSize="46"
-              fontFamily="Georgia, serif"
-              fontStyle="italic"
+              fontFamily="inherit"
+              fontStyle="normal"
             >
               początek.
             </text>

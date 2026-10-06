@@ -9,7 +9,7 @@ export function DesignSignature() {
   return (
     <div className={`design-signature ${blueprint ? "is-blueprint" : ""}`}>
       <div className="signature-header">
-        <span>STUDIUM FORMY — 001</span>
+        <span>STUDIUM FORMY - 001</span>
         <span>DO / ↗</span>
       </div>
       <div className="signature-art" aria-hidden="true">

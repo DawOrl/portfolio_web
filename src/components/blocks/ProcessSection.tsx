@@ -141,7 +141,7 @@ export function ProcessSection() {
     >
       <div className="mx-auto w-full max-w-6xl px-6 md:px-10">
         <SectionHeading
-          eyebrow="03 — Jak pracuję"
+          eyebrow="03 - Jak pracuję"
           title="Prosty, przewidywalny proces"
           subtitle="Wiesz dokładnie, co dzieje się na każdym etapie. Bez niespodzianek, z wyceną i akceptacją przed startem prac."
         />

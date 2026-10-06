@@ -8,10 +8,10 @@ export const cvData = {
     // Przekaz sprzedażowy (hero)
     headline: "Tworzę nowoczesne strony internetowe dla firm",
     subheadline:
-      "Projektuję i koduję szybkie, estetyczne strony i landing page, które budują wizerunek Twojej firmy i przyciągają klientów. Bez gotowych szablonów — wszystko pod Twoje potrzeby.",
+      "Projektuję i koduję szybkie, estetyczne strony i landing page, które budują wizerunek Twojej firmy i przyciągają klientów. Bez gotowych szablonów - wszystko pod Twoje potrzeby.",
     availability: "Dostępny na nowe projekty",
     about:
-      "Jestem osobą po studiach informatycznych. Na co dzień pracuję jako Fullstack AI Developer — tworzę aplikacje webowe oparte o sztuczną inteligencję i automatyzacje. Wcześniej, jako Email Marketing Specialist, prowadziłem kampanie i poznałem od podszewki to, co realnie sprzedaje online. Strony internetowe łączą obie te perspektywy: czysty, wydajny kod programisty i spojrzenie marketingowca na to, co przyciąga klienta.",
+      "Jestem osobą po studiach informatycznych. Na co dzień pracuję jako Fullstack AI Developer - tworzę aplikacje webowe oparte o sztuczną inteligencję i automatyzacje. Wcześniej, jako Email Marketing Specialist, prowadziłem kampanie i poznałem od podszewki to, co realnie sprzedaje online. Strony internetowe łączą obie te perspektywy: czysty, wydajny kod programisty i spojrzenie marketingowca na to, co przyciąga klienta.",
   },
 
   // Wyróżniki pokazywane w pasku zaufania pod hero
@@ -29,7 +29,7 @@ export const cvData = {
       icon: "Globe",
       title: "Strony firmowe",
       description:
-        "Profesjonalna wizytówka Twojej działalności w sieci — buduje zaufanie i prezentuje ofertę.",
+        "Profesjonalna wizytówka Twojej działalności w sieci - buduje zaufanie i prezentuje ofertę.",
       features: [
         "Strona wizytówka",
         "Strona usługowa",
@@ -96,7 +96,7 @@ export const cvData = {
       step: "03",
       title: "Kodowanie i wdrożenie",
       description:
-        "Programuję stronę w nowoczesnych technologiach — responsywną, szybką i zoptymalizowaną pod wyszukiwarki, z testami na każdym etapie.",
+        "Programuję stronę w nowoczesnych technologiach - responsywną, szybką i zoptymalizowaną pod wyszukiwarki, z testami na każdym etapie.",
     },
     {
       step: "04",
@@ -166,21 +166,21 @@ export const cvData = {
   // Opinie — TODO: zastąp prawdziwymi opiniami klientów (na razie przykładowe)
   testimonials: [
     {
-      name: "Klient — branża motoryzacyjna",
+      name: "Klient - branża motoryzacyjna",
       role: "Właściciel warsztatu",
       quote:
         "Strona powstała szybko i dokładnie tak, jak ustaliliśmy. Klienci częściej dzwonią po obejrzeniu oferty online, a całość wygląda naprawdę profesjonalnie.",
       rating: 5,
     },
     {
-      name: "Klient — usługi lokalne",
+      name: "Klient - usługi lokalne",
       role: "Mała działalność",
       quote:
         "Dawid dobrze doradził, co faktycznie jest mi potrzebne, zamiast sprzedawać niepotrzebne dodatki. Kontakt bezproblemowy, terminy dotrzymane.",
       rating: 5,
     },
     {
-      name: "Klient — landing kampanijny",
+      name: "Klient - landing kampanijny",
       role: "Marketing",
       quote:
         "Landing pod kampanię reklamową ładuje się błyskawicznie i ładnie konwertuje. Współpraca konkretna i merytoryczna.",
@@ -204,7 +204,7 @@ export const cvData = {
     },
     {
       q: "Czy będę mógł samodzielnie edytować treści?",
-      a: "Tak, jeśli rozszerzymy projekt o system zarządzania treścią (CMS). Panel edycji i blog wyceniam osobno — nie są zawarte w podstawowych pakietach. Możesz też zlecać mi późniejsze zmiany według ustalonej wyceny.",
+      a: "Tak, jeśli rozszerzymy projekt o system zarządzania treścią (CMS). Panel edycji i blog wyceniam osobno - nie są zawarte w podstawowych pakietach. Możesz też zlecać mi późniejsze zmiany według ustalonej wyceny.",
     },
     {
       q: "Co z hostingiem i domeną?",
@@ -212,7 +212,7 @@ export const cvData = {
     },
     {
       q: "Czy kod strony należy do mnie?",
-      a: "Tak. Po rozliczeniu projektu przekazuję pełen dostęp i kod — strona jest w 100% Twoją własnością, bez uzależnienia od jednego dostawcy.",
+      a: "Tak. Po rozliczeniu projektu przekazuję pełen dostęp i kod - strona jest w 100% Twoją własnością, bez uzależnienia od jednego dostawcy.",
     },
   ],
 
@@ -228,7 +228,7 @@ export const cvData = {
   projects: [
     {
       slug: "topauto-serwis",
-      title: "TopAuto Serwis — strona warsztatu",
+      title: "TopAuto Serwis - strona warsztatu",
       category: "Strona firmowa",
       kind: "client" as const,
       year: "2026",
@@ -266,19 +266,19 @@ export const cvData = {
 
     {
       slug: "restauracja-bella",
-      title: "Bella Cucina — strona restauracji",
+      title: "Bella Cucina - strona restauracji",
       category: "Strona firmowa",
       kind: "demo" as const,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Strona restauracji z menu online, galerią dań i rezerwacją stolika — bez konieczności dzwonienia.",
+        "Strona restauracji z menu online, galerią dań i rezerwacją stolika - bez konieczności dzwonienia.",
       problem:
-        "Większość lokali gastronomicznych w Polsce działa wyłącznie na Instagramie i Facebooku. Menu krąży jako zdjęcie sprzed miesięcy, nie da się zarezerwować stolika online, a Google nie ma czego zaindeksować — lokal jest niewidoczny dla nowych gości.",
+        "Większość lokali gastronomicznych w Polsce działa wyłącznie na Instagramie i Facebooku. Menu krąży jako zdjęcie sprzed miesięcy, nie da się zarezerwować stolika online, a Google nie ma czego zaindeksować - lokal jest niewidoczny dla nowych gości.",
       solution:
         "Zaprojektowałem stronę, która sprzedaje atmosferę lokalu: apetyczna sekcja hero, menu online łatwe do aktualizacji, galeria dań, godziny otwarcia, mapa dojazdu i prosty formularz rezerwacji stolika. Mobile-first, bo gości najczęściej szukają w telefonie.",
       result:
-        "Gość w kilka sekund widzi menu, lokalizację i rezerwuje stolik — bez telefonu i przeszukiwania social mediów. Lokal zyskuje profesjonalny wizerunek i widoczność w Google.",
+        "Gość w kilka sekund widzi menu, lokalizację i rezerwuje stolik - bez telefonu i przeszukiwania social mediów. Lokal zyskuje profesjonalny wizerunek i widoczność w Google.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
       scope: [
         "Projekt UI/UX",
@@ -298,17 +298,17 @@ export const cvData = {
 
     {
       slug: "salon-glow",
-      title: "Glow Studio — rezerwacja wizyt online",
+      title: "Glow Studio - rezerwacja wizyt online",
       category: "Strona usługowa",
       kind: "demo" as const,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Strona salonu beauty/barber z cennikiem usług i rezerwacją wizyt online — niezależna od prowizji platform.",
+        "Strona salonu beauty/barber z cennikiem usług i rezerwacją wizyt online - niezależna od prowizji platform.",
       problem:
         "Salony fryzjerskie, barber shopy i gabinety beauty są uzależnione od platform typu Booksy, które pobierają prowizje i „pożyczają” im klientów. Brakuje własnego kanału, który buduje markę salonu i nie oddaje bazy klientów pośrednikowi.",
       solution:
-        "Stworzyłem stronę z pełnym cennikiem usług, prezentacją zespołu i portfolio realizacji oraz własnym systemem rezerwacji wizyt (wybór usługi, terminu i pracownika). Klient rezerwuje bezpośrednio u salonu — bez prowizji i przekierowań do zewnętrznych aplikacji.",
+        "Stworzyłem stronę z pełnym cennikiem usług, prezentacją zespołu i portfolio realizacji oraz własnym systemem rezerwacji wizyt (wybór usługi, terminu i pracownika). Klient rezerwuje bezpośrednio u salonu - bez prowizji i przekierowań do zewnętrznych aplikacji.",
       result:
         "Salon ma własny, profesjonalny kanał rezerwacji i przestaje oddawać prowizję pośrednikom. Marka buduje rozpoznawalność, a baza klientów należy do salonu.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
@@ -330,7 +330,7 @@ export const cvData = {
 
     {
       slug: "sklep-craft-coffee",
-      title: "Craft Coffee — sklep internetowy",
+      title: "Craft Coffee - sklep internetowy",
       category: "Sklep internetowy",
       kind: "demo" as const,
       year: "2026",
@@ -338,7 +338,7 @@ export const cvData = {
       tagline:
         "Sklep e-commerce lokalnej palarni kawy: katalog produktów, koszyk i płatności online.",
       problem:
-        "Małe, lokalne marki (palarnie kawy, rękodzieło, produkty regionalne) sprzedają głównie stacjonarnie lub przez wiadomości na social mediach. Brakuje im sklepu, który przyjmie zamówienie i płatność o każdej porze — tracą sprzedaż poza godzinami otwarcia.",
+        "Małe, lokalne marki (palarnie kawy, rękodzieło, produkty regionalne) sprzedają głównie stacjonarnie lub przez wiadomości na social mediach. Brakuje im sklepu, który przyjmie zamówienie i płatność o każdej porze - tracą sprzedaż poza godzinami otwarcia.",
       solution:
         "Zbudowałem lekki sklep internetowy: estetyczny katalog produktów z filtrowaniem, koszyk, proces zamówienia i integracja z płatnościami online. Wydajny, szybki i prosty w zarządzaniu asortymentem.",
       result:
@@ -362,7 +362,7 @@ export const cvData = {
 
     {
       slug: "asystent-ai",
-      title: "Asystent AI dla firmy — chatbot i generator ofert",
+      title: "Asystent AI dla firmy - chatbot i generator ofert",
       category: "Aplikacja & AI",
       kind: "demo" as const,
       year: "2026",
@@ -374,7 +374,7 @@ export const cvData = {
       solution:
         "Zbudowałem aplikację webową opartą o model językowy (LLM): chatbot odpowiada na pytania klientów na podstawie wiedzy o firmie 24/7, a generator ofert na podstawie kilku pól tworzy gotową, spersonalizowaną propozycję. Integracja przez API, z naciskiem na szybkość i bezpieczeństwo danych.",
       result:
-        "Firma odpowiada klientom natychmiast o każdej porze i automatyzuje powtarzalną pracę. Pokazuje praktyczne zastosowanie AI w obsłudze klienta — mój główny wyróżnik jako Fullstack AI Developer.",
+        "Firma odpowiada klientom natychmiast o każdej porze i automatyzuje powtarzalną pracę. Pokazuje praktyczne zastosowanie AI w obsłudze klienta - mój główny wyróżnik jako Fullstack AI Developer.",
       stack: ["Next.js", "React", "TypeScript", "OpenAI API", "Vercel"],
       scope: [
         "Projekt UI/UX",
@@ -394,19 +394,19 @@ export const cvData = {
 
     {
       slug: "eko-solar",
-      title: "EkoSolar — landing fotowoltaiki z wyceną",
+      title: "EkoSolar - landing fotowoltaiki z wyceną",
       category: "Landing page",
       kind: "demo" as const,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Landing pod kampanie reklamowe z kalkulatorem oszczędności i formularzem wyceny — jedna strona, jeden cel: lead.",
+        "Landing pod kampanie reklamowe z kalkulatorem oszczędności i formularzem wyceny - jedna strona, jeden cel: lead.",
       problem:
-        "Firmy usługowe (fotowoltaika, ocieplenia, instalacje) płacą za reklamy Google i Facebook, a ruch kierują na ogólną stronę firmową, która nie prowadzi do żadnej akcji. Klient klika, błądzi i wychodzi — budżet reklamowy się pali, a zapytań brak.",
+        "Firmy usługowe (fotowoltaika, ocieplenia, instalacje) płacą za reklamy Google i Facebook, a ruch kierują na ogólną stronę firmową, która nie prowadzi do żadnej akcji. Klient klika, błądzi i wychodzi - budżet reklamowy się pali, a zapytań brak.",
       solution:
         "Zaprojektowałem landing skupiony na jednej akcji: bezpłatnej wycenie. Interaktywny kalkulator oszczędności (suwak rachunku → dobrana moc instalacji i roczne oszczędności) angażuje i prowadzi prosto do formularza. Po drodze: liczby budujące zaufanie, proces w 4 krokach, realizacje z okolicy, opinie z Google, sekcja dotacji i FAQ rozwiewające obiekcje.",
       result:
-        "Każdy element strony pracuje na konwersję — odwiedzający z reklamy w kilkadziesiąt sekund rozumie korzyść, sprawdza oszczędności na własnym rachunku i zostawia kontakt. Wzorzec gotowy do adaptacji dla dowolnej usługi lokalnej rozliczanej z leadów.",
+        "Każdy element strony pracuje na konwersję - odwiedzający z reklamy w kilkadziesiąt sekund rozumie korzyść, sprawdza oszczędności na własnym rachunku i zostawia kontakt. Wzorzec gotowy do adaptacji dla dowolnej usługi lokalnej rozliczanej z leadów.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
       scope: [
         "Projekt UI/UX",
@@ -426,7 +426,7 @@ export const cvData = {
 
     {
       slug: "fotograf-lena",
-      title: "Lena Czarnecka — portfolio fotografki",
+      title: "Lena Czarnecka - portfolio fotografki",
       category: "Portfolio",
       kind: "demo" as const,
       year: "2026",
@@ -436,9 +436,9 @@ export const cvData = {
       problem:
         "Fotografowie i inni twórcy pokazują prace głównie na Instagramie, gdzie portfolio miesza się z relacjami, a algorytm decyduje, co zobaczy klientka. Brakuje miejsca, które prezentuje dorobek w pełnej jakości, porządkuje ofertę i zbiera zapytania o terminy.",
       solution:
-        "Zbudowałem stronę, w której bohaterem są zdjęcia: minimalistyczny, jasny layout z serifową typografią, galeria z filtrowaniem kategorii (śluby, portrety, rodzinne), czytelne pakiety cenowe i formularz zapytania z datą wydarzenia. Estetyka „editorial” zamiast szablonu — strona ma wyglądać jak rozkładówka magazynu.",
+        "Zbudowałem stronę, w której bohaterem są zdjęcia: minimalistyczny, jasny layout z serifową typografią, galeria z filtrowaniem kategorii (śluby, portrety, rodzinne), czytelne pakiety cenowe i formularz zapytania z datą wydarzenia. Estetyka „editorial” zamiast szablonu - strona ma wyglądać jak rozkładówka magazynu.",
       result:
-        "Klientka w minutę ogląda wyselekcjonowane portfolio, zna ceny pakietów i wysyła zapytanie z konkretną datą. Fotografka dostaje profesjonalną wizytówkę niezależną od algorytmów — wzorzec dla każdej branży kreatywnej.",
+        "Klientka w minutę ogląda wyselekcjonowane portfolio, zna ceny pakietów i wysyła zapytanie z konkretną datą. Fotografka dostaje profesjonalną wizytówkę niezależną od algorytmów - wzorzec dla każdej branży kreatywnej.",
       stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
       scope: [
         "Projekt UI/UX",
@@ -458,17 +458,17 @@ export const cvData = {
 
     {
       slug: "kalkulator-wyceny",
-      title: "Kalkulator wyceny strony www — wizard",
+      title: "Kalkulator wyceny strony www - wizard",
       category: "Aplikacja & automatyzacja",
       kind: "demo" as const,
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Interaktywny wizard: 6 pytań i klient widzi widełki cenowe z rozpisem kosztów — automatyzacja pierwszego kontaktu.",
+        "Interaktywny wizard: 6 pytań i klient widzi widełki cenowe z rozpisem kosztów - automatyzacja pierwszego kontaktu.",
       problem:
         "Pierwsze pytanie każdego klienta brzmi „ile to kosztuje?”, a odpowiedź wymaga maili, telefonów i ręcznego liczenia. Część zainteresowanych odpada, zanim dostanie jakąkolwiek liczbę, a usługodawca traci czas na wyceny, z których nic nie wynika.",
       solution:
-        "Zbudowałem konwersacyjny kalkulator: jedno pytanie na ekran (typ strony, podstrony, design, treści, funkcje, termin), płynne przejścia między krokami i wynik od razu — widełki cenowe, szacowany czas realizacji i kosztorys pozycja po pozycji. Bez żargonu, bez podawania maila, bez zobowiązań.",
+        "Zbudowałem konwersacyjny kalkulator: jedno pytanie na ekran (typ strony, podstrony, design, treści, funkcje, termin), płynne przejścia między krokami i wynik od razu - widełki cenowe, szacowany czas realizacji i kosztorys pozycja po pozycji. Bez żargonu, bez podawania maila, bez zobowiązań.",
       result:
         "Klient dostaje orientacyjną cenę w 60 sekund o dowolnej porze, a do rozmowy trafia już z realnymi oczekiwaniami. Wzorzec automatyzacji pierwszego kontaktu do wpięcia w stronę dowolnej firmy usługowej.",
       stack: ["Next.js", "React", "TypeScript", "Framer Motion"],
@@ -494,7 +494,7 @@ export const cvData = {
     company: "Webimpact",
     period: "05.2026 - nadal",
     description:
-      "Tworzenie aplikacji full-stack opartych o sztuczną inteligencję — integracje z modelami językowymi (LLM), automatyzacje procesów i narzędzia wewnętrzne. Łączę warstwę front-end (React / Next.js) z logiką back-endową i wdrożeniami w chmurze.",
+      "Tworzenie aplikacji full-stack opartych o sztuczną inteligencję - integracje z modelami językowymi (LLM), automatyzacje procesów i narzędzia wewnętrzne. Łączę warstwę front-end (React / Next.js) z logiką back-endową i wdrożeniami w chmurze.",
   },
   education: {
     school: "Politechnika Krakowska im. Tadeusza Kościuszki",

@@ -36,11 +36,11 @@ export function createContactEmail(inquiry: ContactInquiry) {
     ? `mailto:${contact}?subject=${encodeURIComponent(`Re: ${service}`)}`
     : `tel:${contact.replace(/[^+\d]/g, "")}`;
   const safe = { name: escapeHtml(name), contact: escapeHtml(contact), service: escapeHtml(service), message: escapeHtml(message).replace(/\r?\n/g, "<br />") };
-  const text = `NOWE ZAPYTANIE · DORLOWSKI.DEV\n\nNadawca: ${name}\nKontakt: ${contact}\nProjekt: ${service}\n\nOPIS PROJEKTU\n${message}\n\n${email ? "Odpowiedz na tę wiadomość, aby skontaktować się z nadawcą." : "Klient podał numer telefonu — skontaktuj się z nim telefonicznie."}`;
+  const text = `NOWE ZAPYTANIE · DORLOWSKI.DEV\n\nNadawca: ${name}\nKontakt: ${contact}\nProjekt: ${service}\n\nOPIS PROJEKTU\n${message}\n\n${email ? "Odpowiedz na tę wiadomość, aby skontaktować się z nadawcą." : "Klient podał numer telefonu - skontaktuj się z nim telefonicznie."}`;
   const html = `<!doctype html>
 <html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Nowe zapytanie</title></head>
 <body style="margin:0;padding:0;background:#f2f0ed;color:#1d1d1d;font-family:Arial,Helvetica,sans-serif;">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${safe.name} — ${safe.service}. Nowa wiadomość z portfolio.</div>
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;">${safe.name} - ${safe.service}. Nowa wiadomość z portfolio.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f0ed;"><tr><td align="center" style="padding:32px 12px;">
 <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:100%;max-width:600px;background:#ffffff;border:1px solid #e4e0db;">
 <tr><td style="padding:28px 32px;background:#1d1d1d;color:#ffffff;">

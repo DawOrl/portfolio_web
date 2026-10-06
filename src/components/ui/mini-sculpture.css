@@ -118,17 +118,17 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  min-height: 108px;
+  min-height: 96px;
   margin-top: 14px;
 }
 .price-plan .plan-heading p {
   margin: 0;
   max-width: 190px;
-  line-height: 1.5;
-  font-size: 17px;
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
 }
 .price-plan .plan-price {
-  margin-top: 8px;
+  margin-top: 16px;
 }
 .price-plan .mini-sculpture {
   margin-right: -10px;
@@ -167,12 +167,20 @@
   }
 }
 @media (max-width: 1000px) and (min-width: 761px) {
+  .price-plan .plan-heading {
+    min-height: 110px;
+    gap: 8px;
+  }
+  .price-plan .plan-heading p {
+    font-size: var(--type-small);
+    line-height: var(--leading-body);
+  }
   .price-plan .mini-sculpture {
-    width: 72px;
-    flex-basis: 72px;
+    width: 56px;
+    flex-basis: 56px;
   }
   .price-plan .mini-sculpture-world {
-    scale: 0.8;
+    scale: 0.65;
   }
 }
 @media (max-width: 760px) {

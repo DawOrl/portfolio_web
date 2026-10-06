@@ -3,6 +3,7 @@
 import { useRef, useState, type PointerEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { ServiceArtwork } from "./ServiceArtwork";
+import { ContactIntentLink } from "@/components/ui/contact-intent-link";
 import "./service-showcase.css";
 
 type Service = {
@@ -45,8 +46,13 @@ export function ServiceShowcase({ services }: { services: Service[] }) {
     >
       <div className="service-list">
         {services.map((service, index) => (
-          <a
-            href="#kontakt"
+          <ContactIntentLink
+            href="/#kontakt"
+            intent={{
+              kind: "service",
+              label: service.title,
+              value: service.title,
+            }}
             key={service.id}
             className="service-row"
             data-active={active === index}
@@ -68,7 +74,7 @@ export function ServiceShowcase({ services }: { services: Service[] }) {
             <span className="service-mobile-art" aria-hidden="true">
               <ServiceArtwork kind={service.id} />
             </span>
-          </a>
+          </ContactIntentLink>
         ))}
       </div>
       <div className="service-study" aria-hidden="true">

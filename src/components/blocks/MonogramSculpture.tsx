@@ -41,7 +41,7 @@ export function MonogramSculpture() {
       ref={stage}
       className="monogram-sculpture"
       role="img"
-      aria-label="Przestrzenny monogram do — burgundowa forma z metalowymi krawędziami"
+      aria-label="Przestrzenny monogram do - burgundowa forma z metalowymi krawędziami"
     >
       <div className="monogram-guide" aria-hidden="true">
         <i />

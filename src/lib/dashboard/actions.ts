@@ -216,7 +216,7 @@ export async function mutate(
         ensure(result);
         state = {
           success:
-            "Link jest ważny 14 dni. Skopiuj go teraz — zapisujemy tylko jego skrót. Poprzednie niewypełnione linki zostały unieważnione.",
+            "Link jest ważny 14 dni. Skopiuj go teraz - zapisujemy tylko jego skrót. Poprzednie niewypełnione linki zostały unieważnione.",
           link: `${SITE_URL}/brief/${token}`,
         };
         break;

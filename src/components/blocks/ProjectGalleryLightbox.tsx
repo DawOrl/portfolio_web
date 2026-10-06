@@ -39,7 +39,7 @@ export function ProjectGalleryLightbox({
           >
             <img
               src={img}
-              alt={`${title} — ujęcie ${i + 1}`}
+              alt={`${title} - ujęcie ${i + 1}`}
               loading="lazy"
               className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />

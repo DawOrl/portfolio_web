@@ -1,10 +1,15 @@
 .project-motion-preview {
   position: absolute;
   z-index: 2;
-  inset: 0;
+  inset: 12px 12px auto auto;
+  width: 40%;
+  height: calc(100% - var(--card-caption-height, 80px) - 24px);
   display: block;
   overflow: hidden;
   background: #1d1d1d;
+  border: 2px solid #76716e;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px #0006;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.3s ease;
@@ -15,21 +20,25 @@
 .project-preview-bar {
   display: flex;
   align-items: center;
-  gap: 7px;
-  height: 28px;
-  padding-inline: 12px;
-  font-size: 7px;
-  letter-spacing: 1.5px;
+  gap: 4px;
+  height: 24px;
+  padding-inline: 6px;
+  font-size: 6px;
+  letter-spacing: 0;
   color: #f4f0eb;
 }
 .project-preview-bar > span {
-  margin-left: auto;
-  font-size: 12px;
+  display: none;
+}
+.project-preview-bar svg {
+  flex-shrink: 0;
+  width: 9px;
 }
 .project-preview-viewport {
   display: block;
   position: absolute;
-  inset: 28px 0 3px;
+  inset: 24px 3px 5px;
+  border-radius: 0 0 9px 9px;
   overflow: hidden;
 }
 .project-preview-screen {
@@ -59,15 +68,18 @@
   justify-content: center;
   gap: 8px;
   padding: 9px 12px;
+  min-height: 44px;
   margin: 15px auto 0;
   border: 1px solid #ffffff30;
   color: #d2ccc6;
   cursor: pointer;
-  font-size: 10px;
   transition:
     background 0.2s,
     border-color 0.2s,
     color 0.2s;
+  font-size: var(--type-ui);
+  line-height: var(--leading-ui);
+  font-weight: var(--weight-ui);
 }
 .carousel-preview-toggle:hover,
 .carousel-preview-toggle[aria-pressed="true"] {
@@ -84,26 +96,19 @@
   flex-direction: column;
   align-items: center;
 }
-.carousel-preview-hint {
-  display: none;
-}
-@media (min-width: 761px) and (hover: hover) and (pointer: fine) {
-  .carousel-preview-hint {
-    display: block;
-    margin-top: 10px;
-    color: #b0ada9;
-    font-size: 9px;
-  }
-}
 @media (max-width: 760px) {
+  .project-motion-preview {
+    inset: 8px 8px auto auto;
+    height: calc(100% - var(--card-caption-height, 80px) - 16px);
+    border-radius: 10px;
+  }
   .project-preview-bar {
-    height: 24px;
-    padding-inline: 8px;
-    font-size: 6px;
-    letter-spacing: 1px;
+    height: 18px;
+    padding-inline: 4px;
+    font-size: 5px;
   }
   .project-preview-viewport {
-    top: 24px;
+    top: 18px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

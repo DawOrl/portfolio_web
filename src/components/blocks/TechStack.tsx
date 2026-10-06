@@ -48,7 +48,7 @@ export function TechStack() {
         </h2>
       </div>
       <p className="mb-10 max-w-2xl text-sm text-muted-foreground md:text-base">
-        Narzędzia, których używam na co dzień — od frontu strony, przez
+        Narzędzia, których używam na co dzień - od frontu strony, przez
         integracje, po systemy AI.
       </p>
 

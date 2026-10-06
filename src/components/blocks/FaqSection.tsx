@@ -13,9 +13,9 @@ export function FaqSection() {
   return (
     <Section id="faq">
       <SectionHeading
-        eyebrow="06 — FAQ"
+        eyebrow="06 - FAQ"
         title="Najczęstsze pytania"
-        subtitle="Krótkie odpowiedzi na to, o co klienci pytają najczęściej. Nie ma tu Twojego pytania? Napisz — chętnie wyjaśnię."
+        subtitle="Krótkie odpowiedzi na to, o co klienci pytają najczęściej. Nie ma tu Twojego pytania? Napisz - chętnie wyjaśnię."
         align="center"
       />
 
