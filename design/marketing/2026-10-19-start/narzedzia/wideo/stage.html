@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<title>Rolki: kompozytor</title>
+<style>
+  @font-face { font-family: Montserrat; src: url("/design/hero-proposal/fonts/montserrat-latin-ext.woff2") format("woff2"); font-weight: 100 900; unicode-range: U+100-2FF, U+1E00-1EFF; }
+  @font-face { font-family: Montserrat; src: url("/design/hero-proposal/fonts/montserrat-latin.woff2") format("woff2"); font-weight: 100 900; }
+  :root { --graphite: #1d1d1d; --surface: #252525; --cream: #f4f0eb; --burgundy: #a00c30; --icy: #9fc5d3; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--graphite); }
+  body { width: 1080px; height: 1920px; overflow: hidden; font-family: Montserrat, Arial, sans-serif; -webkit-font-smoothing: antialiased; font-kerning: normal; font-feature-settings: "kern"; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--graphite); color: var(--cream); }
+  .layer { position: absolute; left: 0; top: 0; will-change: transform, opacity; }
+  .fill { position: absolute; inset: 0; }
+  img { display: block; user-select: none; }
+
+  /* Captions: big left-aligned headline, one accent, burgundy full stop, folio rule above. */
+  .cap { position: absolute; left: 80px; width: 920px; }
+  .cap .folio { display: flex; align-items: center; gap: 18px; height: 30px; margin-bottom: 26px; font-size: 22px; font-weight: 500; letter-spacing: .16em; text-transform: uppercase; color: rgb(244 240 235 / .62); white-space: nowrap; }
+  .cap .folio b { font-weight: 600; color: var(--icy); }
+  .cap .folio i { flex: 1; height: 1.5px; background: rgb(244 240 235 / .28); transform-origin: 0 50%; }
+  .cap .head { font-weight: 500; letter-spacing: -.045em; line-height: 1.04; }
+  .cap .mask { overflow: hidden; padding: .08em .12em .16em 0; margin: -.08em -.12em -.16em 0; }
+  .cap .line { white-space: nowrap; transform-origin: 0 100%; will-change: transform; }
+  .cap .sub { margin-top: 22px; font-size: 38px; font-weight: 500; letter-spacing: -.02em; line-height: 1.2; color: rgb(244 240 235 / .78); }
+  .cap .accent { color: var(--icy); }
+  .cap .dot { color: var(--burgundy); }
+  .cap.light { color: var(--graphite); }
+  .cap.light .folio { color: rgb(29 29 29 / .6); }
+  .cap.light .folio b { color: var(--burgundy); }
+  .cap.light .folio i { background: rgb(29 29 29 / .22); }
+  .cap.light .accent { color: var(--burgundy); }
+  .cap.light .sub { color: rgb(29 29 29 / .72); }
+  .cap .dim { opacity: .5; }
+
+  /* Measuring box for line breaks. */
+  #measure { position: absolute; left: -5000px; top: 0; visibility: hidden; font-family: Montserrat; font-weight: 500; letter-spacing: -.045em; line-height: 1.04; }
+  #measure > div { text-wrap: balance; }
+
+  /* Phone: frontal, thin bezel, no fake status bar. */
+  .phone { position: absolute; background: #0b0b0b; box-shadow: inset 0 0 0 1.5px rgb(244 240 235 / .16), inset 0 0 0 5px #000, 0 60px 110px -40px rgb(0 0 0 / .75); }
+  .phone .screen { position: absolute; overflow: hidden; background: #1d1d1d; isolation: isolate; }
+  .phone .island { position: absolute; left: 50%; background: #000; transform: translateX(-50%); z-index: 5; }
+  .phone .btn { position: absolute; width: 4px; background: #222; border-radius: 2px; }
+
+  .browser { position: absolute; overflow: hidden; border-radius: 16px; background: #2a2a2a; box-shadow: inset 0 0 0 1.5px rgb(244 240 235 / .1), 0 50px 100px -40px rgb(0 0 0 / .8); }
+  .browser .bar { height: 38px; display: flex; align-items: center; gap: 9px; padding-left: 18px; }
+  .browser .bar span { width: 11px; height: 11px; border-radius: 50%; background: rgb(244 240 235 / .2); }
+  .browser .bar em { margin-left: 18px; height: 20px; width: 38%; border-radius: 10px; background: rgb(244 240 235 / .07); }
+
+  .crop { position: absolute; overflow: hidden; }
+  .crop img { position: absolute; left: 0; top: 0; transform-origin: 0 0; }
+
+  .tap { position: absolute; width: 0; height: 0; z-index: 10; }
+  .tap div { position: absolute; border-radius: 50%; transform: translate(-50%, -50%); }
+
+  .end-url { position: absolute; left: 80px; font-weight: 500; letter-spacing: -.05em; line-height: 1.1; white-space: nowrap; }
+  .end-url .mask { overflow: hidden; padding: .06em .1em .18em 0; }
+  .end-url .tld { color: var(--icy); }
+  .mono { position: absolute; overflow: visible; }
+  .mono .stroke { fill: none; stroke: var(--burgundy); stroke-width: 8; stroke-dasharray: 1 1; }
+  .mono .sq { fill: var(--icy); transform-box: fill-box; transform-origin: center; }
+</style>
+</head>
+<body>
+<div id="stage"></div>
+<div id="measure"></div>
+<script type="module" src="./stage.js"></script>
+</body>
+</html>

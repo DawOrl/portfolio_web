@@ -1,0 +1,770 @@
+{
+ "meta": {
+  "campaign": "Kampania startowa dorlowski.dev",
+  "start": "2026-10-19",
+  "end": "2026-11-15",
+  "channels": [
+   "facebook",
+   "instagram",
+   "olx"
+  ],
+  "paidAds": false,
+  "defaultPostTime": "18:00",
+  "notes": "PRZYKŁADOWE TEKSTY tylko do sprawdzania układu szablonów (node render.mjs --data _test-tresci.json --out <katalog>). Nie publikować. Prawdziwe teksty: tresci/kampania.json."
+ },
+ "weeks": [
+  {
+   "week": 0,
+   "dates": "14-18.10",
+   "theme": "Przygotowanie kont"
+  },
+  {
+   "week": 1,
+   "dates": "19-25.10",
+   "theme": "Poznajmy się"
+  },
+  {
+   "week": 2,
+   "dates": "26.10-1.11",
+   "theme": "Jak pracuję i ile to kosztuje"
+  },
+  {
+   "week": 3,
+   "dates": "2-8.11",
+   "theme": "Strony dla konkretnych branż"
+  },
+  {
+   "week": 4,
+   "dates": "9-15.11",
+   "theme": "Decyzja: który pakiet i co dalej"
+  }
+ ],
+ "posts": [
+  {
+   "id": "P01",
+   "date": "2026-10-19",
+   "day": "pon",
+   "format": "carousel",
+   "pillar": "osobiste",
+   "topic": "Cześć, jestem Dawid: kim jestem, co robię, jak pracuję. Post przypięty.",
+   "visual": "portret + monogram; slajdy tekstowe",
+   "slides": [
+    {
+     "template": "portrait-cover",
+     "image": "public/portrait-dawid-4k-pressed-20261012.webp",
+     "eyebrow": "Web designer i developer",
+     "title": "Cześć, jestem *Dawid*.",
+     "body": "Projektuję i koduję strony dla małych firm z Krakowa i całej Polski."
+    },
+    {
+     "template": "text",
+     "eyebrow": "Kim jestem",
+     "title": "Jedna osoba od rozmowy do *publikacji*.",
+     "body": "Na co dzień pracuję jako Fullstack AI Developer. Wcześniej zajmowałem się email marketingiem, więc patrzę na stronę i od strony kodu, i od strony klienta, który ma zadzwonić."
+    },
+    {
+     "template": "list",
+     "eyebrow": "Co robię",
+     "title": "W czym mogę *pomóc*.",
+     "items": [
+      "Strony firmowe: oferta, realizacje i kontakt w jednym miejscu",
+      "Landing page: jedna usługa, jeden cel",
+      "Sklepy internetowe",
+      "Aplikacje i automatyzacje"
+     ]
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Bezpłatna wycena",
+     "title": "Opowiedz mi o swojej *firmie*.",
+     "body": "Napisz wiadomość prywatną albo zadzwoń. Odpowiadam zwykle w ciągu 24 godzin."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "date": "2026-10-21",
+   "day": "śr",
+   "format": "reel",
+   "reel": "R1",
+   "pillar": "marka",
+   "topic": "Rolka: od kreski do strony (film intro z Blendera i hero strony)."
+  },
+  {
+   "id": "P03",
+   "date": "2026-10-23",
+   "day": "pt",
+   "format": "carousel",
+   "pillar": "realizacje",
+   "topic": "Realizacja dla klienta: TopAuto Serwis, strona warsztatu.",
+   "slides": [
+    {
+     "template": "project-cover",
+     "image": "public/projects/topauto-serwis/desktop.png",
+     "eyebrow": "Realizacja dla klienta",
+     "title": "TopAuto Serwis: strona *warsztatu*.",
+     "body": "Mechanika i wulkanizacja po sąsiedzku."
+    },
+    {
+     "template": "text",
+     "note": "wyzwanie",
+     "eyebrow": "Wyzwanie",
+     "title": "Klient ma zadzwonić, a nie szukać *numeru*.",
+     "body": "Warsztat potrzebował strony, na której w kilka sekund widać zakres usług, adres i telefon. Bez zbędnych ozdobników, za to z czytelnym przyciskiem do kontaktu."
+    },
+    {
+     "template": "screenshot",
+     "image": "public/projects/topauto-serwis/features/uslugi-podstrony.webp",
+     "eyebrow": "Usługi",
+     "title": "Każda usługa ma swoją *podstronę*.",
+     "body": "Wulkanizacja, serwis olejowy, klimatyzacja: opis, zakres i kontakt."
+    },
+    {
+     "template": "phone",
+     "image": "public/projects/topauto-serwis/features/ciemny-motyw-mobile.webp",
+     "eyebrow": "Wersja na telefon",
+     "title": "Telefon jeden kciuk od *klienta*.",
+     "body": "Przycisk Zadzwoń i dojazd są zawsze pod ręką. Ciemny motyw działa w nocy."
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Twoja kolej",
+     "title": "Potrzebujesz strony dla *warsztatu*?",
+     "body": "Napisz w wiadomości prywatnej. Wycena jest bezpłatna."
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "date": "2026-10-26",
+   "day": "pon",
+   "format": "carousel",
+   "pillar": "oferta",
+   "topic": "Cennik bez gwiazdek: trzy pakiety, co w każdym, co osobno. Link do /cennik.",
+   "slides": [
+    {
+     "template": "price-cover",
+     "eyebrow": "Ceny wejściowe",
+     "title": "Cennik bez *gwiazdek*.",
+     "body": "Trzy pakiety, jasny zakres. Pełną kwotę znasz przed startem."
+    },
+    {
+     "template": "price",
+     "note": "Start",
+     "eyebrow": "Pakiet 1 z 3",
+     "title": "Wizytówka, która *otwiera* drzwi.",
+     "body": "Dla małej firmy, która chce dobrze wyglądać w sieci i dać klientom prosty kontakt."
+    },
+    {
+     "template": "price",
+     "note": "Landing",
+     "eyebrow": "Pakiet 2 z 3",
+     "title": "Jedna oferta, *konkretny* cel.",
+     "body": "Strona pod wybraną usługę lub kampanię."
+    },
+    {
+     "template": "price",
+     "note": "Biznes (polecany)",
+     "eyebrow": "Pakiet 3 z 3",
+     "title": "Strona firmowa z *historią*.",
+     "body": "Oferta, realizacje i o firmie na kilku podstronach."
+    },
+    {
+     "template": "list",
+     "note": "w każdym pakiecie + co osobno",
+     "eyebrow": "W każdym pakiecie",
+     "title": "Co dostajesz *zawsze*, a co osobno.",
+     "items": [
+      "Dwie rundy poprawek",
+      "Drobna redakcja Twoich tekstów",
+      "30 dni pomocy przy błędach wdrożenia",
+      "Osobno: domena, hosting, sklep, rezerwacje"
+     ]
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Bezpłatna wycena",
+     "title": "Zapytaj o *swoją* kwotę.",
+     "body": "Pełny cennik i dodatki: dorlowski.dev/cennik"
+    }
+   ]
+  },
+  {
+   "id": "P05",
+   "date": "2026-10-28",
+   "day": "śr",
+   "format": "carousel",
+   "pillar": "edukacja",
+   "topic": "5 rzeczy, które klient sprawdza na Twojej stronie w pierwszych sekundach (czym się zajmujesz, gdzie, ile, jak się skontaktować, czy działa na telefonie).",
+   "slides": [
+    {
+     "template": "edu-cover",
+     "eyebrow": "Poradnik",
+     "title": "5 rzeczy, które klient sprawdza w pierwszych *sekundach*.",
+     "body": ""
+    },
+    {
+     "template": "tip",
+     "title": "Czym się *zajmujesz*?",
+     "body": "Jedno zdanie na górze strony. Bez zgadywania, czy trafił we właściwe miejsce."
+    },
+    {
+     "template": "tip",
+     "title": "*Gdzie* działasz?",
+     "body": "Miasto, dzielnica, dojazd. Klient z Nowej Huty chce wiedzieć, czy to po drodze."
+    },
+    {
+     "template": "tip",
+     "title": "Ile to *kosztuje*?",
+     "body": "Choćby widełki albo cena od. Brak ceny często znaczy dla klienta: drogo."
+    },
+    {
+     "template": "tip",
+     "title": "Jak się *skontaktować*?",
+     "body": "Telefon i formularz widoczne bez przewijania całej strony."
+    },
+    {
+     "template": "tip",
+     "title": "Czy działa na *telefonie*?",
+     "body": "Większość klientów wejdzie z komórki. Jeśli tekst jest za mały, zamkną kartę."
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Sprawdźmy Twoją",
+     "title": "Ile z tych 5 ma Twoja *strona*?",
+     "body": "Wyślij link w wiadomości. Powiem szczerze, co warto poprawić."
+    }
+   ]
+  },
+  {
+   "id": "P06",
+   "date": "2026-10-30",
+   "day": "pt",
+   "format": "reel",
+   "reel": "R2",
+   "pillar": "proces",
+   "topic": "Rolka: szkic, projekt, strona (scena makiety z sekcji Proces)."
+  },
+  {
+   "id": "P07",
+   "date": "2026-11-02",
+   "day": "pon",
+   "format": "carousel",
+   "pillar": "proces",
+   "topic": "Współpraca w 4 krokach: konsultacja i wycena, projekt, kodowanie, publikacja i wsparcie. Ile trwa.",
+   "slides": [
+    {
+     "template": "steps-cover",
+     "image": "public/process-form-blender.webp",
+     "eyebrow": "Jak pracuję",
+     "title": "Współpraca w 4 *krokach*.",
+     "body": ""
+    },
+    {
+     "template": "step",
+     "title": "Konsultacja i *wycena*.",
+     "body": "Rozmawiamy o firmie, klientach i celu strony. Dostajesz bezpłatną wycenę z terminem."
+    },
+    {
+     "template": "step",
+     "title": "Projekt *UI/UX*.",
+     "body": "Projektuję wygląd dopasowany do marki. Akceptujesz go, zanim powstanie linijka kodu."
+    },
+    {
+     "template": "step",
+     "title": "Kodowanie i *wdrożenie*.",
+     "body": "Strona jest szybka, działa na telefonie i ma podstawy SEO. Testuję ją na bieżąco."
+    },
+    {
+     "template": "step",
+     "title": "Publikacja i *wsparcie*.",
+     "body": "Publikuję na Twojej domenie. Przez 30 dni pomagam przy błędach wdrożenia."
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Ile to trwa",
+     "title": "Wizytówka w około *7 dni*.",
+     "body": "Większe projekty zwykle 2-4 tygodnie, zależnie od zakresu i tempa treści."
+    }
+   ]
+  },
+  {
+   "id": "P08",
+   "date": "2026-11-04",
+   "day": "śr",
+   "format": "carousel",
+   "pillar": "branże",
+   "topic": "Strona dla restauracji na przykładzie projektu autorskiego Bella Cucina (demo): menu online, galeria, rezerwacja, dojazd.",
+   "slides": [
+    {
+     "template": "industry-cover",
+     "image": "zdjecia-fal/restauracja.webp",
+     "eyebrow": "Branże: restauracja",
+     "title": "Strona dla *restauracji*.",
+     "body": "Na przykładzie projektu Bella Cucina."
+    },
+    {
+     "template": "screenshot",
+     "image": "public/projects/restauracja-bella/features/menu-online.webp",
+     "title": "Menu online, które *nie* jest PDF-em.",
+     "body": "Kategorie, ceny i opisy czytelne na każdym ekranie."
+    },
+    {
+     "template": "screenshot",
+     "image": "public/projects/restauracja-bella/features/galeria-dan.webp",
+     "title": "Galeria, która *robi* apetyt.",
+     "body": "Zdjęcia dań i wnętrza zamiast stockowych obrazków."
+    },
+    {
+     "template": "screenshot",
+     "image": "public/projects/restauracja-bella/features/rezerwacja-stolika.webp",
+     "title": "Rezerwacja stolika *online*.",
+     "body": "Klient wybiera datę, godzinę i liczbę osób. Bez dzwonienia w godzinach szczytu."
+    },
+    {
+     "template": "phone",
+     "image": "public/projects/restauracja-bella/features/menu-mobile.webp",
+     "title": "Menu w *kieszeni*.",
+     "body": "Wersja na telefon z kategoriami pod kciukiem."
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Masz lokal?",
+     "title": "Zróbmy stronę dla *Twojej* kuchni.",
+     "body": "Napisz wiadomość prywatną."
+    }
+   ]
+  },
+  {
+   "id": "P09",
+   "date": "2026-11-06",
+   "day": "pt",
+   "format": "reel",
+   "reel": "R3",
+   "pillar": "branże",
+   "topic": "Rolka: salon beauty, rezerwacja online w 15 sekund (Glow Studio, projekt autorski demo)."
+  },
+  {
+   "id": "P10",
+   "date": "2026-11-09",
+   "day": "pon",
+   "format": "carousel",
+   "pillar": "edukacja",
+   "topic": "Wizytówka, landing czy strona firmowa? Jak wybrać (mapowanie na Start, Landing, Biznes).",
+   "slides": [
+    {
+     "template": "edu-cover",
+     "eyebrow": "Poradnik",
+     "title": "Wizytówka, landing czy strona *firmowa*?",
+     "body": "Krótki przewodnik po trzech pakietach."
+    },
+    {
+     "template": "choice",
+     "note": "Start",
+     "title": "*Wizytówka*, gdy zaczynasz.",
+     "body": "Jedna strona z najważniejszym: kim jesteś, co robisz, jak się skontaktować.",
+     "items": [
+      "Nowa firma lub jedna usługa",
+      "Chcesz szybko być widoczny w Google"
+     ]
+    },
+    {
+     "template": "choice",
+     "note": "Landing",
+     "title": "*Landing*, gdy masz jedną ofertę.",
+     "body": "Jedna długa strona prowadzi klienta do jednego działania.",
+     "items": [
+      "Kampania reklamowa",
+      "Nowa usługa lub produkt"
+     ]
+    },
+    {
+     "template": "choice",
+     "note": "Biznes",
+     "title": "Strona *firmowa*, gdy oferta rośnie.",
+     "body": "Kilka podstron: usługi, realizacje, o firmie, kontakt.",
+     "items": [
+      "Kilka usług",
+      "Chcesz pokazać realizacje"
+     ]
+    },
+    {
+     "template": "text",
+     "note": "nie wiesz? napisz, doradzę",
+     "eyebrow": "Nie wiesz?",
+     "title": "Napisz, *doradzę*.",
+     "body": "Opisz w dwóch zdaniach, czym się zajmujesz. Podpowiem, który pakiet ma sens, i nie dorzucę niczego na zapas."
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Bezpłatna wycena",
+     "title": "Wybierzmy *razem*.",
+     "body": "Wiadomość prywatna albo dorlowski.dev"
+    }
+   ]
+  },
+  {
+   "id": "P11",
+   "date": "2026-11-12",
+   "day": "czw",
+   "format": "carousel",
+   "pillar": "automatyzacje",
+   "topic": "Automatyzacja pierwszego kontaktu: Kalkulator wyceny (projekt autorski demo). Klient zna widełki w 60 sekund. 11.11 bez posta sprzedażowego, dlatego czwartek.",
+   "slides": [
+    {
+     "template": "project-cover",
+     "image": "public/projects/kalkulator-wyceny/features/start-60-sekund.webp",
+     "eyebrow": "Projekt autorski · demo",
+     "title": "Klient zna widełki w *60 sekund*.",
+     "body": "Kalkulator wyceny strony www."
+    },
+    {
+     "template": "screenshot",
+     "image": "public/projects/kalkulator-wyceny/features/krok-funkcje-kosztorys.webp",
+     "title": "Klient wybiera, *kalkulator* liczy.",
+     "body": "Rodzaj strony, liczba podstron, dodatki. Kosztorys rośnie na żywo."
+    },
+    {
+     "template": "screenshot",
+     "image": "public/projects/kalkulator-wyceny/features/wynik-widelki-kosztorys.webp",
+     "title": "Wynik: widełki i *kosztorys*.",
+     "body": "Ty dostajesz zapytanie z konkretnym zakresem, zanim zadzwonisz."
+    },
+    {
+     "template": "text",
+     "note": "gdzie to się sprawdza: firmy usługowe",
+     "eyebrow": "Gdzie to działa",
+     "title": "Dla firm *usługowych*.",
+     "body": "Remonty, fotografia, transport, sprzątanie: wszędzie tam, gdzie klient pyta najpierw o cenę."
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Automatyzacje",
+     "title": "Chcesz taki kalkulator u *siebie*?",
+     "body": "Napisz, sprawdzimy, czy ma sens w Twojej branży."
+    }
+   ]
+  },
+  {
+   "id": "P12",
+   "date": "2026-11-13",
+   "day": "pt",
+   "format": "carousel",
+   "pillar": "faq",
+   "topic": "Najczęstsze pytania: ile kosztuje, ile trwa, domena i hosting, edycja treści, Google, czyj jest kod.",
+   "slides": [
+    {
+     "template": "faq-cover",
+     "eyebrow": "FAQ",
+     "title": "Pytania, które słyszę *najczęściej*.",
+     "body": ""
+    },
+    {
+     "template": "faq",
+     "title": "Ile kosztuje *strona*?",
+     "body": "Wizytówka od 990 zł, landing od 1 490 zł, strona firmowa od 1 990 zł. Pełną kwotę znasz z bezpłatnej wyceny, zanim zaczniemy."
+    },
+    {
+     "template": "faq",
+     "title": "Ile to *trwa*?",
+     "body": "Wizytówka około 7 dni. Większe projekty zwykle 2-4 tygodnie, zależnie od zakresu i tego, jak szybko dostanę treści."
+    },
+    {
+     "template": "faq",
+     "title": "Domena i hosting: kto *płaci*?",
+     "body": "Domena i hosting są rozliczane osobno i należą do Ciebie. Pomogę je wybrać i podpiąć."
+    },
+    {
+     "template": "faq",
+     "title": "Czy sam zmienię *treść*?",
+     "body": "Tak, jeśli potrzebujesz panelu do edycji, wyceniam go osobno. Drobne zmiany mogę też zrobić za Ciebie."
+    },
+    {
+     "template": "faq",
+     "title": "Czyj jest *kod*?",
+     "body": "Po rozliczeniu kod i strona należą do Ciebie. Bez abonamentu i bez zakładnika."
+    },
+    {
+     "template": "cta",
+     "eyebrow": "Masz inne pytanie?",
+     "title": "Zapytaj w *wiadomości*.",
+     "body": "Odpowiadam zwykle w ciągu 24 godzin."
+    }
+   ]
+  },
+  {
+   "id": "P13",
+   "date": "2026-11-15",
+   "day": "nd",
+   "format": "reel",
+   "reel": "R4",
+   "pillar": "realizacje",
+   "topic": "Rolka: 8 projektów w 20 sekund, przegląd biblioteki realizacji i zaproszenie do kontaktu."
+  }
+ ],
+ "reels": [
+  {
+   "id": "R1",
+   "title": "Od kreski do strony",
+   "duration": 12,
+   "sources": [
+    "design/intro/frames/001-072.png (wstęga rysuje się jako kreska i staje się formą)",
+    "nagranie ekranu http://localhost:3000 w 390x844: intro i hero (intro włączone: wyczyść sessionStorage)"
+   ],
+   "shots": [
+    {
+     "from": 0,
+     "to": 3,
+     "visual": "pusta grafitowa scena, rysuje się lodowa kreska",
+     "onScreenText": "Każda strona zaczyna się od kreski."
+    },
+    {
+     "from": 3,
+     "to": 6.5,
+     "visual": "kreska rozwija się w burgundowo-grafitową wstęgę",
+     "onScreenText": "Potem dostaje formę."
+    },
+    {
+     "from": 6.5,
+     "to": 10,
+     "visual": "wstęga ląduje w hero strony, pojawia się nagłówek",
+     "onScreenText": "A na końcu: Twoja strona."
+    },
+    {
+     "from": 10,
+     "to": 12,
+     "visual": "plansza końcowa z monogramem",
+     "onScreenText": "dorlowski.dev"
+    }
+   ],
+   "audio": "spokojny, nowoczesny utwór z biblioteki Instagrama/Facebooka (bez praw autorskich do pobrania z zewnątrz)"
+  },
+  {
+   "id": "R2",
+   "title": "Szkic, projekt, strona",
+   "duration": 15,
+   "sources": [
+    "nagranie ekranu sekcji #proces (makieta ProcessBuild przełączana: Szkic, Projekt, Strona) w 1440x900, kadrowane do 9:16 lub z makietą na środku",
+    "public/process-form-blender.webp jako tło planszy otwierającej"
+   ],
+   "shots": [
+    {
+     "from": 0,
+     "to": 2.5,
+     "visual": "plansza z rzeźbą procesu",
+     "onScreenText": "Jak powstaje strona?"
+    },
+    {
+     "from": 2.5,
+     "to": 6,
+     "visual": "makieta w stanie Szkic",
+     "onScreenText": "1. Szkic: co klient ma zobaczyć i zrobić"
+    },
+    {
+     "from": 6,
+     "to": 9.5,
+     "visual": "makieta w stanie Projekt",
+     "onScreenText": "2. Projekt: kolory, typografia, zdjęcia"
+    },
+    {
+     "from": 9.5,
+     "to": 13,
+     "visual": "makieta w stanie Strona, desktop i telefon",
+     "onScreenText": "3. Strona: działa na każdym ekranie"
+    },
+    {
+     "from": 13,
+     "to": 15,
+     "visual": "plansza końcowa",
+     "onScreenText": "Bezpłatna wycena: dorlowski.dev"
+    }
+   ],
+   "audio": "utwór z biblioteki platformy"
+  },
+  {
+   "id": "R3",
+   "title": "Salon beauty: rezerwacja w 15 sekund (demo)",
+   "duration": 15,
+   "sources": [
+    "public/projects/salon-glow/features/*.webp (cennik usług, rezerwacja: stylista, termin)",
+    "opcjonalnie nagranie ekranu https://salon-glow-gamma.vercel.app/ w 390x844 (bez wysyłania formularza)"
+   ],
+   "shots": [
+    {
+     "from": 0,
+     "to": 2.5,
+     "visual": "telefon z hero Glow Studio",
+     "onScreenText": "Salon bez telefonów o 21:00?"
+    },
+    {
+     "from": 2.5,
+     "to": 6,
+     "visual": "cennik usług z czasem wizyty",
+     "onScreenText": "Klient widzi usługi i ceny"
+    },
+    {
+     "from": 6,
+     "to": 10,
+     "visual": "wybór stylisty i terminu",
+     "onScreenText": "Wybiera stylistę i godzinę"
+    },
+    {
+     "from": 10,
+     "to": 13,
+     "visual": "podsumowanie rezerwacji",
+     "onScreenText": "Rezerwacja online, bez prowizji platform"
+    },
+    {
+     "from": 13,
+     "to": 15,
+     "visual": "plansza końcowa + oznaczenie projektu autorskiego (demo)",
+     "onScreenText": "Projekt autorski (demo) | dorlowski.dev"
+    }
+   ],
+   "audio": "utwór z biblioteki platformy"
+  },
+  {
+   "id": "R4",
+   "title": "8 projektów w 20 sekund",
+   "duration": 20,
+   "sources": [
+    "nagranie ekranu http://localhost:3000/realizacje (wachlarz, filtry, karty) i przewijanie 2-3 case studies",
+    "public/projects/*/desktop.png i mobile.png"
+   ],
+   "shots": [
+    {
+     "from": 0,
+     "to": 3,
+     "visual": "nagłówek biblioteki z wachlarzem ramek",
+     "onScreenText": "Miesiąc temu: pusta biblioteka."
+    },
+    {
+     "from": 3,
+     "to": 15,
+     "visual": "szybkie cięcia przez 8 projektów (desktop i telefon), z podpisem branży i oznaczeniem realizacja/demo",
+     "onScreenText": "Warsztat, restauracja, salon, sklep, fotografka, fotowoltaika, AI, kalkulator"
+    },
+    {
+     "from": 15,
+     "to": 20,
+     "visual": "plansza końcowa z zaproszeniem",
+     "onScreenText": "Twój projekt może być następny. dorlowski.dev"
+    }
+   ],
+   "audio": "utwór z biblioteki platformy"
+  }
+ ],
+ "stories": [
+  {
+   "id": "S01",
+   "template": "share",
+   "post": "P01",
+   "eyebrow": "Nowy post",
+   "title": "Poznajmy się: kim jestem i jak *pracuję*.",
+   "body": "Kliknij, żeby przeczytać."
+  },
+  {
+   "id": "S02",
+   "template": "poll",
+   "eyebrow": "Ankieta",
+   "title": "Masz już stronę *firmy*?",
+   "body": "Zagłosuj, jestem ciekaw."
+  },
+  {
+   "id": "S03",
+   "template": "question",
+   "title": "Zapytaj mnie o *stronę*.",
+   "body": "Odpowiem w relacjach."
+  },
+  {
+   "id": "S04",
+   "frames": [
+    {
+     "template": "behind-the-scenes",
+     "eyebrow": "Za kulisami",
+     "title": "Tak wygląda mój *wieczór* nad projektem.",
+     "body": "Najpierw szkic w zeszycie, potem kod."
+    },
+    {
+     "template": "link",
+     "title": "Zobacz cennik *bez gwiazdek*.",
+     "body": "Trzy pakiety od 990 zł.",
+     "link": "https://dorlowski.dev/cennik"
+    }
+   ]
+  },
+  {
+   "id": "S05",
+   "template": "quiz",
+   "title": "Ile kosztuje wizytówka w moim *cenniku*?",
+   "body": "Zaznacz odpowiedź."
+  },
+  {
+   "id": "S06",
+   "template": "reminder",
+   "eyebrow": "Jutro 18:00",
+   "title": "Jutro: 5 rzeczy, które sprawdza *klient*.",
+   "body": "Włącz przypomnienie."
+  }
+ ],
+ "highlights": [
+  {
+   "id": "H1",
+   "label": "Realizacje",
+   "icon": "ramka przeglądarki"
+  },
+  {
+   "id": "H2",
+   "label": "Cennik",
+   "icon": "znak zł lub skala"
+  },
+  {
+   "id": "H3",
+   "label": "Proces",
+   "icon": "trzy kroki"
+  },
+  {
+   "id": "H4",
+   "label": "O mnie",
+   "icon": "monogram do"
+  },
+  {
+   "id": "H5",
+   "label": "Kontakt",
+   "icon": "dymek wiadomości"
+  }
+ ],
+ "setup": {
+  "facebook": {},
+  "instagram": {},
+  "olx": {}
+ },
+ "falImages": [
+  {
+   "id": "restauracja",
+   "use": "P08 okładka, relacje",
+   "brief": "fotografia edytorska: stół w kameralnej włoskiej restauracji wieczorem, talerz makaronu, kieliszek wina, ciepłe światło, bez ludzi i bez tekstu"
+  },
+  {
+   "id": "warsztat",
+   "use": "P03 tło / relacje",
+   "brief": "fotografia edytorska: czysty warsztat samochodowy, narzędzia na wózku, opona, miękkie światło, bez ludzi i bez logo"
+  },
+  {
+   "id": "salon",
+   "use": "R3 plansza, relacje",
+   "brief": "fotografia edytorska: nowoczesny salon fryzjerski, fotel i lustro, rośliny, spokojne światło dzienne, bez ludzi"
+  },
+  {
+   "id": "kawiarnia",
+   "use": "P10 lub relacje",
+   "brief": "fotografia edytorska: lada palarni kawy, worek ziaren, kubek, młynek, poranne światło, bez ludzi i bez logo"
+  },
+  {
+   "id": "biurko",
+   "use": "P01/P07 tło, relacje BTS",
+   "brief": "fotografia edytorska: biurko projektanta w Krakowie wieczorem, laptop z ciemnym edytorem kodu (bez czytelnego tekstu), notes ze szkicem siatki strony, kubek, lampa; grafit, krem, akcent burgundu"
+  }
+ ],
+ "templates": {}
+}

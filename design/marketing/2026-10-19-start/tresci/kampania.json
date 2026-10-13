@@ -1,0 +1,1813 @@
+{
+  "meta": {
+    "campaign": "Kampania startowa dorlowski.dev",
+    "start": "2026-10-19",
+    "end": "2026-11-15",
+    "channels": [
+      "facebook",
+      "instagram",
+      "olx"
+    ],
+    "paidAds": false,
+    "defaultPostTime": "18:00",
+    "notes": "Teksty uzupełnione 13.10.2026 (posts[].copy, slides, reels[].copy, stories, highlights, setup, templates). W tekstach na grafikach (eyebrow, title, body, items, caption, onScreenText, coverTitle, frames[].title/body) *słowo* oznacza jedno słowo w kolorze akcentu, a twarde spacje (U+00A0) są już wstawione. Święta: 1.11 (niedziela) i 11.11 (środa) bez treści sprzedażowych; P11 przesunięty na czwartek 12.11."
+  },
+  "weeks": [
+    {
+      "week": 0,
+      "dates": "14-18.10",
+      "theme": "Przygotowanie kont"
+    },
+    {
+      "week": 1,
+      "dates": "19-25.10",
+      "theme": "Poznajmy się"
+    },
+    {
+      "week": 2,
+      "dates": "26.10-1.11",
+      "theme": "Jak pracuję i ile to kosztuje"
+    },
+    {
+      "week": 3,
+      "dates": "2-8.11",
+      "theme": "Strony dla konkretnych branż"
+    },
+    {
+      "week": 4,
+      "dates": "9-15.11",
+      "theme": "Decyzja: który pakiet i co dalej"
+    }
+  ],
+  "posts": [
+    {
+      "id": "P01",
+      "date": "2026-10-19",
+      "day": "pon",
+      "format": "carousel",
+      "pillar": "osobiste",
+      "topic": "Cześć, jestem Dawid: kim jestem, co robię, jak pracuję. Post przypięty.",
+      "visual": "portret + monogram; slajdy tekstowe",
+      "slides": [
+        {
+          "template": "portrait-cover",
+          "image": "public/portrait-dawid-4k-pressed-20261012.webp",
+          "eyebrow": "DAWID ORŁOWSKI · KRAKÓW I ZDALNIE",
+          "title": "Cześć, jestem *Dawid*",
+          "body": "Projektuję i koduję strony internetowe dla firm. Od pierwszej rozmowy do publikacji.",
+          "alt": "Slajd 1 z 4. Portret Dawida Orłowskiego na grafitowym tle. Dawid Orłowski · Kraków i zdalnie. Cześć, jestem Dawid. Projektuję i koduję strony internetowe dla firm. Od pierwszej rozmowy do publikacji.",
+          "file": "grafiki/P01-1.png"
+        },
+        {
+          "template": "text",
+          "eyebrow": "KIM JESTEM",
+          "title": "Projektant i *programista* w jednym",
+          "body": "Na co dzień pracuję jako Fullstack AI Developer. Wcześniej prowadziłem kampanie email marketingowe. Dlatego patrzę na stronę od strony kodu i od strony klienta, który ją ogląda.",
+          "alt": "Slajd 2 z 4. Kim jestem. Projektant i programista w jednym. Na co dzień pracuję jako Fullstack AI Developer. Wcześniej prowadziłem kampanie email marketingowe. Dlatego patrzę na stronę od strony kodu i od strony klienta, który ją ogląda.",
+          "file": "grafiki/P01-2.png"
+        },
+        {
+          "template": "list",
+          "eyebrow": "JAK PRACUJĘ",
+          "title": "Na czym możesz *polegać*",
+          "items": [
+            "Rozmawiasz ze mną od pierwszej wiadomości do publikacji",
+            "Cenę i termin znasz przed startem, z bezpłatnej wyceny",
+            "Każda strona działa na telefonie i ma podstawy SEO",
+            "Po rozliczeniu kod i strona należą do Ciebie"
+          ],
+          "alt": "Slajd 3 z 4. Jak pracuję. Na czym możesz polegać. Rozmawiasz ze mną od pierwszej wiadomości do publikacji; Cenę i termin znasz przed startem, z bezpłatnej wyceny; Każda strona działa na telefonie i ma podstawy SEO; Po rozliczeniu kod i strona należą do Ciebie.",
+          "file": "grafiki/P01-3.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "BEZPŁATNA WYCENA",
+          "title": "Porozmawiajmy o *Twojej* stronie",
+          "body": "Napisz w wiadomości prywatnej, czym zajmuje się Twoja firma. Odpowiem osobiście.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 4 z 4. Bezpłatna wycena. Porozmawiajmy o Twojej stronie. Napisz w wiadomości prywatnej, czym zajmuje się Twoja firma. Odpowiem osobiście. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P01-4.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Cześć, jestem Dawid Orłowski. Projektuję i koduję strony internetowe dla firm.\n\nMieszkam w Krakowie. Z firmami z innych miast pracuję zdalnie, więc odległość nie gra roli.\n\nKilka słów o mnie:\n- Na co dzień pracuję jako Fullstack AI Developer: tworzę aplikacje webowe i automatyzacje.\n- Wcześniej zajmowałem się email marketingiem. Wiem więc, że strona ma nie tylko ładnie wyglądać, ale też prowadzić klienta do kontaktu.\n- Każdą stronę robię sam, od pierwszej rozmowy do publikacji. Przez cały czas rozmawiasz z tą samą osobą.\n\nJak pracuję:\n- cenę i termin znasz przed startem, z bezpłatnej wyceny,\n- każda strona działa na telefonie, tablecie i komputerze oraz ma podstawy SEO,\n- po rozliczeniu kod i strona należą do Ciebie.\n\nNa tym profilu będę pokazywał projekty, ceny i to, jak strona powstaje od kuchni.\n\nMyślisz o stronie dla swojej firmy albo chcesz odświeżyć obecną? Napisz do mnie wiadomość. Odpowiem na każde pytanie, także na to najprostsze: „ile to kosztuje?”.\n\ndorlowski.dev",
+        "instagram": "Cześć, jestem Dawid i robię strony internetowe dla firm.\n\nProjektuję je i koduję sam, od pierwszej rozmowy do publikacji. Mieszkam w Krakowie, z firmami z innych miast pracuję zdalnie.\n\nNa co dzień pracuję jako Fullstack AI Developer. Wcześniej zajmowałem się email marketingiem. Dzięki temu patrzę na stronę oczami programisty i osoby, która ma z niej dostać zapytanie.\n\nU mnie stałe są trzy rzeczy:\n- cenę i termin znasz przed startem,\n- każda strona działa na telefonie i ma podstawy SEO,\n- po rozliczeniu kod należy do Ciebie.\n\nTu będę pokazywał projekty, ceny i kulisy pracy.\n\nMyślisz o stronie dla swojej firmy? Napisz do mnie wiadomość.",
+        "hashtags": [
+          "#stronyinternetowe",
+          "#projektowaniestron",
+          "#webdesign",
+          "#kraków",
+          "#krakow",
+          "#małafirma"
+        ],
+        "firstComment": "Wszystkie projekty i cennik: dorlowski.dev",
+        "alt": "Slajd 1 z 4. Portret Dawida Orłowskiego na grafitowym tle. Dawid Orłowski · Kraków i zdalnie. Cześć, jestem Dawid. Projektuję i koduję strony internetowe dla firm. Od pierwszej rozmowy do publikacji.",
+        "cta": "Napisz wiadomość prywatną"
+      }
+    },
+    {
+      "id": "P02",
+      "date": "2026-10-21",
+      "day": "śr",
+      "format": "reel",
+      "reel": "R1",
+      "pillar": "marka",
+      "topic": "Rolka: od kreski do strony (film intro z Blendera i hero strony).",
+      "time": "18:00",
+      "copy": {
+        "facebook": "Każda strona zaczyna się u mnie od kreski: prostego szkicu tego, co klient ma zobaczyć i zrobić. Potem dochodzi forma, kolory i typografia. Na końcu kod i publikacja.\n\nTo krótkie intro zrobiłem w Blenderze, programie do grafiki 3D, i połączyłem je z kodem mojej strony.\n\nZobacz, jak wygląda na żywo: dorlowski.dev",
+        "instagram": "Od kreski do strony w 12 sekund.\n\nTak zaczyna się moja strona dorlowski.dev. Wstęgę zrobiłem w Blenderze, programie do grafiki 3D, a potem połączyłem ją z kodem strony.\n\nPrzy stronie dla klienta kolejność jest podobna: najpierw szkic (co ma się znaleźć na stronie i co klient ma zrobić), potem wygląd, na końcu kod.\n\nIntro zobaczysz na żywo pod linkiem w bio.",
+        "hashtags": [
+          "#webdesign",
+          "#blender3d",
+          "#stronyinternetowe",
+          "#projektowaniestron",
+          "#kraków"
+        ],
+        "firstComment": "Intro na żywo: dorlowski.dev",
+        "alt": "Okładka rolki: grafitowe tło, burgundowa wstęga 3D i napis Od kreski do strony.",
+        "cta": "Zobacz intro na dorlowski.dev (link w bio)"
+      },
+      "file": "wideo/R1.mp4"
+    },
+    {
+      "id": "P03",
+      "date": "2026-10-23",
+      "day": "pt",
+      "format": "carousel",
+      "pillar": "realizacje",
+      "topic": "Realizacja dla klienta: TopAuto Serwis, strona warsztatu.",
+      "slides": [
+        {
+          "template": "project-cover",
+          "image": "public/projects/topauto-serwis/desktop.png",
+          "eyebrow": "REALIZACJA DLA KLIENTA · STRONA FIRMOWA",
+          "title": "TopAuto Serwis: strona *warsztatu*",
+          "body": "Wulkanizacja, serwis olejowy, klimatyzacja i bieżące naprawy. Oferta, telefon i dojazd w jednym miejscu.",
+          "alt": "Slajd 1 z 5. Strona główna TopAuto Serwis w oknie przeglądarki. Realizacja dla klienta · strona firmowa. TopAuto Serwis: strona warsztatu. Wulkanizacja, serwis olejowy, klimatyzacja i bieżące naprawy. Oferta, telefon i dojazd w jednym miejscu.",
+          "file": "grafiki/P03-1.png"
+        },
+        {
+          "template": "text",
+          "note": "wyzwanie",
+          "eyebrow": "ZADANIE",
+          "title": "Kierowca ma szybko *zadzwonić*",
+          "body": "Warsztat przygotowywał się do otwarcia. Potrzebował czytelnej oferty, lokalizacji i prostego sposobu umawiania wizyt. Telefon i dojazd musiały być zawsze pod ręką.",
+          "alt": "Slajd 2 z 5. Zadanie. Kierowca ma szybko zadzwonić. Warsztat przygotowywał się do otwarcia. Potrzebował czytelnej oferty, lokalizacji i prostego sposobu umawiania wizyt. Telefon i dojazd musiały być zawsze pod ręką.",
+          "file": "grafiki/P03-2.png"
+        },
+        {
+          "template": "screenshot",
+          "image": "public/projects/topauto-serwis/features/uslugi-podstrony.webp",
+          "eyebrow": "USŁUGI",
+          "title": "Każda usługa ma *podstronę*",
+          "caption": "Cztery usługi warsztatu. Każda prowadzi do własnej podstrony z zakresem prac.",
+          "alt": "Slajd 3 z 5. Sekcja usług TopAuto Serwis: cztery usługi warsztatu z krótkim opisem i linkiem Zobacz zakres. Usługi. Każda usługa ma podstronę. Cztery usługi warsztatu. Każda prowadzi do własnej podstrony z zakresem prac.",
+          "file": "grafiki/P03-3.png"
+        },
+        {
+          "template": "phone",
+          "image": "public/projects/topauto-serwis/features/ciemny-motyw-mobile.webp",
+          "eyebrow": "WERSJA NA TELEFON",
+          "title": "Przyciski zawsze pod *kciukiem*",
+          "caption": "Zadzwoń i Dojazd są przypięte na dole ekranu, także w ciemnym motywie.",
+          "alt": "Slajd 4 z 5. Strona TopAuto Serwis na telefonie w ciemnym motywie, z paskiem Zadzwoń i Dojazd na dole ekranu. Wersja na telefon. Przyciski zawsze pod kciukiem. Zadzwoń i Dojazd są przypięte na dole ekranu, także w ciemnym motywie.",
+          "file": "grafiki/P03-4.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "TWOJA FIRMA",
+          "title": "Chcesz podobną *stronę*?",
+          "body": "Napisz, czym się zajmujesz. Przygotuję bezpłatną wycenę z pełną kwotą i terminem.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 5 z 5. Twoja firma. Chcesz podobną stronę?. Napisz, czym się zajmujesz. Przygotuję bezpłatną wycenę z pełną kwotą i terminem. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P03-5.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Moja pierwsza realizacja dla klienta: strona warsztatu TopAuto Serwis z Nieskurzowa Starego.\n\nWarsztat przygotowywał się do otwarcia. Potrzebował miejsca, w którym kierowca szybko sprawdzi ofertę, zadzwoni i znajdzie dojazd. Tak to rozwiązałem:\n- cztery usługi (wulkanizacja, serwis olejowy, klimatyzacja, bieżące naprawy), każda z własną podstroną i zakresem prac,\n- przyciski Zadzwoń i Dojazd tuż pod nagłówkiem, a na telefonie przypięte na dole ekranu,\n- numer telefonu, godziny otwarcia i mapa w jednej sekcji,\n- FAQ, wersja mobilna oraz jasny i ciemny motyw.\n\nNa tym projekcie widać, jak pracuję: najpierw ustalamy, co klient ma zrobić na stronie, a dopiero potem dobieramy wygląd.\n\nMasz warsztat, gabinet albo inną lokalną firmę? Napisz, czym się zajmujesz, a przygotuję bezpłatną wycenę.",
+        "instagram": "Moja pierwsza realizacja dla klienta: strona warsztatu TopAuto Serwis.\n\nWarsztat przygotowywał się do otwarcia. Potrzebował strony, na której kierowca szybko sprawdzi ofertę, zadzwoni i znajdzie dojazd.\n\nCo jest na stronie:\n- 4 usługi, każda z własną podstroną i zakresem prac,\n- przyciski Zadzwoń i Dojazd tuż pod nagłówkiem,\n- na telefonie te przyciski są przypięte na dole ekranu,\n- telefon, godziny otwarcia i mapa w jednej sekcji,\n- FAQ oraz jasny i ciemny motyw.\n\nPrzesuń w bok, żeby zobaczyć szczegóły.\n\nMasz warsztat, gabinet albo inną lokalną firmę? Napisz, czym się zajmujesz, a przygotuję bezpłatną wycenę.",
+        "hashtags": [
+          "#warsztatsamochodowy",
+          "#serwissamochodowy",
+          "#stronawww",
+          "#stronyinternetowe",
+          "#webdesign",
+          "#małafirma"
+        ],
+        "firstComment": "Całe case study: dorlowski.dev/realizacje/topauto-serwis",
+        "alt": "Slajd 1 z 5. Strona główna TopAuto Serwis w oknie przeglądarki. Realizacja dla klienta · strona firmowa. TopAuto Serwis: strona warsztatu. Wulkanizacja, serwis olejowy, klimatyzacja i bieżące naprawy. Oferta, telefon i dojazd w jednym miejscu.",
+        "cta": "Napisz po bezpłatną wycenę"
+      }
+    },
+    {
+      "id": "P04",
+      "date": "2026-10-26",
+      "day": "pon",
+      "format": "carousel",
+      "pillar": "oferta",
+      "topic": "Cennik bez gwiazdek: trzy pakiety, co w każdym, co osobno. Link do /cennik.",
+      "slides": [
+        {
+          "template": "price-cover",
+          "eyebrow": "CENNIK",
+          "title": "Cennik bez *gwiazdek*",
+          "body": "Trzy pakiety z konkretnym zakresem. Pełną kwotę i termin znasz z bezpłatnej wyceny, zanim zaczniemy.",
+          "alt": "Slajd 1 z 6. Cennik. Cennik bez gwiazdek. Trzy pakiety z konkretnym zakresem. Pełną kwotę i termin znasz z bezpłatnej wyceny, zanim zaczniemy.",
+          "file": "grafiki/P04-1.png"
+        },
+        {
+          "template": "price",
+          "note": "Start",
+          "eyebrow": "START · WIZYTÓWKA TWOJEJ FIRMY",
+          "title": "od *990 zł*",
+          "body": "Dla małej firmy, która chce zrobić porządne pierwsze wrażenie i dać klientom prosty kontakt.",
+          "items": [
+            "Jedna strona, do 5 sekcji",
+            "Wygląd dopasowany do Twojej marki",
+            "Wersja na telefon, tablet i komputer",
+            "Formularz kontaktowy",
+            "Podstawowe ustawienia SEO",
+            "Podpięcie domeny i publikacja"
+          ],
+          "alt": "Slajd 2 z 6. Start · wizytówka Twojej firmy. od 990 zł. Dla małej firmy, która chce zrobić porządne pierwsze wrażenie i dać klientom prosty kontakt. Jedna strona, do 5 sekcji; Wygląd dopasowany do Twojej marki; Wersja na telefon, tablet i komputer; Formularz kontaktowy; Podstawowe ustawienia SEO; Podpięcie domeny i publikacja.",
+          "file": "grafiki/P04-2.png"
+        },
+        {
+          "template": "price",
+          "note": "Landing",
+          "eyebrow": "LANDING · JEDNA OFERTA. KONKRETNY CEL.",
+          "title": "od *1 490 zł*",
+          "body": "Strona pod wybraną usługę lub kampanię. Pomaga zrozumieć ofertę i zrobić kolejny krok.",
+          "items": [
+            "Jedna strona, do 8 sekcji",
+            "Układ dopasowany do celu kampanii",
+            "Uporządkowanie argumentów oferty",
+            "Wezwania do działania, formularz i FAQ",
+            "Wersja mobilna i podstawowe SEO",
+            "Podpięcie domeny i publikacja"
+          ],
+          "alt": "Slajd 3 z 6. Landing · jedna oferta. konkretny cel. od 1 490 zł. Strona pod wybraną usługę lub kampanię. Pomaga zrozumieć ofertę i zrobić kolejny krok. Jedna strona, do 8 sekcji; Układ dopasowany do celu kampanii; Uporządkowanie argumentów oferty; Wezwania do działania, formularz i FAQ; Wersja mobilna i podstawowe SEO; Podpięcie domeny i publikacja.",
+          "file": "grafiki/P04-3.png"
+        },
+        {
+          "template": "price",
+          "note": "Biznes (polecany)",
+          "eyebrow": "BIZNES · STRONA FIRMOWA · POLECANY",
+          "title": "od *1 990 zł*",
+          "body": "Miejsce na Twoją ofertę, realizacje i historię firmy. Dla klientów, którzy chcą poznać Cię bliżej.",
+          "items": [
+            "Do 5 stron, w tym strona główna",
+            "Indywidualny wygląd dopasowany do marki",
+            "Czytelna prezentacja usług i realizacji",
+            "Wersja na telefon, tablet i komputer",
+            "Formularz i podstawowe ustawienia SEO",
+            "Podpięcie domeny i publikacja"
+          ],
+          "alt": "Slajd 4 z 6. Biznes · strona firmowa · polecany. od 1 990 zł. Miejsce na Twoją ofertę, realizacje i historię firmy. Dla klientów, którzy chcą poznać Cię bliżej. Do 5 stron, w tym strona główna; Indywidualny wygląd dopasowany do marki; Czytelna prezentacja usług i realizacji; Wersja na telefon, tablet i komputer; Formularz i podstawowe ustawienia SEO; Podpięcie domeny i publikacja.",
+          "file": "grafiki/P04-4.png"
+        },
+        {
+          "template": "list",
+          "note": "w każdym pakiecie + co osobno",
+          "eyebrow": "W KAŻDYM PAKIECIE",
+          "title": "Co w cenie, a co *osobno*",
+          "items": [
+            "W cenie: dwie rundy poprawek",
+            "W cenie: drobna redakcja Twoich tekstów",
+            "W cenie: 30 dni pomocy przy błędach wdrożenia",
+            "Dodatki: teksty +350 zł lub +700 zł, podstrona +250 zł",
+            "Osobno: domena, hosting i płatne usługi zewnętrzne",
+            "Wyceniane osobno: CMS, sklep, rezerwacje, rozbudowane animacje"
+          ],
+          "alt": "Slajd 5 z 6. W każdym pakiecie. Co w cenie, a co osobno. W cenie: dwie rundy poprawek; W cenie: drobna redakcja Twoich tekstów; W cenie: 30 dni pomocy przy błędach wdrożenia; Dodatki: teksty +350 zł lub +700 zł, podstrona +250 zł; Osobno: domena, hosting i płatne usługi zewnętrzne; Wyceniane osobno: CMS, sklep, rezerwacje, rozbudowane animacje.",
+          "file": "grafiki/P04-5.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "BEZPŁATNA WYCENA",
+          "title": "Pełna kwota przed *startem*",
+          "body": "Napisz, czym zajmuje się Twoja firma, a podam cenę dla Twojego zakresu. Szczegóły: dorlowski.dev/cennik",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 6 z 6. Bezpłatna wycena. Pełna kwota przed startem. Napisz, czym zajmuje się Twoja firma, a podam cenę dla Twojego zakresu. Szczegóły: dorlowski.dev/cennik. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P04-6.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Cennik bez gwiazdek, czyli ile kosztuje strona u mnie.\n\nStart, wizytówka Twojej firmy: od 990 zł\nJedna strona do 5 sekcji, wygląd dopasowany do marki, wersja na telefon, tablet i komputer, formularz kontaktowy, podstawowe SEO, podpięcie domeny i publikacja.\n\nLanding, jedna oferta i konkretny cel: od 1 490 zł\nJedna strona do 8 sekcji, układ pod cel kampanii, uporządkowane argumenty, wezwania do działania, formularz i FAQ, wersja mobilna i podstawowe SEO, domena i publikacja.\n\nBiznes, strona firmowa (pakiet polecany): od 1 990 zł\nDo 5 stron, w tym główna, indywidualny wygląd, prezentacja usług i realizacji, wersja na wszystkie ekrany, formularz i podstawowe SEO, domena i publikacja.\n\nW każdym pakiecie: dwie rundy poprawek, drobna redakcja Twoich tekstów i 30 dni pomocy przy błędach wdrożenia.\n\nDodatki: teksty na wizytówkę lub landing (do 1 000 słów) +350 zł, teksty na stronę firmową (do 2 500 słów) +700 zł, dodatkowa podstrona +250 zł.\n\nOsobno rozliczane są domena, hosting i płatne usługi zewnętrzne. CMS, sklep, rezerwacje i rozbudowane animacje wyceniam osobno.\n\nTo ceny wejściowe dla opisanego zakresu. Pełną kwotę i termin znasz z bezpłatnej wyceny, zanim cokolwiek zaczniemy. Porównanie pakietów punkt po punkcie jest na dorlowski.dev/cennik.\n\nNie wiesz, który pakiet wybrać? Napisz, czym zajmuje się Twoja firma, a podpowiem.",
+        "instagram": "Ile kosztuje strona? Pokazuję cennik bez gwiazdek.\n\nStart, wizytówka: od 990 zł\nLanding: od 1 490 zł\nBiznes, strona firmowa: od 1 990 zł (polecany)\n\nW każdym pakiecie: wersja mobilna, formularz, podstawowe SEO, podpięcie domeny i publikacja. Do tego dwie rundy poprawek, drobna redakcja Twoich tekstów i 30 dni pomocy przy błędach wdrożenia.\n\nOsobno: domena, hosting i płatne usługi zewnętrzne. CMS, sklep i rezerwacje wyceniam osobno.\n\nTo ceny wejściowe dla opisanego zakresu. Pełną kwotę i termin poznasz z bezpłatnej wyceny, zanim zaczniemy. Wszystkie szczegóły są na dorlowski.dev/cennik.\n\nNie wiesz, który pakiet wybrać? Napisz, czym zajmuje się Twoja firma, a podpowiem.",
+        "hashtags": [
+          "#stronyinternetowe",
+          "#stronawww",
+          "#landingpage",
+          "#stronafirmowa",
+          "#małafirma",
+          "#kraków"
+        ],
+        "firstComment": "Porównanie pakietów punkt po punkcie: dorlowski.dev/cennik",
+        "alt": "Slajd 1 z 6. Cennik. Cennik bez gwiazdek. Trzy pakiety z konkretnym zakresem. Pełną kwotę i termin znasz z bezpłatnej wyceny, zanim zaczniemy.",
+        "cta": "Napisz, czym zajmuje się Twoja firma, a podpowiem pakiet"
+      }
+    },
+    {
+      "id": "P05",
+      "date": "2026-10-28",
+      "day": "śr",
+      "format": "carousel",
+      "pillar": "edukacja",
+      "topic": "5 rzeczy, które klient sprawdza na Twojej stronie w pierwszych sekundach (czym się zajmujesz, gdzie, ile, jak się skontaktować, czy działa na telefonie).",
+      "slides": [
+        {
+          "template": "edu-cover",
+          "eyebrow": "PORADNIK · 5 PUNKTÓW",
+          "title": "Co klient sprawdza na *stronie*",
+          "body": "Zanim ktoś do Ciebie zadzwoni, szuka na stronie kilku prostych odpowiedzi. Sprawdź, czy Twoja je daje.",
+          "alt": "Slajd 1 z 7. Poradnik · 5 punktów. Co klient sprawdza na stronie. Zanim ktoś do Ciebie zadzwoni, szuka na stronie kilku prostych odpowiedzi. Sprawdź, czy Twoja je daje.",
+          "file": "grafiki/P05-1.png"
+        },
+        {
+          "template": "tip",
+          "eyebrow": "01 / 05",
+          "title": "Czym się *zajmujesz*",
+          "body": "Na samej górze jedno zdanie: co robisz i dla kogo. Zamiast „kompleksowych rozwiązań” napisz po prostu: „Wymiana opon i serwis klimatyzacji”.",
+          "alt": "Slajd 2 z 7. 01 / 05. Czym się zajmujesz. Na samej górze jedno zdanie: co robisz i dla kogo. Zamiast „kompleksowych rozwiązań” napisz po prostu: „Wymiana opon i serwis klimatyzacji”.",
+          "file": "grafiki/P05-2.png"
+        },
+        {
+          "template": "tip",
+          "eyebrow": "02 / 05",
+          "title": "Gdzie *działasz*",
+          "body": "Miasto, dzielnica albo obszar dojazdu. Jeśli klient ma przyjść do Ciebie, dodaj adres i mapę.",
+          "alt": "Slajd 3 z 7. 02 / 05. Gdzie działasz. Miasto, dzielnica albo obszar dojazdu. Jeśli klient ma przyjść do Ciebie, dodaj adres i mapę.",
+          "file": "grafiki/P05-3.png"
+        },
+        {
+          "template": "tip",
+          "eyebrow": "03 / 05",
+          "title": "Ile to mniej więcej *kosztuje*",
+          "body": "Nie musi to być pełny cennik. Wystarczy cena „od” albo przykładowy zakres, żeby klient wiedział, czy oferta jest dla niego.",
+          "alt": "Slajd 4 z 7. 03 / 05. Ile to mniej więcej kosztuje. Nie musi to być pełny cennik. Wystarczy cena „od” albo przykładowy zakres, żeby klient wiedział, czy oferta jest dla niego.",
+          "file": "grafiki/P05-4.png"
+        },
+        {
+          "template": "tip",
+          "eyebrow": "04 / 05",
+          "title": "Jak się *skontaktować*",
+          "body": "Numer telefonu, który da się kliknąć, i krótki formularz. Widoczne od razu, a nie tylko w stopce.",
+          "alt": "Slajd 5 z 7. 04 / 05. Jak się skontaktować. Numer telefonu, który da się kliknąć, i krótki formularz. Widoczne od razu, a nie tylko w stopce.",
+          "file": "grafiki/P05-5.png"
+        },
+        {
+          "template": "tip",
+          "eyebrow": "05 / 05",
+          "title": "Czy działa na *telefonie*",
+          "body": "Otwórz swoją stronę na komórce. Czy tekst jest czytelny bez powiększania? Czy przyciski da się wygodnie kliknąć kciukiem?",
+          "alt": "Slajd 6 z 7. 05 / 05. Czy działa na telefonie. Otwórz swoją stronę na komórce. Czy tekst jest czytelny bez powiększania? Czy przyciski da się wygodnie kliknąć kciukiem?.",
+          "file": "grafiki/P05-6.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "TWOJA STRONA",
+          "title": "Brakuje któregoś *punktu*?",
+          "body": "Albo nie masz jeszcze strony? Napisz do mnie, pomogę to poukładać.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 7 z 7. Twoja strona. Brakuje któregoś punktu?. Albo nie masz jeszcze strony? Napisz do mnie, pomogę to poukładać. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P05-7.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Zanim ktoś do Ciebie zadzwoni, zwykle zagląda na Twoją stronę. Szuka wtedy kilku prostych odpowiedzi. Jeśli ich nie znajdzie, łatwo wraca do wyników wyszukiwania i wybiera kogoś innego.\n\nSprawdź, czy Twoja strona odpowiada na te pięć pytań:\n\n1. Czym się zajmujesz? Jedno zdanie na samej górze: co robisz i dla kogo. Zamiast „kompleksowych rozwiązań” po prostu „Wymiana opon i serwis klimatyzacji”.\n\n2. Gdzie działasz? Miasto, dzielnica albo obszar dojazdu. Adres i mapa, jeśli klient ma przyjść do Ciebie.\n\n3. Ile to mniej więcej kosztuje? Nie musi to być pełny cennik. Wystarczy cena „od” albo przykładowy zakres.\n\n4. Jak się skontaktować? Numer, który da się kliknąć na telefonie, i krótki formularz. Widoczne od razu, nie tylko w stopce.\n\n5. Czy strona działa na telefonie? Otwórz ją dziś na swojej komórce. Czy tekst jest czytelny bez powiększania? Czy przyciski da się wygodnie kliknąć?\n\nBrakuje Ci któregoś punktu albo nie masz jeszcze strony? Napisz do mnie, pomogę to poukładać.",
+        "instagram": "Zanim ktoś do Ciebie zadzwoni, zagląda na Twoją stronę. Szuka wtedy pięciu odpowiedzi:\n\n1. Czym się zajmujesz?\n2. Gdzie działasz?\n3. Ile to mniej więcej kosztuje?\n4. Jak się skontaktować?\n5. Czy strona działa na telefonie?\n\nW karuzeli rozpisałem, jak odpowiedzieć na każde z tych pytań.\n\nBrakuje Ci któregoś punktu albo nie masz jeszcze strony? Napisz do mnie, pomogę to poukładać.",
+        "hashtags": [
+          "#stronawww",
+          "#stronyinternetowe",
+          "#małafirma",
+          "#marketinglokalny",
+          "#przedsiębiorczość",
+          "#kraków"
+        ],
+        "firstComment": "A Ty co sprawdzasz najpierw, kiedy szukasz firmy w internecie?",
+        "alt": "Slajd 1 z 7. Poradnik · 5 punktów. Co klient sprawdza na stronie. Zanim ktoś do Ciebie zadzwoni, szuka na stronie kilku prostych odpowiedzi. Sprawdź, czy Twoja je daje.",
+        "cta": "Napisz, jeśli chcesz to poprawić"
+      }
+    },
+    {
+      "id": "P06",
+      "date": "2026-10-30",
+      "day": "pt",
+      "format": "reel",
+      "reel": "R2",
+      "pillar": "proces",
+      "topic": "Rolka: szkic, projekt, strona (scena makiety z sekcji Proces).",
+      "time": "18:00",
+      "copy": {
+        "facebook": "Jak powstaje strona? W skrócie: szkic, projekt, kod.\n\n1. Szkic: ustalamy, co klient ma zobaczyć i co ma zrobić. Zadzwonić, zarezerwować termin, wysłać zapytanie.\n2. Projekt: kolory, typografia, zdjęcia. Widzisz wygląd strony i zatwierdzasz go, zanim zacznę kodować.\n3. Strona: koduję, testuję i publikuję. Działa na telefonie, tablecie i komputerze.\n\nWycena jest bezpłatna, a cenę i termin znasz przed startem. Napisz w wiadomości, czym się zajmujesz, a przygotuję wycenę.",
+        "instagram": "Jak powstaje strona? Szkic, projekt, kod.\n\n1. Szkic: ustalamy, co klient ma zobaczyć i zrobić.\n2. Projekt: kolory, typografia, zdjęcia. Zatwierdzasz wygląd, zanim zacznę kodować.\n3. Strona: koduję, testuję i publikuję. Działa na każdym ekranie.\n\nWycena jest bezpłatna, a cenę i termin znasz przed startem. Napisz w wiadomości, czym się zajmujesz.",
+        "hashtags": [
+          "#projektowaniestron",
+          "#webdesign",
+          "#uxdesign",
+          "#stronyinternetowe",
+          "#kraków"
+        ],
+        "firstComment": "Sekcja Proces na żywo: dorlowski.dev/#proces",
+        "alt": "Okładka rolki: makieta strony w trzech stanach i napis Jak powstaje strona?",
+        "cta": "Napisz w wiadomości, czym się zajmujesz"
+      },
+      "file": "wideo/R2.mp4"
+    },
+    {
+      "id": "P07",
+      "date": "2026-11-02",
+      "day": "pon",
+      "format": "carousel",
+      "pillar": "proces",
+      "topic": "Współpraca w 4 krokach: konsultacja i wycena, projekt, kodowanie, publikacja i wsparcie. Ile trwa.",
+      "slides": [
+        {
+          "template": "steps-cover",
+          "image": "public/process-form-blender.webp",
+          "eyebrow": "WSPÓŁPRACA KROK PO KROKU",
+          "title": "Zawsze wiesz, na czym *stoimy*",
+          "body": "Cztery etapy od pierwszej wiadomości do publikacji. Bez niespodzianek po drodze.",
+          "alt": "Slajd 1 z 6. Burgundowa rzeźba 3D z Blendera na grafitowym tle. Współpraca krok po kroku. Zawsze wiesz, na czym stoimy. Cztery etapy od pierwszej wiadomości do publikacji. Bez niespodzianek po drodze.",
+          "file": "grafiki/P07-1.png"
+        },
+        {
+          "template": "step",
+          "eyebrow": "KROK 01",
+          "title": "Konsultacja i *wycena*",
+          "body": "Poznaję Twoją firmę, klientów i cel strony. Doradzam rozwiązanie i przygotowuję bezpłatną wycenę: kwota, zakres i termin.",
+          "alt": "Slajd 2 z 6. Krok 01. Konsultacja i wycena. Poznaję Twoją firmę, klientów i cel strony. Doradzam rozwiązanie i przygotowuję bezpłatną wycenę: kwota, zakres i termin.",
+          "file": "grafiki/P07-2.png"
+        },
+        {
+          "template": "step",
+          "eyebrow": "KROK 02",
+          "title": "Projekt (UI/UX) do *akceptacji*",
+          "body": "Projektuję wygląd spójny z Twoją marką. Zatwierdzasz go, zanim powstanie pierwsza linijka kodu.",
+          "alt": "Slajd 3 z 6. Krok 02. Projekt (UI/UX) do akceptacji. Projektuję wygląd spójny z Twoją marką. Zatwierdzasz go, zanim powstanie pierwsza linijka kodu.",
+          "file": "grafiki/P07-3.png"
+        },
+        {
+          "template": "step",
+          "eyebrow": "KROK 03",
+          "title": "Kodowanie i *wdrożenie*",
+          "body": "Programuję stronę i testuję ją na telefonie, tablecie i komputerze. Ustawiam podstawy SEO.",
+          "alt": "Slajd 4 z 6. Krok 03. Kodowanie i wdrożenie. Programuję stronę i testuję ją na telefonie, tablecie i komputerze. Ustawiam podstawy SEO.",
+          "file": "grafiki/P07-4.png"
+        },
+        {
+          "template": "step",
+          "eyebrow": "KROK 04",
+          "title": "Publikacja i *wsparcie*",
+          "body": "Podpinam domenę, publikuję stronę i przekazuję dostępy. Przez 30 dni pomagam przy błędach wdrożenia, potem zostaję do dyspozycji przy zmianach.",
+          "alt": "Slajd 5 z 6. Krok 04. Publikacja i wsparcie. Podpinam domenę, publikuję stronę i przekazuję dostępy. Przez 30 dni pomagam przy błędach wdrożenia, potem zostaję do dyspozycji przy zmianach.",
+          "file": "grafiki/P07-5.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "ILE TO TRWA",
+          "title": "Wizytówka w około *7* dni",
+          "body": "Większe strony zwykle 2-4 tygodnie, zależnie od zakresu i tempa dostarczania treści. Napisz, a podam termin dla Twojego projektu.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 6 z 6. Ile to trwa. Wizytówka w około 7 dni. Większe strony zwykle 2-4 tygodnie, zależnie od zakresu i tempa dostarczania treści. Napisz, a podam termin dla Twojego projektu. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P07-6.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Jak wygląda współpraca ze mną, krok po kroku:\n\n01 Konsultacja i wycena. Poznaję Twoją firmę, klientów i cel strony. Doradzam rozwiązanie i przygotowuję bezpłatną wycenę: pełna kwota, zakres i termin.\n\n02 Projekt (UI/UX). Projektuję wygląd spójny z Twoją marką. Zatwierdzasz go, zanim powstanie pierwsza linijka kodu.\n\n03 Kodowanie i wdrożenie. Programuję stronę, testuję ją na telefonie, tablecie i komputerze, ustawiam podstawy SEO.\n\n04 Publikacja i wsparcie. Podpinam domenę, publikuję stronę i przekazuję dostępy. Przez 30 dni pomagam przy błędach wdrożenia, a później zostaję do dyspozycji przy zmianach.\n\nIle to trwa? Wizytówka one-page około 7 dni. Większe strony zwykle 2-4 tygodnie, zależnie od zakresu i tego, jak szybko mamy treści.\n\nW każdym pakiecie masz dwie rundy poprawek.\n\nChcesz poznać termin dla swojej strony? Napisz do mnie.",
+        "instagram": "Jak wygląda współpraca ze mną? Cztery kroki, bez zgadywania.\n\n01 Konsultacja i wycena: kwota, zakres i termin, zanim zaczniemy.\n02 Projekt (UI/UX): zatwierdzasz wygląd przed kodowaniem.\n03 Kodowanie i wdrożenie: strona działa na telefonie, tablecie i komputerze.\n04 Publikacja i wsparcie: 30 dni pomocy przy błędach wdrożenia, potem jestem do dyspozycji przy zmianach.\n\nWizytówka one-page zajmuje około 7 dni. Większe strony zwykle 2-4 tygodnie.\n\nChcesz poznać termin dla swojej strony? Napisz do mnie.",
+        "hashtags": [
+          "#projektowaniestron",
+          "#stronawww",
+          "#webdeveloper",
+          "#małafirma",
+          "#kraków"
+        ],
+        "firstComment": "Szczegóły pakietów: dorlowski.dev/cennik",
+        "alt": "Slajd 1 z 6. Burgundowa rzeźba 3D z Blendera na grafitowym tle. Współpraca krok po kroku. Zawsze wiesz, na czym stoimy. Cztery etapy od pierwszej wiadomości do publikacji. Bez niespodzianek po drodze.",
+        "cta": "Napisz, a podam termin dla Twojej strony"
+      }
+    },
+    {
+      "id": "P08",
+      "date": "2026-11-04",
+      "day": "śr",
+      "format": "carousel",
+      "pillar": "branże",
+      "topic": "Strona dla restauracji na przykładzie projektu autorskiego Bella Cucina (demo): menu online, galeria, rezerwacja, dojazd.",
+      "slides": [
+        {
+          "template": "industry-cover",
+          "image": "zdjecia-fal/restauracja.webp",
+          "eyebrow": "PROJEKT AUTORSKI (DEMO) · RESTAURACJA",
+          "title": "Strona dla *restauracji*",
+          "body": "Na przykładzie Bella Cucina: menu online, galeria dań, rezerwacja stolika i dojazd w jednym miejscu.",
+          "alt": "Slajd 1 z 6. Ilustracja: stół w kameralnej włoskiej restauracji wieczorem, talerz makaronu i kieliszek wina w ciepłym świetle. Projekt autorski (demo) · restauracja. Strona dla restauracji. Na przykładzie Bella Cucina: menu online, galeria dań, rezerwacja stolika i dojazd w jednym miejscu.",
+          "file": "grafiki/P08-1.png"
+        },
+        {
+          "template": "screenshot",
+          "image": "public/projects/restauracja-bella/features/menu-online.webp",
+          "eyebrow": "MENU ONLINE · DEMO",
+          "title": "Menu zawsze pod *ręką*",
+          "caption": "Menu podzielone na kategorie, ze zdjęciem, opisem i ceną każdego dania.",
+          "alt": "Slajd 2 z 6. Menu online Bella Cucina z zakładkami kategorii i daniami z działu Antipasti: zdjęcie, opis i cena każdej pozycji. Menu online · demo. Menu zawsze pod ręką. Menu podzielone na kategorie, ze zdjęciem, opisem i ceną każdego dania.",
+          "file": "grafiki/P08-2.png"
+        },
+        {
+          "template": "screenshot",
+          "image": "public/projects/restauracja-bella/features/galeria-dan.webp",
+          "eyebrow": "GALERIA · DEMO",
+          "title": "Klimat lokalu przed *wizytą*",
+          "caption": "Galeria dań i wnętrza pokazuje atmosferę lokalu, zanim gość do niego przyjdzie.",
+          "alt": "Slajd 3 z 6. Galeria Atmosfera i smak z mozaiką zdjęć dań, wnętrza restauracji i napojów. Galeria · demo. Klimat lokalu przed wizytą. Galeria dań i wnętrza pokazuje atmosferę lokalu, zanim gość do niego przyjdzie.",
+          "file": "grafiki/P08-3.png"
+        },
+        {
+          "template": "screenshot",
+          "image": "public/projects/restauracja-bella/features/rezerwacja-stolika.webp",
+          "eyebrow": "REZERWACJA · DEMO",
+          "title": "Stolik bez *dzwonienia*",
+          "caption": "Rezerwacja w jednym formularzu: data, godzina, liczba osób i uwagi dla obsługi.",
+          "alt": "Slajd 4 z 6. Formularz rezerwacji stolika z polami: imię, data, godzina, liczba osób i uwagi. Rezerwacja · demo. Stolik bez dzwonienia. Rezerwacja w jednym formularzu: data, godzina, liczba osób i uwagi dla obsługi.",
+          "file": "grafiki/P08-4.png"
+        },
+        {
+          "template": "phone",
+          "image": "public/projects/restauracja-bella/features/menu-mobile.webp",
+          "eyebrow": "TELEFON · DEMO",
+          "title": "Karta wygodna na *telefonie*",
+          "caption": "Pasek kategorii zostaje u góry ekranu, więc gość nie gubi się w karcie.",
+          "alt": "Slajd 5 z 6. Menu restauracji na telefonie z przypiętym paskiem kategorii i listą makaronów z cenami. Telefon · demo. Karta wygodna na telefonie. Pasek kategorii zostaje u góry ekranu, więc gość nie gubi się w karcie.",
+          "file": "grafiki/P08-5.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "MASZ LOKAL?",
+          "title": "Twoja restauracja *online*",
+          "body": "Bella Cucina to mój projekt autorski (demo), a nie prawdziwy lokal. Chcesz taką stronę dla siebie? Napisz.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 6 z 6. Masz lokal?. Twoja restauracja online. Bella Cucina to mój projekt autorski (demo), a nie prawdziwy lokal. Chcesz taką stronę dla siebie? Napisz. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P08-6.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Jak może wyglądać strona restauracji? Pokazuję na przykładzie mojego projektu autorskiego Bella Cucina. To demo, a nie prawdziwy lokal: zrobiłem je, żeby pokazać rozwiązania dla gastronomii.\n\nWiele lokali działa tylko na Facebooku i Instagramie. Menu krąży jako zdjęcie sprzed kilku miesięcy, a godzin otwarcia trzeba szukać w postach. Na stronie wszystko jest w jednym miejscu:\n- menu online podzielone na kategorie, ze zdjęciem, opisem i ceną dania,\n- galeria dań i wnętrza, która pokazuje klimat lokalu,\n- formularz rezerwacji stolika: data, godzina, liczba osób, uwagi,\n- adres, godziny otwarcia i mapa dojazdu,\n- wygodna karta na telefonie, z paskiem kategorii u góry ekranu.\n\nUczciwie o cenie: pakiety zaczynają się od 990 zł. Rezerwacje online i panel do samodzielnej edycji menu wyceniam osobno, a pełną kwotę znasz z bezpłatnej wyceny.\n\nDemo możesz przeklikać sam: dorlowski.dev/realizacje/restauracja-bella\n\nProwadzisz restaurację, kawiarnię albo bistro? Napisz, porozmawiajmy o stronie dla Twojego lokalu.",
+        "instagram": "Jak może wyglądać strona restauracji? Pokazuję na moim projekcie autorskim Bella Cucina (demo, nie prawdziwy lokal).\n\nNa stronie gość od razu znajduje:\n- menu online z kategoriami, zdjęciami i cenami,\n- galerię dań i wnętrza,\n- formularz rezerwacji stolika,\n- adres, godziny otwarcia i mapę,\n- wygodną kartę na telefonie.\n\nPakiety zaczynają się od 990 zł. Rezerwacje online i panel do edycji menu wyceniam osobno.\n\nProwadzisz restaurację, kawiarnię albo bistro? Napisz, porozmawiajmy o stronie dla Twojego lokalu.",
+        "hashtags": [
+          "#gastronomia",
+          "#restauracja",
+          "#restauracjakraków",
+          "#menuonline",
+          "#stronawww",
+          "#kraków"
+        ],
+        "firstComment": "Demo do przeklikania: dorlowski.dev/realizacje/restauracja-bella",
+        "alt": "Slajd 1 z 6. Ilustracja: stół w kameralnej włoskiej restauracji wieczorem, talerz makaronu i kieliszek wina w ciepłym świetle. Projekt autorski (demo) · restauracja. Strona dla restauracji. Na przykładzie Bella Cucina: menu online, galeria dań, rezerwacja stolika i dojazd w jednym miejscu.",
+        "cta": "Napisz, porozmawiajmy o stronie dla Twojego lokalu"
+      }
+    },
+    {
+      "id": "P09",
+      "date": "2026-11-06",
+      "day": "pt",
+      "format": "reel",
+      "reel": "R3",
+      "pillar": "branże",
+      "topic": "Rolka: salon beauty, rezerwacja online w 15 sekund (Glow Studio, projekt autorski demo).",
+      "time": "18:00",
+      "copy": {
+        "facebook": "Salon, w którym klientka rezerwuje wizytę wieczorem, bez dzwonienia i bez aplikacji pośrednika. Tak działa mój projekt autorski Glow Studio. To demo, a nie prawdziwy salon.\n\nCo widać w rolce:\n- cennik usług z czasem wizyty i przedziałem ceny,\n- wybór stylistki i terminu krok po kroku,\n- podsumowanie rezerwacji z terminem i ceną.\n\nWłasna rezerwacja na stronie salonu działa bez prowizji pośrednika, a kontakty klientów zostają w salonie. Taki system wyceniam indywidualnie, bo jego zakres zależy od salonu.\n\nProwadzisz salon fryzjerski, barber shop albo gabinet beauty? Napisz, pokażę demo na żywo i opowiem, jak mogłoby to działać u Ciebie.",
+        "instagram": "Salon, w którym klientka rezerwuje wizytę wieczorem, bez dzwonienia.\n\nTo Glow Studio, mój projekt autorski (demo, nie prawdziwy salon). W rolce: cennik z czasem wizyty, wybór stylistki i terminu, podsumowanie rezerwacji.\n\nWłasna rezerwacja na stronie salonu działa bez prowizji pośrednika, a kontakty klientów zostają u Ciebie. Taki system wyceniam indywidualnie.\n\nProwadzisz salon fryzjerski, barber shop albo gabinet beauty? Napisz, pokażę demo na żywo.",
+        "hashtags": [
+          "#salonfryzjerski",
+          "#barbershop",
+          "#salonbeauty",
+          "#rezerwacjaonline",
+          "#stronawww",
+          "#kraków"
+        ],
+        "firstComment": "Demo Glow Studio: dorlowski.dev/realizacje/salon-glow",
+        "alt": "Okładka rolki: telefon ze stroną salonu Glow Studio i napis Rezerwacja w salonie (demo).",
+        "cta": "Napisz, pokażę demo na żywo"
+      },
+      "file": "wideo/R3.mp4"
+    },
+    {
+      "id": "P10",
+      "date": "2026-11-09",
+      "day": "pon",
+      "format": "carousel",
+      "pillar": "edukacja",
+      "topic": "Wizytówka, landing czy strona firmowa? Jak wybrać (mapowanie na Start, Landing, Biznes).",
+      "slides": [
+        {
+          "template": "edu-cover",
+          "eyebrow": "JAK WYBRAĆ",
+          "title": "Którą stronę *wybrać*?",
+          "body": "Wizytówka, landing czy strona firmowa? Każda ma inne zadanie. Zobacz, która pasuje do Twojej firmy.",
+          "alt": "Slajd 1 z 6. Jak wybrać. Którą stronę wybrać?. Wizytówka, landing czy strona firmowa? Każda ma inne zadanie. Zobacz, która pasuje do Twojej firmy.",
+          "file": "grafiki/P10-1.png"
+        },
+        {
+          "template": "choice",
+          "note": "Start",
+          "eyebrow": "START · OD 990 ZŁ",
+          "title": "Wizytówka, gdy *zaczynasz*",
+          "body": "Jedna strona do 5 sekcji: kim jesteś, co robisz, gdzie działasz i jak się skontaktować.",
+          "items": [
+            "Dla: lokalnej usługi, gabinetu, warsztatu",
+            "Kiedy: masz tylko profil w social mediach albo nic",
+            "Czas: około 7 dni"
+          ],
+          "alt": "Slajd 2 z 6. Start · od 990 zł. Wizytówka, gdy zaczynasz. Jedna strona do 5 sekcji: kim jesteś, co robisz, gdzie działasz i jak się skontaktować. Dla: lokalnej usługi, gabinetu, warsztatu; Kiedy: masz tylko profil w social mediach albo nic; Czas: około 7 dni.",
+          "file": "grafiki/P10-2.png"
+        },
+        {
+          "template": "choice",
+          "note": "Landing",
+          "eyebrow": "LANDING · OD 1 490 ZŁ",
+          "title": "Landing pod jedną *ofertę*",
+          "body": "Jedna strona do 8 sekcji, która prowadzi do jednego działania: zapytania, zapisu albo telefonu.",
+          "items": [
+            "Dla: konkretnej usługi, wydarzenia lub kampanii",
+            "Kiedy: kierujesz ruch z reklam lub postów w jedno miejsce",
+            "W środku: argumenty, FAQ i formularz"
+          ],
+          "alt": "Slajd 3 z 6. Landing · od 1 490 zł. Landing pod jedną ofertę. Jedna strona do 8 sekcji, która prowadzi do jednego działania: zapytania, zapisu albo telefonu. Dla: konkretnej usługi, wydarzenia lub kampanii; Kiedy: kierujesz ruch z reklam lub postów w jedno miejsce; W środku: argumenty, FAQ i formularz.",
+          "file": "grafiki/P10-3.png"
+        },
+        {
+          "template": "choice",
+          "note": "Biznes",
+          "eyebrow": "BIZNES · OD 1 990 ZŁ · POLECANY",
+          "title": "Strona firmowa na *dłużej*",
+          "body": "Do 5 stron, w tym główna. Osobne miejsce na ofertę, realizacje i historię firmy.",
+          "items": [
+            "Dla: firmy z kilkoma usługami",
+            "Kiedy: klienci chcą Cię poznać przed telefonem",
+            "W środku: podstrony usług i realizacji"
+          ],
+          "alt": "Slajd 4 z 6. Biznes · od 1 990 zł · polecany. Strona firmowa na dłużej. Do 5 stron, w tym główna. Osobne miejsce na ofertę, realizacje i historię firmy. Dla: firmy z kilkoma usługami; Kiedy: klienci chcą Cię poznać przed telefonem; W środku: podstrony usług i realizacji.",
+          "file": "grafiki/P10-4.png"
+        },
+        {
+          "template": "text",
+          "note": "nie wiesz? napisz, doradzę",
+          "eyebrow": "NADAL NIE WIESZ?",
+          "title": "Napisz, *doradzę*",
+          "body": "Opisz w dwóch zdaniach, czym się zajmujesz i czego oczekujesz od strony. Podpowiem, który pakiet ma sens. Czasem wystarczy mniej, niż myślisz.",
+          "alt": "Slajd 5 z 6. Nadal nie wiesz?. Napisz, doradzę. Opisz w dwóch zdaniach, czym się zajmujesz i czego oczekujesz od strony. Podpowiem, który pakiet ma sens. Czasem wystarczy mniej, niż myślisz.",
+          "file": "grafiki/P10-5.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "PORÓWNANIE PAKIETÓW",
+          "title": "Zapytaj o *pakiet*",
+          "body": "Pełne porównanie znajdziesz na dorlowski.dev/cennik. Wolisz zapytać? Napisz w wiadomości prywatnej.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 6 z 6. Porównanie pakietów. Zapytaj o pakiet. Pełne porównanie znajdziesz na dorlowski.dev/cennik. Wolisz zapytać? Napisz w wiadomości prywatnej. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P10-6.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Wizytówka, landing czy strona firmowa? Jeśli nie wiesz, czym to się różni, ten post jest dla Ciebie.\n\nStart, wizytówka (od 990 zł)\nJedna strona do 5 sekcji: kim jesteś, co robisz, gdzie działasz i jak się skontaktować. Pasuje, gdy dopiero startujesz albo masz tylko profil w mediach społecznościowych. Zwykle gotowa w około 7 dni.\n\nLanding (od 1 490 zł)\nJedna strona do 8 sekcji pod jedną usługę, wydarzenie albo kampanię. Prowadzi do jednego działania: zapytania, zapisu, telefonu. Pasuje, gdy chcesz kierować ruch z reklam lub postów w jedno miejsce.\n\nBiznes, strona firmowa (od 1 990 zł)\nDo 5 stron, w tym główna. Osobne miejsce na ofertę, realizacje i historię firmy. Pasuje, gdy masz kilka usług, a klienci chcą poznać Cię bliżej, zanim zadzwonią.\n\nNadal nie wiesz? Opisz mi w dwóch zdaniach, czym się zajmujesz, a podpowiem, który pakiet ma sens. Czasem wystarczy mniej, niż myślisz.",
+        "instagram": "Wizytówka, landing czy strona firmowa? Szybka ściąga.\n\nStart (od 990 zł): jedna strona do 5 sekcji. Gdy startujesz albo masz tylko profil w social mediach.\n\nLanding (od 1 490 zł): jedna strona do 8 sekcji pod jedną ofertę albo kampanię.\n\nBiznes (od 1 990 zł): do 5 stron. Gdy masz kilka usług i chcesz pokazać realizacje.\n\nNie wiesz, co wybrać? Opisz mi w dwóch zdaniach, czym się zajmujesz. Podpowiem, który pakiet ma sens. Czasem wystarczy mniej, niż myślisz.",
+        "hashtags": [
+          "#stronawww",
+          "#landingpage",
+          "#stronafirmowa",
+          "#małafirma",
+          "#stronyinternetowe",
+          "#kraków"
+        ],
+        "firstComment": "Porównanie pakietów: dorlowski.dev/cennik",
+        "alt": "Slajd 1 z 6. Jak wybrać. Którą stronę wybrać?. Wizytówka, landing czy strona firmowa? Każda ma inne zadanie. Zobacz, która pasuje do Twojej firmy.",
+        "cta": "Opisz w dwóch zdaniach, czym się zajmujesz, a doradzę pakiet"
+      }
+    },
+    {
+      "id": "P11",
+      "date": "2026-11-12",
+      "day": "czw",
+      "format": "carousel",
+      "pillar": "automatyzacje",
+      "topic": "Automatyzacja pierwszego kontaktu: Kalkulator wyceny (projekt autorski demo). Klient zna widełki w 60 sekund. 11.11 bez posta sprzedażowego, dlatego czwartek.",
+      "slides": [
+        {
+          "template": "project-cover",
+          "image": "public/projects/kalkulator-wyceny/features/start-60-sekund.webp",
+          "eyebrow": "PROJEKT AUTORSKI (DEMO) · AUTOMATYZACJA",
+          "title": "Orientacyjna cena w *60* sekund",
+          "body": "Kalkulator wyceny strony: 6 pytań, jedno na ekran. Na końcu widełki cenowe, czas realizacji i rozpis kosztów.",
+          "alt": "Slajd 1 z 5. Ekran startowy kalkulatora z hasłem Sprawdź orientacyjną cenę swojej strony w 60 sekund i przyciskiem Zaczynamy. Projekt autorski (demo) · automatyzacja. Orientacyjna cena w 60 sekund. Kalkulator wyceny strony: 6 pytań, jedno na ekran. Na końcu widełki cenowe, czas realizacji i rozpis kosztów.",
+          "file": "grafiki/P11-1.png"
+        },
+        {
+          "template": "screenshot",
+          "image": "public/projects/kalkulator-wyceny/features/krok-funkcje-kosztorys.webp",
+          "eyebrow": "KROK 5 Z 6 · DEMO",
+          "title": "Kosztorys rośnie z *wyborami*",
+          "caption": "Kosztorys obok pytań rośnie pozycja po pozycji z każdym wyborem.",
+          "alt": "Slajd 2 z 5. Piąty krok kalkulatora z wybranymi funkcjami Rezerwacje online i Animacje premium, obok kosztorys wstępny. Krok 5 z 6 · demo. Kosztorys rośnie z wyborami. Kosztorys obok pytań rośnie pozycja po pozycji z każdym wyborem.",
+          "file": "grafiki/P11-2.png"
+        },
+        {
+          "template": "screenshot",
+          "image": "public/projects/kalkulator-wyceny/features/wynik-widelki-kosztorys.webp",
+          "eyebrow": "WYNIK · DEMO",
+          "title": "Widełki, czas i *rozpis*",
+          "caption": "Wynik od razu: widełki cenowe, czas realizacji i rozpis kosztów. Kwoty na zrzucie to przykład z wersji demo.",
+          "alt": "Slajd 3 z 5. Wynik wyceny w kalkulatorze demo: przedział cenowy, czas realizacji i rozpis pozycji kosztorysu. Wynik · demo. Widełki, czas i rozpis. Wynik od razu: widełki cenowe, czas realizacji i rozpis kosztów. Kwoty na zrzucie to przykład z wersji demo.",
+          "file": "grafiki/P11-3.png"
+        },
+        {
+          "template": "text",
+          "note": "gdzie to się sprawdza: firmy usługowe",
+          "eyebrow": "GDZIE TO SIĘ SPRAWDZA",
+          "title": "Gdy klient pyta: *ile*?",
+          "body": "Remonty, fotowoltaika, usługi ślubne, szkolenia. Klient zna widełki o każdej porze i przychodzi do rozmowy z realnymi oczekiwaniami.",
+          "alt": "Slajd 4 z 5. Gdzie to się sprawdza. Gdy klient pyta: ile?. Remonty, fotowoltaika, usługi ślubne, szkolenia. Klient zna widełki o każdej porze i przychodzi do rozmowy z realnymi oczekiwaniami.",
+          "file": "grafiki/P11-4.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "AUTOMATYZACJE",
+          "title": "Chcesz taki *kalkulator*?",
+          "body": "Dopasuję go do Twoich usług i cen. Wyceniam indywidualnie: napisz, co sprzedajesz.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 5 z 5. Automatyzacje. Chcesz taki kalkulator?. Dopasuję go do Twoich usług i cen. Wyceniam indywidualnie: napisz, co sprzedajesz. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P11-5.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Pierwsze pytanie klienta to zwykle „ile to kosztuje?”. Odpowiedź wymaga maili, telefonów i liczenia. Dlatego zbudowałem Kalkulator wyceny strony, mój projekt autorski (demo).\n\nJak działa:\n- 6 pytań, jedno na ekran: rodzaj strony, podstrony, wygląd, treści, funkcje, termin,\n- kosztorys obok rośnie z każdym wyborem,\n- na końcu widełki cenowe, szacowany czas realizacji i rozpis kosztów pozycja po pozycji,\n- bez podawania maila i bez zobowiązań.\n\nKwoty na zrzutach to przykład z wersji demo, a nie mój cennik.\n\nGdzie to się sprawdza? Wszędzie tam, gdzie klient pyta o cenę, zanim napisze: remonty, fotowoltaika, usługi ślubne, szkolenia. Klient zna widełki o każdej porze, a do rozmowy przychodzi z realnymi oczekiwaniami.\n\nTaki kalkulator mogę dopasować do Twoich usług i cen. Wyceniam go indywidualnie. Napisz, co sprzedajesz, a powiem, jak mógłby wyglądać u Ciebie.",
+        "instagram": "„Ile to kosztuje?” Ten kalkulator odpowiada w 60 sekund.\n\nTo mój projekt autorski (demo): 6 pytań, jedno na ekran, a na końcu widełki cenowe, czas realizacji i rozpis kosztów. Bez podawania maila. Kwoty na zrzutach to przykład z wersji demo, nie mój cennik.\n\nGdzie to się sprawdza? Remonty, fotowoltaika, usługi ślubne, szkolenia: wszędzie tam, gdzie klient pyta o cenę, zanim napisze.\n\nChcesz taki kalkulator na swojej stronie? Napisz, co sprzedajesz. Wyceniam go indywidualnie.",
+        "hashtags": [
+          "#automatyzacja",
+          "#firmausługowa",
+          "#stronawww",
+          "#webdeveloper",
+          "#małafirma",
+          "#kraków"
+        ],
+        "firstComment": "Demo kalkulatora: dorlowski.dev/realizacje/kalkulator-wyceny",
+        "alt": "Slajd 1 z 5. Ekran startowy kalkulatora z hasłem Sprawdź orientacyjną cenę swojej strony w 60 sekund i przyciskiem Zaczynamy. Projekt autorski (demo) · automatyzacja. Orientacyjna cena w 60 sekund. Kalkulator wyceny strony: 6 pytań, jedno na ekran. Na końcu widełki cenowe, czas realizacji i rozpis kosztów.",
+        "cta": "Napisz, co sprzedajesz"
+      }
+    },
+    {
+      "id": "P12",
+      "date": "2026-11-13",
+      "day": "pt",
+      "format": "carousel",
+      "pillar": "faq",
+      "topic": "Najczęstsze pytania: ile kosztuje, ile trwa, domena i hosting, edycja treści, Google, czyj jest kod.",
+      "slides": [
+        {
+          "template": "faq-cover",
+          "eyebrow": "PYTANIA I ODPOWIEDZI",
+          "title": "Zanim zamówisz *stronę*",
+          "body": "Pięć konkretnych odpowiedzi: cena, czas, domena i hosting, edycja treści, własność kodu.",
+          "alt": "Slajd 1 z 7. Pytania i odpowiedzi. Zanim zamówisz stronę. Pięć konkretnych odpowiedzi: cena, czas, domena i hosting, edycja treści, własność kodu.",
+          "file": "grafiki/P12-1.png"
+        },
+        {
+          "template": "faq",
+          "eyebrow": "PYTANIE 01",
+          "title": "Ile kosztuje *strona*?",
+          "body": "Wizytówka od 990 zł, landing od 1 490 zł, strona firmowa od 1 990 zł. Pełną kwotę i zakres znasz z bezpłatnej wyceny przed startem.",
+          "alt": "Slajd 2 z 7. Pytanie 01. Ile kosztuje strona?. Wizytówka od 990 zł, landing od 1 490 zł, strona firmowa od 1 990 zł. Pełną kwotę i zakres znasz z bezpłatnej wyceny przed startem.",
+          "file": "grafiki/P12-2.png"
+        },
+        {
+          "template": "faq",
+          "eyebrow": "PYTANIE 02",
+          "title": "Ile to *trwa*?",
+          "body": "Wizytówka one-page: około 7 dni. Większe strony: zwykle 2-4 tygodnie, zależnie od zakresu i tempa dostarczania treści.",
+          "alt": "Slajd 3 z 7. Pytanie 02. Ile to trwa?. Wizytówka one-page: około 7 dni. Większe strony: zwykle 2-4 tygodnie, zależnie od zakresu i tempa dostarczania treści.",
+          "file": "grafiki/P12-3.png"
+        },
+        {
+          "template": "faq",
+          "eyebrow": "PYTANIE 03",
+          "title": "Co z domeną i *hostingiem*?",
+          "body": "Pomogę je dobrać i skonfigurować. Ich zakup i odnowienia są poza ceną strony. Koszty poznasz przed startem.",
+          "alt": "Slajd 4 z 7. Pytanie 03. Co z domeną i hostingiem?. Pomogę je dobrać i skonfigurować. Ich zakup i odnowienia są poza ceną strony. Koszty poznasz przed startem.",
+          "file": "grafiki/P12-4.png"
+        },
+        {
+          "template": "faq",
+          "eyebrow": "PYTANIE 04",
+          "title": "Czy sam zmienię *treści*?",
+          "body": "Tak, jeśli dodamy panel do edycji (CMS). Wyceniam go osobno. Możesz też zlecać mi zmiany według ustalonej wyceny.",
+          "alt": "Slajd 5 z 7. Pytanie 04. Czy sam zmienię treści?. Tak, jeśli dodamy panel do edycji (CMS). Wyceniam go osobno. Możesz też zlecać mi zmiany według ustalonej wyceny.",
+          "file": "grafiki/P12-5.png"
+        },
+        {
+          "template": "faq",
+          "eyebrow": "PYTANIE 05",
+          "title": "Czyj jest *kod*?",
+          "body": "Twój. Po rozliczeniu przekazuję pełen dostęp i kod. Nie jesteś uzależniony od jednego dostawcy.",
+          "alt": "Slajd 6 z 7. Pytanie 05. Czyj jest kod?. Twój. Po rozliczeniu przekazuję pełen dostęp i kod. Nie jesteś uzależniony od jednego dostawcy.",
+          "file": "grafiki/P12-6.png"
+        },
+        {
+          "template": "cta",
+          "eyebrow": "MASZ INNE PYTANIE?",
+          "title": "Zapytaj w *wiadomości*",
+          "body": "Odpowiem konkretnie i bez zobowiązań. Więcej odpowiedzi na dorlowski.dev.",
+          "items": [
+            "dorlowski.dev",
+            "contact@dorlowski.dev",
+            "739 258 786"
+          ],
+          "alt": "Slajd 7 z 7. Masz inne pytanie?. Zapytaj w wiadomości. Odpowiem konkretnie i bez zobowiązań. Więcej odpowiedzi na dorlowski.dev. dorlowski.dev; contact@dorlowski.dev; 739 258 786.",
+          "file": "grafiki/P12-7.png"
+        }
+      ],
+      "time": "18:00",
+      "copy": {
+        "facebook": "Sześć pytań, które warto zadać przed zamówieniem strony, i moje odpowiedzi.\n\nIle kosztuje strona?\nWizytówka od 990 zł, landing od 1 490 zł, strona firmowa od 1 990 zł. Pełną kwotę i zakres poznasz z bezpłatnej wyceny przed startem. Domena, hosting i płatne usługi zewnętrzne są rozliczane osobno.\n\nIle trwa realizacja?\nWizytówka one-page: około 7 dni. Większe strony: zwykle 2-4 tygodnie, zależnie od zakresu i tempa dostarczania treści.\n\nCo z domeną i hostingiem?\nPomogę je dobrać i skonfigurować. Ich zakup i odnowienia są poza ceną strony. Koszty poznasz, zanim zaczniemy.\n\nCzy sam zmienię treści?\nTak, jeśli dodamy system zarządzania treścią (CMS). Wyceniam go osobno. Możesz też zlecać mi zmiany według ustalonej wyceny.\n\nCzy strona będzie widoczna w Google?\nKażdą stronę przygotowuję pod wyszukiwarki: struktura, metadane, szybkość ładowania, wersja mobilna. To podstawa widoczności. Nie obiecuję konkretnego miejsca w wynikach, bo zależy ono też od konkurencji i treści.\n\nCzyj jest kod?\nTwój. Po rozliczeniu przekazuję pełen dostęp i kod. Nie jesteś uzależniony od jednego dostawcy.\n\nMasz inne pytanie? Zadaj je w wiadomości, odpowiem konkretnie.",
+        "instagram": "5 pytań przed zamówieniem strony i moje odpowiedzi.\n\nIle kosztuje? Wizytówka od 990 zł, landing od 1 490 zł, strona firmowa od 1 990 zł.\n\nIle trwa? Wizytówka około 7 dni, większe strony zwykle 2-4 tygodnie.\n\nDomena i hosting? Pomogę dobrać i skonfigurować. Ich koszt jest poza ceną strony.\n\nEdycja treści? Tak, z panelem CMS, który wyceniam osobno.\n\nCzyj jest kod? Twój, po rozliczeniu.\n\nMasz inne pytanie? Napisz do mnie wiadomość.",
+        "hashtags": [
+          "#stronawww",
+          "#stronyinternetowe",
+          "#małafirma",
+          "#przedsiębiorczość",
+          "#kraków"
+        ],
+        "firstComment": "Więcej odpowiedzi: dorlowski.dev/#faq",
+        "alt": "Slajd 1 z 7. Pytania i odpowiedzi. Zanim zamówisz stronę. Pięć konkretnych odpowiedzi: cena, czas, domena i hosting, edycja treści, własność kodu.",
+        "cta": "Zadaj pytanie w wiadomości"
+      }
+    },
+    {
+      "id": "P13",
+      "date": "2026-11-15",
+      "day": "nd",
+      "format": "reel",
+      "reel": "R4",
+      "pillar": "realizacje",
+      "topic": "Rolka: 8 projektów w 20 sekund, przegląd biblioteki realizacji i zaproszenie do kontaktu.",
+      "time": "18:00",
+      "copy": {
+        "facebook": "Miesiąc temu założyłem ten profil. Na koniec pierwszego miesiąca: wszystkie moje projekty w 20 sekund.\n\nTopAuto Serwis to realizacja dla klienta. Pozostałe siedem to projekty autorskie (demo), które zrobiłem, żeby pokazać rozwiązania dla różnych branż:\n- Bella Cucina: restauracja z menu i rezerwacją stolika,\n- Glow Studio: salon z rezerwacją wizyt online,\n- Craft Coffee: sklep internetowy palarni kawy,\n- Lena Czarnecka: portfolio fotografki,\n- EkoSolar: landing fotowoltaiki z kalkulatorem oszczędności,\n- Asystent AI: chatbot i generator ofert,\n- Kalkulator wyceny strony: widełki cenowe w 60 sekund.\n\nKażdy projekt możesz przeklikać na dorlowski.dev/realizacje.\n\nDziękuję, że jesteś tu od początku. Jeśli myślisz o stronie dla swojej firmy, napisz. Twój projekt może być następny.",
+        "instagram": "Miesiąc temu założyłem ten profil. Na koniec pierwszego miesiąca: wszystkie moje projekty w 20 sekund.\n\nTopAuto Serwis to realizacja dla klienta. Pozostałe siedem to projekty autorskie (demo): restauracja, salon beauty, sklep z kawą, portfolio fotografki, landing fotowoltaiki, asystent AI i kalkulator wyceny.\n\nKażdy możesz przeklikać na dorlowski.dev/realizacje (link w bio).\n\nDziękuję, że tu jesteś. Jeśli myślisz o stronie dla swojej firmy, napisz. Twój projekt może być następny.",
+        "hashtags": [
+          "#portfolio",
+          "#webdesign",
+          "#stronyinternetowe",
+          "#projektowaniestron",
+          "#kraków",
+          "#małopolska"
+        ],
+        "firstComment": "Wszystkie projekty: dorlowski.dev/realizacje",
+        "alt": "Okładka rolki: wachlarz ramek z projektami i napis 8 projektów w 20 sekund.",
+        "cta": "Napisz, jeśli myślisz o stronie"
+      },
+      "file": "wideo/R4.mp4"
+    }
+  ],
+  "reels": [
+    {
+      "id": "R1",
+      "title": "Od kreski do strony",
+      "duration": 12,
+      "sources": [
+        "design/intro/frames/001-072.png (wstęga rysuje się jako kreska i staje się formą)",
+        "nagranie ekranu http://localhost:3000 w 390x844: intro i hero (intro włączone: wyczyść sessionStorage)"
+      ],
+      "shots": [
+        {
+          "from": 0,
+          "to": 3,
+          "visual": "pusta grafitowa scena, rysuje się lodowa kreska",
+          "onScreenText": "Każda strona zaczyna się od kreski."
+        },
+        {
+          "from": 3,
+          "to": 6.5,
+          "visual": "kreska rozwija się w burgundowo-grafitową wstęgę",
+          "onScreenText": "Potem dostaje formę."
+        },
+        {
+          "from": 6.5,
+          "to": 10,
+          "visual": "wstęga ląduje w hero strony, pojawia się nagłówek",
+          "onScreenText": "A na końcu: Twoja strona."
+        },
+        {
+          "from": 10,
+          "to": 12,
+          "visual": "plansza końcowa z monogramem",
+          "onScreenText": "dorlowski.dev"
+        }
+      ],
+      "audio": "spokojny, nowoczesny utwór z biblioteki Instagrama/Facebooka (bez praw autorskich do pobrania z zewnątrz)",
+      "coverTitle": "Od kreski do *strony*",
+      "post": "P02",
+      "copy": {
+        "facebook": "Każda strona zaczyna się u mnie od kreski: prostego szkicu tego, co klient ma zobaczyć i zrobić. Potem dochodzi forma, kolory i typografia. Na końcu kod i publikacja.\n\nTo krótkie intro zrobiłem w Blenderze, programie do grafiki 3D, i połączyłem je z kodem mojej strony.\n\nZobacz, jak wygląda na żywo: dorlowski.dev",
+        "instagram": "Od kreski do strony w 12 sekund.\n\nTak zaczyna się moja strona dorlowski.dev. Wstęgę zrobiłem w Blenderze, programie do grafiki 3D, a potem połączyłem ją z kodem strony.\n\nPrzy stronie dla klienta kolejność jest podobna: najpierw szkic (co ma się znaleźć na stronie i co klient ma zrobić), potem wygląd, na końcu kod.\n\nIntro zobaczysz na żywo pod linkiem w bio.",
+        "hashtags": [
+          "#webdesign",
+          "#blender3d",
+          "#stronyinternetowe",
+          "#projektowaniestron",
+          "#kraków"
+        ],
+        "cta": "Zobacz intro na dorlowski.dev (link w bio)"
+      },
+      "file": "wideo/R1.mp4"
+    },
+    {
+      "id": "R2",
+      "title": "Szkic, projekt, strona",
+      "duration": 15,
+      "sources": [
+        "nagranie ekranu sekcji #proces (makieta ProcessBuild przełączana: Szkic, Projekt, Strona) w 1440x900, kadrowane do 9:16 lub z makietą na środku",
+        "public/process-form-blender.webp jako tło planszy otwierającej"
+      ],
+      "shots": [
+        {
+          "from": 0,
+          "to": 2.5,
+          "visual": "plansza z rzeźbą procesu",
+          "onScreenText": "Jak powstaje strona?"
+        },
+        {
+          "from": 2.5,
+          "to": 6,
+          "visual": "makieta w stanie Szkic",
+          "onScreenText": "1. Szkic: co klient ma zobaczyć i zrobić"
+        },
+        {
+          "from": 6,
+          "to": 9.5,
+          "visual": "makieta w stanie Projekt",
+          "onScreenText": "2. Projekt: kolory, typografia, zdjęcia"
+        },
+        {
+          "from": 9.5,
+          "to": 13,
+          "visual": "makieta w stanie Strona, desktop i telefon",
+          "onScreenText": "3. Strona: działa na każdym ekranie"
+        },
+        {
+          "from": 13,
+          "to": 15,
+          "visual": "plansza końcowa",
+          "onScreenText": "Bezpłatna wycena: dorlowski.dev"
+        }
+      ],
+      "audio": "utwór z biblioteki platformy",
+      "coverTitle": "Jak powstaje *strona*?",
+      "post": "P06",
+      "copy": {
+        "facebook": "Jak powstaje strona? W skrócie: szkic, projekt, kod.\n\n1. Szkic: ustalamy, co klient ma zobaczyć i co ma zrobić. Zadzwonić, zarezerwować termin, wysłać zapytanie.\n2. Projekt: kolory, typografia, zdjęcia. Widzisz wygląd strony i zatwierdzasz go, zanim zacznę kodować.\n3. Strona: koduję, testuję i publikuję. Działa na telefonie, tablecie i komputerze.\n\nWycena jest bezpłatna, a cenę i termin znasz przed startem. Napisz w wiadomości, czym się zajmujesz, a przygotuję wycenę.",
+        "instagram": "Jak powstaje strona? Szkic, projekt, kod.\n\n1. Szkic: ustalamy, co klient ma zobaczyć i zrobić.\n2. Projekt: kolory, typografia, zdjęcia. Zatwierdzasz wygląd, zanim zacznę kodować.\n3. Strona: koduję, testuję i publikuję. Działa na każdym ekranie.\n\nWycena jest bezpłatna, a cenę i termin znasz przed startem. Napisz w wiadomości, czym się zajmujesz.",
+        "hashtags": [
+          "#projektowaniestron",
+          "#webdesign",
+          "#uxdesign",
+          "#stronyinternetowe",
+          "#kraków"
+        ],
+        "cta": "Napisz w wiadomości, czym się zajmujesz"
+      },
+      "file": "wideo/R2.mp4"
+    },
+    {
+      "id": "R3",
+      "title": "Salon beauty: rezerwacja w 15 sekund (demo)",
+      "duration": 15,
+      "sources": [
+        "public/projects/salon-glow/features/*.webp (cennik usług, rezerwacja: stylista, termin)",
+        "opcjonalnie nagranie ekranu https://salon-glow-gamma.vercel.app/ w 390x844 (bez wysyłania formularza)"
+      ],
+      "shots": [
+        {
+          "from": 0,
+          "to": 2.5,
+          "visual": "telefon z hero Glow Studio",
+          "onScreenText": "Salon bez telefonów o 21:00?\nProjekt autorski (demo): Glow Studio"
+        },
+        {
+          "from": 2.5,
+          "to": 6,
+          "visual": "cennik usług z czasem wizyty",
+          "onScreenText": "Klient widzi usługi, czas i ceny"
+        },
+        {
+          "from": 6,
+          "to": 10,
+          "visual": "wybór stylisty i terminu",
+          "onScreenText": "Wybiera stylistę i godzinę"
+        },
+        {
+          "from": 10,
+          "to": 13,
+          "visual": "podsumowanie rezerwacji",
+          "onScreenText": "Rezerwacja online, bez prowizji platform"
+        },
+        {
+          "from": 13,
+          "to": 15,
+          "visual": "plansza końcowa + oznaczenie projektu autorskiego (demo)",
+          "onScreenText": "Projekt autorski (demo) | dorlowski.dev"
+        }
+      ],
+      "audio": "utwór z biblioteki platformy",
+      "coverTitle": "Rezerwacja w *salonie* (demo)",
+      "post": "P09",
+      "copy": {
+        "facebook": "Salon, w którym klientka rezerwuje wizytę wieczorem, bez dzwonienia i bez aplikacji pośrednika. Tak działa mój projekt autorski Glow Studio. To demo, a nie prawdziwy salon.\n\nCo widać w rolce:\n- cennik usług z czasem wizyty i przedziałem ceny,\n- wybór stylistki i terminu krok po kroku,\n- podsumowanie rezerwacji z terminem i ceną.\n\nWłasna rezerwacja na stronie salonu działa bez prowizji pośrednika, a kontakty klientów zostają w salonie. Taki system wyceniam indywidualnie, bo jego zakres zależy od salonu.\n\nProwadzisz salon fryzjerski, barber shop albo gabinet beauty? Napisz, pokażę demo na żywo i opowiem, jak mogłoby to działać u Ciebie.",
+        "instagram": "Salon, w którym klientka rezerwuje wizytę wieczorem, bez dzwonienia.\n\nTo Glow Studio, mój projekt autorski (demo, nie prawdziwy salon). W rolce: cennik z czasem wizyty, wybór stylistki i terminu, podsumowanie rezerwacji.\n\nWłasna rezerwacja na stronie salonu działa bez prowizji pośrednika, a kontakty klientów zostają u Ciebie. Taki system wyceniam indywidualnie.\n\nProwadzisz salon fryzjerski, barber shop albo gabinet beauty? Napisz, pokażę demo na żywo.",
+        "hashtags": [
+          "#salonfryzjerski",
+          "#barbershop",
+          "#salonbeauty",
+          "#rezerwacjaonline",
+          "#stronawww",
+          "#kraków"
+        ],
+        "cta": "Napisz, pokażę demo na żywo"
+      },
+      "file": "wideo/R3.mp4"
+    },
+    {
+      "id": "R4",
+      "title": "8 projektów w 20 sekund",
+      "duration": 20,
+      "sources": [
+        "nagranie ekranu http://localhost:3000/realizacje (wachlarz, filtry, karty) i przewijanie 2-3 case studies",
+        "public/projects/*/desktop.png i mobile.png"
+      ],
+      "shots": [
+        {
+          "from": 0,
+          "to": 3,
+          "visual": "nagłówek biblioteki z wachlarzem ramek",
+          "onScreenText": "8 projektów w 20 sekund"
+        },
+        {
+          "from": 3,
+          "to": 15,
+          "visual": "szybkie cięcia przez 8 projektów (desktop i telefon), z podpisem branży i oznaczeniem realizacja/demo",
+          "onScreenText": "Warsztat: realizacja dla klienta.\n7 projektów autorskich (demo):\nrestauracja, salon, sklep, fotografka,\nfotowoltaika, AI, kalkulator"
+        },
+        {
+          "from": 15,
+          "to": 20,
+          "visual": "plansza końcowa z zaproszeniem",
+          "onScreenText": "Twoja strona może być następna.\ndorlowski.dev"
+        }
+      ],
+      "audio": "utwór z biblioteki platformy",
+      "coverTitle": "8 projektów w 20 *sekund*",
+      "post": "P13",
+      "copy": {
+        "facebook": "Miesiąc temu założyłem ten profil. Na koniec pierwszego miesiąca: wszystkie moje projekty w 20 sekund.\n\nTopAuto Serwis to realizacja dla klienta. Pozostałe siedem to projekty autorskie (demo), które zrobiłem, żeby pokazać rozwiązania dla różnych branż:\n- Bella Cucina: restauracja z menu i rezerwacją stolika,\n- Glow Studio: salon z rezerwacją wizyt online,\n- Craft Coffee: sklep internetowy palarni kawy,\n- Lena Czarnecka: portfolio fotografki,\n- EkoSolar: landing fotowoltaiki z kalkulatorem oszczędności,\n- Asystent AI: chatbot i generator ofert,\n- Kalkulator wyceny strony: widełki cenowe w 60 sekund.\n\nKażdy projekt możesz przeklikać na dorlowski.dev/realizacje.\n\nDziękuję, że jesteś tu od początku. Jeśli myślisz o stronie dla swojej firmy, napisz. Twój projekt może być następny.",
+        "instagram": "Miesiąc temu założyłem ten profil. Na koniec pierwszego miesiąca: wszystkie moje projekty w 20 sekund.\n\nTopAuto Serwis to realizacja dla klienta. Pozostałe siedem to projekty autorskie (demo): restauracja, salon beauty, sklep z kawą, portfolio fotografki, landing fotowoltaiki, asystent AI i kalkulator wyceny.\n\nKażdy możesz przeklikać na dorlowski.dev/realizacje (link w bio).\n\nDziękuję, że tu jesteś. Jeśli myślisz o stronie dla swojej firmy, napisz. Twój projekt może być następny.",
+        "hashtags": [
+          "#portfolio",
+          "#webdesign",
+          "#stronyinternetowe",
+          "#projektowaniestron",
+          "#kraków",
+          "#małopolska"
+        ],
+        "cta": "Napisz, jeśli myślisz o stronie"
+      },
+      "file": "wideo/R4.mp4"
+    }
+  ],
+  "stories": [
+    {
+      "id": "S01",
+      "date": "2026-10-19",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Ogłosić start profilu i skierować na przypięty post P01.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Nowy profil, nowy *start*",
+          "body": "Kim jestem i jak pracuję: w nowym poście.",
+          "sticker": "Link: dorlowski.dev",
+          "image": "P01"
+        }
+      ]
+    },
+    {
+      "id": "S02",
+      "date": "2026-10-20",
+      "time": "20:00",
+      "type": "behind-the-scenes",
+      "purpose": "Pokazać człowieka za profilem. Najlepiej prawdziwe zdjęcie z telefonu.",
+      "frames": [
+        {
+          "template": "story-photo",
+          "title": "Wieczór nad *projektem*",
+          "body": "Jutro pokażę, od czego zaczyna się każda moja strona.",
+          "sticker": "Ankieta: Kawa czy herbata przy pracy? Kawa / Herbata",
+          "image": "Twoje prawdziwe zdjęcie z telefonu: biurko, ekran, notes. Zastępczo zdjecia-fal/biurko.webp (to ilustracja AI: nie podpisuj jej jako swojego biurka)",
+          "file": "grafiki/S02-1.png"
+        }
+      ]
+    },
+    {
+      "id": "S03",
+      "date": "2026-10-21",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Wypchnąć rolkę R1 do osób, które oglądają relacje.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Od kreski do *strony*",
+          "body": "Nowa rolka: jak powstało intro mojej strony.",
+          "sticker": "Ankieta: Widziałeś już dorlowski.dev? Tak / Jeszcze nie",
+          "image": "R1"
+        }
+      ]
+    },
+    {
+      "id": "S04",
+      "date": "2026-10-22",
+      "time": "09:00",
+      "type": "question",
+      "purpose": "Zebrać pytania o strony. Odpowiedzi wrzucisz w S09.",
+      "frames": [
+        {
+          "template": "story-text",
+          "title": "Zapytaj o *stronę*",
+          "body": "Cena, domena, czas, teksty? Pytaj śmiało, odpowiem w relacjach.",
+          "sticker": "Pytanie: Zapytaj o stronę",
+          "image": "public/contact-link-blender.webp",
+          "file": "grafiki/S04-1.png"
+        }
+      ]
+    },
+    {
+      "id": "S05",
+      "date": "2026-10-23",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Pokazać jedyną realizację dla klienta i link do case study.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Realizacja dla *klienta*",
+          "body": "Strona warsztatu TopAuto Serwis.",
+          "sticker": "Link: dorlowski.dev/realizacje/topauto-serwis",
+          "image": "P03"
+        },
+        {
+          "template": "story-screenshot",
+          "title": "Przyciski pod *kciukiem*",
+          "body": "Na telefonie Zadzwoń i Dojazd są zawsze na dole ekranu.",
+          "sticker": "",
+          "image": "public/projects/topauto-serwis/features/ciemny-motyw-mobile.webp",
+          "file": "grafiki/S05-2.png"
+        }
+      ]
+    },
+    {
+      "id": "S06",
+      "date": "2026-10-26",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Cennik w relacjach, z linkiem do /cennik. Trafia do wyróżnionych Cennik.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Cennik bez *gwiazdek*",
+          "body": "Trzy pakiety od 990 zł. Co w cenie, a co osobno.",
+          "sticker": "Link: dorlowski.dev/cennik",
+          "image": "P04"
+        }
+      ]
+    },
+    {
+      "id": "S07",
+      "date": "2026-10-27",
+      "time": "09:00",
+      "type": "quiz",
+      "purpose": "Lekka interakcja i fakt o czasie realizacji.",
+      "frames": [
+        {
+          "template": "story-text",
+          "title": "Ile trwa *wizytówka*?",
+          "body": "Strona one-page, do 5 sekcji. Jak myślisz?",
+          "sticker": "Quiz: 1 dzień / około 7 dni / 3 miesiące (poprawna: około 7 dni)",
+          "image": "",
+          "file": "grafiki/S07-1.png"
+        },
+        {
+          "template": "story-text",
+          "title": "Około *7* dni",
+          "body": "Tyle zwykle trwa wizytówka one-page. Większe strony: 2-4 tygodnie, zależnie od zakresu i tempa dostarczania treści.",
+          "sticker": "Link: dorlowski.dev/cennik",
+          "image": "",
+          "file": "grafiki/S07-2.png"
+        }
+      ]
+    },
+    {
+      "id": "S08",
+      "date": "2026-10-28",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Poradnik P05 plus ankieta, która skłania do sprawdzenia własnej strony.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Co klient *sprawdza*",
+          "body": "Pięć pytań do Twojej strony. Nowy poradnik.",
+          "sticker": "Ankieta: Twoja strona jest czytelna na telefonie? Tak / Muszę sprawdzić",
+          "image": "P05"
+        }
+      ]
+    },
+    {
+      "id": "S09",
+      "date": "2026-10-29",
+      "time": "09:00",
+      "type": "question",
+      "purpose": "Odpowiedzieć na pytania z S04. Jeśli przyszły prawdziwe pytania, odpowiedz na nie (udostępnij naklejkę z pytaniem) zamiast tych plansz. Nie pisz, że ktoś pytał, jeśli nikt nie pytał.",
+      "frames": [
+        {
+          "template": "story-text",
+          "title": "Pytanie przed *startem*",
+          "body": "Co, jeśli nie mam tekstów na stronę?",
+          "sticker": "",
+          "image": "",
+          "file": "grafiki/S09-1.png"
+        },
+        {
+          "template": "story-text",
+          "title": "Nie mam *tekstów*",
+          "body": "Nie szkodzi. Drobna redakcja Twoich tekstów jest w każdym pakiecie. Mogę też napisać teksty: +350 zł (wizytówka lub landing) albo +700 zł (strona firmowa).",
+          "sticker": "Pytanie: Zapytaj o stronę",
+          "image": "",
+          "file": "grafiki/S09-2.png"
+        }
+      ]
+    },
+    {
+      "id": "S10",
+      "date": "2026-10-30",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Wypchnąć rolkę R2 o procesie.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Szkic, projekt, *strona*",
+          "body": "Jak powstaje strona, w 15 sekund.",
+          "sticker": "Link: dorlowski.dev",
+          "image": "R2"
+        }
+      ]
+    },
+    {
+      "id": "S11",
+      "date": "2026-11-02",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Proces współpracy P07 w relacjach. Trafia do wyróżnionych Proces.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Współpraca w 4 *krokach*",
+          "body": "Od pierwszej wiadomości do publikacji.",
+          "sticker": "Link: dorlowski.dev",
+          "image": "P07"
+        }
+      ]
+    },
+    {
+      "id": "S12",
+      "date": "2026-11-03",
+      "time": "20:00",
+      "type": "behind-the-scenes",
+      "purpose": "Pokazać, że układ powstaje przed wyglądem. Źródło: sekcja Proces na dorlowski.dev (makieta Szkic / Projekt).",
+      "frames": [
+        {
+          "template": "story-screenshot",
+          "title": "Zanim powstanie *kod*",
+          "body": "Tak wygląda strona na etapie szkicu. Układ i treść ustalamy, zanim dojdą kolory.",
+          "sticker": "",
+          "image": "zrzut lub nagranie ekranu: dorlowski.dev/#proces, makieta w stanie Szkic",
+          "file": "grafiki/S12-1.png"
+        },
+        {
+          "template": "story-screenshot",
+          "title": "A tak po *projekcie*",
+          "body": "Ta sama strona po etapie projektu: kolory, typografia, zdjęcia.",
+          "sticker": "Ankieta: Co ciekawsze? Szkic / Gotowy projekt",
+          "image": "zrzut lub nagranie ekranu: dorlowski.dev/#proces, makieta w stanie Projekt",
+          "file": "grafiki/S12-2.png"
+        }
+      ]
+    },
+    {
+      "id": "S13",
+      "date": "2026-11-04",
+      "time": "18:15",
+      "type": "poll",
+      "purpose": "Restauracja (demo) plus ankieta, która angażuje gastronomię.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Strona dla *restauracji*",
+          "body": "Projekt autorski (demo): Bella Cucina.",
+          "sticker": "Ankieta: Stolik rezerwujesz... Telefonem / Przez stronę",
+          "image": "P08"
+        }
+      ]
+    },
+    {
+      "id": "S14",
+      "date": "2026-11-05",
+      "time": "09:00",
+      "type": "link",
+      "purpose": "Zaprosić do przeklikania demo restauracji.",
+      "frames": [
+        {
+          "template": "story-screenshot",
+          "title": "Przeklikaj *demo*",
+          "body": "Bella Cucina to mój projekt autorski (demo). Zobacz menu, galerię i formularz rezerwacji.",
+          "sticker": "Link: dorlowski.dev/realizacje/restauracja-bella",
+          "image": "public/projects/restauracja-bella/features/menu-mobile.webp",
+          "file": "grafiki/S14-1.png"
+        }
+      ]
+    },
+    {
+      "id": "S15",
+      "date": "2026-11-06",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Wypchnąć rolkę R3 (salon, demo) z ankietą dla branży beauty.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Rezerwacja w *salonie*",
+          "body": "Projekt autorski (demo): Glow Studio.",
+          "sticker": "Ankieta: Wizyty umawiasz przez... Telefon / Aplikację / Stronę salonu",
+          "image": "R3"
+        }
+      ]
+    },
+    {
+      "id": "S16",
+      "date": "2026-11-09",
+      "time": "18:15",
+      "type": "poll",
+      "purpose": "Wybór pakietu: ankieta pokazuje, kto się waha. Osobom z odpowiedzią Nie wiem możesz napisać osobiście.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Którą stronę *wybrać*?",
+          "body": "Wizytówka, landing czy strona firmowa: nowy post.",
+          "sticker": "Ankieta: Co pasuje do Twojej firmy? Start / Landing / Biznes / Nie wiem",
+          "image": "P10"
+        }
+      ]
+    },
+    {
+      "id": "S17",
+      "date": "2026-11-10",
+      "time": "20:00",
+      "type": "behind-the-scenes",
+      "purpose": "Pokazać, od czego zaczyna się wycena. Pytania pochodzą z briefu w Twoim panelu.",
+      "frames": [
+        {
+          "template": "story-text",
+          "title": "Od czego zaczynam *wycenę*",
+          "body": "Zanim podam kwotę, pytam o kilka rzeczy. Bez nich każda cena byłaby zgadywaniem.",
+          "sticker": "",
+          "image": "",
+          "file": "grafiki/S17-1.png"
+        },
+        {
+          "template": "story-text",
+          "title": "Pytam o *to*",
+          "body": "Czym zajmuje się Twoja firma? Co ma zrobić odwiedzający? Jakie masz materiały? Kto przygotuje teksty? Jaki masz termin?",
+          "sticker": "Pytanie: O co chcesz zapytać?",
+          "image": "",
+          "file": "grafiki/S17-2.png"
+        }
+      ]
+    },
+    {
+      "id": "S18",
+      "date": "2026-11-12",
+      "time": "18:15",
+      "type": "link",
+      "purpose": "Kalkulator wyceny (demo) z linkiem do przeklikania.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Wycena w *60* sekund",
+          "body": "Projekt autorski (demo): kalkulator wyceny.",
+          "sticker": "Link: dorlowski.dev/realizacje/kalkulator-wyceny",
+          "image": "P11"
+        }
+      ]
+    },
+    {
+      "id": "S19",
+      "date": "2026-11-13",
+      "time": "18:15",
+      "type": "question",
+      "purpose": "FAQ P12 plus naklejka z pytaniem. Odpowiedzi możesz dać w miesiącu 2.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "Zanim zamówisz *stronę*",
+          "body": "Pięć pytań i odpowiedzi.",
+          "sticker": "Pytanie: O co jeszcze chcesz zapytać?",
+          "image": "P12"
+        }
+      ]
+    },
+    {
+      "id": "S20",
+      "date": "2026-11-14",
+      "time": "10:00",
+      "type": "reminder",
+      "purpose": "Przypomnieć, gdzie na profilu jest cennik, realizacje i proces.",
+      "frames": [
+        {
+          "template": "story-text",
+          "title": "Wszystko w *wyróżnionych*",
+          "body": "Realizacje, cennik, proces i kontakt znajdziesz w kółkach pod moim opisem profilu.",
+          "sticker": "Link: dorlowski.dev",
+          "image": "",
+          "file": "grafiki/S20-1.png"
+        }
+      ]
+    },
+    {
+      "id": "S21",
+      "date": "2026-11-15",
+      "time": "18:15",
+      "type": "share-post",
+      "purpose": "Zamknięcie miesiąca: rolka R4 i podziękowanie bez presji.",
+      "frames": [
+        {
+          "template": "story-share",
+          "title": "8 projektów w 20 *sekund*",
+          "body": "Wszystkie projekty w jednej rolce.",
+          "sticker": "Link: dorlowski.dev/realizacje",
+          "image": "R4"
+        },
+        {
+          "template": "story-text",
+          "title": "Dzięki za ten *miesiąc*",
+          "body": "Za każde polubienie, udostępnienie i wiadomość. Jeśli myślisz o stronie, napisz. Odpowiadam osobiście.",
+          "sticker": "Pytanie: Zapytaj o stronę",
+          "image": "",
+          "file": "grafiki/S21-2.png"
+        }
+      ]
+    }
+  ],
+  "highlights": [
+    {
+      "id": "H1",
+      "label": "Realizacje",
+      "icon": "ramka przeglądarki",
+      "order": 1,
+      "cover": "grafiki/H1.png",
+      "stories": [
+        "S05",
+        "S13",
+        "S14",
+        "S15",
+        "S18",
+        "S21"
+      ],
+      "seed": "18.10: wrzuć do relacji grafikę grafiki/P03-1.png (TopAuto, realizacja dla klienta) z naklejką Link: dorlowski.dev/realizacje i dodaj ją do wyróżnionych Realizacje."
+    },
+    {
+      "id": "H2",
+      "label": "Cennik",
+      "icon": "znak zł lub skala",
+      "order": 2,
+      "cover": "grafiki/H2.png",
+      "stories": [
+        "S06",
+        "S07",
+        "S09",
+        "S16"
+      ],
+      "seed": "18.10: wrzuć do relacji grafikę grafiki/P04-1.png z naklejką Link: dorlowski.dev/cennik i dodaj ją do wyróżnionych Cennik."
+    },
+    {
+      "id": "H3",
+      "label": "Proces",
+      "icon": "trzy kroki",
+      "order": 3,
+      "cover": "grafiki/H3.png",
+      "stories": [
+        "S10",
+        "S11",
+        "S12",
+        "S17"
+      ],
+      "seed": "18.10: wrzuć do relacji grafikę grafiki/P07-1.png i dodaj ją do wyróżnionych Proces."
+    },
+    {
+      "id": "H4",
+      "label": "O mnie",
+      "icon": "monogram do",
+      "order": 4,
+      "cover": "grafiki/H4.png",
+      "stories": [
+        "S01",
+        "S02",
+        "S03"
+      ],
+      "seed": "18.10: wrzuć do relacji grafikę grafiki/P01-1.png (portret) i dodaj ją do wyróżnionych O mnie."
+    },
+    {
+      "id": "H5",
+      "label": "Kontakt",
+      "icon": "dymek wiadomości",
+      "order": 5,
+      "cover": "grafiki/H5.png",
+      "stories": [
+        "S04",
+        "S19",
+        "S20",
+        "S21"
+      ],
+      "seed": "18.10: wrzuć do relacji grafikę grafiki/P01-4.png (kontakt) z naklejką Link: dorlowski.dev i dodaj ją do wyróżnionych Kontakt."
+    }
+  ],
+  "setup": {
+    "facebook": {
+      "pageName": "Dawid Orłowski - Strony internetowe",
+      "pageNameAlternatives": [
+        "Dawid Orłowski | dorlowski.dev",
+        "dorlowski.dev - Dawid Orłowski"
+      ],
+      "category": "Projektant stron internetowych (po angielsku Web Designer). Jeśli Facebook nie podpowie tej nazwy, wpisz „stron” i wybierz najbliższą kategorię. Druga kategoria (opcjonalnie): Firma informatyczna.",
+      "username": "dorlowski.dev (adres facebook.com/dorlowski.dev). Zapasowo: dorlowskidev. Dostępność sprawdzisz dopiero w ustawieniach strony.",
+      "intro": "Projektuję i koduję strony dla firm. Kraków i zdalnie. Cenę i termin znasz przed startem.",
+      "about": "Jestem Dawid Orłowski. Projektuję i koduję strony internetowe dla małych firm: wizytówki, landing page i strony firmowe. Mieszkam w Krakowie, z firmami z całej Polski pracuję zdalnie.\n\nPracujesz bezpośrednio ze mną, od pierwszej rozmowy do publikacji. Na co dzień pracuję jako Fullstack AI Developer, wcześniej zajmowałem się email marketingiem. Dlatego patrzę na stronę od strony kodu i od strony klienta, który ma z niej do Ciebie napisać.\n\nPakiety: Start (wizytówka) od 990 zł, Landing od 1 490 zł, Biznes (strona firmowa) od 1 990 zł. Każda strona ma wersję mobilną i podstawy SEO. Po rozliczeniu kod i strona należą do Ciebie. Pełną kwotę i termin znasz z bezpłatnej wyceny przed startem.\n\nCennik: dorlowski.dev/cennik\nRealizacje: dorlowski.dev/realizacje",
+      "contact": {
+        "website": "https://dorlowski.dev",
+        "email": "contact@dorlowski.dev",
+        "phone": "739 258 786",
+        "location": "Tylko miasto: Kraków (bez adresu ulicy). Obszar działalności: Kraków i cała Polska zdalnie.",
+        "hours": "Brak godzin pracy albo Tylko po umówieniu"
+      },
+      "services": [
+        {
+          "name": "Strona wizytówka (pakiet Start)",
+          "price": "od 990 zł",
+          "description": "Jedna strona do 5 sekcji, wygląd dopasowany do marki, wersja mobilna, formularz kontaktowy, podstawowe SEO, podpięcie domeny i publikacja."
+        },
+        {
+          "name": "Landing page (pakiet Landing)",
+          "price": "od 1 490 zł",
+          "description": "Jedna strona do 8 sekcji pod jedną ofertę lub kampanię: argumenty, wezwania do działania, formularz i FAQ, wersja mobilna, podstawowe SEO, domena i publikacja."
+        },
+        {
+          "name": "Strona firmowa (pakiet Biznes)",
+          "price": "od 1 990 zł",
+          "description": "Do 5 stron, w tym główna. Indywidualny wygląd, prezentacja usług i realizacji, wersja na wszystkie ekrany, formularz, podstawowe SEO, domena i publikacja."
+        },
+        {
+          "name": "Sklepy internetowe",
+          "price": "wycena indywidualna",
+          "description": "Lekkie sklepy i strony produktowe. Zakres i cenę ustalamy w bezpłatnej wycenie."
+        },
+        {
+          "name": "Aplikacje i automatyzacje",
+          "price": "wycena indywidualna",
+          "description": "Na przykład kalkulator wyceny, chatbot odpowiadający na pytania klientów, integracje. Wyceniane indywidualnie."
+        }
+      ],
+      "ctaButton": "Wyślij wiadomość",
+      "pinnedPost": "P01",
+      "messenger": {
+        "greeting": "Cześć! Tu Dawid. Napisz, czym zajmuje się Twoja firma i jakiej strony potrzebujesz. Odpowiem osobiście.",
+        "instantReply": "Dzięki za wiadomość! Odpiszę osobiście najszybciej, jak to możliwe. W międzyczasie możesz zajrzeć do cennika: dorlowski.dev/cennik",
+        "faq": [
+          {
+            "question": "Ile kosztuje strona?",
+            "answer": "Wizytówka od 990 zł, landing od 1 490 zł, strona firmowa od 1 990 zł. Domena i hosting osobno. Pełną kwotę i termin podam w bezpłatnej wycenie. Szczegóły: dorlowski.dev/cennik"
+          },
+          {
+            "question": "Ile trwa realizacja?",
+            "answer": "Wizytówka one-page około 7 dni, większe strony zwykle 2-4 tygodnie. Dużo zależy od tego, jak szybko mamy teksty i zdjęcia."
+          },
+          {
+            "question": "Jak zacząć?",
+            "answer": "Napisz w 2-3 zdaniach, czym zajmuje się Twoja firma i czego oczekujesz od strony. Jeśli masz obecną stronę albo przykłady, które Ci się podobają, wklej linki. Resztę ustalimy w rozmowie."
+          }
+        ]
+      },
+      "profileImage": "grafiki/profil.png (720 x 720, portret; ten sam plik na FB i IG)",
+      "coverImage": "grafiki/okladka-fb.png (1640 x 924)"
+    },
+    "instagram": {
+      "usernames": [
+        "dorlowski.dev",
+        "dorlowskidev",
+        "dawidorlowski.dev"
+      ],
+      "usernameNote": "@dorlowski jest zajęte (13.10.2026 pod tym adresem jest profil „David Orlowski”). Jeśli to Twoje prywatne konto, nie przerabiaj go: załóż osobne konto firmowe. Pod @dorlowski.dev, @dorlowskidev i @dawidorlowski.dev nie było profilu, ale dostępność potwierdzi dopiero aplikacja.",
+      "name": "Dawid Orłowski | Strony www Kraków",
+      "bio": "Projektuję i koduję strony dla firm\nKraków i zdalnie w całej Polsce\nWizytówka od 990 zł, cena znana przed startem\nNapisz: bezpłatna wycena",
+      "links": [
+        {
+          "title": "Strona",
+          "url": "https://dorlowski.dev"
+        },
+        {
+          "title": "Cennik",
+          "url": "https://dorlowski.dev/cennik"
+        },
+        {
+          "title": "Realizacje",
+          "url": "https://dorlowski.dev/realizacje"
+        }
+      ],
+      "contactButtons": "E-mail (contact@dorlowski.dev) i Zadzwoń (739 258 786). Bez adresu. Przycisk Wiadomość jest domyślnie.",
+      "accountType": "Konto profesjonalne: Firma",
+      "category": "Projektant stron internetowych (Web Designer). Jeśli jej nie ma, wybierz najbliższą: Strona internetowa lub Usługi informatyczne. Wyświetlanie kategorii na profilu: włączone.",
+      "highlightsOrder": [
+        "H1",
+        "H2",
+        "H3",
+        "H4",
+        "H5"
+      ],
+      "first3Posts": [
+        "P01",
+        "P02",
+        "P03"
+      ],
+      "first3PostsNote": "Te trzy posty wychodzą 19, 21 i 23.10. Do grup i do znajomych z prośbą o polecenie idziesz dopiero, gdy są na profilu (od 24.10). Wyjątek: udostępnienie P01 na Twoim prywatnym profilu w dniu startu."
+    },
+    "olx": {
+      "title": "Strony internetowe dla firm | Kraków i zdalnie | od 990 zł",
+      "category": "Usługi > Usługi informatyczne > Tworzenie stron www (taka ścieżka była na olx.pl 13.10.2026). Sprawdź ją w formularzu. W kategorii Usługi OLX pobiera opłatę za samo wystawienie ogłoszenia (ceny zmienne, zależne od pakietu); kwotę zobaczysz przed publikacją. Nie dokupuj promowania ani wyróżnień.",
+      "location": "Kraków",
+      "description": "Potrzebujesz strony dla swojej firmy, usługi albo nowej oferty? Projektuję i koduję strony internetowe dopasowane do Twojej branży i zakresu, którego naprawdę potrzebujesz.\n\nNazywam się Dawid Orłowski. Mieszkam w Krakowie, z firmami z innych miast pracuję zdalnie. Robię wszystko sam: od rozmowy, przez projekt, po publikację. Przez cały czas rozmawiasz ze mną.\n\nPAKIETY (ceny wejściowe dla opisanego zakresu)\n- Start, wizytówka: od 990 zł. Jedna strona do 5 sekcji, wygląd dopasowany do marki, wersja na telefon, tablet i komputer, formularz kontaktowy, podstawowe SEO, podpięcie domeny i publikacja.\n- Landing page: od 1 490 zł. Jedna strona do 8 sekcji pod jedną ofertę lub kampanię, wezwania do działania, formularz i FAQ, wersja mobilna, podstawowe SEO, domena i publikacja.\n- Biznes, strona firmowa: od 1 990 zł. Do 5 stron, w tym główna, indywidualny wygląd, prezentacja usług i realizacji, wersja na wszystkie ekrany, formularz, podstawowe SEO, domena i publikacja.\n\nW KAŻDYM PAKIECIE\n- dwie rundy poprawek,\n- drobna redakcja Twoich tekstów,\n- 30 dni pomocy przy błędach wdrożenia,\n- po rozliczeniu kod i strona należą do Ciebie.\n\nDODATKI\n- teksty na wizytówkę lub landing (do 1 000 słów): +350 zł,\n- teksty na stronę firmową (do 2 500 słów): +700 zł,\n- dodatkowa podstrona: +250 zł.\n\nDomena, hosting i płatne usługi zewnętrzne są rozliczane osobno. CMS, sklep, rezerwacje i rozbudowane animacje wyceniam osobno. Pełną kwotę i termin znasz z bezpłatnej wyceny, zanim zaczniemy.\n\nCZAS: wizytówka one-page około 7 dni, większe strony zwykle 2-4 tygodnie (zależnie od zakresu i tempa dostarczania treści).\n\nREALIZACJE: dorlowski.dev/realizacje\nNa zdjęciach: TopAuto Serwis to realizacja dla klienta. Pozostałe projekty to moje projekty autorskie (demo).\n\nNapisz przez OLX albo zadzwoń. Opisz w kilku zdaniach, czym zajmuje się Twoja firma, a przygotuję bezpłatną wycenę.\n\nDawid Orłowski\n739 258 786\ncontact@dorlowski.dev",
+      "descriptionNote": "Jeśli formularz OLX odrzuci adres strony lub e-mail w treści, usuń je i zostaw telefon (wpisany też w polu kontaktowym).",
+      "priceAdvice": "Jeśli formularz ma pole ceny, wpisz 990 zł (cena wejściowa pakietu Start) i zaznacz opcję typu „cena od” lub „do negocjacji”, jeśli jest dostępna. Nie wpisuj 1 zł ani „za darmo”: to wprowadza w błąd. Cena „od 990 zł” jest też w tytule.",
+      "images": [
+        {
+          "order": 1,
+          "file": "grafiki/olx-1-okladka.png",
+          "content": "okładka: usługa, Kraków i zdalnie, od 990 zł, dorlowski.dev"
+        },
+        {
+          "order": 2,
+          "file": "grafiki/olx-2-realizacje.png",
+          "content": "realizacje: TopAuto Serwis (realizacja dla klienta) i projekty oznaczone jako demo"
+        },
+        {
+          "order": 3,
+          "file": "grafiki/olx-3-cennik.png",
+          "content": "cennik: Start, Landing, Biznes, co w cenie i co osobno"
+        },
+        {
+          "order": 4,
+          "file": "grafiki/olx-4-proces.png",
+          "content": "proces: 4 kroki i czas realizacji"
+        },
+        {
+          "order": 5,
+          "file": "grafiki/olx-5-o-mnie.png",
+          "content": "o mnie: portret, kim jestem, kontakt"
+        }
+      ],
+      "routine": [
+        "Włącz powiadomienia aplikacji OLX. Wiadomości sprawdzaj rano i wieczorem, odpowiadaj tego samego dnia (szablon firstReply.olx).",
+        "Co poniedziałek zajrzyj do statystyk ogłoszenia (wyświetlenia, wiadomości) i wpisz je do tabeli przeglądu.",
+        "Jeśli po 10 dniach jest dużo wyświetleń i zero wiadomości: zmień pierwsze zdjęcie albo pierwsze zdanie opisu. Jeśli mało wyświetleń: sprawdź kategorię i tytuł.",
+        "Nie wystawiaj drugiego takiego samego ogłoszenia (duplikaty łamią zasady OLX). Nie kupuj odświeżeń ani wyróżnień w tej kampanii.",
+        "Ogłoszenie wystawione 16.10 wygaśnie około 15.11. Tego dnia zdecyduj, czy je przedłużasz (to znów płatne), na podstawie liczby wiadomości z OLX.",
+        "Spam i oferty typu „wypozycjonuję Twoje ogłoszenie” ignoruj. Nie podawaj nikomu kodów z SMS ani danych do logowania."
+      ]
+    }
+  },
+  "falImages": [
+    {
+      "id": "restauracja",
+      "use": "P08 okładka, relacje",
+      "brief": "fotografia edytorska: stół w kameralnej włoskiej restauracji wieczorem, talerz makaronu, kieliszek wina, ciepłe światło, bez ludzi i bez tekstu"
+    },
+    {
+      "id": "warsztat",
+      "use": "P03 tło / relacje",
+      "brief": "fotografia edytorska: czysty warsztat samochodowy, narzędzia na wózku, opona, miękkie światło, bez ludzi i bez logo"
+    },
+    {
+      "id": "salon",
+      "use": "R3 plansza, relacje",
+      "brief": "fotografia edytorska: nowoczesny salon fryzjerski, fotel i lustro, rośliny, spokojne światło dzienne, bez ludzi"
+    },
+    {
+      "id": "kawiarnia",
+      "use": "P10 lub relacje",
+      "brief": "fotografia edytorska: lada palarni kawy, worek ziaren, kubek, młynek, poranne światło, bez ludzi i bez logo"
+    },
+    {
+      "id": "biurko",
+      "use": "P01/P07 tło, relacje BTS",
+      "brief": "fotografia edytorska: biurko projektanta w Krakowie wieczorem, laptop z ciemnym edytorem kodu (bez czytelnego tekstu), notes ze szkicem siatki strony, kubek, lampa; grafit, krem, akcent burgundu"
+    }
+  ],
+  "templates": {
+    "firstReply": {
+      "facebookInstagram": "Cześć [imię], dzięki za wiadomość! Tu Dawid. Chętnie pomogę.\n\nŻeby przygotować wycenę, napisz proszę w kilku zdaniach:\n1. Czym zajmuje się Twoja firma i gdzie działasz?\n2. Jakiej strony potrzebujesz (wizytówka, landing, strona firmowa) albo co ma się na niej znaleźć?\n3. Czy masz już stronę, logo, teksty i zdjęcia?\n4. Na kiedy potrzebujesz strony?\n\nJeśli wolisz porozmawiać, podaj numer i dogodną porę, zadzwonię. Wycena jest bezpłatna i do niczego nie zobowiązuje.\n\nI jeszcze z ciekawości: skąd o mnie wiesz?",
+      "olx": "Dzień dobry, dzięki za wiadomość z OLX! Tu Dawid Orłowski.\n\nChętnie przygotuję bezpłatną wycenę. Napisz proszę w kilku zdaniach, czym zajmuje się Twoja firma, jakiej strony potrzebujesz i na kiedy.\n\nMoje projekty i cennik są na dorlowski.dev. Jeśli wolisz rozmowę, podaj numer i dogodną porę, zadzwonię."
+    },
+    "quoteQuestions": {
+      "intro": "Lista pytań do wyceny (to samo pytanie zadaje brief w Twoim panelu: Projekt → Utwórz link do briefu). Nie zadawaj wszystkich naraz w pierwszej wiadomości: zacznij od 1-4, resztę dopytaj albo wyślij link do briefu.",
+      "questions": [
+        "Czym zajmuje się Twoja firma? Oferta, klienci, obszar działania.",
+        "Co ma zrobić osoba na stronie? Zadzwonić, wysłać zapytanie, zarezerwować termin?",
+        "Jakiej strony potrzebujesz? Wizytówka, landing, strona firmowa, a może jeszcze nie wiesz?",
+        "Co musi znaleźć się na stronie? Sekcje, podstrony, języki, edycja treści (CMS), inne funkcje.",
+        "Co wyróżnia Twoją ofertę? Konkretne zalety, realizacje, prawdziwe opinie klientów.",
+        "Jakie masz materiały? Logo, zdjęcia, teksty, link do folderu. Bez haseł.",
+        "Kto przygotuje teksty? Ty, ja (dodatek +350 zł lub +700 zł) czy do ustalenia?",
+        "Jaki wygląd Ci odpowiada? 2-3 linki do stron, które lubisz, i to, czego chcesz uniknąć.",
+        "Jaki masz budżet i termin publikacji?",
+        "Co z domeną i hostingiem? Masz już domenę? Kto zatwierdza projekt?"
+      ],
+      "briefLinkMessage": "Żeby nie przepisywać wszystkiego w czacie, wysyłam Ci link do krótkiego formularza: [link do briefu]. Na pierwsze dwa pytania odpowiedz koniecznie, resztę w miarę możliwości. Po wypełnieniu przygotuję wycenę."
+    },
+    "quoteMessage": "Cześć [imię], przesyłam wycenę strony dla [firma].\n\nZakres: [pakiet i co dokładnie wchodzi, np. jedna strona do 5 sekcji: ...]\nCena: [kwota] zł [ustal sam, jak podajesz kwotę: brutto/netto, zależnie od formy działalności]\nTermin: [np. około 7 dni od otrzymania tekstów i zdjęć]\nW cenie: dwie rundy poprawek, drobna redakcja tekstów, 30 dni pomocy przy błędach wdrożenia.\nOsobno: domena i hosting (pomogę dobrać, koszt poznasz przed startem)[, inne pozycje].\n\nPo rozliczeniu kod i strona należą do Ciebie. Jeśli coś chcesz zmienić w zakresie, napisz, dopasuję wycenę.",
+    "followUp": {
+      "afterThreeDays": "Cześć [imię], wracam do wyceny strony, którą wysłałem [dzień]. Czy wszystko jest jasne? Jeśli coś w zakresie albo cenie nie pasuje, napisz, poszukamy wersji, która ma sens dla Twojej firmy. A jeśli to po prostu nie ten moment, też daj znać, żaden problem.",
+      "lastOneAfterAWeek": "Cześć [imię], ostatni raz przypominam się w sprawie strony. Nie chcę zawracać głowy, więc to ostatnia wiadomość z mojej strony. Jeśli wrócisz do tematu za miesiąc czy za pół roku, po prostu napisz."
+    },
+    "notNow": {
+      "clientSaysNotNow": "Jasne, dzięki za szczerą odpowiedź. Jeśli przeszkodą jest budżet, możemy zacząć od mniejszej wersji, na przykład wizytówki (od 990 zł), i rozbudować stronę później. A jeśli to kwestia czasu, napisz, kiedy wrócisz do tematu, przygotuję wtedy aktualną wycenę.",
+      "dawidDeclines": "Dzięki za zaufanie i za opis projektu. Uczciwie: [ten zakres / ten termin] to teraz dla mnie za dużo. Nie chcę brać projektu, którego nie dowiozę tak, jak trzeba. Jeśli plan się zmieni albo potrzebujesz czegoś mniejszego na start, napisz śmiało."
+    },
+    "groupIntroPost": "Cześć wszystkim! Jestem Dawid z Krakowa. Projektuję i koduję strony dla małych firm: wizytówki, landing page i strony firmowe.\n\nDołączyłem do grupy, żeby poznać lokalnych przedsiębiorców i pomóc, jeśli ktoś ma pytanie o stronę, domenę albo o to, czemu nikt nie pisze przez formularz.\n\nJeśli zastanawiasz się nad stroną, zapytaj w komentarzu. Odpowiem tutaj, konkretnie i bez wciskania czegokolwiek. Moje projekty i cennik są na dorlowski.dev.\n\nMiłego dnia!",
+    "groupHelpfulComment": {
+      "whenSomeoneAsksForWebDesigner": "Cześć! Sam robię strony (Kraków, pracuję też zdalnie), więc nie będę udawał neutralnego. Zanim kogokolwiek wybierzesz, zapytaj każdego wykonawcę o trzy rzeczy:\n1. jaka jest pełna cena, łącznie z domeną i hostingiem,\n2. czy po zakończeniu kod i dostępy będą Twoje,\n3. ile rund poprawek jest w cenie.\nJeśli chcesz porównać, chętnie wyślę Ci swoją wycenę. Projekty i cennik: dorlowski.dev",
+      "whenSomeoneHasAWebsiteProblem": "Szybki test, który możesz zrobić sam: otwórz stronę na telefonie i sprawdź, czy tekst da się czytać bez powiększania, a przyciski (telefon, formularz) da się kliknąć kciukiem. Jeśli nie, strona prawdopodobnie nie ma dopracowanej wersji mobilnej. Jeśli chcesz, wrzuć link, napiszę, co poprawiłbym w pierwszej kolejności."
+    },
+    "networkMessage": "Cześć [imię]! Mam małą prośbę. Rozkręcam własną działalność: projektuję i koduję strony internetowe dla firm (wizytówki, landing page, strony firmowe).\n\nNie proszę o zamówienie, tylko o jedną rzecz: jeśli znasz kogoś, kto prowadzi firmę i nie ma strony albo narzeka na obecną, podeślij mu proszę mój profil albo dorlowski.dev.\n\nBędzie mi też miło, jeśli zaobserwujesz moją stronę: [link do strony FB / profilu IG]. Dzięki!\nDawid",
+    "reviewRequestTopAuto": "Cześć [imię]! Mam prośbę w sprawie strony TopAuto Serwis. Czy możesz napisać 2-3 zdania szczerej opinii o współpracy? Na przykład jak wyglądał kontakt, co było dla Ciebie ważne, co zrobiłbyś inaczej.\n\nNie musi to być laurka. Wolę prawdziwą, krótką opinię niż długą i ogólną. Jeśli się zgadzasz, najprościej będzie dodać rekomendację na mojej stronie na Facebooku: [link do strony FB → Recenzje / Rekomendacje].\n\nDaj też znać, czy mogę zacytować Twoją opinię na dorlowski.dev z nazwą warsztatu. Jeśli wolisz nie, w ogóle nie ma sprawy. Dzięki!",
+    "priceReply": "Cześć! Wizytówka (jedna strona do 5 sekcji) od 990 zł, landing page od 1 490 zł, strona firmowa (do 5 podstron) od 1 990 zł. Domena i hosting osobno.\n\nDokładną kwotę podam po kilku pytaniach: czym zajmuje się Twoja firma i co ma się znaleźć na stronie? Cały cennik: dorlowski.dev/cennik"
+  }
+}

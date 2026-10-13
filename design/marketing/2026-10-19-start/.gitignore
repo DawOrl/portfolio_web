@@ -1,0 +1,5 @@
+# Copies for AirDrop to the phone; the sources are grafiki/ and wideo/.
+na-telefon/
+na-start-konfiguracja/
+# Full-size fal.ai originals stay local; the WebP versions are the ones in use.
+zdjecia-fal/*-original.*
