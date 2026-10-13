@@ -271,6 +271,40 @@ const rawCvData = {
         "/projects/topauto-serwis/desktop.png",
         "/projects/topauto-serwis/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/topauto-serwis/features/uslugi-podstrony.webp",
+          alt: "Sekcja usług TopAuto Serwis: cztery usługi warsztatu z krótkim opisem i linkiem „Zobacz zakres”",
+          caption:
+            "Cztery usługi warsztatu. Każda prowadzi do własnej podstrony z zakresem prac.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/topauto-serwis/features/podstrona-wulkanizacja.webp",
+          alt: "Podstrona wymiany opon i wulkanizacji z nawigacją okruszkową, opisem usługi oraz przyciskami Zadzwoń i Dojazd",
+          caption:
+            "Podstrona wulkanizacji: opis usługi, a przyciski telefonu i dojazdu tuż pod nagłówkiem.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/topauto-serwis/features/ciemny-motyw-mobile.webp",
+          alt: "Strona główna TopAuto Serwis na telefonie w ciemnym motywie, z przypiętym na dole paskiem Zadzwoń i Dojazd",
+          caption:
+            "Na telefonie przyciski Zadzwoń i Dojazd są zawsze pod kciukiem, także w ciemnym motywie.",
+          step: "solution",
+          device: "mobile",
+        },
+        {
+          src: "/projects/topauto-serwis/features/kontakt-telefon-mapa.webp",
+          alt: "Sekcja kontaktu z dużym numerem telefonu warsztatu, statusem otwarcia, adresem, godzinami i mapą dojazdu",
+          caption:
+            "Numer telefonu, godziny otwarcia i mapa w jednym miejscu. Kierowca dzwoni albo od razu wyznacza trasę.",
+          step: "result",
+          device: "desktop",
+        },
+      ] as const,
       githubUrl: "",
       liveUrl: "https://topauto-serwis.vercel.app/",
       featured: false,
@@ -308,6 +342,48 @@ const rawCvData = {
         "/projects/restauracja-bella/desktop.png",
         "/projects/restauracja-bella/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/restauracja-bella/features/menu-online.webp",
+          alt: "Menu online Bella Cucina z zakładkami kategorii i daniami z działu Antipasti: zdjęcie, opis i cena każdej pozycji",
+          caption:
+            "Menu online podzielone na kategorie, ze zdjęciem, opisem i ceną każdego dania.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/restauracja-bella/features/galeria-dan.webp",
+          alt: "Galeria „Atmosfera i smak” z mozaiką zdjęć dań, wnętrza restauracji i napojów",
+          caption:
+            "Galeria dań i wnętrza pokazuje atmosferę lokalu, zanim gość do niego przyjdzie.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/restauracja-bella/features/menu-mobile.webp",
+          alt: "Menu restauracji na telefonie z przypiętym paskiem kategorii i listą makaronów z cenami",
+          caption:
+            "Na telefonie pasek kategorii zostaje u góry ekranu, więc gość nie gubi się w karcie.",
+          step: "solution",
+          device: "mobile",
+        },
+        {
+          src: "/projects/restauracja-bella/features/rezerwacja-stolika.webp",
+          alt: "Formularz rezerwacji stolika z wpisanym imieniem, datą 24.10.2026, godziną 19:00, liczbą osób i uwagami",
+          caption:
+            "Rezerwacja stolika w jednym formularzu: data, godzina, liczba osób i uwagi dla obsługi.",
+          step: "result",
+          device: "desktop",
+        },
+        {
+          src: "/projects/restauracja-bella/features/dojazd-godziny.webp",
+          alt: "Sekcja „Jak do nas trafić” z adresem, godzinami otwarcia, danymi kontaktowymi i mapą Google",
+          caption:
+            "Adres, godziny otwarcia i mapa dojazdu są na stronie, a nie w nieaktualnym poście.",
+          step: "result",
+          device: "desktop",
+        },
+      ] as const,
       githubUrl: "https://github.com/DawOrl/restauracja-bella",
       liveUrl: "https://restauracja-bella.vercel.app/",
       featured: false,
@@ -340,6 +416,47 @@ const rawCvData = {
         "/projects/salon-glow/desktop.png",
         "/projects/salon-glow/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/salon-glow/features/cennik-uslug.webp",
+          alt: "Cennik Glow Studio z kategoriami Strzyżenie i modelowanie oraz Koloryzacja, z czasem trwania i ceną każdej usługi",
+          caption:
+            "Pełny cennik: przy każdej usłudze widać czas wizyty i przedział ceny.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/salon-glow/features/zespol.webp",
+          alt: "Sekcja zespołu ze zdjęciami czworga stylistów, ich rolami, ocenami i specjalizacjami",
+          caption: "Prezentacja zespołu: klientka wie, do kogo się zapisuje.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/salon-glow/features/metamorfozy-przed-po.webp",
+          alt: "Porównanie przed i po koloryzacji z suwakiem, opisem usługi, stylistki i czasu wizyty oraz miniaturami innych metamorfoz",
+          caption:
+            "Portfolio metamorfoz z suwakiem przed i po. Każda opisana usługą, stylistką i czasem wizyty.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/salon-glow/features/rezerwacja-stylista-mobile.webp",
+          alt: "Drugi krok rezerwacji na telefonie: wybór stylistki, a pod nim podsumowanie wizyty",
+          caption:
+            "Rezerwacja prowadzi krok po kroku: usługa, stylistka, termin i dane.",
+          step: "result",
+          device: "mobile",
+        },
+        {
+          src: "/projects/salon-glow/features/rezerwacja-termin.webp",
+          alt: "Trzeci krok rezerwacji online: wybór dnia i godziny, obok podsumowanie z usługą, stylistką, terminem i ceną",
+          caption:
+            "Własny kalendarz rezerwacji salonu. Podsumowanie pokazuje termin i cenę, bez prowizji pośrednika.",
+          step: "result",
+          device: "desktop",
+        },
+      ] as const,
       githubUrl: "https://github.com/DawOrl/salon-glow",
       liveUrl: "https://salon-glow-gamma.vercel.app/",
       featured: false,
@@ -372,6 +489,40 @@ const rawCvData = {
         "/projects/sklep-craft-coffee/desktop.png",
         "/projects/sklep-craft-coffee/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/sklep-craft-coffee/features/katalog-filtry.webp",
+          alt: "Katalog kaw z filtrami palenia, rodzaju i mielenia; aktywny filtr Jasne zawęża listę do czterech kaw",
+          caption:
+            "Katalog z filtrowaniem: po wybraniu jasnego palenia zostają cztery kawy.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/sklep-craft-coffee/features/karta-produktu.webp",
+          alt: "Karta produktu Etiopia Yirgacheffe z wyborem gramatury, mielenia i ilości oraz przyciskiem Dodaj do koszyka",
+          caption:
+            "Karta produktu: klient wybiera gramaturę, sposób mielenia i ilość.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/sklep-craft-coffee/features/koszyk-szuflada.webp",
+          alt: "Wysuwany panel koszyka z dodaną kawą, licznikiem ilości, sumą i przyciskiem Zobacz koszyk",
+          caption:
+            "Po dodaniu kawy koszyk wysuwa się z boku, bez opuszczania strony produktu.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/sklep-craft-coffee/features/koszyk-mobile.webp",
+          alt: "Koszyk na telefonie z produktem, sumą, paskiem postępu do darmowej dostawy i przyciskiem Przejdź do zamówienia",
+          caption:
+            "Koszyk na telefonie podpowiada, ile brakuje do darmowej dostawy.",
+          step: "result",
+          device: "mobile",
+        },
+      ] as const,
       githubUrl: "https://github.com/DawOrl/sklep-craft-coffee",
       liveUrl: "https://sklep-craft-coffee.vercel.app/",
       featured: true,
@@ -404,6 +555,32 @@ const rawCvData = {
         "/projects/asystent-ai/desktop.png",
         "/projects/asystent-ai/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/asystent-ai/features/czat-odpowiedz.webp",
+          alt: "Okno czatu z asystentem AI: pytanie „Ile kosztuje wdrożenie?” i odpowiedź z orientacyjnymi cenami usług",
+          caption:
+            "Czat odpowiada na pytanie o cenę na podstawie wiedzy o firmie, w kilka sekund.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/asystent-ai/features/generator-oferty.webp",
+          alt: "Generator ofert: formularz z branżą, zakresem i budżetem, obok wygenerowana oferta z pozycjami i sumą 5200 zł",
+          caption:
+            "Generator ofert: kilka pól po lewej, gotowa oferta z wyceną po prawej.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/asystent-ai/features/czat-mobile.webp",
+          alt: "Czat asystenta na telefonie z pytaniem o bezpieczeństwo klucza API i odpowiedzią asystenta",
+          caption:
+            "Klient dostaje odpowiedź od razu, także na telefonie i poza godzinami pracy.",
+          step: "result",
+          device: "mobile",
+        },
+      ] as const,
       githubUrl: "https://github.com/DawOrl/asystent-ai",
       liveUrl: "https://asystent-ai-three.vercel.app/",
       featured: true,
@@ -436,6 +613,40 @@ const rawCvData = {
         "/projects/eko-solar/desktop.png",
         "/projects/eko-solar/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/eko-solar/features/kalkulator-oszczednosci.webp",
+          alt: "Kalkulator oszczędności z suwakiem rachunku ustawionym na 550 zł i wynikiem: 5600 zł oszczędności rocznie i moc 5,5 kWp",
+          caption:
+            "Suwak rachunku za prąd od razu przelicza roczną oszczędność i moc instalacji.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/eko-solar/features/proces-4-kroki.webp",
+          alt: "Sekcja procesu w czterech krokach: audyt, projekt i wycena, montaż oraz serwis, z czasem każdego etapu",
+          caption:
+            "Proces w czterech krokach, z czasem każdego etapu, odpowiada na pytanie „co dalej?”.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/eko-solar/features/realizacje-okolica.webp",
+          alt: "Sekcja „Ostatnie montaże w Twojej okolicy” z kartami instalacji w Wieliczce i Niepołomicach, mocą i oszczędnością",
+          caption:
+            "Montaże z okolicy, z mocą i oszczędnością, budują zaufanie do firmy.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/eko-solar/features/wycena-mobile.webp",
+          alt: "Formularz bezpłatnej wyceny na telefonie z polami imię, telefon, kod pocztowy i miesięczny rachunek za prąd",
+          caption:
+            "Na końcu krótki formularz: wystarczy imię, telefon i kod pocztowy, żeby zostawić kontakt.",
+          step: "result",
+          device: "mobile",
+        },
+      ] as const,
       githubUrl: "https://github.com/DawOrl/eko-solar",
       liveUrl: "https://eko-solar-nu.vercel.app/",
       featured: true,
@@ -468,6 +679,48 @@ const rawCvData = {
         "/projects/fotograf-lena/desktop.png",
         "/projects/fotograf-lena/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/fotograf-lena/features/portfolio-filtr-sluby.webp",
+          alt: "Portfolio fotografki z aktywnym filtrem Śluby i trzema zdjęciami par młodych",
+          caption:
+            "Galeria z filtrowaniem kategorii. Tu wybrane są tylko śluby.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/fotograf-lena/features/podglad-zdjecia.webp",
+          alt: "Zdjęcie pary młodej na plaży otwarte w pełnym rozmiarze, z numerem kadru, podpisem i strzałkami nawigacji",
+          caption:
+            "Każdy kadr otwiera się w pełnym rozmiarze, z podpisem i nawigacją strzałkami.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/fotograf-lena/features/pakiety-cennik.webp",
+          alt: "Sekcja oferty z pakietami Portret od 650 zł i Ślub od 4900 zł oraz listą tego, co zawierają",
+          caption:
+            "Pakiety z ceną „od” i konkretną zawartością zamiast „ceny do ustalenia”.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/fotograf-lena/features/portfolio-mobile.webp",
+          alt: "Portfolio na telefonie z filtrami kategorii i pierwszym zdjęciem ślubnym na całą szerokość ekranu",
+          caption:
+            "Na telefonie zdjęcia zajmują całą szerokość ekranu, a filtry są pod ręką.",
+          step: "result",
+          device: "mobile",
+        },
+        {
+          src: "/projects/fotograf-lena/features/zapytanie-o-termin.webp",
+          alt: "Formularz zapytania o termin z wpisanym imieniem, datą wydarzenia 12.06.2027 i wiadomością",
+          caption:
+            "Zapytanie od razu zawiera datę wydarzenia, więc fotografka wie, o jaki termin chodzi.",
+          step: "result",
+          device: "desktop",
+        },
+      ] as const,
       githubUrl: "https://github.com/DawOrl/fotograf-lena",
       liveUrl: "https://fotograf-lena.vercel.app/",
       featured: false,
@@ -500,6 +753,40 @@ const rawCvData = {
         "/projects/kalkulator-wyceny/desktop.png",
         "/projects/kalkulator-wyceny/mobile.png",
       ],
+      features: [
+        {
+          src: "/projects/kalkulator-wyceny/features/start-60-sekund.webp",
+          alt: "Ekran startowy kalkulatora z hasłem „Sprawdź orientacyjną cenę swojej strony w 60 sekund” i przyciskiem Zaczynamy",
+          caption:
+            "Pytanie „ile to kosztuje?” dostaje odpowiedź już od pierwszego ekranu.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
+          src: "/projects/kalkulator-wyceny/features/krok-rodzaj-strony-mobile.webp",
+          alt: "Pierwszy krok kalkulatora na telefonie: wybór rodzaju strony, przy każdej opcji cena od 990 zł wzwyż",
+          caption:
+            "Jedno pytanie na ekran. Na telefonie odpowiedź to jedno dotknięcie.",
+          step: "solution",
+          device: "mobile",
+        },
+        {
+          src: "/projects/kalkulator-wyceny/features/krok-funkcje-kosztorys.webp",
+          alt: "Piąty krok kalkulatora z wybranymi funkcjami Rezerwacje online i Animacje premium, obok kosztorys wstępny z sześcioma pozycjami",
+          caption:
+            "Kosztorys obok pytań rośnie pozycja po pozycji z każdym wyborem.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/kalkulator-wyceny/features/wynik-widelki-kosztorys.webp",
+          alt: "Wynik wyceny: przedział od 5600 do 7500 zł netto, czas realizacji od 2 do 6 tygodni i rozpis sześciu pozycji kosztorysu",
+          caption:
+            "Wynik od razu: widełki cenowe, czas realizacji i rozpis kosztów.",
+          step: "result",
+          device: "desktop",
+        },
+      ] as const,
       githubUrl: "https://github.com/DawOrl/kalkulator-wyceny",
       liveUrl: "https://kalkulator-wyceny-three.vercel.app/",
       featured: false,

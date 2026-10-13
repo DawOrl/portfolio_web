@@ -2,15 +2,41 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowDown, ArrowLeft, ArrowUpRight, Github } from "lucide-react";
+import {
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  ArrowUpRight,
+  Github,
+  Maximize2,
+} from "lucide-react";
 import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
-import { ProjectGalleryLightbox } from "@/components/blocks/ProjectGalleryLightbox";
+import {
+  ProjectGalleryLightbox,
+  ProjectGalleryTrigger,
+} from "@/components/blocks/ProjectGalleryLightbox";
 import { ContactIntentLink } from "@/components/ui/contact-intent-link";
 import { SectionTransition } from "@/components/ui/SectionTransition";
-import { getProjects, getProjectBySlug, projectName } from "@/lib/projects";
+import {
+  FEATURE_SIZE,
+  getProjects,
+  getProjectBySlug,
+  projectFeatures,
+  projectName,
+  type FeatureStep,
+  type ProjectFeature,
+} from "@/lib/projects";
 import { SITE_URL } from "@/lib/site";
 import "./case-study.css";
+
+const STORY_STEPS: { id: FeatureStep; title: string }[] = [
+  { id: "challenge", title: "Wyzwanie" },
+  { id: "solution", title: "Rozwiązanie" },
+  { id: "result", title: "Efekt" },
+];
+
+const pad = (value: number) => String(value).padStart(2, "0");
 
 export function generateStaticParams() {
   return getProjects().map((p) => ({ slug: p.slug }));
@@ -38,6 +64,47 @@ export async function generateMetadata({
   };
 }
 
+function FeatureShot({
+  feature,
+  index,
+}: {
+  feature: ProjectFeature;
+  index: number;
+}) {
+  const size = FEATURE_SIZE[feature.device];
+  return (
+    <figure className="case-shot" data-device={feature.device}>
+      <ProjectGalleryTrigger
+        index={index}
+        label={`Powiększ: ${feature.alt}`}
+        className="case-shot-frame"
+      >
+        <Image
+          src={feature.src}
+          alt={feature.alt}
+          width={size.width}
+          height={size.height}
+          sizes={
+            feature.device === "mobile"
+              ? "(max-width: 760px) 52vw, 260px"
+              : "(max-width: 1000px) calc(100vw - 40px), 800px"
+          }
+        />
+        <span className="case-shot-zoom" aria-hidden="true">
+          <Maximize2 size={14} strokeWidth={1.75} />
+          <span>Powiększ</span>
+        </span>
+      </ProjectGalleryTrigger>
+      <figcaption>
+        <span className="case-shot-number" aria-hidden="true">
+          {pad(index + 1)}
+        </span>
+        <span>{feature.caption}</span>
+      </figcaption>
+    </figure>
+  );
+}
+
 export default async function ProjectCaseStudy({
   params,
 }: {
@@ -49,7 +116,7 @@ export default async function ProjectCaseStudy({
 
   const title = projectName(project);
   const mobile = project.gallery.find((src) => src.endsWith("/mobile.png"));
-  const hasGallery = project.gallery.length > 0;
+  const features = projectFeatures(project);
   const publishedProjects = getProjects();
   const currentIndex = publishedProjects.findIndex(
     (item) => item.slug === project.slug,
@@ -59,6 +126,26 @@ export default async function ProjectCaseStudy({
     (publishedProjects.length > 1 || currentIndex === -1)
       ? publishedProjects[(currentIndex + 1) % publishedProjects.length]
       : undefined;
+
+  const storyText: Record<FeatureStep, string> = {
+    challenge: project.problem,
+    solution: project.solution,
+    result: project.result,
+  };
+  // Etapy ze zrzutami na zmianę: tekst po lewej, potem zrzuty po lewej.
+  let mediaSteps = 0;
+  const steps = STORY_STEPS.map((step, stepIndex) => {
+    const shots = features
+      .map((feature, index) => ({ feature, index }))
+      .filter(({ feature }) => feature.step === step.id);
+    const layout =
+      shots.length === 0
+        ? "text"
+        : mediaSteps++ % 2 === 0
+          ? "text-first"
+          : "media-first";
+    return { ...step, number: pad(stepIndex + 1), shots, layout };
+  });
 
   return (
     <>
@@ -79,8 +166,7 @@ export default async function ProjectCaseStudy({
                 Case study
                 {currentIndex >= 0 && (
                   <span>
-                    {String(currentIndex + 1).padStart(2, "0")} /{" "}
-                    {String(publishedProjects.length).padStart(2, "0")}
+                    {pad(currentIndex + 1)} / {pad(publishedProjects.length)}
                   </span>
                 )}
               </span>
@@ -97,6 +183,7 @@ export default async function ProjectCaseStudy({
             <div className="case-heading-layout">
               <h1 id="case-title" tabIndex={-1}>
                 {title}
+                <span className="case-dot">.</span>
               </h1>
               <div className="case-header-copy">
                 <p>{project.tagline}</p>
@@ -137,11 +224,9 @@ export default async function ProjectCaseStudy({
             <div className="shell">
               <div className="case-scene-topline">
                 <span>Projekt na ekranie</span>
-                {hasGallery && (
-                  <a href="#case-gallery">
-                    Zobacz detale <ArrowDown size={15} aria-hidden="true" />
-                  </a>
-                )}
+                <a href="#case-story">
+                  Zobacz, jak działa <ArrowDown size={15} aria-hidden="true" />
+                </a>
               </div>
               <div
                 className={`case-devices${mobile ? " case-devices-pair" : ""}`}
@@ -161,12 +246,12 @@ export default async function ProjectCaseStudy({
                         src={project.cover}
                         alt={`${title}, wersja desktopowa`}
                         fill
-                        priority
+                        preload
                         quality={95}
                         sizes={
                           mobile
-                            ? "(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 70vw, 1020px"
-                            : "(max-width: 1100px) calc(100vw - 40px), 1280px"
+                            ? "(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 70vw, 1020px"
+                            : "(max-width: 1100px) calc(100vw - 40px), 1280px"
                         }
                         data-project-cover
                         data-project-slug={project.slug}
@@ -195,114 +280,96 @@ export default async function ProjectCaseStudy({
             </div>
           </section>
 
-          <div className="case-narrative-area">
-            <div className="case-narrative shell">
-              <aside className="case-facts" aria-label="Informacje o projekcie">
-                <p className="case-facts-label">O&nbsp;projekcie</p>
-                <dl>
-                  {project.client && (
-                    <div>
-                      <dt>Klient</dt>
-                      <dd>{project.client}</dd>
-                    </div>
-                  )}
-                  <div>
-                    <dt>Technologie</dt>
-                    <dd>
-                      <ul className="case-stack">
-                        {project.stack.map((tech) => (
-                          <li key={tech}>{tech}</li>
-                        ))}
-                      </ul>
-                    </dd>
-                  </div>
-                </dl>
-              </aside>
-
-              <div className="case-story">
-                <section
-                  className="case-story-step"
-                  aria-labelledby="case-challenge-title"
-                >
-                  <span className="case-story-index" aria-hidden="true">
-                    01
-                  </span>
-                  <div>
-                    <h2 id="case-challenge-title">Wyzwanie</h2>
-                    <p>{project.problem}</p>
-                  </div>
-                </section>
-                <section
-                  className="case-story-step"
-                  aria-labelledby="case-solution-title"
-                >
-                  <span className="case-story-index" aria-hidden="true">
-                    02
-                  </span>
-                  <div>
-                    <h2 id="case-solution-title">Rozwiązanie</h2>
-                    <p>{project.solution}</p>
-                    <div className="case-scope">
-                      <h3>Zakres projektu</h3>
-                      <ul>
-                        {project.scope.map((item) => (
-                          <li key={item}>{item}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </section>
-                <section
-                  className="case-story-step case-result"
-                  aria-labelledby="case-result-title"
-                >
-                  <span className="case-story-index" aria-hidden="true">
-                    03
-                  </span>
-                  <div>
-                    <h2 id="case-result-title">Efekt</h2>
-                    <p>{project.result}</p>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </div>
-
-          {hasGallery ? (
-            <>
-              <SectionTransition from="paper" to="ink" shape="fold" />
-              <section
-                id="case-gallery"
-                className="case-gallery shell"
-                aria-labelledby="case-gallery-title"
-                data-mobile-second={
-                  Boolean(mobile && project.gallery[1] === mobile) || undefined
-                }
-                data-gallery-count={project.gallery.length}
-              >
-                <div className="case-gallery-heading">
-                  <h2 id="case-gallery-title">Galeria projektu</h2>
+          <section
+            id="case-story"
+            className="case-story-area"
+            aria-labelledby="case-story-title"
+          >
+            <div className="shell">
+              <div className="case-chapter-head">
+                <h2 id="case-story-title">
+                  Od wyzwania do&nbsp;efektu
+                  <span className="case-dot">.</span>
+                </h2>
+                {features.length > 0 && (
                   <p>
-                    Wybierz widok, żeby zobaczyć go w&nbsp;pełnym rozmiarze.
+                    Każdy etap pokazuję na&nbsp;zrzutach z&nbsp;działającej
+                    wersji. Kliknij ujęcie, żeby je powiększyć.
                   </p>
-                </div>
-                <ProjectGalleryLightbox
-                  key={project.slug}
-                  images={project.gallery}
-                  title={project.title}
-                />
-              </section>
-              <SectionTransition
-                from="ink"
-                to="burgundy"
-                shape="scoop"
-                size="shallow"
-              />
-            </>
-          ) : (
-            <SectionTransition from="paper" to="burgundy" shape="fold" />
-          )}
+                )}
+              </div>
 
+              <dl className="case-facts" aria-label="Informacje o projekcie">
+                {project.client && (
+                  <div>
+                    <dt>Klient</dt>
+                    <dd>{project.client}</dd>
+                  </div>
+                )}
+                <div>
+                  <dt>Technologie</dt>
+                  <dd>
+                    <ul className="case-tags">
+                      {project.stack.map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+                <div>
+                  <dt>Zakres projektu</dt>
+                  <dd>
+                    <ul className="case-tags">
+                      {project.scope.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+
+              <ProjectGalleryLightbox
+                key={project.slug}
+                items={features}
+                title={title}
+              >
+                <div className="case-steps">
+                  {steps.map((step) => (
+                    <section
+                      key={step.id}
+                      className="case-step"
+                      data-step={step.id}
+                      data-layout={step.layout}
+                      aria-labelledby={`case-${step.id}-title`}
+                    >
+                      <div className="case-step-copy">
+                        <div className="case-step-heading">
+                          <span className="case-step-index" aria-hidden="true">
+                            {step.number}
+                          </span>
+                          <h3 id={`case-${step.id}-title`}>{step.title}</h3>
+                        </div>
+                        <p>{storyText[step.id]}</p>
+                      </div>
+                      {step.shots.length > 0 && (
+                        <div className="case-step-media">
+                          {step.shots.map(({ feature, index }) => (
+                            <FeatureShot
+                              key={feature.src}
+                              feature={feature}
+                              index={index}
+                            />
+                          ))}
+                        </div>
+                      )}
+                    </section>
+                  ))}
+                </div>
+              </ProjectGalleryLightbox>
+            </div>
+          </section>
+
+          <SectionTransition from="paper" to="burgundy" shape="fold" />
           <section
             className="case-contact"
             aria-labelledby="case-contact-title"
@@ -332,33 +399,40 @@ export default async function ProjectCaseStudy({
             size="shallow"
           />
           {nextProject && (
-            <section
-              className="case-next shell"
-              aria-labelledby="case-next-title"
-            >
-              <div className="case-next-navigation">
-                <span>Następna realizacja</span>
-                <Link href="/realizacje">Wszystkie projekty</Link>
+            <section className="case-next" aria-labelledby="case-next-title">
+              <div className="shell">
+                <div className="case-next-navigation">
+                  <span>Następna realizacja</span>
+                  <Link href="/realizacje">Wszystkie projekty</Link>
+                </div>
+                <Link
+                  className="case-next-project"
+                  href={`/realizacje/${nextProject.slug}`}
+                >
+                  <div className="case-next-copy">
+                    <span className="case-next-category">
+                      {nextProject.category}
+                    </span>
+                    <h2 id="case-next-title">
+                      {projectName(nextProject)}
+                      <ArrowRight
+                        className="case-next-arrow"
+                        strokeWidth={1.5}
+                        aria-hidden="true"
+                      />
+                    </h2>
+                    <p>{nextProject.tagline}</p>
+                  </div>
+                  <div className="case-next-media">
+                    <Image
+                      src={nextProject.cover}
+                      alt=""
+                      fill
+                      sizes="(max-width: 1000px) calc(100vw - 40px), 760px"
+                    />
+                  </div>
+                </Link>
               </div>
-              <Link
-                className="case-next-project"
-                href={`/realizacje/${nextProject.slug}`}
-              >
-                <div className="case-next-media">
-                  <Image
-                    src={nextProject.cover}
-                    alt=""
-                    fill
-                    sizes="(max-width: 760px) calc(100vw - 40px), 420px"
-                  />
-                </div>
-                <div className="case-next-copy">
-                  <span>{nextProject.category}</span>
-                  <h2 id="case-next-title">{projectName(nextProject)}</h2>
-                  <p>{nextProject.tagline}</p>
-                </div>
-                <ArrowUpRight size={32} strokeWidth={1.5} aria-hidden="true" />
-              </Link>
             </section>
           )}
         </article>

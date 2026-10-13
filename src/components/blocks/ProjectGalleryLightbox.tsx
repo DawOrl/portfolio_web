@@ -1,19 +1,52 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useId, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, X, ZoomIn } from "lucide-react";
+import {
+  createContext,
+  useCallback,
+  useContext,
+  useEffect,
+  useId,
+  useMemo,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import { ArrowLeft, ArrowRight, X } from "lucide-react";
 
+export type LightboxItem = {
+  src: string;
+  alt: string;
+  caption: string;
+  device: "desktop" | "mobile";
+};
+
+type LightboxApi = {
+  dialogId: string;
+  open: (index: number, trigger: HTMLButtonElement) => void;
+};
+
+const LightboxContext = createContext<LightboxApi | null>(null);
+
+const pad = (value: number) => String(value).padStart(2, "0");
+
+/**
+ * Powiększenie zrzutów case study. Przyciski (ProjectGalleryTrigger) mogą stać
+ * w dowolnym miejscu treści przekazanej jako children; podgląd przechodzi
+ * strzałkami przez wszystkie ujęcia projektu.
+ */
 export function ProjectGalleryLightbox({
-  images,
+  items,
   title,
+  children,
 }: {
-  images: string[];
+  items: readonly LightboxItem[];
   title: string;
+  children: ReactNode;
 }) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement | null>(null);
-  const galleryId = useId();
+  const dialogId = useId();
   const isOpen = selectedIndex !== null;
 
   useEffect(() => {
@@ -32,60 +65,30 @@ export function ProjectGalleryLightbox({
     };
   }, [isOpen]);
 
-  if (!images.length) return null;
+  const open = useCallback((index: number, button: HTMLButtonElement) => {
+    trigger.current = button;
+    setSelectedIndex(index);
+  }, []);
+  const api = useMemo(() => ({ dialogId, open }), [dialogId, open]);
 
   const move = (direction: number) => {
     setSelectedIndex((index) =>
-      index === null
-        ? null
-        : (index + direction + images.length) % images.length,
+      index === null ? null : (index + direction + items.length) % items.length,
     );
   };
+  const current = selectedIndex === null ? null : items[selectedIndex];
 
   return (
-    <>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {images.map((image, index) => {
-          const view = image.endsWith("/mobile.png")
-            ? "Wersja mobilna"
-            : image.endsWith("/desktop.png")
-              ? "Wersja desktopowa"
-              : `Ujęcie ${index + 1}`;
-          return (
-            <button
-              key={image}
-              type="button"
-              className="case-gallery-thumb"
-              aria-label={`Powiększ: ${title}, ${view.toLowerCase()}`}
-              aria-haspopup="dialog"
-              aria-controls={galleryId}
-              onClick={(event) => {
-                trigger.current = event.currentTarget;
-                setSelectedIndex(index);
-              }}
-            >
-              <img
-                src={image}
-                alt={`${title}, ${view.toLowerCase()}`}
-                loading="lazy"
-              />
-              <span className="case-gallery-thumb-caption" aria-hidden="true">
-                <span>{view}</span>
-                <span>
-                  <ZoomIn size={14} strokeWidth={1.75} /> Powiększ
-                </span>
-              </span>
-            </button>
-          );
-        })}
-      </div>
+    <LightboxContext value={api}>
+      {children}
 
       <dialog
         ref={dialog}
-        id={galleryId}
+        id={dialogId}
         className="case-gallery-dialog"
-        aria-labelledby={`${galleryId}-title`}
-        aria-describedby={`${galleryId}-instructions`}
+        data-device={current?.device}
+        aria-labelledby={`${dialogId}-title`}
+        aria-describedby={`${dialogId}-instructions`}
         onCancel={(event) => {
           event.preventDefault();
           setSelectedIndex(null);
@@ -104,7 +107,7 @@ export function ProjectGalleryLightbox({
           }
         }}
         onKeyDown={(event) => {
-          if (images.length < 2) return;
+          if (items.length < 2) return;
           if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
             event.preventDefault();
             move(event.key === "ArrowRight" ? 1 : -1);
@@ -112,53 +115,78 @@ export function ProjectGalleryLightbox({
         }}
       >
         <div className="case-gallery-dialog-header">
-          <div className="case-gallery-dialog-title">
-            <h3 id={`${galleryId}-title`}>{title}</h3>
-            <p role="status" aria-live="polite" aria-atomic="true">
-              Ujęcie {selectedIndex === null ? 1 : selectedIndex + 1} /{" "}
-              {images.length}
-            </p>
-          </div>
+          <h2 id={`${dialogId}-title`}>{title}</h2>
           <button
             type="button"
             onClick={() => setSelectedIndex(null)}
-            aria-label="Zamknij podgląd projektu"
+            aria-label="Zamknij podgląd"
           >
             <X size={20} strokeWidth={1.75} aria-hidden="true" />
           </button>
         </div>
-        <p id={`${galleryId}-instructions`} className="sr-only">
-          {images.length > 1 && "Strzałki w lewo i w prawo zmieniają ujęcie. "}
+        <p id={`${dialogId}-instructions`} className="sr-only">
+          {items.length > 1 && "Strzałki w lewo i w prawo zmieniają ujęcie. "}
           Escape zamyka podgląd.
         </p>
         <div className="case-gallery-dialog-image">
-          {selectedIndex !== null && (
-            <img
-              src={images[selectedIndex]}
-              alt={`${title}, ujęcie ${selectedIndex + 1}`}
-            />
+          {current && <img src={current.src} alt={current.alt} />}
+        </div>
+        <div className="case-gallery-dialog-footer">
+          <p role="status" aria-live="polite" aria-atomic="true">
+            <span className="case-gallery-dialog-count">
+              <span className="sr-only">Ujęcie </span>
+              {pad((selectedIndex ?? 0) + 1)} / {pad(items.length)}
+              <span className="sr-only">. </span>
+            </span>
+            <span>{current?.caption}</span>
+          </p>
+          {items.length > 1 && (
+            <div className="case-gallery-dialog-navigation">
+              <button
+                type="button"
+                onClick={() => move(-1)}
+                aria-label="Poprzednie ujęcie"
+              >
+                <ArrowLeft size={19} strokeWidth={1.75} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={() => move(1)}
+                aria-label="Następne ujęcie"
+              >
+                <ArrowRight size={19} strokeWidth={1.75} aria-hidden="true" />
+              </button>
+            </div>
           )}
         </div>
-        {images.length > 1 && (
-          <div className="case-gallery-dialog-navigation">
-            <button
-              type="button"
-              onClick={() => move(-1)}
-              aria-label="Poprzednie ujęcie"
-            >
-              <ArrowLeft size={19} strokeWidth={1.75} aria-hidden="true" />
-            </button>
-            <span>Zmień ujęcie</span>
-            <button
-              type="button"
-              onClick={() => move(1)}
-              aria-label="Następne ujęcie"
-            >
-              <ArrowRight size={19} strokeWidth={1.75} aria-hidden="true" />
-            </button>
-          </div>
-        )}
       </dialog>
-    </>
+    </LightboxContext>
+  );
+}
+
+/** Przycisk otwierający podgląd ujęcia o danym indeksie (wewnątrz ProjectGalleryLightbox). */
+export function ProjectGalleryTrigger({
+  index,
+  label,
+  className,
+  children,
+}: {
+  index: number;
+  label: string;
+  className?: string;
+  children: ReactNode;
+}) {
+  const lightbox = useContext(LightboxContext);
+  return (
+    <button
+      type="button"
+      className={className}
+      aria-label={label}
+      aria-haspopup="dialog"
+      aria-controls={lightbox?.dialogId}
+      onClick={(event) => lightbox?.open(index, event.currentTarget)}
+    >
+      {children}
+    </button>
   );
 }
