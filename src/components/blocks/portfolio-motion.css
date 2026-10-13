@@ -181,31 +181,10 @@
   display: block;
   transform-origin: 0 100%;
 }
-.hero-signature-stage {
-  grid-area: 2 / 2;
-  align-self: center;
-  justify-self: end;
-  width: 100%;
-}
 .hero-signature-entry {
   width: 100%;
 }
-.hero-signature-stage .design-signature {
-  width: 100%;
-  margin: 0;
-}
-.hero-line-accent {
-  color: var(--accent-ink);
-  text-decoration: underline;
-  text-decoration-color: var(--primary);
-  text-decoration-thickness: 0.045em;
-  text-underline-offset: 0.1em;
-}
 @media (max-width: 760px) {
-  .hero-signature-stage {
-    width: 200px;
-    margin: 22px 12px 58px auto;
-  }
   .intro-top {
     align-items: flex-start;
   }
@@ -263,10 +242,6 @@
   .intro-progress {
     order: -1;
     width: 100%;
-  }
-  .hero-baseline {
-    flex-wrap: wrap;
-    gap: 16px;
   }
 }
 @media (max-height: 540px) and (orientation: landscape) {

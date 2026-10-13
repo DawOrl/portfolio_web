@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, ArrowUpRight, Check, Menu } from "lucide-react";
+import { ArrowUpRight, Check, Menu } from "lucide-react";
 import "./process-build.css";
 
 if (typeof window !== "undefined") {
@@ -19,7 +19,7 @@ const stages = [
       "Ustalam, co odwiedzający ma zobaczyć i zrobić. Zanim pojawią się kolory, treść dostaje swoje miejsce.",
   },
   {
-    label: "Design",
+    label: "Projekt",
     title: "Potem własny charakter.",
     description:
       "Dobieram typografię, kolory i proporcje. Ten sam układ nabiera charakteru Twojej marki, także na telefonie.",
@@ -269,16 +269,47 @@ export function ProcessBuild() {
       data-stage={stage}
       aria-labelledby="process-build-title"
     >
-      <div className="shell process-build-stage">
+      <div className="process-build-stage">
         <div className="process-build-header">
           <div>
-            <h2 id="process-build-title">Od szkicu do strony.</h2>
-            <p>Jeden pomysł. Trzy etapy. Każdy ekran.</p>
+            <h3 id="process-build-title">Od szkicu do gotowej strony.</h3>
+            <p>Wybierz etap. Porównaj desktop i mobile.</p>
           </div>
           <div
             className="process-build-stage-controls"
             role="group"
             aria-label="Etapy powstawania strony"
+            onKeyDown={(event) => {
+              const buttons = Array.from(
+                event.currentTarget.querySelectorAll<HTMLButtonElement>(
+                  "button",
+                ),
+              );
+              const focused = buttons.findIndex(
+                (button) => button === event.target,
+              );
+              if (focused < 0) return;
+              let next: number;
+              switch (event.key) {
+                case "ArrowRight":
+                  next = (focused + 1) % stages.length;
+                  break;
+                case "ArrowLeft":
+                  next = (focused - 1 + stages.length) % stages.length;
+                  break;
+                case "Home":
+                  next = 0;
+                  break;
+                case "End":
+                  next = stages.length - 1;
+                  break;
+                default:
+                  return;
+              }
+              event.preventDefault();
+              chooseStage.current(next);
+              buttons[next].focus();
+            }}
           >
             {stages.map((step, index) => (
               <button
@@ -333,9 +364,7 @@ export function ProcessBuild() {
             <span>{stages[stage].title}</span>
             <p>{stages[stage].description}</p>
           </div>
-          <a href="#proces">
-            Zobacz, jak pracuję <ArrowDown size={16} strokeWidth={1.75} />
-          </a>
+          <span className="process-build-format">Desktop i mobile</span>
         </div>
       </div>
     </section>

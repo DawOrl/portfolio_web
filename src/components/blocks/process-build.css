@@ -1,28 +1,31 @@
 .process-build {
   position: relative;
-  padding-block: 70px;
-  overflow: clip;
-  border-block: 1px solid #ffffff17;
-  background: #191919;
-  color: #f4f0eb;
+  min-width: 0;
+  margin-block: 12px 64px;
+  padding-block: 28px;
+  background: #f4f0eb;
+  color: #1d1d1d;
+  font-family: var(--font-montserrat), sans-serif;
 }
 
 .process-build-stage {
   display: grid;
-  gap: 34px;
+  gap: 40px;
   min-width: 0;
 }
 
 .process-build-header {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
+  align-items: center;
   gap: 32px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #1d1d1d20;
 }
 
-.process-build-header h2 {
-  max-width: 20ch;
-  font-size: var(--type-section);
+.process-build-header h3 {
+  max-width: 30ch;
+  font-size: var(--type-card);
   font-weight: var(--weight-heading);
   line-height: var(--leading-heading);
   letter-spacing: var(--tracking-heading);
@@ -30,8 +33,8 @@
 }
 
 .process-build-header p {
-  margin-top: 12px;
-  color: #b0ada9;
+  margin-top: 8px;
+  color: #655f59;
   font-size: var(--type-small);
   line-height: var(--leading-body);
   text-wrap: pretty;
@@ -40,7 +43,7 @@
 .process-build-stage-controls {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 6px;
+  gap: 4px;
   align-items: center;
 }
 
@@ -48,13 +51,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 9px;
-  min-width: 104px;
-  min-height: 48px;
-  padding: 10px 14px;
-  border: 1px solid #ffffff26;
+  gap: 10px;
+  min-width: 110px;
+  min-height: 50px;
+  padding: 12px 16px;
+  border: 1px solid transparent;
   border-radius: 4px;
-  color: #c8c2bd;
+  color: #514b45;
   font-size: var(--type-ui);
   font-weight: var(--weight-ui);
   line-height: var(--leading-ui);
@@ -62,24 +65,24 @@
 }
 
 .process-build-stage-controls button > span {
-  color: #b0ada9;
+  color: #756c63;
   font-size: var(--type-label);
   line-height: var(--leading-ui);
   font-variant-numeric: tabular-nums;
 }
 
 .process-build-stage-controls button[aria-pressed="true"] {
-  border-color: #f4f0eb;
-  background: #f4f0eb;
-  color: #1d1d1d;
+  border-color: #a00c30;
+  background: #a00c30;
+  color: #fff;
 }
 
 .process-build-stage-controls button[aria-pressed="true"] > span {
-  color: #6d6863;
+  color: #fff;
 }
 
 .process-build :focus-visible {
-  outline: 2px solid #9fc5d3;
+  outline: 2px solid #a00c30;
   outline-offset: 4px;
 }
 
@@ -87,32 +90,38 @@
   position: relative;
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  gap: clamp(18px, 3vw, 38px);
-  width: min(100%, 1030px);
+  align-items: end;
+  gap: clamp(22px, 3.5vw, 48px);
+  width: min(100%, 1060px);
   margin-inline: auto;
-  padding-bottom: 30px;
+  padding-block: 12px 36px;
 }
 
 .process-build-browser {
   min-width: 0;
   overflow: hidden;
-  border: 1px solid #6b6661;
-  border-radius: 10px;
+  padding: 6px;
+  border-radius: 14px;
   background: #1d1d1d;
-  box-shadow: 0 14px 32px #00000030;
+  box-shadow:
+    0 0 0 1px #00000014,
+    0 2px 4px #0000000c,
+    0 10px 18px -8px #00000030,
+    0 24px 44px -20px #00000040,
+    0 46px 70px -38px #00000028;
 }
 
 .build-browser-toolbar {
   display: flex;
   align-items: center;
-  gap: 16px;
-  min-height: 32px;
-  padding: 7px 12px;
+  gap: 18px;
+  min-height: 34px;
+  padding: 5px 12px 9px;
   border-bottom: 1px solid #ffffff17;
-  background: #292828;
+  background: #1d1d1d;
   color: #c8c2bd;
-  font-size: 10px;
+  font-size: 11px;
+  line-height: 1.4;
 }
 
 .build-browser-toolbar > span:nth-child(2) {
@@ -121,7 +130,7 @@
 
 .build-browser-toolbar > span:last-child {
   color: #b0ada9;
-  font-size: 9px;
+  font-size: 10px;
 }
 
 .build-browser-signature {
@@ -141,35 +150,40 @@
 
 .build-browser-screen {
   aspect-ratio: 1.9;
+  border-radius: 0 0 8px 8px;
 }
 
 .process-build-phone {
   position: relative;
-  width: clamp(110px, 15vw, 180px);
+  width: clamp(128px, 15vw, 180px);
   aspect-ratio: 390 / 844;
   padding: 5px;
   overflow: hidden;
-  border: 1px solid #817b74;
-  border-radius: 22px;
-  background: #2b2927;
-  box-shadow: 0 12px 28px #00000038;
+  border-radius: 24px;
+  background: #1d1d1d;
+  box-shadow:
+    inset 0 0 0 1px #ffffff26,
+    0 0 0 1px #00000014,
+    0 2px 4px #0000000c,
+    0 12px 24px -10px #0000003b,
+    0 28px 48px -22px #00000030;
 }
 
 .build-phone-speaker {
   position: absolute;
   z-index: 3;
-  top: 6px;
+  top: 8px;
   left: 50%;
-  width: 26%;
-  height: 6px;
-  border-radius: 0 0 6px 6px;
-  background: #2b2927;
+  width: 28%;
+  height: 7px;
+  border-radius: 8px;
+  background: #1d1d1d;
   transform: translateX(-50%);
 }
 
 .build-phone-screen {
   height: 100%;
-  border-radius: 16px;
+  border-radius: 19px;
 }
 
 .build-website {
@@ -390,7 +404,7 @@
 
 .process-build-wireframe path {
   fill: none;
-  stroke: #7f7973;
+  stroke: #6c655e;
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -401,14 +415,19 @@
 .process-build-ready {
   position: absolute;
   bottom: 0;
-  right: 0;
+  left: 0;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  color: #9fc5d3;
+  gap: 8px;
+  color: #514b45;
   font-size: var(--type-label);
   font-weight: var(--weight-ui);
   line-height: var(--leading-ui);
+}
+
+.process-build-ready svg {
+  color: #a00c30;
+  stroke-width: 2;
 }
 
 .process-build:not([data-scrub])[data-stage="0"] .process-build-wireframe {
@@ -428,20 +447,21 @@
   justify-content: space-between;
   align-items: start;
   gap: 28px;
-  padding-top: 20px;
-  border-top: 1px solid #ffffff17;
+  padding-top: 24px;
+  border-top: 1px solid #1d1d1d20;
 }
 
 .process-build-caption {
   display: grid;
-  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr);
-  gap: 24px;
-  max-width: 840px;
-  min-height: 70px;
+  grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1.3fr);
+  gap: 32px;
+  max-width: 900px;
+  min-height: 76px;
 }
 
 .process-build-caption > span {
   font-size: var(--type-body);
+  color: #a00c30;
   font-weight: var(--weight-ui);
   line-height: var(--leading-body);
   text-wrap: pretty;
@@ -449,40 +469,38 @@
 
 .process-build-caption p {
   max-width: 54ch;
-  color: #b0ada9;
+  color: #655f59;
   font-size: var(--type-body);
   line-height: var(--leading-body);
   text-wrap: pretty;
 }
 
-.process-build-footer > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  color: #f4f0eb;
-  font-size: var(--type-ui);
-  font-weight: var(--weight-ui);
+.process-build-format {
+  padding-top: 4px;
+  color: #655f59;
+  font-size: var(--type-label);
   line-height: var(--leading-ui);
   white-space: nowrap;
 }
 
 @media (hover: hover) and (pointer: fine) {
   .process-build-stage-controls button:not([aria-pressed="true"]):hover {
-    border-color: #ffffff65;
-    color: #f4f0eb;
-  }
-  .process-build-footer > a:hover {
-    color: #9fc5d3;
+    border-color: #1d1d1d25;
+    background: #1d1d1d06;
+    color: #1d1d1d;
   }
 }
 
 @media (prefers-reduced-motion: no-preference) {
   .process-build-stage-controls button {
     transition:
-      background-color 160ms ease,
-      color 160ms ease,
-      border-color 160ms ease;
+      background-color 150ms ease,
+      color 150ms ease,
+      border-color 150ms ease,
+      scale 150ms cubic-bezier(0.2, 0, 0, 1);
+  }
+  .process-build-stage-controls button:active {
+    scale: 0.96;
   }
 }
 
@@ -491,13 +509,16 @@
     display: grid;
     align-items: center;
     min-height: 100svh;
-    padding-block: clamp(20px, 4svh, 42px);
+    padding-block: clamp(24px, 4svh, 42px);
   }
   .process-build-stage {
-    gap: clamp(20px, 3.5svh, 34px);
+    gap: clamp(24px, 3.5svh, 40px);
+  }
+  .process-build-header {
+    padding-bottom: 20px;
   }
   .process-build-devices {
-    width: min(100%, 1030px, calc(102svh + 34px));
+    width: min(100%, 1060px, calc(100svh + 90px));
   }
   .process-build-phone {
     width: auto;
@@ -510,7 +531,10 @@
     padding-block: 20px;
   }
   .process-build-stage {
-    gap: 16px;
+    gap: 20px;
+  }
+  .process-build-header {
+    padding-bottom: 16px;
   }
   .process-build-header p {
     margin-top: 8px;
@@ -526,14 +550,14 @@
     padding-top: 16px;
   }
   .process-build-caption {
-    min-height: 60px;
+    min-height: 64px;
   }
 }
 
 @media (max-width: 1023px) {
   .process-build-header {
     grid-template-columns: minmax(0, 1fr);
-    gap: 22px;
+    gap: 20px;
   }
   .process-build-stage-controls {
     justify-self: start;
@@ -541,71 +565,94 @@
   .process-build-caption {
     grid-template-columns: minmax(0, 1fr);
     gap: 6px;
-    min-height: 108px;
+    min-height: 112px;
   }
 }
 
 @media (max-width: 760px) {
   .process-build {
-    padding-block: 42px;
+    margin-block: 8px 44px;
+    padding-block: 16px 8px;
   }
   .process-build-stage {
-    gap: 24px;
+    gap: 28px;
+  }
+  .process-build-header {
+    padding-bottom: 20px;
   }
   .process-build-stage-controls {
     width: 100%;
   }
   .process-build-stage-controls button {
     min-width: 0;
-    padding-inline: 6px;
-    gap: 5px;
+    padding-inline: 10px;
+    gap: 8px;
   }
   .process-build-devices {
-    gap: 12px;
-    align-items: center;
-    padding-bottom: 28px;
+    display: block;
+    padding-block: 4px 80px;
   }
   .process-build-phone {
-    width: clamp(76px, 21vw, 124px);
-    padding: 3px;
-    border-radius: 14px;
+    position: absolute;
+    right: 12px;
+    bottom: 20px;
+    width: clamp(90px, 26vw, 128px);
+    padding: 4px;
+    border-radius: 19px;
   }
   .build-phone-screen {
-    border-radius: 10px;
+    border-radius: 15px;
   }
   .build-phone-speaker {
-    top: 4px;
-    height: 4px;
+    top: 7px;
+    height: 5px;
   }
   .build-browser-toolbar {
-    min-height: 24px;
-    padding: 5px 7px;
-    gap: 7px;
-    font-size: 8px;
+    min-height: 28px;
+    padding: 3px 7px 7px;
+    gap: 10px;
+    font-size: 9px;
   }
   .build-browser-toolbar > span:last-child {
     display: none;
   }
   .build-browser-signature {
-    font-size: 10px;
+    font-size: 11px;
   }
   .process-build-browser {
-    border-radius: 6px;
+    padding: 5px;
+    border-radius: 11px;
+  }
+  .build-browser-screen {
+    border-radius: 0 0 6px 6px;
   }
   .process-build-footer {
     flex-direction: column;
-    gap: 12px;
-    padding-top: 18px;
+    gap: 18px;
+    padding-top: 20px;
   }
   .process-build-caption {
     width: 100%;
+    min-height: 120px;
+  }
+  .process-build-format {
+    display: none;
   }
 }
 
 @media (forced-colors: active) {
   .process-build-browser,
   .process-build-phone {
-    border-color: CanvasText;
+    outline: 1px solid CanvasText;
+    outline-offset: -1px;
+  }
+  .process-build-stage-controls button[aria-pressed="true"] {
+    border-color: Highlight;
+    background: Highlight;
+    color: HighlightText;
+  }
+  .process-build-stage-controls button[aria-pressed="true"] > span {
+    color: HighlightText;
   }
   .build-site-action {
     border: 1px solid CanvasText;

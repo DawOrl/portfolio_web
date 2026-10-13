@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { briefAvailable } from "@/lib/dashboard/brief";
 import { BriefForm } from "@/components/dashboard/brief-form";
+import { BrandMark } from "@/components/ui/brand-mark";
 import "@/components/dashboard/dashboard.css";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -31,9 +32,9 @@ export default async function BriefPage({
     <div className="dashboard-root">
       <main id="main-content" className="dash-brief">
         <Link href="/" className="dash-brand">
-          <b>
-            do<span>.</span>
-          </b>
+          <span className="dash-brand-mark" aria-hidden="true">
+            <BrandMark />
+          </span>
           <span>
             DAWID ORŁOWSKI<small>DESIGN & DEVELOPMENT</small>
           </span>
@@ -53,25 +54,27 @@ export default async function BriefPage({
             </p>
           </div>
         </header>
-        {available ? (
-          <BriefForm token={token} />
-        ) : (
-          <section className="dash-card">
-            <h2>
-              {failed
-                ? "Formularz chwilowo niedostępny"
-                : "Ten link nie jest już aktywny"}
-            </h2>
-            <p>
-              {failed
-                ? "Spróbuj ponownie za chwilę. Jeśli problem się powtórzy, skontaktuj się ze mną."
-                : "Link mógł wygasnąć, zostać zastąpiony nowym albo brief został już wysłany."}
-            </p>
-            <a href="mailto:contact@dorlowski.dev" className="dash-text-link">
-              contact@dorlowski.dev ↗
-            </a>
-          </section>
-        )}
+        <div className="dash-brief-form">
+          {available ? (
+            <BriefForm token={token} />
+          ) : (
+            <section className="dash-card">
+              <h2>
+                {failed
+                  ? "Formularz chwilowo niedostępny"
+                  : "Ten link nie jest już aktywny"}
+              </h2>
+              <p>
+                {failed
+                  ? "Spróbuj ponownie za chwilę. Jeśli problem się powtórzy, skontaktuj się ze mną."
+                  : "Link mógł wygasnąć, zostać zastąpiony nowym albo brief został już wysłany."}
+              </p>
+              <a href="mailto:contact@dorlowski.dev" className="dash-text-link">
+                contact@dorlowski.dev ↗
+              </a>
+            </section>
+          )}
+        </div>
         <footer>
           Dawid Orłowski ·{" "}
           <a href="/polityka-prywatnosci">Polityka prywatności</a>

@@ -1,0 +1,175 @@
+.privacy-page {
+  padding: 0;
+  color: var(--foreground);
+}
+.privacy-intro {
+  padding-block: 30px 40px;
+}
+.privacy-page .privacy-back {
+  color: #bdb9b4;
+  gap: 12px;
+}
+.privacy-page .privacy-header {
+  padding-block: 48px 0;
+  max-width: 960px;
+}
+.privacy-page .privacy-eyebrow {
+  color: #bdb9b4;
+  font-size: var(--type-label);
+  letter-spacing: var(--tracking-label);
+}
+.privacy-page .privacy-header h1 {
+  margin-top: 26px;
+  font-size: clamp(44px, 6.8vw, 96px);
+  line-height: 1.05;
+  letter-spacing: -0.06em;
+  font-weight: 500;
+}
+.privacy-page .privacy-header h1 em {
+  color: var(--accent-cool);
+}
+.privacy-page .privacy-header > p:not(.privacy-eyebrow) {
+  color: #d2cfca;
+  margin-top: 28px;
+  font-size: var(--type-body);
+}
+.privacy-page .privacy-header small {
+  display: block;
+  color: #b0ada9;
+  margin-top: 13px;
+  font-size: var(--type-label);
+}
+.privacy-reading-surface {
+  --privacy-muted: #696560;
+  --privacy-line: rgb(29 29 29 / 18%);
+  padding-block: clamp(32px, 4vw, 60px);
+  background: var(--foreground);
+  color: var(--background);
+}
+.privacy-reading-layout {
+  display: grid;
+  grid-template-columns: minmax(190px, 0.3fr) minmax(0, 0.7fr);
+  gap: clamp(40px, 6vw, 90px);
+  align-items: start;
+}
+.privacy-index {
+  position: sticky;
+  top: 36px;
+  display: grid;
+  align-content: start;
+  gap: 3px;
+}
+.privacy-index > span {
+  margin-bottom: 18px;
+  color: var(--privacy-muted);
+}
+.privacy-index a {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  min-height: 44px;
+  padding-block: 10px;
+  font-size: var(--type-ui);
+  line-height: 1.4;
+}
+.privacy-index a > span {
+  color: var(--primary);
+  font-size: var(--type-label);
+  font-variant-numeric: tabular-nums;
+}
+.privacy-page .privacy-summary {
+  padding: 0 0 32px;
+  border: 0;
+  border-bottom: 1px solid var(--privacy-line);
+  background: transparent;
+  margin: 0 0 42px;
+}
+.privacy-page .privacy-summary p {
+  color: var(--background);
+  font-size: var(--type-lead);
+  line-height: 1.65;
+  max-width: 54ch;
+}
+.privacy-page .privacy-summary a {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--primary);
+  margin-top: 18px;
+  font-size: var(--type-ui);
+  overflow-wrap: anywhere;
+}
+.privacy-page .privacy-content {
+  max-width: 72ch;
+}
+.privacy-page .privacy-content section {
+  padding-block: 32px;
+  border-color: var(--privacy-line);
+  scroll-margin-top: 30px;
+}
+.privacy-page .privacy-content section:first-child {
+  padding-top: 0;
+}
+.privacy-page .privacy-content h2 {
+  color: var(--background);
+  font-size: clamp(23px, 2.2vw, 30px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.04em;
+  margin-bottom: 22px;
+}
+.privacy-page .privacy-content :is(p, li) {
+  color: var(--privacy-muted);
+  font-size: var(--type-body);
+  line-height: 1.8;
+}
+.privacy-page .privacy-content strong {
+  color: var(--background);
+  font-weight: 500;
+}
+.privacy-page .privacy-content a {
+  color: var(--primary);
+  text-decoration-color: rgb(160 12 48 / 45%);
+}
+.privacy-page .privacy-reading-surface :focus-visible {
+  outline-color: var(--primary);
+}
+@media (hover: hover) and (pointer: fine) {
+  .privacy-index a:hover {
+    color: var(--primary);
+  }
+  .privacy-page .privacy-back:hover {
+    color: var(--foreground);
+  }
+}
+@media (max-width: 760px) {
+  .privacy-intro {
+    padding-block: 20px 30px;
+  }
+  .privacy-page .privacy-header {
+    padding-top: 28px;
+  }
+  .privacy-reading-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+  }
+  .privacy-index {
+    position: static;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--privacy-line);
+  }
+  .privacy-index > span {
+    grid-column: 1 / -1;
+    margin-bottom: 12px;
+  }
+  .privacy-index a {
+    gap: 9px;
+    font-size: 13px;
+  }
+  .privacy-page .privacy-content :is(p, li) {
+    font-size: 16px;
+    line-height: 1.75;
+  }
+}

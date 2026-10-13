@@ -8,10 +8,10 @@ import {
   type FormEvent,
 } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, CheckCircle2, Loader2 } from "lucide-react";
 import { cvData } from "@/data/cv-data";
 import { ContactChallenge } from "@/components/ui/contact-challenge";
-import { MiniSculpture } from "@/components/ui/mini-sculpture";
 import {
   clearContactIntent,
   CONTACT_MESSAGE_LIMIT,
@@ -230,7 +230,46 @@ export function ContactSection({
           <span>DOBRE RZECZY ZACZYNAJĄ SIĘ OD ROZMOWY.</span>
         </div>
         <div className="contact-layout">
+          <div className="contact-invitation">
+            <div className="contact-title-art">
+              <h2 id="contact-heading">
+                Zróbmy
+                <br />
+                <span>
+                  coś <em>razem.</em>
+                </span>
+              </h2>
+            </div>
+            <p className="contact-invitation-copy">
+              Masz pomysł, pytanie albo potrzebujesz nowego spojrzenia na swoją
+              stronę? Napisz kilka słów. Zwykle odpowiadam w ciągu 24 godzin.
+            </p>
+            <div className="contact-direct">
+              <a href={`mailto:${cvData.personal.email}`}>
+                {cvData.personal.email}
+                <ArrowUpRight size={15} />
+              </a>
+              <a href={`tel:+48${cvData.personal.phone.replace(/\D/g, "")}`}>
+                +48 {cvData.personal.phone}
+                <ArrowUpRight size={15} />
+              </a>
+              <span>Kraków · współpraca zdalna w całej Polsce</span>
+            </div>
+            <div className="contact-chapter-form" aria-hidden="true">
+              <Image
+                src="/contact-link-blender.webp"
+                alt=""
+                width={1100}
+                height={850}
+                unoptimized
+              />
+            </div>
+          </div>
           <div className="contact-form-column">
+            <div className="contact-form-heading">
+              <span className="eyebrow">BEZPŁATNA WYCENA</span>
+              <h3>Opowiedz o projekcie.</h3>
+            </div>
             {status === "success" || status === "mailto" ? (
               <div className="contact-success" role="status">
                 <CheckCircle2 size={42} />
@@ -455,53 +494,6 @@ export function ContactSection({
                 </p>
               </form>
             )}
-          </div>
-          <div className="contact-invitation">
-            <div className="contact-title-art">
-              <svg
-                className="contact-contour"
-                viewBox="0 0 460 360"
-                fill="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M83 50C159-2 372 19 409 99C446 179 341 329 260 336C179 343 176 251 95 219C14 187 7 102 83 50Z"
-                  stroke="currentColor"
-                />
-                <path
-                  d="M103 30C191-7 384 55 391 135C398 215 322 334 239 326C156 318 175 245 100 204C25 164 15 68 103 30Z"
-                  stroke="currentColor"
-                  opacity=".35"
-                />
-              </svg>
-              <MiniSculpture
-                shape="portal"
-                small
-                className="contact-sculpture"
-              />
-              <h2 id="contact-heading">
-                Zróbmy
-                <br />
-                <span>
-                  coś <em>razem.</em>
-                </span>
-              </h2>
-            </div>
-            <p className="contact-invitation-copy">
-              Masz pomysł, pytanie albo potrzebujesz nowego spojrzenia na swoją
-              stronę? Napisz kilka słów. Zwykle odpowiadam w ciągu 24 godzin.
-            </p>
-            <div className="contact-direct">
-              <a href={`mailto:${cvData.personal.email}`}>
-                {cvData.personal.email}
-                <ArrowUpRight size={15} />
-              </a>
-              <a href={`tel:+48${cvData.personal.phone.replace(/\D/g, "")}`}>
-                +48 {cvData.personal.phone}
-                <ArrowUpRight size={15} />
-              </a>
-              <span>Kraków · współpraca zdalna w całej Polsce</span>
-            </div>
           </div>
         </div>
       </div>

@@ -2,9 +2,16 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { BrandBlock } from "@/components/ui/brand-block";
 import { BackToTopLink } from "@/components/ui/back-to-top-link";
-export function SiteFooter() {
+import "./site-footer.css";
+export function SiteFooter({
+  variant = "home",
+}: {
+  variant?: "default" | "home";
+}) {
   return (
-    <footer className="site-footer shell">
+    <footer
+      className={`site-footer shell ${variant === "home" ? "site-footer-home" : ""}`}
+    >
       <div className="footer-top">
         <Link href="/#top" className="brand">
           <BrandBlock />

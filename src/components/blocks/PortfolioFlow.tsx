@@ -12,11 +12,9 @@ if (typeof window !== "undefined") {
 
 const chapters = [
   ".hero",
-  "#studium-formy",
   "#realizacje",
   "#uslugi",
   "#o-mnie",
-  "#od-pomyslu-do-strony",
   "#proces",
   "#cennik",
   "#faq",

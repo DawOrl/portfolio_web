@@ -1,0 +1,331 @@
+/* The Blender form and its entrance have separate transform owners. */
+.hero.hero-sculptural {
+  position: relative;
+  display: block;
+  padding: 0;
+  isolation: isolate;
+  overflow: clip;
+  background: var(--foreground);
+}
+.portfolio-home .hero-sculptural::before {
+  content: none;
+}
+.hero-clip-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+.hero-field {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 90% 30%, #9fc5d313, transparent 52%),
+    var(--studio-grain), var(--background);
+  background-size:
+    auto,
+    160px 160px,
+    auto;
+  clip-path: url(#hero-contour);
+}
+.hero-content {
+  position: relative;
+  min-height: 824px;
+  padding-block: 48px 115px;
+}
+.hero-sculptural .hero-meta {
+  gap: 24px;
+  flex-wrap: nowrap;
+  color: #c4c2be;
+}
+.hero-sculptural .availability {
+  color: var(--foreground);
+}
+.hero-sculptural .hero-title-wrap {
+  z-index: 2;
+  width: 72%;
+  margin-top: 73px;
+  padding: 0;
+}
+.hero.hero-sculptural h1 {
+  font-size: clamp(62px, 7.3vw, 112px);
+  line-height: 1.01;
+  letter-spacing: -0.065em;
+  font-weight: 500;
+}
+.hero-sculptural .hero-line-accent {
+  color: var(--accent-cool);
+  text-decoration: none;
+}
+.hero-sculptural .hero-dot {
+  color: var(--primary);
+}
+.hero-sculptural .hero-bottom {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: 65%;
+  margin-top: 31px;
+  padding: 0;
+}
+.hero-sculptural .hero-intro > p {
+  max-width: 390px;
+  color: #d2cfca;
+  font-size: var(--type-body);
+  line-height: 1.65;
+}
+.hero-sculptural .hero-actions {
+  gap: 28px;
+  margin-top: 23px;
+}
+.hero-sculptural .action {
+  gap: 25px;
+  min-height: 52px;
+  padding: 16px 20px;
+}
+.hero-signature-footer {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px 32px;
+  margin-top: 49px;
+}
+.hero-sculptural .hero-signature {
+  gap: 14px;
+  font-size: var(--type-label);
+}
+.hero-sculptural .hero-signature img {
+  width: 36px;
+  height: 36px;
+  filter: none;
+}
+.hero-avatar {
+  display: block;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #343b3e;
+}
+.hero-sculptural .hero-signature .hero-avatar {
+  margin-top: 0;
+}
+.hero-sculptural .hero-avatar img {
+  border-radius: 0;
+  object-fit: cover;
+  object-position: center top;
+}
+.hero-sculptural .hero-signature span {
+  color: #b7b4b0;
+  margin-top: 3px;
+}
+.hero-sculptural .hero-baseline {
+  display: block;
+  border: 0;
+  padding: 0;
+}
+.hero-sculptural .intro-replay {
+  font-size: var(--type-label);
+}
+.hero-sculptural .hero-signature-stage {
+  position: absolute;
+  z-index: 1;
+  top: 28px;
+  right: max(-1%, calc((100% - 1540px) / 2));
+  width: min(51%, 820px);
+  height: 760px;
+  margin: 0;
+  pointer-events: none;
+}
+.hero-sculptural .hero-signature-entry {
+  height: 100%;
+}
+.hero-sculptural .hero-signature-entry img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: rotate(-5deg);
+}
+
+/* The irregular silhouette opens directly onto the selected work. */
+.work-section.work-section-featured {
+  padding-block: 28px 70px;
+  background: var(--foreground);
+  color: var(--background);
+}
+.work-section-featured .section-topline {
+  color: #696560;
+  margin-bottom: 16px;
+}
+.work-section-featured .eyebrow {
+  color: var(--background);
+}
+.work-section-featured .section-heading {
+  align-items: center;
+  gap: 48px;
+}
+.work-section-featured h2 {
+  max-width: 700px;
+  font-size: var(--type-subheading);
+  line-height: 1.12;
+}
+.work-section-featured .section-heading p {
+  color: #696560;
+  font-size: var(--type-small);
+}
+.work-section-featured .text-link {
+  border-color: #1d1d1d60;
+}
+.work-section-featured .text-link:hover {
+  color: var(--primary);
+}
+.work-section-featured .carousel-top {
+  color: #696560;
+  border-color: #1d1d1d24;
+}
+.work-section-featured .spatial-stage-note {
+  color: #696560;
+}
+.work-section-featured .spatial-card {
+  box-shadow:
+    0 2px 4px rgb(49 41 35 / 0.05),
+    0 12px 24px -8px rgb(49 41 35 / 0.12);
+}
+.work-section-featured .spatial-card[data-active="true"] {
+  box-shadow:
+    0 3px 7px -2px rgb(49 41 35 / 0.08),
+    0 12px 24px -8px rgb(49 41 35 / 0.13),
+    0 24px 36px -14px rgb(49 41 35 / 0.1);
+}
+.work-section-featured .carousel-scene-count {
+  background: transparent;
+  color: #696560;
+}
+.work-section-featured .carousel-scene-count > span:first-child {
+  color: var(--background);
+}
+.work-section-featured .carousel-preview-toggle {
+  color: var(--background);
+  border-color: #1d1d1d60;
+}
+.work-section-featured .carousel-preview-toggle:hover,
+.work-section-featured .carousel-preview-toggle[aria-pressed="true"] {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: #a00c3008;
+}
+.work-section-featured .carousel-progress button > span {
+  background: #1d1d1d50;
+}
+.work-section-featured .carousel-progress button[aria-current="true"] > span {
+  background: var(--primary);
+}
+.work-section-featured :focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+@media (min-width: 761px) {
+  .work-section-featured .spatial-stage {
+    height: 500px;
+  }
+}
+@media (max-width: 1100px) {
+  .hero-content {
+    min-height: 785px;
+  }
+  .hero.hero-sculptural h1 {
+    font-size: 8.3vw;
+  }
+  .hero-sculptural .hero-title-wrap {
+    width: 76%;
+  }
+  .hero-sculptural .hero-signature-stage {
+    right: -9%;
+    width: 55%;
+  }
+  .hero-sculptural .hero-actions {
+    gap: 17px;
+  }
+}
+@media (max-width: 760px) {
+  .hero-field {
+    clip-path: url(#hero-contour-mobile);
+  }
+  .hero-content {
+    min-height: 950px;
+    padding-block: 27px 410px;
+  }
+  .hero-sculptural .hero-meta {
+    align-items: start;
+    gap: 18px;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    line-height: 1.55;
+  }
+  .hero-sculptural .hero-meta > span:first-child {
+    max-width: 180px;
+  }
+  .hero-sculptural .availability {
+    max-width: 125px;
+    font-size: 10px;
+    line-height: 1.55;
+    flex-shrink: 0;
+  }
+  .hero-sculptural .hero-title-wrap {
+    width: 100%;
+    margin-top: 47px;
+  }
+  .hero.hero-sculptural h1 {
+    font-size: clamp(38px, 11.8vw, 82px);
+    line-height: 1.07;
+  }
+  .hero-sculptural .hero-bottom {
+    width: 100%;
+    margin-top: 24px;
+  }
+  .hero-sculptural .hero-intro > p {
+    max-width: 335px;
+  }
+  .hero-sculptural .hero-actions {
+    gap: 10px 20px;
+  }
+  .hero-signature-footer {
+    margin-top: 27px;
+    gap: 12px 22px;
+  }
+  .hero-sculptural .hero-signature-stage {
+    top: auto;
+    right: -20%;
+    bottom: 10px;
+    width: 100%;
+    height: 410px;
+  }
+  .work-section.work-section-featured {
+    padding-block: 28px 45px;
+  }
+  .work-section-featured .section-heading {
+    align-items: start;
+    gap: 24px;
+  }
+  .work-section-featured .section-topline > span:last-child {
+    display: none;
+  }
+}
+@media (forced-colors: active) {
+  .hero-field {
+    clip-path: none;
+    background: Canvas;
+  }
+  .hero-sculptural .hero-signature-stage {
+    display: none;
+  }
+  .hero.hero-sculptural,
+  .work-section.work-section-featured {
+    background: Canvas;
+    color: CanvasText;
+  }
+}

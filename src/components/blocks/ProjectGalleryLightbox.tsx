@@ -1,10 +1,8 @@
 "use client";
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { X, ZoomIn } from "lucide-react";
+import { useEffect, useId, useRef, useState } from "react";
+import { ArrowLeft, ArrowRight, X, ZoomIn } from "lucide-react";
 
-/** Galeria zdjęć projektu z pełnoekranowym lightboxem (case study). */
 export function ProjectGalleryLightbox({
   images,
   title,
@@ -12,75 +10,155 @@ export function ProjectGalleryLightbox({
   images: string[];
   title: string;
 }) {
-  const [selected, setSelected] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const dialog = useRef<HTMLDialogElement>(null);
+  const trigger = useRef<HTMLButtonElement | null>(null);
+  const galleryId = useId();
+  const isOpen = selectedIndex !== null;
 
   useEffect(() => {
-    document.body.style.overflow = selected ? "hidden" : "unset";
+    if (!isOpen) return;
+    const panel = dialog.current;
+    if (!panel) return;
+    const returnFocus = trigger.current;
+    const previousOverflow = document.body.style.overflow;
+    panel.showModal();
+    document.body.style.overflow = "hidden";
+
     return () => {
-      document.body.style.overflow = "unset";
+      panel.close();
+      document.body.style.overflow = previousOverflow;
+      if (returnFocus?.isConnected) returnFocus.focus({ preventScroll: true });
     };
-  }, [selected]);
+  }, [isOpen]);
 
   if (!images.length) return null;
+
+  const move = (direction: number) => {
+    setSelectedIndex((index) =>
+      index === null
+        ? null
+        : (index + direction + images.length) % images.length,
+    );
+  };
 
   return (
     <>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {images.map((img, i) => (
-          <motion.button
-            key={img}
-            type="button"
-            onClick={() => setSelected(img)}
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.4, delay: (i % 2) * 0.06 }}
-            className="group relative aspect-video cursor-zoom-in overflow-hidden rounded-2xl border border-border bg-background"
-          >
-            <img
-              src={img}
-              alt={`${title} - ujęcie ${i + 1}`}
-              loading="lazy"
-              className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-background/0 transition-colors duration-300 group-hover:bg-background/30">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-background/70 px-3 py-1 text-xs font-medium text-foreground opacity-0 backdrop-blur-sm transition-opacity duration-300 group-hover:opacity-100">
-                <ZoomIn size={13} /> Powiększ
+        {images.map((image, index) => {
+          const view = image.endsWith("/mobile.png")
+            ? "Wersja mobilna"
+            : image.endsWith("/desktop.png")
+              ? "Wersja desktopowa"
+              : `Ujęcie ${index + 1}`;
+          return (
+            <button
+              key={image}
+              type="button"
+              className="case-gallery-thumb"
+              aria-label={`Powiększ: ${title}, ${view.toLowerCase()}`}
+              aria-haspopup="dialog"
+              aria-controls={galleryId}
+              onClick={(event) => {
+                trigger.current = event.currentTarget;
+                setSelectedIndex(index);
+              }}
+            >
+              <img
+                src={image}
+                alt={`${title}, ${view.toLowerCase()}`}
+                loading="lazy"
+              />
+              <span className="case-gallery-thumb-caption" aria-hidden="true">
+                <span>{view}</span>
+                <span>
+                  <ZoomIn size={14} strokeWidth={1.75} /> Powiększ
+                </span>
               </span>
-            </div>
-          </motion.button>
-        ))}
+            </button>
+          );
+        })}
       </div>
 
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setSelected(null)}
-            className="fixed inset-0 z-60 flex cursor-zoom-out items-center justify-center bg-background/95 p-4 backdrop-blur-xl md:p-8"
+      <dialog
+        ref={dialog}
+        id={galleryId}
+        className="case-gallery-dialog"
+        aria-labelledby={`${galleryId}-title`}
+        aria-describedby={`${galleryId}-instructions`}
+        onCancel={(event) => {
+          event.preventDefault();
+          setSelectedIndex(null);
+        }}
+        onClose={() => setSelectedIndex(null)}
+        onClick={(event) => {
+          if (event.target !== event.currentTarget) return;
+          const bounds = event.currentTarget.getBoundingClientRect();
+          if (
+            event.clientX < bounds.left ||
+            event.clientX > bounds.right ||
+            event.clientY < bounds.top ||
+            event.clientY > bounds.bottom
+          ) {
+            setSelectedIndex(null);
+          }
+        }}
+        onKeyDown={(event) => {
+          if (images.length < 2) return;
+          if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+            event.preventDefault();
+            move(event.key === "ArrowRight" ? 1 : -1);
+          }
+        }}
+      >
+        <div className="case-gallery-dialog-header">
+          <div className="case-gallery-dialog-title">
+            <h3 id={`${galleryId}-title`}>{title}</h3>
+            <p role="status" aria-live="polite" aria-atomic="true">
+              Ujęcie {selectedIndex === null ? 1 : selectedIndex + 1} /{" "}
+              {images.length}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={() => setSelectedIndex(null)}
+            aria-label="Zamknij podgląd projektu"
           >
-            <button
-              onClick={() => setSelected(null)}
-              aria-label="Zamknij podgląd"
-              className="absolute right-4 top-4 z-50 flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card/60 text-foreground transition-colors hover:bg-muted md:right-8 md:top-8"
-            >
-              <X size={20} />
-            </button>
-            <motion.img
-              initial={{ scale: 0.95, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              transition={{ type: "spring", damping: 26, stiffness: 320 }}
-              src={selected}
-              alt="Powiększenie"
-              onClick={(e) => e.stopPropagation()}
-              className="max-h-full max-w-full rounded-lg object-contain shadow-2xl"
+            <X size={20} strokeWidth={1.75} aria-hidden="true" />
+          </button>
+        </div>
+        <p id={`${galleryId}-instructions`} className="sr-only">
+          {images.length > 1 && "Strzałki w lewo i w prawo zmieniają ujęcie. "}
+          Escape zamyka podgląd.
+        </p>
+        <div className="case-gallery-dialog-image">
+          {selectedIndex !== null && (
+            <img
+              src={images[selectedIndex]}
+              alt={`${title}, ujęcie ${selectedIndex + 1}`}
             />
-          </motion.div>
+          )}
+        </div>
+        {images.length > 1 && (
+          <div className="case-gallery-dialog-navigation">
+            <button
+              type="button"
+              onClick={() => move(-1)}
+              aria-label="Poprzednie ujęcie"
+            >
+              <ArrowLeft size={19} strokeWidth={1.75} aria-hidden="true" />
+            </button>
+            <span>Zmień ujęcie</span>
+            <button
+              type="button"
+              onClick={() => move(1)}
+              aria-label="Następne ujęcie"
+            >
+              <ArrowRight size={19} strokeWidth={1.75} aria-hidden="true" />
+            </button>
+          </div>
         )}
-      </AnimatePresence>
+      </dialog>
     </>
   );
 }

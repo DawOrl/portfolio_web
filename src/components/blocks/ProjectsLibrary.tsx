@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
 import { ProjectCard } from "./ProjectCard";
@@ -15,7 +14,6 @@ export function ProjectsLibrary({
   categories: string[];
 }) {
   const [active, setActive] = useState("Wszystkie");
-  const reduceMotion = useReducedMotion();
 
   const filtered = useMemo(
     () =>
@@ -24,7 +22,7 @@ export function ProjectsLibrary({
   );
 
   return (
-    <div>
+    <div className="library-content">
       {categories.length > 2 && (
         <div
           className="library-filters"
@@ -34,36 +32,46 @@ export function ProjectsLibrary({
           {categories.map((category) => (
             <button
               key={category}
+              type="button"
               onClick={() => setActive(category)}
               aria-pressed={active === category}
               aria-controls="library-results"
               className="library-filter"
             >
               {category}
+              <span className="library-filter-count" aria-hidden="true">
+                {category === "Wszystkie"
+                  ? projects.length
+                  : projects.filter((project) => project.category === category)
+                      .length}
+              </span>
             </button>
           ))}
         </div>
       )}
 
-      <p className="library-result-count" role="status">
-        {active} <span aria-hidden="true">/</span> Liczba projektów:{" "}
-        {filtered.length}
+      <p className="library-result-count" role="status" aria-atomic="true">
+        <span>{active}</span>
+        <span>
+          Wyświetlono {filtered.length} z {projects.length} projektów
+        </span>
       </p>
-      <div
-        id="library-results"
-        className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2"
-      >
-        {filtered.map((project, i) => (
-          <motion.div
-            key={project.slug}
-            initial={{ opacity: reduceMotion ? 1 : 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: reduceMotion ? 0 : 0.18 }}
-          >
-            <ProjectCard project={project} index={i} />
-          </motion.div>
+      <div id="library-results" className="library-grid">
+        {filtered.map((project) => (
+          <div key={project.slug}>
+            <ProjectCard project={project} index={projects.indexOf(project)} />
+          </div>
         ))}
       </div>
+      {filtered.length === 0 && (
+        <div className="library-empty">
+          <h2>Brak projektów w tej kategorii.</h2>
+          <p>Wybierz inny rodzaj projektu lub wróć do pełnej biblioteki.</p>
+          <button type="button" onClick={() => setActive("Wszystkie")}>
+            Pokaż wszystkie projekty
+          </button>
+        </div>
+      )}
       <Link href="/#kontakt" className="library-invitation">
         <span>
           <strong>Twój projekt może być tutaj</strong>

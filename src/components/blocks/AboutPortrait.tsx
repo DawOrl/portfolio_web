@@ -17,7 +17,7 @@ export function AboutPortrait() {
             Doświadczenie <ArrowUpRight size={12} />
           </a>
         </nav>
-        <span className="about-portrait-index">03 / CZŁOWIEK ZA PROJEKTEM</span>
+        <span className="about-portrait-index">03 / Człowiek za projektem</span>
       </div>
 
       <h2 id="about-heading" className="sr-only">
@@ -28,11 +28,10 @@ export function AboutPortrait() {
       </span>
       <div className="about-portrait-image">
         <Image
-          src="/portrait-human-4k.webp"
+          src="/portrait-dawid-4k-pressed-20261012.webp"
           alt="Portret Dawida Orłowskiego"
           fill
-          quality={95}
-          sizes="(max-width: 760px) 460px, (max-width: 1100px) 542px, 780px"
+          unoptimized
         />
       </div>
       <span className="about-last-name" aria-hidden="true">
@@ -50,7 +49,7 @@ export function AboutPortrait() {
           Poznaj mnie bliżej <ArrowDown size={16} />
         </a>
         <span>
-          KRAKÓW, POLSKA <i aria-hidden="true" />
+          Kraków, Polska <i aria-hidden="true" />
         </span>
       </div>
     </div>

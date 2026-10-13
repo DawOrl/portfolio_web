@@ -967,6 +967,542 @@
     font-size: 19px;
   }
 }
+/* Screen styling is isolated so the existing A4 offer layout stays unchanged. */
+@media screen {
+  .dashboard-root {
+    --dash-bg: #1d1d1d;
+    --dash-surface: #242424;
+    --dash-line: #444440;
+    --dash-text: #f4f0eb;
+    --dash-muted: #b0ada9;
+    --dash-accent: #a00c30;
+    --dash-cool: #9fc5d3;
+    --dash-paper: #f4f0eb;
+    --dash-ink: #1d1d1d;
+  }
+  .dashboard-root h1 {
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+  .dashboard-root h1 em {
+    color: var(--dash-cool);
+  }
+  .dashboard-root h2 {
+    font-size: 24px;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+  }
+  .dashboard-root h3 {
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+  .dashboard-root :is(a, button, summary):focus-visible {
+    outline-color: var(--dash-cool);
+  }
+  .dash-sidebar {
+    height: 100svh;
+    overflow-y: auto;
+    background: var(--dash-bg);
+    padding-inline: 22px;
+  }
+  .dash-brand {
+    min-height: 44px;
+    gap: 13px;
+  }
+  .dash-brand .dash-brand-mark {
+    display: block;
+    flex: 0 0 44px;
+  }
+  .dash-brand .brand-mark {
+    display: block;
+    width: 44px;
+    height: 34px;
+    color: var(--dash-text);
+  }
+  .dash-brand > span:not(.dash-brand-mark) {
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.035em;
+  }
+  .dash-brand small {
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.035em;
+  }
+  .dash-kicker,
+  .dash-nav-label {
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .dash-sidebar nav a {
+    min-height: 44px;
+    padding: 10px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: var(--dash-muted);
+  }
+  .dash-sidebar nav a:hover {
+    background: var(--dash-surface);
+    color: var(--dash-text);
+  }
+  .dash-sidebar-bottom :is(a, button) {
+    min-height: 44px;
+    font-size: 13px;
+  }
+  .dash-sidebar-bottom {
+    gap: 8px;
+  }
+  .dash-main {
+    padding-block: 42px 56px;
+  }
+  .dash-heading > div {
+    min-width: 0;
+  }
+  .dash-heading > .dash-button {
+    flex-shrink: 0;
+  }
+  .dashboard-root .dash-button {
+    min-height: 44px;
+    padding: 11px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+  }
+  .dashboard-root .dash-button:hover {
+    background: #850a28;
+  }
+  .dashboard-root .dash-button.secondary {
+    border-color: #65615c;
+    background: transparent;
+    color: var(--dash-text);
+  }
+  .dashboard-root .dash-button.secondary:hover {
+    background: #303030;
+    border-color: var(--dash-text);
+  }
+  .dash-text-link {
+    min-height: 44px;
+    color: var(--dash-cool);
+  }
+  .dash-links {
+    color: var(--dash-cool);
+  }
+  .dash-view a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+  .dash-view a[aria-current="page"] {
+    background: var(--dash-cool);
+    color: var(--dash-ink);
+  }
+  .dash-project-nav {
+    padding-bottom: 8px;
+    font-size: 13px;
+  }
+  .dash-project-nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .dash-stats {
+    --dash-text: #1d1d1d;
+    --dash-muted: #696560;
+    --dash-line: rgb(29 29 29 / 18%);
+    background: var(--dash-paper);
+    color: var(--dash-text);
+    border: 0;
+    border-radius: 0 32px 0 0;
+    margin-bottom: 32px;
+  }
+  .dash-stat {
+    padding: 25px 24px;
+  }
+  .dash-stat > span {
+    font-size: 12px;
+  }
+  .dash-stat strong {
+    font-size: clamp(24px, 1.9vw, 32px);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -0.045em;
+    font-variant-numeric: tabular-nums;
+  }
+  .dash-stat small {
+    font-size: 11px;
+  }
+  .dash-stat .dash-overdue {
+    color: var(--dash-accent);
+  }
+  .dash-card {
+    padding: 28px;
+    background: var(--dash-surface);
+    border-color: var(--dash-line);
+  }
+  .dash-section-head {
+    flex-wrap: wrap;
+    gap: 16px 24px;
+  }
+  .dash-table {
+    font-size: 13px;
+  }
+  .dash-table th {
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .dash-table td {
+    padding-block: 18px;
+  }
+  .dash-badge {
+    font-size: 11px;
+    line-height: 1.5;
+  }
+  .dash-badge.quote {
+    color: #e5d0a1;
+    background: #332f25;
+    border-color: #685b3b;
+  }
+  .dash-badge.accepted {
+    color: #b8d9c7;
+    background: #21332b;
+    border-color: #37564a;
+  }
+  .dash-badge.review {
+    color: #c4dde7;
+    background: #25323a;
+    border-color: #4b6978;
+  }
+  .dash-badge.archived {
+    color: #bdb9b4;
+    background: #303030;
+    border-color: #5e5b56;
+  }
+  .dash-board > section {
+    background: var(--dash-bg);
+  }
+  .dash-board h3 {
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0;
+  }
+  .dash-form label {
+    color: #d0cbc5;
+    font-size: 13px;
+  }
+  .dashboard-root
+    :is(
+      .dash-form input,
+      .dash-form textarea,
+      .dash-form select,
+      .dash-copy input
+    ) {
+    min-height: 44px;
+    color: var(--dash-text);
+    background: var(--dash-bg);
+    border-color: #696560;
+    border-radius: 4px;
+  }
+  .dashboard-root
+    :is(
+      .dash-form input,
+      .dash-form textarea,
+      .dash-form select,
+      .dash-copy input
+    ):focus {
+    border-color: var(--dash-cool);
+    box-shadow: 0 0 0 1px var(--dash-cool);
+  }
+  .dash-form :is(input, textarea)::placeholder {
+    color: var(--dash-muted);
+  }
+  .dash-filters :is(input, select) {
+    min-height: 44px;
+    color: var(--dash-text);
+  }
+  .dash-copy input {
+    font-size: 13px;
+  }
+  .dash-inline {
+    flex-wrap: wrap;
+  }
+  .dash-inline .dash-form-bottom {
+    max-width: 100%;
+  }
+  .dash-login {
+    width: min(1280px, 100%);
+    max-width: none;
+    min-height: min(100svh, 920px);
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+    gap: clamp(44px, 6vw, 84px);
+    padding: 64px clamp(32px, 4vw, 56px);
+  }
+  .dash-login .dash-brand {
+    margin-bottom: 58px;
+  }
+  .dash-login h1 {
+    font-size: clamp(42px, 4.8vw, 66px);
+    line-height: 1.06;
+    letter-spacing: -0.06em;
+  }
+  .dash-login .dash-login-intro > p:not(.dash-kicker) {
+    max-width: 37ch;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .dash-login .dash-login-card {
+    --dash-text: #1d1d1d;
+    --dash-muted: #696560;
+    --dash-line: rgb(29 29 29 / 20%);
+    background: var(--dash-paper);
+    color: var(--dash-text);
+    border: 0;
+    border-radius: 0 40px 0 0;
+    padding: clamp(28px, 3.2vw, 44px);
+    margin-bottom: 0;
+    color-scheme: light;
+  }
+  .dash-login-card .dash-kicker {
+    color: var(--dash-muted);
+  }
+  .dash-login-card .dash-form {
+    margin-block: 28px;
+    gap: 20px;
+  }
+  .dash-login-card .dash-form label {
+    color: var(--dash-text);
+    font-size: 14px;
+  }
+  .dashboard-root .dash-login-card .dash-form input {
+    color: var(--dash-text);
+    background: #fff;
+    border-color: #888179;
+  }
+  .dashboard-root .dash-login-card .dash-form input:focus {
+    border-color: var(--dash-accent);
+    box-shadow: 0 0 0 1px var(--dash-accent);
+  }
+  .dash-login-card .dash-error,
+  .dash-brief-form .dash-error {
+    color: #a00c30;
+  }
+  .dash-login-card .dash-success,
+  .dash-brief-form .dash-success {
+    color: #216246;
+  }
+  .dashboard-root .dash-login-card .dash-button.secondary {
+    color: var(--dash-ink);
+    border-color: #888179;
+  }
+  .dashboard-root .dash-login-card .dash-button.secondary:hover {
+    color: var(--dash-ink);
+    background: rgb(29 29 29 / 7%);
+  }
+  .dashboard-root .dash-login-card :focus-visible {
+    outline-color: var(--dash-accent);
+  }
+  .dash-brief {
+    width: min(920px, calc(100% - 112px));
+    max-width: none;
+    padding: 56px 0 76px;
+  }
+  .dash-brief .dash-brand {
+    margin-bottom: 44px;
+  }
+  .dash-brief .dash-heading {
+    margin-bottom: 36px;
+  }
+  .dash-brief h1 {
+    font-size: clamp(38px, 4.3vw, 56px);
+  }
+  .dash-brief .dash-heading p:not(.dash-kicker) {
+    max-width: 60ch;
+    font-size: 16px;
+    line-height: 1.75;
+  }
+  .dash-brief-form {
+    --dash-text: #1d1d1d;
+    --dash-muted: #696560;
+    --dash-line: rgb(29 29 29 / 18%);
+    background: var(--dash-paper);
+    color: var(--dash-text);
+    padding: 34px 40px 40px;
+    color-scheme: light;
+  }
+  .dash-brief-form .dash-card {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background: transparent;
+  }
+  .dash-brief-form .dash-brief-question {
+    padding-block: 28px;
+  }
+  .dash-brief-form .dash-brief-question:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+  }
+  .dash-brief-form .dash-form label {
+    color: var(--dash-text);
+  }
+  .dash-brief-form .dash-brief-question strong {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+  }
+  .dash-brief-form .dash-kicker {
+    color: var(--dash-accent);
+    font-variant-numeric: tabular-nums;
+  }
+  .dash-brief-form .dash-muted {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+  .dashboard-root .dash-brief-form .dash-form textarea {
+    color: var(--dash-text);
+    background: #fff;
+    border-color: #888179;
+    min-height: 136px;
+    padding: 13px 14px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .dashboard-root .dash-brief-form .dash-form textarea:focus {
+    border-color: var(--dash-accent);
+    box-shadow: 0 0 0 1px var(--dash-accent);
+  }
+  .dash-brief-form :is(.dash-text-link, .dash-muted a) {
+    color: var(--dash-accent);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .dashboard-root .dash-brief-form :focus-visible {
+    outline-color: var(--dash-accent);
+  }
+  .dash-brief footer a {
+    color: var(--dash-cool);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .dash-offer-document {
+    --dash-text: #1d1d1d;
+    --dash-muted: #696560;
+    background: var(--dash-paper);
+    color: var(--dash-text);
+    color-scheme: light;
+  }
+  .dashboard-root .dash-offer-document h1 {
+    font-size: 36px;
+  }
+  @media (max-width: 1150px) {
+    .dash-sidebar {
+      padding-inline: 16px;
+    }
+    .dash-main {
+      padding: 32px 24px 48px;
+    }
+  }
+  @media (max-width: 900px) {
+    .dash-login {
+      grid-template-columns: 1fr;
+      min-height: 0;
+      width: min(680px, 100%);
+      gap: 38px;
+      padding-block: 40px 64px;
+    }
+    .dash-login .dash-brand {
+      margin-bottom: 36px;
+    }
+    .dash-brief {
+      width: calc(100% - 64px);
+    }
+  }
+  @media (max-width: 720px) {
+    .dash-sidebar {
+      height: auto;
+      overflow: visible;
+      padding: 20px;
+    }
+    .dash-sidebar nav {
+      padding-block: 4px;
+    }
+    .dash-sidebar nav a {
+      padding-block: 10px;
+    }
+    .dashboard-root .dash-sidebar nav a:focus-visible {
+      outline-offset: -2px;
+    }
+    .dash-sidebar-bottom {
+      top: 22px;
+    }
+    .dash-main {
+      padding: 28px 16px 44px;
+    }
+    .dash-card {
+      padding: 22px 18px;
+    }
+    .dash-stat {
+      padding: 20px 16px;
+    }
+    .dash-stat strong {
+      font-size: 26px;
+    }
+    .dashboard-root
+      :is(
+        .dash-form input,
+        .dash-form select,
+        .dash-filters input,
+        .dash-filters select,
+        .dash-copy input
+      ) {
+      font-size: 16px;
+    }
+    .dash-login {
+      padding-inline: 20px;
+    }
+    .dash-login h1 {
+      font-size: clamp(36px, 8.5vw, 50px);
+    }
+    .dash-login .dash-login-card {
+      padding: 28px 24px;
+      border-top-right-radius: 30px;
+    }
+    .dash-brief {
+      width: calc(100% - 40px);
+      padding-block: 32px 56px;
+    }
+    .dash-brief h1 {
+      font-size: clamp(36px, 8.5vw, 48px);
+    }
+    .dash-brief-form {
+      padding: 26px 22px 30px;
+    }
+    .dash-brief-form .dash-brief-question strong {
+      font-size: 20px;
+    }
+    .dash-brief .dash-form-bottom {
+      align-items: start;
+    }
+  }
+  @media (forced-colors: active) {
+    .dashboard-root :focus-visible {
+      outline-color: Highlight;
+    }
+    .dash-view a[aria-current="page"] {
+      color: HighlightText;
+      background: Highlight;
+    }
+    .dashboard-root .dash-button {
+      border-color: ButtonText;
+    }
+  }
+}
+
 @media print {
   body,
   html,

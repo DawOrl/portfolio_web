@@ -111,21 +111,18 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
                   },
                   0.6,
                 );
-              if (desktop) {
-                heroEntrance.from(
-                  signatureEntry,
-                  {
-                    y: 72,
-                    rotation: -10,
-                    scale: 0.9,
-                    autoAlpha: 0,
-                    transformOrigin: "50% 55%",
-                    duration: 1.2,
-                    clearProps: "transform,transform-origin,opacity,visibility",
-                  },
-                  0.18,
-                );
-              }
+              heroEntrance.from(
+                signatureEntry,
+                {
+                  y: 24,
+                  rotation: 2,
+                  autoAlpha: 0,
+                  transformOrigin: "50% 55%",
+                  duration: 0.85,
+                  clearProps: "transform,transform-origin,opacity,visibility",
+                },
+                0.18,
+              );
             }
 
             // One-shot entrances keep functional content available during a fast scroll.
@@ -150,24 +147,10 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
               reveals.set(element, tween);
             };
 
-            if (!desktop) {
-              reveal(signatureEntry, { y: 48, rotation: -7, scale: 0.93 });
-            } else {
-              // Entry and scroll have separate transform owners, as does the card's hover.
-              gsap.to(".hero-title-wrap", {
-                y: -50,
-                x: -24,
-                ease: "none",
-                scrollTrigger: {
-                  trigger: hero,
-                  start: "top top",
-                  end: "bottom top",
-                  scrub: 0.65,
-                },
-              });
+            if (desktop) {
+              // Sculpture entry and scroll use separate wrappers; the text stays still.
               gsap.to(".hero-signature-stage", {
-                y: -90,
-                rotation: 5,
+                y: -20,
                 ease: "none",
                 scrollTrigger: {
                   trigger: hero,
@@ -178,14 +161,9 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
               });
             }
 
-            const designCopy = content.querySelector<HTMLElement>(
-              ".design-interlude-copy",
-            );
-            if (designCopy) reveal(designCopy, { y: desktop ? 44 : 24 });
-
             content
               .querySelectorAll<HTMLElement>(
-                ".section-heading, .faq-section > div:first-child",
+                ".section-heading, .faq-layout > div:first-child",
               )
               .forEach((heading) => {
                 reveal(heading, {

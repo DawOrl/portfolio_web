@@ -17,30 +17,25 @@ export function ProjectCard({
   return (
     <Link
       href={`/realizacje/${project.slug}`}
-      className={`work-item work-${index % 4} library-card`}
+      className="work-item library-card"
+      data-project-slug={project.slug}
     >
       <div className="work-image">
         <div
           className={`library-preview${mobile ? " library-device-pair" : ""}`}
         >
           <div className="library-device-browser">
-            <div className="library-device-toolbar" aria-hidden="true">
-              <span className="library-device-dots">
-                <i />
-                <i />
-                <i />
-              </span>
-              <span className="library-device-title">{title}</span>
-            </div>
             <div className="library-device-screen">
               <Image
                 src={project.cover}
                 alt={`Strona ${title} w wersji desktopowej`}
                 fill
+                data-project-cover
+                data-project-slug={project.slug}
                 sizes={
                   mobile
-                    ? "(max-width: 639px) calc(75vw - 40px), (max-width: 1279px) calc(37.5vw - 38px), 430px"
-                    : "(max-width: 639px) calc(100vw - 64px), (max-width: 1279px) calc(50vw - 60px), 550px"
+                    ? "(max-width: 760px) calc(88vw - 68px), (max-width: 1100px) calc(44vw - 65px), 520px"
+                    : "(max-width: 760px) calc(100vw - 76px), (max-width: 1100px) calc(50vw - 74px), 550px"
                 }
               />
             </div>
@@ -52,7 +47,7 @@ export function ProjectCard({
                   src={mobile}
                   alt={`Strona ${title} w wersji mobilnej`}
                   fill
-                  sizes="(max-width: 639px) calc(25vw - 16px), (max-width: 1279px) calc(12.5vw - 18px), 124px"
+                  sizes="(max-width: 760px) calc(23vw - 17px), (max-width: 1100px) calc(12vw - 20px), 124px"
                 />
               </div>
             </div>
@@ -61,9 +56,9 @@ export function ProjectCard({
       </div>
       <div className="work-caption">
         <div>
-          <span className="eyebrow">
-            {project.category} /{" "}
-            {project.kind === "demo" ? "PROJEKT AUTORSKI" : project.client}
+          <span className="library-card-category">
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            {project.category}
           </span>
           <h3>{title}</h3>
         </div>
@@ -75,6 +70,9 @@ export function ProjectCard({
         </span>
       </div>
       <p className="library-description">{project.tagline}</p>
+      <span className="library-card-kind">
+        {project.kind === "demo" ? "Projekt autorski" : project.client}
+      </span>
     </Link>
   );
 }

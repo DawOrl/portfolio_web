@@ -1,0 +1,676 @@
+/* The remaining chapters share the hero's paper, graphite and metal palette. */
+.portfolio-home {
+  --chapter-space: clamp(48px, 4vw, 64px);
+  --chapter-paper: #f4f0eb;
+  --chapter-ink: #1d1d1d;
+  --chapter-muted: #696560;
+  --chapter-rule: rgb(29 29 29 / 18%);
+}
+
+.portfolio-home .work-section-featured {
+  padding-bottom: clamp(24px, 2vw, 32px);
+}
+.portfolio-home .services-section {
+  padding-block: 40px var(--chapter-space);
+}
+.portfolio-home .about-editorial-section {
+  padding-bottom: clamp(32px, 3vw, 48px);
+}
+
+.portfolio-home .portrait-story h3 {
+  font-size: clamp(30px, 3.2vw, 46px);
+  line-height: 1.12;
+  letter-spacing: -0.05em;
+}
+.portfolio-home .portrait-story h3 em {
+  color: var(--accent-cool);
+}
+.portfolio-home .portrait-story-copy > p {
+  line-height: 1.7;
+}
+
+.portfolio-home :is(.process-section, .pricing-section, .faq-section) {
+  position: relative;
+  padding-block: var(--chapter-space);
+  border: 0;
+}
+.portfolio-home section:is(.process-section, .pricing-section, .faq-section) {
+  border-radius: 0;
+}
+.portfolio-home :is(.process-section, .pricing-section) .section-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 24px;
+  margin-bottom: 42px;
+  font-size: var(--type-label);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label);
+}
+.portfolio-home :is(.process-section, .pricing-section, .faq-section) h2 {
+  font-size: clamp(42px, 4.8vw, 72px);
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+.portfolio-home :is(.process-section, .pricing-section) .section-heading {
+  align-items: center;
+  gap: 64px;
+  margin-bottom: 58px;
+}
+.portfolio-home :is(.process-section, .pricing-section) .section-heading p {
+  max-width: 35ch;
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+
+/* 04: one chapter from the visual demonstration to the practical steps. */
+.portfolio-home .process-section {
+  background: var(--chapter-paper);
+  color: var(--chapter-ink);
+}
+.portfolio-home .process-section .section-topline {
+  color: var(--chapter-muted);
+}
+.portfolio-home .process-section .eyebrow {
+  color: var(--chapter-ink);
+}
+.portfolio-home .process-chapter-heading {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 64px;
+}
+.process-chapter-heading > div:first-child {
+  min-width: 0;
+}
+.portfolio-home .process-chapter-heading p {
+  margin-top: 25px;
+  color: var(--chapter-muted);
+}
+.process-chapter-form {
+  min-width: 0;
+  height: clamp(240px, 24vw, 350px);
+  pointer-events: none;
+}
+.process-chapter-form img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.portfolio-home .process-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 30px;
+  margin-top: 58px;
+}
+.portfolio-home .process-grid article {
+  min-width: 0;
+  padding-top: 22px;
+  border-top: 1px solid var(--chapter-rule);
+}
+.portfolio-home .process-number {
+  display: block;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  color: var(--primary);
+  font-size: 44px;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+.portfolio-home .process-grid h3 {
+  max-width: 15ch;
+  margin: 27px 0 15px;
+  min-height: 2.3em;
+  font-size: clamp(21px, 1.8vw, 26px);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+.portfolio-home .process-grid p {
+  color: var(--chapter-muted);
+  font-size: var(--type-small);
+  line-height: 1.75;
+}
+.portfolio-home .process-section :focus-visible {
+  outline-color: var(--primary);
+}
+
+/* 05: open comparison columns, with one sculpted paper surface. */
+.portfolio-home .pricing-section {
+  background: var(--background);
+}
+.portfolio-home .pricing-section .section-topline {
+  color: #b0ada9;
+}
+.portfolio-home .pricing-section h2 em {
+  color: var(--accent-cool);
+}
+.portfolio-home .pricing-section .section-heading p {
+  color: #bdb9b4;
+}
+.portfolio-home .pricing-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border: 0;
+  align-items: stretch;
+}
+.portfolio-home .price-plan {
+  min-width: 0;
+  padding: 32px clamp(24px, 2.5vw, 38px) 35px;
+  border-top: 1px solid rgb(244 240 235 / 22%);
+}
+.portfolio-home .price-plan + .price-plan {
+  border-left: 0;
+}
+.plan-index {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 34px;
+  color: #b0ada9;
+  font-size: var(--type-label);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label);
+}
+.portfolio-home .plan-top h3 {
+  font-size: clamp(28px, 2.6vw, 38px);
+  line-height: 1.1;
+  letter-spacing: -0.05em;
+}
+.portfolio-home .plan-heading {
+  display: block;
+  min-height: 3em;
+  margin-top: 10px;
+  color: #bdb9b4;
+}
+.portfolio-home .plan-heading p {
+  font-size: var(--type-small);
+  line-height: 1.6;
+}
+.portfolio-home .price-plan .plan-price {
+  gap: 10px;
+  margin-block: 28px 25px;
+  color: var(--chapter-paper);
+}
+.portfolio-home .plan-price strong {
+  font-size: clamp(42px, 4.5vw, 64px);
+  letter-spacing: -0.06em;
+  line-height: 1;
+}
+.portfolio-home .plan-price > span {
+  font-size: var(--type-small);
+}
+.portfolio-home .plan-description {
+  min-height: 5.25em;
+  color: #bdb9b4;
+  font-size: var(--type-small);
+  line-height: 1.75;
+}
+.portfolio-home .price-plan ul {
+  gap: 14px;
+  margin-block: 30px 38px;
+  padding-top: 27px;
+  border-top: 1px solid rgb(244 240 235 / 18%);
+}
+.portfolio-home .price-plan li {
+  line-height: 1.65;
+}
+.portfolio-home .price-plan li svg {
+  color: var(--accent-cool);
+  margin-top: 4px;
+}
+.portfolio-home .price-plan .action {
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 54px;
+  padding-inline: 16px;
+  font-size: 13px;
+}
+.portfolio-home .price-featured {
+  border: 0;
+  border-radius: 0 64px 0 0;
+  background: var(--chapter-paper);
+  color: var(--chapter-ink);
+}
+.portfolio-home .price-featured .plan-index {
+  color: var(--chapter-muted);
+}
+.portfolio-home .price-featured .plan-index > span:last-child {
+  color: var(--primary);
+}
+.portfolio-home .price-featured :is(.plan-heading, .plan-description) {
+  color: var(--chapter-muted);
+}
+.portfolio-home .price-featured .plan-price {
+  color: var(--chapter-ink);
+}
+.portfolio-home .price-featured ul {
+  border-color: var(--chapter-rule);
+}
+.portfolio-home .price-featured li svg {
+  color: var(--primary);
+}
+.portfolio-home .price-featured .action {
+  color: #fff;
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.portfolio-home .price-featured .action:hover {
+  background: #850a28;
+  border-color: #850a28;
+}
+.portfolio-home .price-featured :focus-visible {
+  outline-color: var(--primary);
+}
+.portfolio-home .pricing-included {
+  justify-content: space-between;
+  gap: 28px;
+  margin-top: 45px;
+  padding-block: 26px;
+  border-block: 1px solid rgb(244 240 235 / 18%);
+}
+.portfolio-home .pricing-included p {
+  max-width: 63ch;
+  color: #cbc7c2;
+  font-size: var(--type-small);
+}
+.portfolio-home .pricing-extras {
+  gap: 70px;
+  padding-block: 40px;
+  border-color: rgb(244 240 235 / 18%);
+}
+.portfolio-home .pricing-extras h3 {
+  max-width: 19ch;
+  font-size: clamp(24px, 2.3vw, 32px);
+  line-height: 1.15;
+}
+.portfolio-home .pricing-extras p {
+  font-size: var(--type-small);
+  line-height: 1.75;
+}
+.portfolio-home .pricing-extras dt {
+  font-size: var(--type-small);
+}
+.portfolio-home .pricing-extras dd {
+  color: var(--accent-cool);
+  font-size: var(--type-card);
+}
+.portfolio-home .pricing-note {
+  max-width: 86ch;
+  margin-top: 26px;
+  color: #b0ada9;
+  line-height: 1.75;
+}
+
+/* 06: a quiet, readable paper chapter between pricing and contact. */
+.portfolio-home .faq-section {
+  display: block;
+  background: var(--chapter-paper);
+  color: var(--chapter-ink);
+}
+.portfolio-home section.faq-section::before {
+  content: none;
+}
+.faq-layout {
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: clamp(48px, 7vw, 110px);
+  align-items: start;
+}
+.portfolio-home .faq-section .eyebrow {
+  color: var(--chapter-ink);
+}
+.portfolio-home .faq-section h2 {
+  margin-block: 37px 27px;
+}
+.faq-intro {
+  max-width: 30ch;
+  color: var(--chapter-muted);
+  font-size: var(--type-body);
+  line-height: 1.7;
+}
+.portfolio-home .faq-section .text-link {
+  margin-top: 30px;
+  border-color: rgb(29 29 29 / 40%);
+}
+.portfolio-home .faq-section .text-link:hover {
+  color: var(--primary);
+}
+.portfolio-home .faq-list details {
+  border-color: var(--chapter-rule);
+}
+.portfolio-home .faq-list summary {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) 22px;
+  gap: 19px;
+  padding-block: 25px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: color 150ms;
+}
+.portfolio-home .faq-number {
+  color: var(--chapter-muted);
+  align-self: start;
+  padding-top: 5px;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-home .faq-list summary svg {
+  color: var(--primary);
+  margin: 0;
+  align-self: start;
+  margin-top: 2px;
+}
+.portfolio-home .faq-list details[open] summary svg {
+  color: var(--primary);
+}
+.portfolio-home .faq-list :is(summary:hover, details[open] summary) {
+  color: var(--primary);
+}
+.portfolio-home .faq-list details p {
+  color: var(--chapter-muted);
+  padding: 0 40px 28px 43px;
+  font-size: var(--type-small);
+  line-height: 1.8;
+}
+.portfolio-home .faq-section :focus-visible {
+  outline-color: var(--primary);
+}
+
+/* 07: the burgundy closing chapter carries the same material as the hero. */
+.portfolio-home .contact-editorial {
+  padding-block: var(--chapter-space);
+  border: 0;
+  background-color: var(--primary);
+  background-image: var(--studio-grain);
+  background-size: 160px 160px;
+  color: var(--chapter-paper);
+}
+.portfolio-home .contact-section-label {
+  color: #edced5;
+  margin-bottom: 65px;
+}
+.portfolio-home .contact-layout {
+  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
+  align-items: start;
+  gap: clamp(56px, 8vw, 120px);
+}
+.contact-form-heading {
+  margin-bottom: 32px;
+}
+.contact-form-heading .eyebrow {
+  color: #edced5;
+}
+.contact-form-heading h3 {
+  margin-top: 14px;
+  font-size: var(--type-card);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+.portfolio-home .contact-form {
+  gap: 23px;
+}
+.portfolio-home .contact-title-art {
+  max-width: none;
+  padding: 0;
+}
+.portfolio-home .contact-title-art h2 {
+  font-size: clamp(60px, 6.7vw, 100px);
+  line-height: 1.02;
+  letter-spacing: -0.065em;
+}
+.portfolio-home .contact-title-art h2 em {
+  color: var(--accent-cool);
+}
+.portfolio-home .contact-invitation-copy {
+  margin-top: 30px;
+  color: #f0dce1;
+  max-width: 34ch;
+  line-height: 1.7;
+}
+.portfolio-home .contact-direct {
+  gap: 7px;
+  margin-top: 23px;
+}
+.portfolio-home .contact-direct > span {
+  color: #edced5;
+  max-width: 32ch;
+  margin-top: 12px;
+}
+.portfolio-home .contact-direct a:hover {
+  color: var(--chapter-paper);
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.contact-chapter-form {
+  width: min(100%, 360px);
+  height: 275px;
+  margin: 16px auto -25px;
+  pointer-events: none;
+}
+.contact-chapter-form img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.portfolio-home .contact-field label > span {
+  color: #edced5;
+}
+.portfolio-home .contact-field :is(input, select, textarea) {
+  border-color: rgb(244 240 235 / 50%);
+  color: var(--chapter-paper);
+  transition:
+    border-color 150ms,
+    box-shadow 150ms;
+}
+.portfolio-home .contact-field :is(input, textarea)::placeholder {
+  color: #edced5;
+}
+.portfolio-home .contact-field :is(input, select, textarea):focus {
+  border-color: var(--chapter-paper);
+  box-shadow: 0 2px var(--chapter-paper);
+}
+.portfolio-home .contact-field [aria-invalid="true"] {
+  border-color: #ffbfbd;
+}
+.portfolio-home :is(.contact-field > p, .contact-error) {
+  color: #ffdfd8;
+}
+.portfolio-home .contact-intent {
+  border-color: rgb(244 240 235 / 40%);
+}
+.portfolio-home .contact-intent-copy span {
+  color: var(--chapter-paper);
+}
+.portfolio-home .contact-intent-actions button:hover {
+  color: var(--chapter-paper);
+  background: rgb(244 240 235 / 8%);
+}
+.portfolio-home .contact-submit {
+  color: var(--chapter-ink);
+  background: var(--chapter-paper);
+  min-height: 58px;
+}
+.portfolio-home .contact-submit:hover:not(:disabled) {
+  color: var(--chapter-ink);
+  background: var(--accent-cool);
+}
+.portfolio-home
+  :is(
+    .contact-form-note,
+    .contact-form-note span,
+    .contact-privacy-note,
+    .contact-success p
+  ) {
+  color: #edced5;
+}
+.portfolio-home .contact-privacy-note {
+  font-size: var(--type-label);
+  line-height: 1.75;
+}
+.portfolio-home .contact-editorial :focus-visible {
+  outline-color: var(--chapter-paper);
+}
+
+@media (max-width: 1100px) {
+  .portfolio-home .process-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 36px;
+  }
+  .portfolio-home .process-grid h3 {
+    min-height: 0;
+    max-width: none;
+  }
+  .portfolio-home .process-section .process-chapter-heading {
+    gap: 30px;
+  }
+  .portfolio-home .price-plan {
+    padding-inline: 22px;
+  }
+  .portfolio-home .plan-price strong {
+    font-size: 42px;
+  }
+  .portfolio-home .price-plan .action {
+    font-size: 12px;
+    padding-inline: 12px;
+  }
+  .portfolio-home .contact-layout {
+    gap: 55px;
+  }
+  .portfolio-home .contact-title-art h2 {
+    font-size: clamp(52px, 6.3vw, 70px);
+  }
+}
+
+@media (max-width: 760px) {
+  .portfolio-home :is(.process-section, .pricing-section) .section-topline {
+    margin-bottom: 32px;
+  }
+  .portfolio-home :is(.process-section, .pricing-section, .faq-section) h2 {
+    font-size: clamp(36px, 9.5vw, 60px);
+    letter-spacing: -0.055em;
+  }
+  .portfolio-home :is(.process-section, .pricing-section) .section-heading {
+    align-items: start;
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+  .portfolio-home .process-chapter-heading {
+    display: block;
+  }
+  .process-chapter-form {
+    width: min(100%, 340px);
+    height: 220px;
+    margin: 18px auto -20px;
+  }
+  .portfolio-home .process-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 30px;
+  }
+  .portfolio-home .process-grid article {
+    grid-template-columns: 45px minmax(0, 1fr);
+    column-gap: 20px;
+    padding-block: 27px;
+  }
+  .portfolio-home .process-number {
+    grid-row: 1 / 3;
+    padding-top: 1px;
+    font-size: 32px;
+  }
+  .portfolio-home .process-grid h3 {
+    margin: 0 0 13px;
+    font-size: 23px;
+  }
+  .portfolio-home .pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .portfolio-home .price-plan {
+    padding: 30px 24px;
+  }
+  .portfolio-home .price-featured {
+    border-radius: 0 50px 0 0;
+  }
+  .portfolio-home .plan-index {
+    margin-bottom: 28px;
+  }
+  .portfolio-home .plan-top h3 {
+    font-size: 32px;
+  }
+  .portfolio-home .plan-heading {
+    min-height: 0;
+  }
+  .portfolio-home .plan-price strong {
+    font-size: 56px;
+  }
+  .portfolio-home .plan-description {
+    min-height: 0;
+  }
+  .portfolio-home .price-plan .action {
+    font-size: var(--type-ui);
+    padding-inline: 18px;
+  }
+  .portfolio-home .pricing-included {
+    align-items: start;
+    gap: 16px;
+    margin-top: 30px;
+  }
+  .portfolio-home .pricing-extras {
+    gap: 27px;
+    padding-block: 32px;
+  }
+  .portfolio-home .pricing-extras dl > div {
+    gap: 18px;
+  }
+  .portfolio-home .pricing-extras dd {
+    font-size: 20px;
+  }
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+  .portfolio-home .faq-section h2 {
+    margin-top: 30px;
+  }
+  .portfolio-home .faq-list summary {
+    grid-template-columns: 18px minmax(0, 1fr) 20px;
+    gap: 13px;
+    padding-block: 22px;
+  }
+  .portfolio-home .faq-list details p {
+    padding: 0 20px 25px 31px;
+  }
+  .portfolio-home .contact-section-label {
+    margin-bottom: 40px;
+  }
+  .portfolio-home .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .portfolio-home .contact-invitation,
+  .portfolio-home .contact-form-column {
+    order: initial;
+  }
+  .portfolio-home .contact-title-art h2 {
+    font-size: clamp(48px, 14vw, 78px);
+  }
+  .portfolio-home .contact-invitation-copy {
+    margin-top: 25px;
+  }
+  .contact-chapter-form {
+    height: 225px;
+    margin: 10px auto -15px;
+  }
+  .contact-form-heading {
+    margin-bottom: 27px;
+    padding-top: 32px;
+    border-top: 1px solid rgb(244 240 235 / 40%);
+  }
+}
+
+@media (forced-colors: active) {
+  .process-chapter-form,
+  .contact-chapter-form {
+    display: none;
+  }
+}

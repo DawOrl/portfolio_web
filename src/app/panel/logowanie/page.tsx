@@ -2,15 +2,16 @@ import Link from "next/link";
 import { dashboardConfigured } from "@/lib/dashboard/config";
 import { login } from "@/lib/dashboard/actions";
 import { ActionForm } from "@/components/dashboard/forms";
+import { BrandMark } from "@/components/ui/brand-mark";
 export default function LoginPage() {
   const ready = dashboardConfigured();
   return (
     <main id="main-content" className="dash-login">
-      <section>
+      <section className="dash-login-intro">
         <Link href="/" className="dash-brand">
-          <b>
-            do<span>.</span>
-          </b>
+          <span className="dash-brand-mark" aria-hidden="true">
+            <BrandMark />
+          </span>
           <span>
             DAWID ORŁOWSKI<small>PRYWATNA PRACOWNIA</small>
           </span>
@@ -25,9 +26,14 @@ export default function LoginPage() {
           Zlecenia, klienci i ustalenia - od pierwszego zapytania do publikacji.
         </p>
       </section>
-      <section className="dash-card">
+      <section
+        className="dash-card dash-login-card"
+        aria-labelledby="login-heading"
+      >
         <p className="dash-kicker">DOSTĘP WŁAŚCICIELA</p>
-        <h2>{ready ? "Zaloguj się" : "Panel czeka na konfigurację"}</h2>
+        <h2 id="login-heading">
+          {ready ? "Zaloguj się" : "Panel czeka na konfigurację"}
+        </h2>
         {ready ? (
           <>
             <ActionForm action={login} label="Wejdź do pracowni">

@@ -573,24 +573,29 @@ em {
   font-size: var(--type-label);
 }
 .services-section {
+  --service-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+  --service-column-gap: clamp(36px, 5vw, 80px);
   background: var(--primary);
-  color: #1d1d1d;
+  color: var(--foreground);
   padding: 95px 0;
 }
 .services-section .eyebrow,
 .services-section .section-topline {
-  color: #1d1d1d;
+  color: var(--foreground);
 }
 .services-section .section-heading {
-  padding: clamp(24px, 3vw, 40px);
-  background: var(--background);
+  display: grid;
+  grid-template-columns: var(--service-columns);
+  gap: var(--service-column-gap);
   color: var(--foreground);
 }
 .services-section h2 em {
-  color: var(--primary);
+  color: var(--accent-cool);
 }
 .services-section .section-heading p {
-  color: #f4e9eb;
+  max-width: 36ch;
+  margin-top: 0;
+  color: #e9c9d2;
 }
 .service-row {
   display: grid;
@@ -2893,9 +2898,6 @@ em {
 .action-brand,
 .action:hover,
 .work-open,
-.services-section,
-.services-section .eyebrow,
-.services-section .section-topline,
 .price-featured,
 .price-featured .plan-price,
 .price-featured > p,
