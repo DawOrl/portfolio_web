@@ -70,11 +70,6 @@ export function ServiceArtwork({ kind }: { kind: string }) {
             />
             <path d="M225 163H238V176H225z" fill="#a00c30" />
           </g>
-          <path
-            d="M38 288H108M38 284V292M108 284V292"
-            stroke="#1d1d1d"
-            strokeOpacity=".35"
-          />
         </>
       )}
       {kind === "landing-page" && (

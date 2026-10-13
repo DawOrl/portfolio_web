@@ -9,7 +9,7 @@ import "./navbar.css";
 const links = [
   { label: "Realizacje", href: "/realizacje" },
   { label: "Usługi", href: "/#uslugi" },
-  { label: "O mnie", href: "/#o-mnie" },
+  { label: "O mnie", href: "/#o-mnie" },
   { label: "Cennik", href: "/#cennik" },
 ];
 const mobileLinks = [
@@ -142,7 +142,9 @@ export function Navbar() {
             aria-controls="mobile-menu"
             aria-label={open ? "Zamknij menu" : "Otwórz menu"}
           >
-            <span className="menu-toggle-label">{open ? "Zamknij" : "Menu"}</span>
+            <span className="menu-toggle-label">
+              {open ? "Zamknij" : "Menu"}
+            </span>
             <span className="menu-toggle-icon" aria-hidden="true">
               <i />
               <i />
@@ -160,7 +162,9 @@ export function Navbar() {
           <Link
             key={l.href}
             href={l.href}
-            className={l.href === "/#kontakt" ? "mobile-nav-contact" : undefined}
+            className={
+              l.href === "/#kontakt" ? "mobile-nav-contact" : undefined
+            }
             aria-current={currentFor(l.href)}
             onClick={() => setOpen(false)}
           >

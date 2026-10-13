@@ -16,19 +16,19 @@ const stages = [
     label: "Szkic",
     title: "Najpierw dobry układ.",
     description:
-      "Ustalam, co odwiedzający ma zobaczyć i zrobić. Zanim pojawią się kolory, treść dostaje swoje miejsce.",
+      "Ustalam, co odwiedzający ma zobaczyć i zrobić. Zanim pojawią się kolory, treść dostaje swoje miejsce.",
   },
   {
     label: "Projekt",
     title: "Potem własny charakter.",
     description:
-      "Dobieram typografię, kolory i proporcje. Ten sam układ nabiera charakteru Twojej marki, także na telefonie.",
+      "Dobieram typografię, kolory i proporcje. Ten sam układ nabiera charakteru Twojej marki, także na telefonie.",
   },
   {
     label: "Strona",
     title: "Na koniec wszystko działa.",
     description:
-      "Składam projekt w gotową stronę. Nawigacja, przyciski i treści tworzą spójną całość na każdym ekranie.",
+      "Składam projekt w gotową stronę. Nawigacja, przyciski i treści tworzą spójną całość na każdym ekranie.",
   },
 ] as const;
 
@@ -97,7 +97,8 @@ function BuildWebsite({ mobile = false }: { mobile?: boolean }) {
           </div>
           <p className="build-site-description build-content-part">
             Strony, które mają charakter.
-            <br />I pomagają Twojej firmie.
+            <br />
+            I&nbsp;pomagają Twojej firmie.
           </p>
           <span className="build-site-action build-ready-part">
             Porozmawiajmy <ArrowUpRight size={12} strokeWidth={1.75} />
@@ -273,7 +274,7 @@ export function ProcessBuild() {
         <div className="process-build-header">
           <div>
             <h3 id="process-build-title">Od szkicu do gotowej strony.</h3>
-            <p>Wybierz etap. Porównaj desktop i mobile.</p>
+            <p>Wybierz etap. Porównaj desktop i&nbsp;mobile.</p>
           </div>
           <div
             className="process-build-stage-controls"
@@ -364,7 +365,7 @@ export function ProcessBuild() {
             <span>{stages[stage].title}</span>
             <p>{stages[stage].description}</p>
           </div>
-          <span className="process-build-format">Desktop i mobile</span>
+          <span className="process-build-format">Desktop i&nbsp;mobile</span>
         </div>
       </div>
     </section>

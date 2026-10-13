@@ -7,7 +7,7 @@ export function AboutPortrait() {
     <div className="about-portrait-stage">
       <div className="about-portrait-top">
         <nav className="about-portrait-tabs" aria-label="Poznaj mnie">
-          <span>O mnie</span>
+          <span>O&nbsp;mnie</span>
           <a href="#moje-podejscie">Podejście</a>
           <a
             href="/Dawid_Orlowski_CV.pdf?v=2026-09-22"
@@ -21,7 +21,7 @@ export function AboutPortrait() {
       </div>
 
       <h2 id="about-heading" className="sr-only">
-        Dawid Orłowski - designer i developer
+        Dawid Orłowski&nbsp;- designer i&nbsp;developer
       </h2>
       <span className="about-first-name" aria-hidden="true">
         DAWID
@@ -40,9 +40,9 @@ export function AboutPortrait() {
 
       <p className="about-portrait-role">
         <i aria-hidden="true" />
-        Designer z wyobraźnią.
+        Designer z&nbsp;wyobraźnią.
         <br />
-        Developer z konkretami.
+        Developer z&nbsp;konkretami.
       </p>
       <div className="about-portrait-bottom">
         <a href="#moje-podejscie">

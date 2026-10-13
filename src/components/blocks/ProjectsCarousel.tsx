@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { getImageProps } from "next/image";
 import { useRef, useState, type RefObject } from "react";
 import { createPortal } from "react-dom";
 import { useGSAP } from "@gsap/react";
@@ -12,7 +12,7 @@ import {
   Smartphone,
   X,
 } from "lucide-react";
-import type { Project } from "@/lib/projects";
+import { projectName, type Project } from "@/lib/projects";
 import { ProjectMotionPreview } from "./ProjectMotionPreview";
 import {
   ProjectCaseLink,
@@ -23,13 +23,44 @@ import "./carousel-project-preview.css";
 
 gsap.registerPlugin(useGSAP);
 
+/** Same breakpoint as the phone layout in globals.css. */
+const PHONE_MEDIA = "(max-width: 760px)";
+
 type PreviewOrigin = {
   left: number;
   top: number;
   width: number;
   height: number;
   src: string;
+  /** The card showed the portrait phone screenshot, so it lands in the phone frame. */
+  portrait: boolean;
 };
+
+/** A desktop page shrunk into a phone-sized card is unreadable, so phones get the portrait shot. */
+function CardCover({ project, mobile }: { project: Project; mobile?: string }) {
+  const alt = `Podgląd strony ${projectName(project)}`;
+  const { props: desktop } = getImageProps({
+    src: project.cover,
+    alt,
+    fill: true,
+    sizes: "360px",
+  });
+  // 210px matches the phone frame in the details panel, so opening it reuses this file.
+  const phone =
+    mobile && getImageProps({ src: mobile, alt, fill: true, sizes: "210px" });
+  return (
+    <picture>
+      {phone && (
+        <source
+          media={PHONE_MEDIA}
+          srcSet={phone.props.srcSet}
+          sizes={phone.props.sizes}
+        />
+      )}
+      <img {...desktop} alt={alt} draggable={false} />
+    </picture>
+  );
+}
 
 function ProjectDetailsPanel({
   project,
@@ -44,7 +75,7 @@ function ProjectDetailsPanel({
 }) {
   const dialog = useRef<HTMLDialogElement>(null);
   const flight = useRef<HTMLDivElement>(null);
-  const title = project.title.split(" - ")[0];
+  const title = projectName(project);
   const mobile = project.gallery.find((src) => src.endsWith("/mobile.png"));
 
   useGSAP(
@@ -58,8 +89,11 @@ function ProjectDetailsPanel({
 
       const preference = gsap.matchMedia(panel);
       preference.add("(prefers-reduced-motion: no-preference)", () => {
+        const portrait = Boolean(origin?.portrait);
         gsap.from(
-          ".carousel-detail-header, .carousel-detail-phone, .carousel-detail-copy",
+          portrait
+            ? ".carousel-detail-header, .carousel-detail-copy"
+            : ".carousel-detail-header, .carousel-detail-phone, .carousel-detail-copy",
           {
             y: 16,
             opacity: 0.5,
@@ -70,15 +104,28 @@ function ProjectDetailsPanel({
             clearProps: "transform,opacity",
           },
         );
-        const cover = panel.querySelector<HTMLImageElement>(
-          ".carousel-detail-desktop-screen img",
+        // A portrait card lands on the phone screen, a desktop one in the browser frame.
+        const cover = panel.querySelector<HTMLElement>(
+          portrait
+            ? ".carousel-detail-phone .project-preview-viewport"
+            : ".carousel-detail-desktop-screen img",
         );
+        const target = portrait
+          ? panel.querySelector<HTMLElement>(".carousel-detail-phone")
+          : cover;
         const moving = flight.current;
-        if (!origin || !moving || !cover || !origin.width || !origin.height)
+        if (
+          !origin ||
+          !moving ||
+          !cover ||
+          !target ||
+          !origin.width ||
+          !origin.height
+        )
           return;
         const bounds = cover.getBoundingClientRect();
         moving.hidden = false;
-        gsap.set(cover, { autoAlpha: 0 });
+        gsap.set(target, { autoAlpha: 0 });
         gsap.fromTo(
           moving,
           {
@@ -91,13 +138,18 @@ function ProjectDetailsPanel({
           {
             x: bounds.left,
             y: bounds.top,
-            scaleX: bounds.width / origin.width,
-            scaleY: bounds.height / origin.height,
+            // Resizing keeps the top-cropped phone shot undistorted on its way down.
+            ...(portrait
+              ? { width: bounds.width, height: bounds.height }
+              : {
+                  scaleX: bounds.width / origin.width,
+                  scaleY: bounds.height / origin.height,
+                }),
             duration: 0.52,
             ease: "power3.inOut",
             onComplete: () => {
-              cover.style.removeProperty("opacity");
-              cover.style.removeProperty("visibility");
+              target.style.removeProperty("opacity");
+              target.style.removeProperty("visibility");
               moving.hidden = true;
             },
           },
@@ -212,7 +264,7 @@ function ProjectDetailsPanel({
       {origin && (
         <div
           ref={flight}
-          className="carousel-cover-flight"
+          className={`carousel-cover-flight${origin.portrait ? " is-portrait" : ""}`}
           hidden
           aria-hidden="true"
           style={{ width: origin.width, height: origin.height }}
@@ -273,19 +325,9 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
     >
       <div className="carousel-top">
         <span>WYBRANE PRACE / DESIGN & DEVELOPMENT</span>
-        <span className="carousel-instruction">
-          WYBIERZ SWOJĄ PERSPEKTYWĘ <ArrowUpRight size={14} />
-        </span>
+        <span className="carousel-instruction">WYBIERZ SWOJĄ PERSPEKTYWĘ</span>
       </div>
       <div className="carousel-scene">
-        <button
-          type="button"
-          className="carousel-side-button carousel-side-previous"
-          onClick={() => move(-1)}
-          aria-label="Poprzedni projekt"
-        >
-          <ArrowLeft size={22} strokeWidth={1.75} aria-hidden="true" />
-        </button>
         <div
           className="spatial-stage"
           tabIndex={0}
@@ -354,6 +396,9 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                           width: bounds.width,
                           height: bounds.height,
                           src: source.currentSrc,
+                          portrait:
+                            Boolean(mobile) &&
+                            window.matchMedia(PHONE_MEDIA).matches,
                         }
                       : null,
                   );
@@ -369,14 +414,10 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                   details === index ? "carousel-project-details" : undefined
                 }
               >
-                <div className="spatial-card-image">
-                  <Image
-                    src={project.cover}
-                    alt={`Podgląd strony ${project.title.split(" - ")[0]}`}
-                    fill
-                    sizes="(max-width: 760px) 55vw, 360px"
-                    draggable={false}
-                  />
+                <div
+                  className={`spatial-card-image${mobile ? " has-mobile" : ""}`}
+                >
+                  <CardCover project={project} mobile={mobile} />
                 </div>
                 {index === active && mobile && (
                   <ProjectMotionPreview
@@ -391,7 +432,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                     {String(index + 1).padStart(2, "0")} / {project.year}
                   </span>
                   <span className="spatial-card-name">
-                    {project.title.split(" - ")[0]}
+                    {projectName(project)}
                   </span>
                 </span>
               </button>
@@ -401,6 +442,15 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
             PRZECIĄGNIJ LUB WYBIERZ KARTĘ
           </span>
         </div>
+        {/* The arrows follow the stage so focus order matches phones, where they sit beneath it. */}
+        <button
+          type="button"
+          className="carousel-side-button carousel-side-previous"
+          onClick={() => move(-1)}
+          aria-label="Poprzedni projekt"
+        >
+          <ArrowLeft size={22} strokeWidth={1.75} aria-hidden="true" />
+        </button>
         <div className="carousel-side-next">
           <button
             type="button"
@@ -455,8 +505,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
         aria-live="polite"
         aria-atomic="true"
       >
-        Projekt {active + 1} z {projects.length}:{" "}
-        {selected.title.split(" - ")[0]}.
+        Projekt {active + 1} z {projects.length}: {projectName(selected)}.
       </p>
       {details !== null && (
         <ProjectDetailsPanel

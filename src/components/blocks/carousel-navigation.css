@@ -102,7 +102,12 @@
   }
 }
 
+/* Phones: the arrows leave the cards and flank the counter in one row under the stage. */
 @media (max-width: 760px) {
+  .spatial-carousel.carousel-with-side-navigation {
+    display: flex;
+    flex-direction: column;
+  }
   .spatial-carousel .carousel-scene {
     margin-inline: -12px;
   }
@@ -112,21 +117,33 @@
   }
   .spatial-carousel .carousel-side-previous,
   .spatial-carousel .carousel-side-next {
-    transform: translateY(-22px);
+    top: calc(100% + 8px);
+    transform: none;
   }
   .spatial-carousel .carousel-side-previous {
-    left: 0;
+    left: calc(50% - 104px);
   }
   .spatial-carousel .carousel-side-next {
-    right: 0;
-    gap: 8px;
+    right: calc(50% - 104px);
   }
   .spatial-carousel .carousel-scene-count {
+    min-height: 44px;
+    margin-top: 8px;
+    align-items: center;
     padding-inline: 2px;
     font-size: var(--type-label);
     line-height: var(--leading-body);
   }
   .spatial-carousel .carousel-scene-count > span:first-child {
     font-size: var(--type-card);
+  }
+  .spatial-carousel .carousel-scene-progress {
+    order: 1;
+    margin-top: 4px;
+  }
+  /* The cards already show the phone screenshot, so the mobile preview adds nothing here. */
+  .spatial-carousel .carousel-preview-actions,
+  .spatial-carousel .spatial-card .project-motion-preview {
+    display: none;
   }
 }

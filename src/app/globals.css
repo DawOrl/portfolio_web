@@ -1683,7 +1683,8 @@ em {
   border-bottom: 1px solid var(--border);
   margin-bottom: 24px;
   color: #aaa7a3;
-  font-size: 11px;
+  font-size: var(--type-label);
+  line-height: var(--leading-ui);
   letter-spacing: 0.06em;
 }
 .carousel-instruction {
@@ -1984,7 +1985,6 @@ em {
     --slide-width: 90%;
   }
   .carousel-top {
-    font-size: 10px;
     letter-spacing: 0.03em;
     margin-bottom: 18px;
   }
@@ -2401,6 +2401,13 @@ em {
   letter-spacing: var(--tracking-heading);
   font-weight: var(--weight-heading);
 }
+/* Only the selected card names its project; receding titles would be cut by their neighbours. */
+.spatial-card-label > span {
+  transition: opacity 0.4s;
+}
+.spatial-card[data-active="false"] .spatial-card-label > span {
+  opacity: 0;
+}
 .spatial-card[data-active="true"] {
   border-color: var(--accent-ink);
 }
@@ -2438,9 +2445,57 @@ em {
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 10px;
-  letter-spacing: 0.08em;
+  font-size: var(--type-label);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label);
   color: #918d8a;
+}
+@media (hover: none) {
+  .spatial-stage-note {
+    display: none;
+  }
+}
+/* Narrow stages fade at the edges, so outer cards dissolve instead of being sliced. */
+@media (max-width: 1100px) {
+  .spatial-stage {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 7%,
+      #000 93%,
+      transparent
+    );
+  }
+}
+/* Tablets: the orbit narrows with the stage so the outer cards stay inside it. */
+@media (min-width: 761px) and (max-width: 1100px) {
+  .spatial-stage {
+    container-type: inline-size;
+  }
+  .spatial-card[data-position="1"] {
+    transform: translate3d(min(235px, 24.5cqw), 0, -95px) rotateY(-24deg)
+      scale(0.88);
+  }
+  .spatial-card[data-position="-1"] {
+    transform: translate3d(max(-235px, -24.5cqw), 0, -95px) rotateY(24deg)
+      scale(0.88);
+  }
+  .spatial-card[data-position="2"] {
+    transform: translate3d(min(385px, 40cqw), -35px, -240px) rotateY(-32deg)
+      scale(0.77);
+  }
+  .spatial-card[data-position="-2"] {
+    transform: translate3d(max(-385px, -40cqw), -35px, -240px) rotateY(32deg)
+      scale(0.77);
+  }
+  .spatial-card[data-position="3"] {
+    transform: translate3d(min(255px, 26.5cqw), -160px, -430px) rotateY(-18deg)
+      scale(0.69);
+  }
+  .spatial-card[data-position="-3"] {
+    transform: translate3d(max(-255px, -26.5cqw), -160px, -430px) rotateY(18deg)
+      scale(0.69);
+  }
 }
 @media (max-width: 760px) {
   .spatial-stage {
@@ -2449,7 +2504,7 @@ em {
     overflow: hidden;
   }
   .spatial-card {
-    --card-caption-height: 128px;
+    --card-caption-height: 84px;
     width: 185px;
     height: 280px;
     margin-left: -92.5px;
@@ -2478,9 +2533,13 @@ em {
   .spatial-card[data-position="4"] {
     transform: translate3d(0, -135px, -440px) scale(0.6);
   }
+  .spatial-card-image.has-mobile img {
+    object-fit: cover;
+    object-position: top;
+  }
   .spatial-card-label {
-    gap: 6px;
-    padding: 12px 13px;
+    gap: 4px;
+    padding: 10px 13px;
   }
   .spatial-card-number {
     font-size: var(--type-label);
@@ -2488,13 +2547,12 @@ em {
     letter-spacing: var(--tracking-label);
   }
   .spatial-card-name {
-    font-size: var(--type-card);
+    font-size: var(--type-body);
     line-height: var(--leading-heading);
     letter-spacing: var(--tracking-heading);
     font-weight: var(--weight-heading);
   }
   .spatial-stage-note {
-    font-size: 9px;
     letter-spacing: 0.04em;
   }
 }

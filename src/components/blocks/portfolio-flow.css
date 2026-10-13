@@ -82,14 +82,8 @@
   stroke-linejoin: round;
 }
 
-@media (max-width: 1100px) {
-  .portfolio-home > .portfolio-flow {
-    right: 6px;
-    width: 20px;
-  }
-}
-
-@media (max-width: 760px),
+/* Below laptop width the gutter is too narrow: the path would cross content and artwork. */
+@media (max-width: 1100px),
   (prefers-reduced-motion: reduce),
   (forced-colors: active) {
   .portfolio-home > .portfolio-flow {

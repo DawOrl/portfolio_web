@@ -26,3 +26,13 @@
     --type-statement: clamp(2.5rem, 12vw, 3.75rem);
   }
 }
+
+/* Polska typografia: wyważone nagłówki h3, ładniejsze łamanie akapitów i list. */
+h3 {
+  text-wrap: balance;
+}
+
+p,
+li {
+  text-wrap: pretty;
+}

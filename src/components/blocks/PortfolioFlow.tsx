@@ -69,7 +69,7 @@ export function PortfolioFlow() {
       const media = gsap.matchMedia(root);
 
       media.add(
-        "(min-width: 761px) and (prefers-reduced-motion: no-preference) and (forced-colors: none)",
+        "(min-width: 1101px) and (prefers-reduced-motion: no-preference) and (forced-colors: none)",
         () => {
           let alive = true;
           let frame = 0;

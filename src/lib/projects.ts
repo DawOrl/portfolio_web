@@ -24,6 +24,11 @@ export function getFeaturedProjects(limit = 3): Project[] {
   return base.slice(0, limit);
 }
 
+/** Nazwa projektu bez podtytułu po „ - ” (dane sklejają myślnik twardą spacją). */
+export function projectName(project: Project): string {
+  return project.title.split(/\s-\s/)[0];
+}
+
 /** Pojedynczy projekt po slugu (lub undefined). */
 export function getProjectBySlug(slug: string): Project | undefined {
   return cvData.projects.find((p) => p.slug === slug);
@@ -31,5 +36,8 @@ export function getProjectBySlug(slug: string): Project | undefined {
 
 /** Lista kategorii do filtrowania (z prefiksem „Wszystkie”) — tylko z opublikowanych. */
 export function getProjectCategories(): string[] {
-  return ["Wszystkie", ...Array.from(new Set(getProjects().map((p) => p.category)))];
+  return [
+    "Wszystkie",
+    ...Array.from(new Set(getProjects().map((p) => p.category))),
+  ];
 }

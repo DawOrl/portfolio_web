@@ -1,4 +1,6 @@
-export const cvData = {
+import { plDeep } from "@/lib/typography";
+
+const rawCvData = {
   personal: {
     name: "Dawid Orłowski",
     role: "Fullstack AI Developer",
@@ -112,7 +114,8 @@ export const cvData = {
       name: "Start",
       tagline: "Wizytówka Twojej firmy",
       price: "od 990 zł",
-      description: "Dla małej firmy, która potrzebuje dobrego pierwszego wrażenia i prostego sposobu na kontakt.",
+      description:
+        "Dla małej firmy, która potrzebuje dobrego pierwszego wrażenia i prostego sposobu na kontakt.",
       features: [
         "Jedna strona, do 5 sekcji",
         "Wygląd dopasowany do Twojej marki",
@@ -128,7 +131,8 @@ export const cvData = {
       name: "Biznes",
       tagline: "Strona firmowa",
       price: "od 1 990 zł",
-      description: "Miejsce na Twoją ofertę, realizacje i historię firmy. Dla klientów, którzy chcą poznać Cię bliżej.",
+      description:
+        "Miejsce na Twoją ofertę, realizacje i historię firmy. Dla klientów, którzy chcą poznać Cię bliżej.",
       features: [
         "Do 5 stron, w tym strona główna",
         "Indywidualny wygląd dopasowany do marki",
@@ -144,7 +148,8 @@ export const cvData = {
       name: "Landing",
       tagline: "Jedna oferta. Konkretny cel.",
       price: "od 1 490 zł",
-      description: "Strona pod wybraną usługę lub kampanię. Pomaga zrozumieć ofertę i zrobić kolejny krok.",
+      description:
+        "Strona pod wybraną usługę lub kampanię. Pomaga zrozumieć ofertę i zrobić kolejny krok.",
       features: [
         "Jedna strona, do 8 sekcji",
         "Układ dopasowany do celu kampanii",
@@ -158,9 +163,21 @@ export const cvData = {
     },
   ],
   pricingExtras: [
-    { name: "Teksty na wizytówkę lub landing", detail: "Do 1 000 słów", price: "+350 zł" },
-    { name: "Teksty na stronę firmową", detail: "Do 2 500 słów", price: "+700 zł" },
-    { name: "Dodatkowa podstrona", detail: "W istniejącym układzie strony", price: "+250 zł" },
+    {
+      name: "Teksty na wizytówkę lub landing",
+      detail: "Do 1 000 słów",
+      price: "+350 zł",
+    },
+    {
+      name: "Teksty na stronę firmową",
+      detail: "Do 2 500 słów",
+      price: "+700 zł",
+    },
+    {
+      name: "Dodatkowa podstrona",
+      detail: "W istniejącym układzie strony",
+      price: "+250 zł",
+    },
   ],
 
   // Opinie — TODO: zastąp prawdziwymi opiniami klientów (na razie przykładowe)
@@ -548,3 +565,6 @@ export const cvData = {
     },
   ],
 };
+
+/** Treści z poprawioną polską typografią (twarde spacje po jednoliterowych słowach). */
+export const cvData = plDeep(rawCvData);

@@ -8,7 +8,7 @@
 }
 
 .portfolio-home .work-section-featured {
-  padding-bottom: clamp(24px, 2vw, 32px);
+  padding-bottom: var(--chapter-space);
 }
 .portfolio-home .services-section {
   padding-block: 40px var(--chapter-space);
@@ -226,7 +226,8 @@
   gap: 14px;
   min-height: 54px;
   padding-inline: 16px;
-  font-size: 13px;
+  font-size: var(--type-ui);
+  white-space: nowrap;
 }
 .portfolio-home .price-featured {
   border: 0;
@@ -464,8 +465,23 @@
     border-color 150ms,
     box-shadow 150ms;
 }
+/* Hints stay readable (4.3:1) but sit clearly below typed cream text (7.2:1). */
 .portfolio-home .contact-field :is(input, textarea)::placeholder {
-  color: #edced5;
+  color: #e0b0bb;
+  opacity: 1;
+}
+/* Own chevron: the native one indents the text away from the other fields. */
+.portfolio-home .contact-field select {
+  appearance: none;
+  padding-right: 32px;
+  background: transparent
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f4f0eb' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E")
+    no-repeat right 2px center / 18px 18px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.portfolio-home .contact-field select:has(option[value=""]:checked) {
+  color: #e0b0bb;
 }
 .portfolio-home .contact-field :is(input, select, textarea):focus {
   border-color: var(--chapter-paper);
@@ -531,15 +547,70 @@
   .portfolio-home .plan-price strong {
     font-size: 42px;
   }
-  .portfolio-home .price-plan .action {
-    font-size: 12px;
-    padding-inline: 12px;
-  }
   .portfolio-home .contact-layout {
     gap: 55px;
   }
   .portfolio-home .contact-title-art h2 {
     font-size: clamp(52px, 6.3vw, 70px);
+  }
+}
+
+/* Portrait tablets: one package per row, the offer beside its feature list. */
+@media (min-width: 761px) and (max-width: 1023px) {
+  .portfolio-home .pricing-section .section-heading {
+    flex-direction: column;
+    align-items: start;
+    gap: 24px;
+  }
+  .portfolio-home .pricing-section .section-heading p {
+    max-width: 46ch;
+  }
+  .portfolio-home .pricing-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portfolio-home .price-plan {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: repeat(5, auto) 1fr auto;
+    column-gap: 48px;
+    padding: 34px 0 40px;
+  }
+  /* Bleeds to the page edge so every package starts on the same axis. */
+  .portfolio-home .price-featured {
+    margin-inline: -32px;
+    padding-inline: 32px;
+  }
+  .portfolio-home .plan-index {
+    grid-column: 1 / -1;
+  }
+  .portfolio-home
+    .price-plan
+    > :is(.plan-top, .plan-heading, .plan-price, .plan-description) {
+    grid-column: 1;
+  }
+  .portfolio-home .plan-top h3 {
+    font-size: 32px;
+  }
+  .portfolio-home .plan-heading,
+  .portfolio-home .plan-description {
+    min-height: 0;
+  }
+  .portfolio-home .plan-price strong {
+    font-size: 56px;
+  }
+  .portfolio-home .price-plan ul {
+    grid-column: 2;
+    grid-row: 2 / 7;
+    margin: 0 0 32px;
+    padding-top: 0;
+    border-top: 0;
+  }
+  .portfolio-home .price-plan .action {
+    grid-column: 2;
+    grid-row: 7;
+  }
+  .portfolio-home .pricing-extras {
+    gap: 48px;
   }
 }
 
@@ -587,10 +658,13 @@
     grid-template-columns: 1fr;
     gap: 15px;
   }
+  /* Open packages sit on the page axis; the featured card bleeds to the edge. */
   .portfolio-home .price-plan {
-    padding: 30px 24px;
+    padding: 30px 0;
   }
   .portfolio-home .price-featured {
+    margin-inline: -20px;
+    padding-inline: 20px;
     border-radius: 0 50px 0 0;
   }
   .portfolio-home .plan-index {
@@ -609,7 +683,7 @@
     min-height: 0;
   }
   .portfolio-home .price-plan .action {
-    font-size: var(--type-ui);
+    gap: 12px;
     padding-inline: 18px;
   }
   .portfolio-home .pricing-included {
@@ -670,9 +744,26 @@
   }
 }
 
+/* Narrow phones: the step number moves above its title to free the full width. */
+@media (max-width: 400px) {
+  .portfolio-home .process-grid article {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .portfolio-home .process-number {
+    grid-row: auto;
+    margin-bottom: 14px;
+    padding-top: 0;
+    font-size: 24px;
+  }
+}
+
 @media (forced-colors: active) {
   .process-chapter-form,
   .contact-chapter-form {
     display: none;
+  }
+  .portfolio-home .contact-field select {
+    appearance: auto;
+    background-image: none;
   }
 }

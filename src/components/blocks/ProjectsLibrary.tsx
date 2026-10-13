@@ -53,7 +53,7 @@ export function ProjectsLibrary({
       <p className="library-result-count" role="status" aria-atomic="true">
         <span>{active}</span>
         <span>
-          Wyświetlono {filtered.length} z {projects.length} projektów
+          Wyświetlono {filtered.length} z&nbsp;{projects.length} projektów
         </span>
       </p>
       <div id="library-results" className="library-grid">
@@ -65,7 +65,7 @@ export function ProjectsLibrary({
       </div>
       {filtered.length === 0 && (
         <div className="library-empty">
-          <h2>Brak projektów w tej kategorii.</h2>
+          <h2>Brak projektów w&nbsp;tej kategorii.</h2>
           <p>Wybierz inny rodzaj projektu lub wróć do pełnej biblioteki.</p>
           <button type="button" onClick={() => setActive("Wszystkie")}>
             Pokaż wszystkie projekty
@@ -75,7 +75,9 @@ export function ProjectsLibrary({
       <Link href="/#kontakt" className="library-invitation">
         <span>
           <strong>Twój projekt może być tutaj</strong>
-          <span>Porozmawiajmy o Twojej stronie. Wycena jest bezpłatna.</span>
+          <span>
+            Porozmawiajmy o&nbsp;Twojej stronie. Wycena jest bezpłatna.
+          </span>
         </span>
         <ArrowUpRight size={28} aria-hidden="true" />
       </Link>

@@ -222,6 +222,11 @@
   object-position: center;
 }
 
+.carousel-cover-flight.is-portrait img {
+  object-fit: cover;
+  object-position: top;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .carousel-detail-close:hover {
     border-color: var(--foreground);

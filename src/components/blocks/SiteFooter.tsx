@@ -45,7 +45,7 @@ export function SiteFooter({
       </div>
       <div className="footer-bottom">
         <span>© {new Date().getFullYear()} Dawid Orłowski</span>
-        <span>Zaprojektowane z pomysłem. Zakodowane z głową.</span>
+        <span>Zaprojektowane z&nbsp;pomysłem. Zakodowane z&nbsp;głową.</span>
         <BackToTopLink />
       </div>
     </footer>

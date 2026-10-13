@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import type { Project } from "@/lib/projects";
+import { projectName, type Project } from "@/lib/projects";
 import "./project-card.css";
 
 export function ProjectCard({
@@ -11,7 +11,7 @@ export function ProjectCard({
   project: Project;
   index?: number;
 }) {
-  const title = project.title.split(" - ")[0];
+  const title = projectName(project);
   const mobile = project.gallery.find((src) => src.endsWith("/mobile.png"));
 
   return (

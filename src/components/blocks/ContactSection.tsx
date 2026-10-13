@@ -117,7 +117,7 @@ export function ContactSection({
     if (
       formatContactIntentMessage(message, intent).length > CONTACT_MESSAGE_LIMIT
     ) {
-      e.message = `Skróć opis o ${message.trim().length - messageLimit} znaków, aby zmieścić także wybrany kontekst.`;
+      e.message = `Skróć opis o ${message.trim().length - messageLimit} znaków, aby zmieścić także wybrany kontekst.`;
     }
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -242,7 +242,8 @@ export function ContactSection({
             </div>
             <p className="contact-invitation-copy">
               Masz pomysł, pytanie albo potrzebujesz nowego spojrzenia na swoją
-              stronę? Napisz kilka słów. Zwykle odpowiadam w ciągu 24 godzin.
+              stronę? Napisz kilka słów. Zwykle odpowiadam w&nbsp;ciągu 24
+              godzin.
             </p>
             <div className="contact-direct">
               <a href={`mailto:${cvData.personal.email}`}>
@@ -253,7 +254,7 @@ export function ContactSection({
                 +48 {cvData.personal.phone}
                 <ArrowUpRight size={15} />
               </a>
-              <span>Kraków · współpraca zdalna w całej Polsce</span>
+              <span>Kraków · współpraca zdalna w&nbsp;całej Polsce</span>
             </div>
             <div className="contact-chapter-form" aria-hidden="true">
               <Image
@@ -268,7 +269,7 @@ export function ContactSection({
           <div className="contact-form-column">
             <div className="contact-form-heading">
               <span className="eyebrow">BEZPŁATNA WYCENA</span>
-              <h3>Opowiedz o projekcie.</h3>
+              <h3>Opowiedz o&nbsp;projekcie.</h3>
             </div>
             {status === "success" || status === "mailto" ? (
               <div className="contact-success" role="status">
@@ -280,7 +281,7 @@ export function ContactSection({
                 </h3>
                 <p>
                   {status === "mailto"
-                    ? "Otworzyłem program pocztowy z treścią zapytania. Wyślij wiadomość w swoim programie, aby do mnie dotarła."
+                    ? "Otworzyłem program pocztowy z treścią zapytania. Wyślij wiadomość w swoim programie, aby do mnie dotarła."
                     : "Twoja wiadomość została wysłana. Odezwę się najszybciej, jak to możliwe."}
                 </p>
                 <button
@@ -298,7 +299,7 @@ export function ContactSection({
                 onSubmit={handleSubmit}
                 noValidate
                 className="contact-form"
-                aria-label="Zapytanie o projekt"
+                aria-label="Zapytanie o projekt"
                 aria-busy={status === "sending"}
               >
                 {intent && (
@@ -319,7 +320,7 @@ export function ContactSection({
                           clearContactIntent();
                           serviceRef.current?.focus();
                         }}
-                        aria-label="Zmień wybrany kontekst w rodzaju projektu"
+                        aria-label="Zmień wybrany kontekst w rodzaju projektu"
                       >
                         Zmień
                       </button>
@@ -400,13 +401,13 @@ export function ContactSection({
                       </option>
                     ))}
                     <option value="Inne">
-                      Porozmawiajmy - jeszcze nie wiem
+                      Porozmawiajmy&nbsp;- jeszcze nie wiem
                     </option>
                   </select>
                 </div>
                 <div className="contact-field">
                   <label htmlFor="message">
-                    Opowiedz o swoim pomyśle <span>*</span>
+                    Opowiedz o&nbsp;swoim pomyśle <span>*</span>
                   </label>
                   <textarea
                     id="message"
@@ -416,7 +417,7 @@ export function ContactSection({
                     rows={3}
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
-                    placeholder="Czym się zajmujesz i czego potrzebujesz?"
+                    placeholder="Czym się zajmujesz i czego potrzebujesz?"
                     aria-invalid={!!errors.message}
                     aria-describedby={
                       errors.message ? "message-error" : undefined
@@ -430,9 +431,9 @@ export function ContactSection({
                 </div>
                 <p className="contact-privacy-note">
                   Administratorem danych jest Dawid Orłowski. Podane dane
-                  wykorzystam do odpowiedzi i ustalenia szczegółów współpracy.
-                  Informacje o podstawach przetwarzania, dostawcach usług i
-                  Twoich prawach znajdziesz w{" "}
+                  wykorzystam do odpowiedzi i&nbsp;ustalenia szczegółów
+                  współpracy. Informacje o&nbsp;podstawach przetwarzania,
+                  dostawcach usług i&nbsp;Twoich prawach znajdziesz w{" "}
                   <Link
                     href="/polityka-prywatnosci"
                     target="_blank"

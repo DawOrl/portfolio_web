@@ -2,6 +2,8 @@
   padding-block: 0 100px;
 }
 .about-portrait-stage {
+  /* Text rows sit on the page shell; the names and the portrait stay full bleed. */
+  --about-gutter: max(56px, calc((100% - 1280px) / 2));
   position: relative;
   height: clamp(680px, 56vw, 860px);
   isolation: isolate;
@@ -12,7 +14,6 @@
     #242627 40%,
     #1d1d1d 76%
   );
-  border-bottom: 1px solid #ffffff14;
 }
 .about-portrait-stage::before {
   content: "";
@@ -20,28 +21,33 @@
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: url("/about-background-blender-desktop.webp") center / cover
-    no-repeat;
+  background:
+    linear-gradient(to bottom, var(--background), transparent 150px),
+    url("/about-background-blender-desktop.webp") center / cover no-repeat;
 }
+/* Over the portrait, under the names: the stage dissolves into the story instead of ending in a cut. */
 .about-portrait-stage::after {
   content: "";
   position: absolute;
-  inset: 0;
-  z-index: 0;
+  inset: auto 0 0;
+  z-index: 2;
+  height: 260px;
   pointer-events: none;
-  background:
-    linear-gradient(to bottom, var(--background), transparent 150px),
-    linear-gradient(
-      to top,
-      color-mix(in srgb, var(--background) 65%, transparent),
-      transparent 150px
-    );
+  background: linear-gradient(
+    to top,
+    var(--background),
+    color-mix(in srgb, var(--background) 90%, transparent) 20%,
+    color-mix(in srgb, var(--background) 65%, transparent) 40%,
+    color-mix(in srgb, var(--background) 35%, transparent) 60%,
+    color-mix(in srgb, var(--background) 10%, transparent) 80%,
+    transparent
+  );
 }
 .about-portrait-top,
 .about-portrait-bottom {
   position: absolute;
-  left: 5.2%;
-  right: 5.2%;
+  left: var(--about-gutter);
+  right: var(--about-gutter);
   z-index: 4;
   display: flex;
   align-items: center;
@@ -134,7 +140,7 @@
 .about-portrait-role {
   position: absolute;
   z-index: 3;
-  left: 5.2%;
+  left: var(--about-gutter);
   top: 18%;
   max-width: 260px;
   font-size: var(--type-body);
@@ -188,25 +194,28 @@
 }
 @media (min-width: 761px) and (max-width: 1100px) {
   .about-portrait-stage {
+    --about-gutter: 32px;
     height: 650px;
   }
   .about-portrait-image {
-    left: 52%;
+    left: 60%;
     height: 104%;
     top: 9%;
   }
+  /* Inset by the 16px scroll drift (PortfolioMotion), so both names hold the gutters and DAWID clears the face. */
   .about-first-name {
     top: 44%;
+    left: calc(var(--about-gutter) + 16px);
+    font-size: 10.8vw;
   }
   .about-last-name {
     top: 73%;
+    right: calc(var(--about-gutter) + 16px);
+    font-size: 9.4vw;
   }
   .about-portrait-role {
     top: 18%;
     max-width: 235px;
-  }
-  .about-portrait-index {
-    display: none;
   }
 }
 @media (max-width: 760px) {
@@ -214,15 +223,22 @@
     padding-bottom: 65px;
   }
   .about-portrait-stage {
-    height: 650px;
+    --about-gutter: 20px;
+    height: 690px;
   }
   .about-portrait-stage::before {
-    background-image: url("/about-background-blender-mobile.webp");
+    background-image:
+      linear-gradient(to bottom, var(--background), transparent 150px),
+      url("/about-background-blender-mobile.webp");
   }
+  .about-portrait-stage::after {
+    height: 200px;
+  }
+  /* The section index takes its own row above the tabs. */
   .about-portrait-top {
     top: 25px;
-    left: 20px;
-    right: 20px;
+    flex-wrap: wrap;
+    gap: 14px;
   }
   .about-portrait-tabs {
     gap: 5px;
@@ -231,31 +247,30 @@
     padding-inline: 8px;
   }
   .about-portrait-index {
-    display: none;
+    order: -1;
+    flex-basis: 100%;
   }
   .about-first-name {
     z-index: 3;
-    top: 176px;
-    left: 5%;
+    top: 212px;
+    left: var(--about-gutter);
     font-size: 20vw;
   }
   .about-portrait-image {
     width: 460px;
     height: 575px;
     left: 50%;
-    top: 155px;
+    top: 191px;
   }
   .about-last-name {
     top: auto;
     bottom: 103px;
-    right: 5%;
+    right: var(--about-gutter);
     font-size: 13.4vw;
   }
   .about-portrait-role {
-    top: 86px;
-    left: auto;
-    right: 20px;
-    width: min(260px, calc(100% - 40px));
+    top: 122px;
+    width: min(260px, calc(100% - 2 * var(--about-gutter)));
   }
   .about-portrait-role i {
     width: 8px;
@@ -263,8 +278,6 @@
     margin-bottom: 9px;
   }
   .about-portrait-bottom {
-    left: 20px;
-    right: 20px;
     bottom: 24px;
     flex-direction: column;
     align-items: start;

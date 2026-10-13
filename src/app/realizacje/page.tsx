@@ -8,9 +8,9 @@ import { getProjects, getProjectCategories } from "@/lib/projects";
 import "./library.css";
 
 export const metadata: Metadata = {
-  title: "Realizacje - portfolio stron internetowych",
+  title: "Realizacje - portfolio stron internetowych",
   description:
-    "Biblioteka zrealizowanych projektów: strony firmowe, landing page i aplikacje webowe. Zobacz case studies - problem, rozwiązanie i efekt.",
+    "Biblioteka zrealizowanych projektów: strony firmowe, landing page i aplikacje webowe. Zobacz case studies - problem, rozwiązanie i efekt.",
   alternates: { canonical: "/realizacje" },
 };
 
@@ -36,12 +36,12 @@ export default function RealizacjePage() {
           <div className="library-header-copy">
             <p className="library-project-total">
               <strong>{String(projects.length).padStart(2, "0")}</strong>
-              <span>projektów w bibliotece</span>
+              <span>projektów w&nbsp;bibliotece</span>
             </p>
             <p>
-              Realizacje dla klientów i autorskie projekty stron oraz aplikacji.
-              Zobacz założenia, decyzje projektowe i możliwości poszczególnych
-              rozwiązań.
+              Realizacje dla klientów i&nbsp;autorskie projekty stron oraz
+              aplikacji. Zobacz założenia, decyzje projektowe i&nbsp;możliwości
+              poszczególnych rozwiązań.
             </p>
           </div>
         </header>

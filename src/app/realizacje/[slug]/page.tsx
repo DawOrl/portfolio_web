@@ -8,7 +8,7 @@ import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ProjectGalleryLightbox } from "@/components/blocks/ProjectGalleryLightbox";
 import { ContactIntentLink } from "@/components/ui/contact-intent-link";
 import { SectionTransition } from "@/components/ui/SectionTransition";
-import { getProjects, getProjectBySlug } from "@/lib/projects";
+import { getProjects, getProjectBySlug, projectName } from "@/lib/projects";
 import { SITE_URL } from "@/lib/site";
 import "./case-study.css";
 
@@ -47,7 +47,7 @@ export default async function ProjectCaseStudy({
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const title = project.title.split(" - ")[0];
+  const title = projectName(project);
   const mobile = project.gallery.find((src) => src.endsWith("/mobile.png"));
   const hasGallery = project.gallery.length > 0;
   const publishedProjects = getProjects();
@@ -165,8 +165,8 @@ export default async function ProjectCaseStudy({
                         quality={95}
                         sizes={
                           mobile
-                            ? "(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 70vw, 1020px"
-                            : "(max-width: 1100px) calc(100vw - 40px), 1280px"
+                            ? "(max-width: 760px) calc(100vw - 40px), (max-width: 1100px) 70vw, 1020px"
+                            : "(max-width: 1100px) calc(100vw - 40px), 1280px"
                         }
                         data-project-cover
                         data-project-slug={project.slug}
@@ -197,8 +197,8 @@ export default async function ProjectCaseStudy({
 
           <div className="case-narrative-area">
             <div className="case-narrative shell">
-              <aside className="case-facts" aria-label="Informacje o projekcie">
-                <p className="case-facts-label">O projekcie</p>
+              <aside className="case-facts" aria-label="Informacje o projekcie">
+                <p className="case-facts-label">O&nbsp;projekcie</p>
                 <dl>
                   {project.client && (
                     <div>
@@ -282,7 +282,9 @@ export default async function ProjectCaseStudy({
               >
                 <div className="case-gallery-heading">
                   <h2 id="case-gallery-title">Galeria projektu</h2>
-                  <p>Wybierz widok, żeby zobaczyć go w pełnym rozmiarze.</p>
+                  <p>
+                    Wybierz widok, żeby zobaczyć go w&nbsp;pełnym rozmiarze.
+                  </p>
                 </div>
                 <ProjectGalleryLightbox
                   key={project.slug}
@@ -309,8 +311,8 @@ export default async function ProjectCaseStudy({
               <div>
                 <h2 id="case-contact-title">Chcesz podobny projekt?</h2>
                 <p>
-                  Opowiedz mi o swojej firmie. Przygotuję bezpłatną wycenę i
-                  propozycję rozwiązania.
+                  Opowiedz mi o&nbsp;swojej firmie. Przygotuję bezpłatną wycenę
+                  i&nbsp;propozycję rozwiązania.
                 </p>
               </div>
               <ContactIntentLink
@@ -352,9 +354,7 @@ export default async function ProjectCaseStudy({
                 </div>
                 <div className="case-next-copy">
                   <span>{nextProject.category}</span>
-                  <h2 id="case-next-title">
-                    {nextProject.title.split(" - ")[0]}
-                  </h2>
+                  <h2 id="case-next-title">{projectName(nextProject)}</h2>
                   <p>{nextProject.tagline}</p>
                 </div>
                 <ArrowUpRight size={32} strokeWidth={1.5} aria-hidden="true" />

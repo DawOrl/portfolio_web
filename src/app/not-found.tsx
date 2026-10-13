@@ -21,7 +21,7 @@ export default function NotFound() {
           </h1>
           <p>
             Link może być nieaktualny albo zawierać literówkę. Wróć na stronę
-            główną lub zobacz projekty w bibliotece.
+            główną lub zobacz projekty w&nbsp;bibliotece.
           </p>
           <div className="not-found-actions">
             <Link href="/" className="action action-brand">

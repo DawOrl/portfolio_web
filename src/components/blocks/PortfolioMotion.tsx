@@ -68,11 +68,13 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
         pageMedia.add(
           {
             desktop: "(min-width: 761px)",
+            wide: "(min-width: 1101px)",
             motion: "(prefers-reduced-motion: no-preference)",
           },
           (mediaContext) => {
             if (!mediaContext.conditions?.motion) return;
             const desktop = mediaContext.conditions.desktop;
+            const wide = mediaContext.conditions.wide;
             const hero = content.querySelector<HTMLElement>(".hero")!;
             const signatureEntry = content.querySelector<HTMLElement>(
               ".hero-signature-entry",
@@ -141,6 +143,7 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
             }
 
             // One-shot entrances keep functional content available during a fast scroll.
+            // Phones often rest content on the bottom edge, so there it starts later and lighter.
             const reveal = (element: HTMLElement, vars: gsap.TweenVars) => {
               if (
                 element.getBoundingClientRect().top <
@@ -150,12 +153,12 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
               const tween = gsap.from(element, {
                 duration: 0.9,
                 ease: "power3.out",
-                autoAlpha: 0.35,
+                autoAlpha: desktop ? 0.35 : 0.6,
                 clearProps: "transform,transform-origin,opacity,visibility",
                 ...vars,
                 scrollTrigger: {
                   trigger: element,
-                  start: "top 88%",
+                  start: desktop ? "top 88%" : "top 96%",
                   once: true,
                 },
               });
@@ -273,11 +276,13 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
                 ".about-portrait-stage",
               );
               if (portrait) {
+                // Below 1100px the names sit inset by a short drift that keeps them inside the gutters.
+                const [enter, exit] = wide ? [70, 24] : [16, 16];
                 gsap.fromTo(
                   ".about-first-name",
-                  { x: -70 },
+                  { x: -enter },
                   {
-                    x: 24,
+                    x: exit,
                     ease: "none",
                     scrollTrigger: {
                       trigger: portrait,
@@ -289,9 +294,9 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
                 );
                 gsap.fromTo(
                   ".about-last-name",
-                  { x: 70 },
+                  { x: enter },
                   {
-                    x: -24,
+                    x: -exit,
                     ease: "none",
                     scrollTrigger: {
                       trigger: portrait,

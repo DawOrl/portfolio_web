@@ -74,12 +74,12 @@ export default function Home() {
             <div className="hero-bottom">
               <div className="hero-intro">
                 <p>
-                  Projektuję i tworzę strony, które oddają charakter Twojej
-                  marki. Przemyślane wizualnie. Dopracowane w kodzie.
+                  Projektuję i&nbsp;tworzę strony, które oddają charakter Twojej
+                  marki. Przemyślane wizualnie. Dopracowane w&nbsp;kodzie.
                 </p>
                 <div className="hero-actions">
                   <a className="action action-brand" href="#kontakt">
-                    Porozmawiajmy o projekcie <ArrowUpRight size={19} />
+                    Porozmawiajmy o&nbsp;projekcie <ArrowUpRight size={19} />
                   </a>
                   <a className="text-link" href="#realizacje">
                     Zobacz realizacje <ArrowDown size={16} />
@@ -132,8 +132,7 @@ export default function Home() {
               </h2>
               <div>
                 <p>
-                  Od pierwszego szkicu do ostatniej linijki kodu.
-                  <br />
+                  Od pierwszego szkicu do ostatniej linijki kodu. <br />
                   Zobacz, jak podchodzę do różnych wyzwań.
                 </p>
                 <Link className="text-link" href="/realizacje">
@@ -153,7 +152,7 @@ export default function Home() {
         <section id="uslugi" className="services-section">
           <div className="shell">
             <div className="section-topline">
-              <span className="eyebrow">02 / W CZYM MOGĘ POMÓC</span>
+              <span className="eyebrow">02 / W&nbsp;CZYM MOGĘ POMÓC</span>
               <span>TWÓJ CEL. MOJE ROZWIĄZANIE.</span>
             </div>
             <div className="section-heading">
@@ -163,8 +162,8 @@ export default function Home() {
                 <em>dobry początek.</em>
               </h2>
               <p>
-                Potrzebujesz miejsca dla swojej marki w sieci? Połączmy estetykę
-                z tym, co naprawdę przyda się Twojej firmie.
+                Potrzebujesz miejsca dla swojej marki w&nbsp;sieci? Połączmy
+                estetykę z&nbsp;tym, co naprawdę przyda się Twojej firmie.
               </p>
             </div>
             <ServiceShowcase services={cvData.services} />
@@ -194,13 +193,13 @@ export default function Home() {
             <div className="portrait-story-copy">
               <p>
                 Na co dzień pracuję jako Fullstack AI Developer. Wcześniej
-                zajmowałem się email marketingiem - dlatego patrzę na stronę
-                zarówno od strony kodu, jak i potrzeb biznesu.
+                zajmowałem się email marketingiem&nbsp;- dlatego patrzę na
+                stronę zarówno od strony kodu, jak i&nbsp;potrzeb biznesu.
               </p>
               <p>
-                Lubię prostotę, przemyślane detale i rozwiązania, które mają
-                sens. Pracujesz bezpośrednio ze mną: od pierwszej rozmowy, przez
-                projekt, aż po publikację.
+                Lubię prostotę, przemyślane detale i&nbsp;rozwiązania, które
+                mają sens. Pracujesz bezpośrednio ze mną: od pierwszej rozmowy,
+                przez projekt, aż po publikację.
               </p>
               <a
                 className="text-link"
@@ -236,8 +235,8 @@ export default function Home() {
                   <em>Spokojna głowa.</em>
                 </h2>
                 <p>
-                  Wiesz, co robimy, na jakim jesteśmy etapie i czego możesz się
-                  spodziewać.
+                  Wiesz, co robimy, na jakim jesteśmy etapie i&nbsp;czego możesz
+                  się spodziewać.
                 </p>
               </div>
               <div className="process-chapter-form" aria-hidden="true">
@@ -270,7 +269,9 @@ export default function Home() {
         >
           <div className="shell">
             <div className="section-topline">
-              <span className="eyebrow">05 / INWESTYCJA W TWOJĄ MARKĘ</span>
+              <span className="eyebrow">
+                05 / INWESTYCJA W&nbsp;TWOJĄ MARKĘ
+              </span>
               <span>ZAKRES ZNASZ. DECYZJA NALEŻY DO CIEBIE.</span>
             </div>
             <div className="section-heading">
@@ -328,7 +329,7 @@ export default function Home() {
               ))}
             </div>
             <div className="pricing-included">
-              <span className="eyebrow">W KAŻDYM PAKIECIE</span>
+              <span className="eyebrow">W&nbsp;KAŻDYM PAKIECIE</span>
               <p>
                 Dwie rundy poprawek · Drobna redakcja Twoich tekstów · 30 dni
                 pomocy przy błędach wdrożenia
@@ -339,8 +340,8 @@ export default function Home() {
                 <h3>Teksty? Wybór należy do Ciebie.</h3>
                 <p>
                   Możesz dostarczyć własne lub zlecić mi ich przygotowanie na
-                  podstawie informacji o Twojej firmie. Pisanie tekstów obejmuje
-                  jedną rundę korekty.
+                  podstawie informacji o&nbsp;Twojej firmie. Pisanie tekstów
+                  obejmuje jedną rundę korekty.
                 </p>
               </div>
               <dl>
@@ -357,9 +358,9 @@ export default function Home() {
             </div>
             <p className="pricing-note">
               Ceny wejściowe dotyczą opisanego zakresu. Końcową kwotę do zapłaty
-              i termin potwierdzam w wycenie. Domena, hosting i płatne usługi
-              zewnętrzne są rozliczane osobno. CMS, sklep, rezerwacje oraz
-              rozbudowane animacje wymagają dodatkowej wyceny.
+              i&nbsp;termin potwierdzam w&nbsp;wycenie. Domena, hosting
+              i&nbsp;płatne usługi zewnętrzne są rozliczane osobno. CMS, sklep,
+              rezerwacje oraz rozbudowane animacje wymagają dodatkowej wyceny.
             </p>
           </div>
         </section>
