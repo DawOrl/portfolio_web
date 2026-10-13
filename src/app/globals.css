@@ -993,6 +993,9 @@ em {
   display: flex;
   gap: 12px;
   align-items: center;
+  /* A 44px touch target without moving the footer line. */
+  min-height: 44px;
+  margin-block: -12px;
 }
 .skip-link {
   position: fixed;
@@ -2977,6 +2980,8 @@ em {
   display: inline-flex;
   align-items: center;
   gap: 9px;
+  min-height: 44px;
+  margin-block: -12px;
   color: #c8c2bd;
   font-size: var(--type-ui);
   line-height: var(--leading-ui);
