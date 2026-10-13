@@ -49,8 +49,9 @@
   line-height: var(--leading-ui);
   letter-spacing: var(--tracking-label);
 }
-.portfolio-home :is(.process-section, .pricing-section, .faq-section) h2 {
-  font-size: clamp(42px, 4.8vw, 72px);
+/* Every chapter heading shares one role, from the projects to the FAQ. */
+.portfolio-home :is(.section-heading, .faq-section) h2 {
+  font-size: var(--type-section);
   line-height: 1.06;
   letter-spacing: -0.055em;
   font-weight: 500;
@@ -617,10 +618,6 @@
 @media (max-width: 760px) {
   .portfolio-home :is(.process-section, .pricing-section) .section-topline {
     margin-bottom: 32px;
-  }
-  .portfolio-home :is(.process-section, .pricing-section, .faq-section) h2 {
-    font-size: clamp(36px, 9.5vw, 60px);
-    letter-spacing: -0.055em;
   }
   .portfolio-home :is(.process-section, .pricing-section) .section-heading {
     align-items: start;

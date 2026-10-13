@@ -157,9 +157,9 @@ export default function Home() {
             </div>
             <div className="section-heading">
               <h2>
-                Dobra strona to
+                Od wizytówki
                 <br />
-                <em>dobry początek.</em>
+                <em>po aplikację.</em>
               </h2>
               <p>
                 Potrzebujesz miejsca dla swojej marki w&nbsp;sieci? Połączmy
@@ -230,13 +230,13 @@ export default function Home() {
             <div className="section-heading process-chapter-heading">
               <div>
                 <h2 id="process-heading">
-                  Jasny plan.
+                  Zawsze wiesz,
                   <br />
-                  <em>Spokojna głowa.</em>
+                  <em>na czym stoimy.</em>
                 </h2>
                 <p>
-                  Wiesz, co robimy, na jakim jesteśmy etapie i&nbsp;czego możesz
-                  się spodziewać.
+                  Ustalamy zakres, zatwierdzasz projekt, a&nbsp;potem koduję
+                  i&nbsp;publikuję stronę. Bez niespodzianek po drodze.
                 </p>
               </div>
               <div className="process-chapter-form" aria-hidden="true">

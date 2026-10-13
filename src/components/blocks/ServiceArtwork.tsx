@@ -46,7 +46,7 @@ export function ServiceArtwork({ kind }: { kind: string }) {
               fontSize="46"
               fontFamily="Georgia, serif"
             >
-              Dobry
+              Nowy
             </text>
             <text
               x="18"
@@ -56,7 +56,7 @@ export function ServiceArtwork({ kind }: { kind: string }) {
               fontFamily="inherit"
               fontStyle="normal"
             >
-              początek.
+              rozdział.
             </text>
             <path d="M21 183H143M21 192H117" stroke="#a9a29a" strokeWidth="2" />
             <path d="M21 212H101V235H21z" fill="#a00c30" />
@@ -152,7 +152,7 @@ export function ServiceArtwork({ kind }: { kind: string }) {
               strokeWidth=".7"
             />
             <text x="17" y="29" fill="#1d1d1d" fontSize="9" letterSpacing="2">
-              DOBRY WYBÓR.
+              TWOJA OFERTA.
             </text>
             <path d="M16 45H195V184H16z" fill="#e9e2d9" />
             <ellipse

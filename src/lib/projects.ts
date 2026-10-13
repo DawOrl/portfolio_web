@@ -34,10 +34,20 @@ export function getProjectBySlug(slug: string): Project | undefined {
   return cvData.projects.find((p) => p.slug === slug);
 }
 
-/** Lista kategorii do filtrowania (z prefiksem „Wszystkie”) — tylko z opublikowanych. */
+// Kategorie realizacji odpowiadają czterem usługom, w tej samej kolejności.
+const CATEGORY_ORDER = [
+  "Strona firmowa",
+  "Landing page",
+  "Sklep internetowy",
+  "Aplikacja & automatyzacja",
+];
+
+/** Lista kategorii do filtrowania (z prefiksem „Wszystkie”), tylko z opublikowanych. */
 export function getProjectCategories(): string[] {
-  return [
-    "Wszystkie",
-    ...Array.from(new Set(getProjects().map((p) => p.category))),
-  ];
+  const used = new Set(getProjects().map((p) => p.category));
+  const rank = (category: string) =>
+    CATEGORY_ORDER.includes(category)
+      ? CATEGORY_ORDER.indexOf(category)
+      : CATEGORY_ORDER.length;
+  return ["Wszystkie", ...[...used].sort((a, b) => rank(a) - rank(b))];
 }

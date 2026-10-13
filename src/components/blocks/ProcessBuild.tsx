@@ -14,7 +14,7 @@ if (typeof window !== "undefined") {
 const stages = [
   {
     label: "Szkic",
-    title: "Najpierw dobry układ.",
+    title: "Najpierw układ.",
     description:
       "Ustalam, co odwiedzający ma zobaczyć i zrobić. Zanim pojawią się kolory, treść dostaje swoje miejsce.",
   },

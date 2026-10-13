@@ -56,10 +56,8 @@ function getSuggestedService(intent: ContactIntent | null): string {
     )?.category;
     const servicesByCategory: Record<string, string> = {
       "Strona firmowa": "Strony firmowe",
-      "Strona usługowa": "Strony firmowe",
-      "Sklep internetowy": "Sklepy internetowe",
       "Landing page": "Landing page",
-      "Aplikacja & AI": "Aplikacje & automatyzacje",
+      "Sklep internetowy": "Sklepy internetowe",
       "Aplikacja & automatyzacja": "Aplikacje & automatyzacje",
     };
     suggested = category ? (servicesByCategory[category] ?? "") : "";
@@ -227,7 +225,7 @@ export function ContactSection({
       <div className="shell">
         <div className="contact-section-label">
           <span>07 / KONTAKT</span>
-          <span>DOBRE RZECZY ZACZYNAJĄ SIĘ OD ROZMOWY.</span>
+          <span>WSZYSTKO ZACZYNA SIĘ OD ROZMOWY.</span>
         </div>
         <div className="contact-layout">
           <div className="contact-invitation">

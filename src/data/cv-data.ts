@@ -316,7 +316,7 @@ const rawCvData = {
     {
       slug: "salon-glow",
       title: "Glow Studio - rezerwacja wizyt online",
-      category: "Strona usługowa",
+      category: "Strona firmowa",
       kind: "demo" as const,
       year: "2026",
       client: "Projekt autorski (demo)",
@@ -380,7 +380,7 @@ const rawCvData = {
     {
       slug: "asystent-ai",
       title: "Asystent AI dla firmy - chatbot i generator ofert",
-      category: "Aplikacja & AI",
+      category: "Aplikacja & automatyzacja",
       kind: "demo" as const,
       year: "2026",
       client: "Projekt autorski (demo)",
@@ -444,7 +444,7 @@ const rawCvData = {
     {
       slug: "fotograf-lena",
       title: "Lena Czarnecka - portfolio fotografki",
-      category: "Portfolio",
+      category: "Strona firmowa",
       kind: "demo" as const,
       year: "2026",
       client: "Projekt autorski (demo)",

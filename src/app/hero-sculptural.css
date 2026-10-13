@@ -170,12 +170,10 @@
 }
 .work-section-featured h2 {
   max-width: 700px;
-  font-size: var(--type-subheading);
-  line-height: 1.12;
 }
 .work-section-featured .section-heading p {
   color: #696560;
-  font-size: var(--type-small);
+  font-size: var(--type-body);
 }
 .work-section-featured .text-link {
   border-color: #1d1d1d60;
