@@ -93,7 +93,7 @@
   max-width: 15ch;
   font-size: clamp(54px, 6.8vw, 108px);
   line-height: 1.02;
-  letter-spacing: -0.065em;
+  letter-spacing: var(--tracking-heading);
 }
 
 .case-header-copy > p {
@@ -327,9 +327,13 @@
 }
 
 .case-stack li {
-  padding-bottom: 3px;
-  border-bottom: 1px solid var(--case-rule);
   font-size: var(--type-small);
+}
+
+.case-stack li + li::before {
+  content: "/";
+  margin-right: 14px;
+  color: var(--case-rule);
 }
 
 .case-story-step {
@@ -455,6 +459,8 @@
   border-radius: 8px;
   background: #252525;
   cursor: zoom-in;
+  display: flex;
+  flex-direction: column;
 }
 
 .case-gallery[data-mobile-second="true"] .grid > button:nth-child(2) {
@@ -466,7 +472,8 @@
 
 .case-gallery .grid > button > img {
   width: 100%;
-  height: 100%;
+  flex: 1 1 0;
+  min-height: 0;
   object-fit: contain;
   object-position: center;
 }
@@ -477,16 +484,15 @@
 }
 
 .case-gallery-thumb-caption {
-  position: absolute;
-  inset: auto 10px 10px;
   display: flex;
+  flex: none;
   justify-content: space-between;
   align-items: center;
   gap: 12px;
   min-height: 38px;
   padding: 9px 12px;
-  border-radius: 3px;
-  background: #1d1d1ded;
+  border-top: 1px solid #ffffff1f;
+  background: #1d1d1d;
   color: #f4f0eb;
   font-size: var(--type-label);
   line-height: 1.5;
@@ -791,7 +797,7 @@
   .case-study h1 {
     font-size: clamp(42px, 11vw, 70px);
     line-height: 1.06;
-    letter-spacing: -0.06em;
+    letter-spacing: var(--tracking-heading);
   }
   .case-header-copy > p {
     font-size: var(--type-body);

@@ -99,6 +99,7 @@
   font-size: var(--type-ui);
   overflow-wrap: anywhere;
 }
+.privacy-page .privacy-summary,
 .privacy-page .privacy-content {
   max-width: 72ch;
 }
@@ -108,7 +109,9 @@
   scroll-margin-top: 30px;
 }
 .privacy-page .privacy-content section:first-child {
+  margin-top: 0;
   padding-top: 0;
+  border-top: 0;
 }
 .privacy-page .privacy-content h2 {
   color: var(--background);
