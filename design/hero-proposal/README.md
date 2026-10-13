@@ -17,8 +17,12 @@ aplikacji uruchomionej na http://127.0.0.1:3000. Fonty i główny render
 są zapisane lokalnie. Układ dostosowuje się do telefonu.
 
 `hero-form.blend` zawiera osobną scenę; `scripts/blender/hero_proposal.py`
-odtwarza transparentny render. Strona używa zoptymalizowanego,
-przezroczystego `public/hero-form-blender.webp` (~45 KiB). Wdrożone animacje
-to krótkie wejście formy i delikatny parallax przy przewijaniu na desktopie,
+odtwarza pierwotny transparentny render. Od 13 października 2026 kadr hero
+renderuje `scripts/blender/intro_sequence.py -- --hero`: jest ostatnią klatką
+filmu intro, na którą intro ląduje (zob. `docs/blender-intro.md`).
+`hero-form.png` w tym katalogu to kopia nowego kadru. Strona używa
+przezroczystego `public/hero-form-blender.webp` (~43 KiB). Wdrożone animacje
+to przelot formy z intro (albo krótkie wejście po pominięciu intro)
+i delikatny parallax przy przewijaniu na desktopie,
 z nieruchomym widokiem dla `prefers-reduced-motion`. Podgląd HTML pozostaje
 statyczny. Układ produkcyjny znajduje się w `src/app/hero-sculptural.css`.

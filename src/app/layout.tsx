@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { cvData } from "@/data/cv-data";
 import { SITE_URL } from "@/lib/site";
 import { ProjectJourneyProvider } from "@/components/ui/project-journey";
+import { IntroCover } from "@/components/blocks/intro-cover";
 
 const montserrat = Montserrat({
   subsets: ["latin", "latin-ext"],
@@ -93,6 +94,7 @@ export default function RootLayout({
       className={montserrat.variable}
     >
       <body className="font-sans antialiased min-h-screen">
+        <IntroCover />
         <a className="skip-link" href="#main-content">
           Przejdź do treści
         </a>

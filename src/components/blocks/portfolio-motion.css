@@ -15,29 +15,37 @@
 .portfolio-intro::backdrop {
   background: transparent;
 }
+/* Pre-paint cover from IntroCover; it lets go on its own if scripts never run. */
+html.intro-pending body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: #1d1d1d;
+  animation: intro-cover-release 0s 4s forwards;
+}
+@keyframes intro-cover-release {
+  to {
+    visibility: hidden;
+  }
+}
 .intro-sheet {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  inset: 0;
   padding: clamp(22px, 4vw, 64px);
   background: #1d1d1d;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-bottom: 5px solid #a00c30;
 }
 .intro-top,
 .intro-bottom {
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-label);
-}
-.intro-top,
-.intro-bottom,
-.intro-annotation {
   font-weight: 500;
   font-size: var(--type-label);
   line-height: var(--leading-ui);
@@ -72,78 +80,93 @@
   outline: 2px solid #df8097;
   outline-offset: 5px;
 }
-.intro-composition {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  gap: 6vw;
-  width: min(1260px, 100%);
-  margin: auto;
-}
-.intro-specimen {
-  position: relative;
-}
-.intro-monogram {
-  display: block;
-  width: 100%;
-  overflow: visible;
-}
-.intro-grid {
-  color: #c3b6a7;
-}
-.intro-annotation {
+
+/* Giant words sit under the ribbon, so the form passes in front of them. */
+.intro-words {
   position: absolute;
-  left: 0;
-  color: #aaa59e;
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-label);
+  z-index: 0;
+  left: clamp(22px, 4vw, 64px);
+  bottom: clamp(96px, 17vh, 190px);
+  display: grid;
+  pointer-events: none;
 }
-.intro-annotation-top {
-  top: 3%;
-}
-.intro-annotation-bottom {
-  bottom: 0;
-}
-.intro-title {
-  padding-bottom: 3%;
-}
-.intro-title > div {
+.intro-word {
+  grid-area: 1 / 1;
   overflow: hidden;
-  padding-bottom: 0.15em;
-  margin-bottom: -0.15em;
-  font-size: var(--type-statement);
-  line-height: var(--leading-heading);
-  letter-spacing: var(--tracking-heading);
-  font-weight: var(--weight-heading);
+  padding: 0.04em 0.08em 0.06em 0;
+  margin: -0.04em 0 -0.06em;
 }
-.intro-title > div > span {
+.intro-word-text {
   display: block;
+  font-size: min(17vw, 33vh, 300px);
+  line-height: 1;
+  letter-spacing: -0.065em;
+  font-weight: 500;
+  white-space: nowrap;
+  will-change: transform;
 }
-.intro-title em {
-  font-family: inherit;
+.intro-word-text i {
   font-style: normal;
-  font-weight: inherit;
   color: var(--primary);
 }
-.intro-title p {
-  margin-top: 36px;
-  color: #aaa59e;
-  letter-spacing: 0.01em;
-  font-size: var(--type-body);
-  line-height: var(--leading-body);
+/* The first word is only an outline: the form is still a line. */
+.intro-word:first-child .intro-word-text {
+  color: transparent;
+  -webkit-text-stroke: 1.5px #f4f0eb;
 }
+.intro-word:first-child .intro-word-text i {
+  -webkit-text-stroke: 0;
+}
+
+/* Monumental while it is drawn: the form crosses the end of the word, then shrinks onto the hero. */
+.intro-ribbon {
+  --intro-ribbon-height: min(100vh, 1080px);
+  position: fixed;
+  z-index: 1;
+  top: calc(50vh - var(--intro-ribbon-height) / 2);
+  left: calc(63% - var(--intro-ribbon-height) * 5 / 11);
+  height: var(--intro-ribbon-height);
+  aspect-ratio: 10 / 11;
+  pointer-events: none;
+  will-change: transform;
+}
+.intro-ribbon canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+/* The hero still fills the centre 1 / 1.3 of a film frame. */
+.intro-ribbon-fallback {
+  position: absolute;
+  inset: 11.5385%;
+  width: 76.923%;
+  height: 76.923%;
+  object-fit: contain;
+}
+
 .intro-bottom {
   color: #aaa59e;
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-label);
 }
-.intro-bottom > span {
+.intro-stages {
+  display: flex;
+  gap: clamp(14px, 2.4vw, 36px);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-transform: uppercase;
   white-space: nowrap;
 }
+.intro-stage {
+  color: #f4f0eb;
+}
+.intro-stage span {
+  margin-right: 10px;
+  color: #df8097;
+}
 .intro-progress {
-  width: min(32vw, 350px);
+  flex: 1;
+  max-width: 420px;
   height: 1px;
   background: #ffffff24;
 }
@@ -152,6 +175,14 @@
   width: 100%;
   height: 100%;
   background: #df8097;
+}
+.intro-counter {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.intro-counter b {
+  font-weight: inherit;
+  color: #f4f0eb;
 }
 .intro-replay {
   display: flex;
@@ -190,7 +221,6 @@
   }
   .intro-top > span {
     max-width: 175px;
-    font-size: var(--type-label);
     line-height: var(--leading-body);
   }
   .intro-top-divider {
@@ -199,73 +229,41 @@
   .intro-skip {
     padding-top: 0;
     gap: 12px;
-    font-size: var(--type-ui);
-    line-height: var(--leading-ui);
-    font-weight: var(--weight-ui);
   }
-  .intro-composition {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    max-width: 420px;
+  .intro-ribbon {
+    top: 11svh;
+    left: calc(50% - min(54vw, 280px));
+    width: min(108vw, 560px);
+    height: auto;
   }
-  .intro-specimen {
-    width: min(67vw, 265px);
-    margin: 0 auto;
+  .intro-words {
+    bottom: calc(96px + 5svh);
   }
-  .intro-annotation {
-    font-size: var(--type-label);
-    line-height: var(--leading-ui);
-    letter-spacing: var(--tracking-label);
+  .intro-word-text {
+    font-size: min(23vw, 15svh);
   }
-  .intro-title {
-    text-align: center;
-    padding: 0;
-  }
-  .intro-title > div {
-    font-size: var(--type-statement);
-    line-height: var(--leading-heading);
-    letter-spacing: var(--tracking-heading);
-    font-weight: var(--weight-heading);
-  }
-  .intro-title p {
-    margin-top: 18px;
-    font-size: var(--type-body);
-    line-height: var(--leading-body);
+  .intro-word:first-child .intro-word-text {
+    -webkit-text-stroke-width: 1px;
   }
   .intro-bottom {
     flex-wrap: wrap;
-    gap: 12px;
-    font-size: var(--type-label);
-    line-height: var(--leading-ui);
-    letter-spacing: var(--tracking-label);
+    gap: 14px 12px;
   }
   .intro-progress {
+    flex-basis: 100%;
     order: -1;
-    width: 100%;
+    max-width: none;
   }
 }
 @media (max-height: 540px) and (orientation: landscape) {
   .intro-sheet {
     padding: 18px 30px;
   }
-  .intro-composition {
-    grid-template-columns: 0.7fr 1fr;
-    width: min(720px, 100%);
-    gap: 40px;
+  .intro-top {
+    padding-bottom: 12px;
   }
-  .intro-specimen {
-    width: min(32vw, 230px);
-  }
-  .intro-title > div {
-    font-size: var(--type-statement);
-    line-height: var(--leading-heading);
-    letter-spacing: var(--tracking-heading);
-    font-weight: var(--weight-heading);
-  }
-  .intro-title p {
-    margin-top: 12px;
-    font-size: var(--type-body);
-    line-height: var(--leading-body);
+  .intro-words {
+    bottom: 64px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

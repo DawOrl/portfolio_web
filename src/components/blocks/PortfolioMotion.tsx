@@ -4,11 +4,23 @@ import { useRef, type ReactNode } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import {
+  createRibbonFilm,
+  RIBBON_ASPECT,
+  RIBBON_FPS,
+  RIBBON_FRAMES,
+  RIBBON_PAD,
+  type RibbonFilm,
+} from "./intro-ribbon";
+import { INTRO_SEEN } from "./intro-cover";
 import "./portfolio-motion.css";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const INTRO_SEEN = "dorlowski-intro-v1";
+// Each word names the stage the Blender film is in: line, form, finished site.
+const INTRO_WORDS = ["kreska", "forma", "strona"];
+const FILM = RIBBON_FRAMES / RIBBON_FPS;
 const REPLAY_EVENT = "dorlowski:replay-intro";
 
 export function IntroReplay() {
@@ -40,10 +52,13 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
       const reveals = new Map<HTMLElement, gsap.core.Tween>();
       let active = true;
       let introContext: gsap.Context | undefined;
-      let watchdog: ReturnType<typeof setTimeout> | undefined;
+      let watchdog: gsap.core.Tween | undefined;
       let running = false;
       let previousOverflow = "";
+      let previousPadding = "";
       let previousFocus: HTMLElement | null = null;
+      let film: RibbonFilm | undefined;
+      let run = 0;
 
       const animatePage = contextSafe((enterHero = false) => {
         pageMedia?.revert();
@@ -330,26 +345,212 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
         ScrollTrigger.refresh();
       });
 
-      const finish = contextSafe(() => {
+      const finish = contextSafe((landed = false) => {
         if (!running) return;
         running = false;
-        clearTimeout(watchdog);
+        watchdog?.kill();
+        film?.destroy();
+        film = undefined;
         overlay.close();
         introContext?.revert();
         introContext = undefined;
         document.body.style.overflow = previousOverflow;
+        document.body.style.paddingRight = previousPadding;
         try {
           window.sessionStorage.setItem(INTRO_SEEN, "1");
         } catch {
           /* Storage may be disabled. */
         }
-        animatePage(window.scrollY < 100);
+        // A landed intro has already placed the hero; a skipped one hands over to its entrance.
+        animatePage(!landed && window.scrollY < 100);
         if (previousFocus?.isConnected && previousFocus !== document.body) {
           previousFocus.focus({ preventScroll: true });
           if (previousFocus.closest(".hero")) heroEntrance?.progress(1).kill();
         }
       });
       dismiss.current = finish;
+
+      const ribbon = overlay.querySelector<HTMLElement>(".intro-ribbon")!;
+      const finalWord = overlay.querySelector<HTMLElement>(
+        ".intro-word-final .intro-word-text",
+      )!;
+      const heroForm = content.querySelector<HTMLElement>(
+        ".hero-signature-entry",
+      )!;
+      const heroLines = gsap.utils.toArray<HTMLElement>(
+        ".hero-line-inner",
+        content,
+      );
+      const heroLastLine = heroLines[heroLines.length - 1];
+
+      // The ribbon and the last word fly onto the hero form and headline they become.
+      const land = () => {
+        const textBox = (element: HTMLElement) => {
+          const range = document.createRange();
+          range.selectNodeContents(element);
+          return range.getBoundingClientRect();
+        };
+        // The hero still is the central 1 / PAD of a frame, drawn with object-fit: contain.
+        const from = ribbon.getBoundingClientRect();
+        const stage = heroForm.getBoundingClientRect();
+        const formWidth = Math.min(stage.width, stage.height * RIBBON_ASPECT);
+        // The last word may still be finishing its rise; land where that rise ends.
+        const lift =
+          ((gsap.getProperty(finalWord, "yPercent") as number) / 100) *
+          finalWord.offsetHeight;
+        const wordBox = finalWord.getBoundingClientRect();
+        const wordText = textBox(finalWord);
+        const target = textBox(heroLastLine);
+        const fontScale =
+          parseFloat(getComputedStyle(heroLastLine).fontSize) /
+          parseFloat(getComputedStyle(finalWord).fontSize);
+
+        gsap
+          .timeline({
+            onComplete: () => rootContext.ignore(() => finish(true)),
+          })
+          .to(
+            ".intro-top, .intro-bottom",
+            { autoAlpha: 0, duration: 0.35, ease: "power2.out" },
+            0,
+          )
+          .set(finalWord.parentElement!, { overflow: "visible" }, 0)
+          .to(
+            ribbon,
+            {
+              x: stage.left + stage.width / 2 - (from.left + from.width / 2),
+              y: stage.top + stage.height / 2 - (from.top + from.height / 2),
+              scale: (formWidth * RIBBON_PAD) / from.width,
+              rotation: -5,
+              duration: 1.15,
+              ease: "expo.inOut",
+            },
+            0,
+          )
+          .to(
+            finalWord,
+            {
+              x:
+                target.left -
+                wordBox.left -
+                (wordText.left - wordBox.left) * fontScale,
+              y:
+                target.top -
+                (wordBox.top - lift) -
+                (wordText.top - wordBox.top) * fontScale,
+              scale: fontScale,
+              transformOrigin: "0 0",
+              duration: 1.1,
+              ease: "expo.inOut",
+            },
+            0.05,
+          )
+          .to(
+            [overlay, ".intro-sheet"],
+            {
+              backgroundColor: "rgba(29, 29, 29, 0)",
+              duration: 0.6,
+              ease: "power2.inOut",
+            },
+            0.25,
+          )
+          .from(
+            heroLines.slice(0, -1),
+            {
+              yPercent: 110,
+              rotation: 1.5,
+              duration: 1,
+              stagger: 0.1,
+              ease: "power4.out",
+            },
+            0.5,
+          )
+          .from(
+            content.querySelectorAll(
+              ".site-header, .hero-meta, .hero-bottom > div",
+            ),
+            {
+              y: 22,
+              autoAlpha: 0,
+              duration: 0.8,
+              stagger: 0.07,
+              ease: "power3.out",
+            },
+            0.6,
+          )
+          .set([heroForm, heroLastLine], { visibility: "visible" }, 1.15)
+          .set([ribbon, finalWord], { autoAlpha: 0 }, 1.15);
+      };
+
+      const sequence = (playing: boolean) => {
+        const words = gsap.utils.toArray<HTMLElement>(
+          ".intro-word-text",
+          overlay,
+        );
+        const stages = gsap.utils.toArray<HTMLElement>(".intro-stage", overlay);
+        const counter = overlay.querySelector<HTMLElement>(".intro-counter b")!;
+        const frame = { value: 0 };
+        const timeline = gsap.timeline();
+        if (!playing)
+          timeline.fromTo(
+            ".intro-ribbon-fallback",
+            { autoAlpha: 0, scale: 0.82, rotation: 14 },
+            {
+              autoAlpha: 1,
+              scale: 1,
+              rotation: 0,
+              duration: FILM,
+              ease: "expo.out",
+            },
+            0,
+          );
+        timeline
+          .to(
+            ".intro-progress-fill",
+            { scaleX: 1, duration: FILM, ease: "none" },
+            0,
+          )
+          .to(
+            frame,
+            {
+              value: RIBBON_FRAMES,
+              duration: FILM,
+              ease: "none",
+              onUpdate: () => {
+                counter.textContent = String(Math.round(frame.value)).padStart(
+                  3,
+                  "0",
+                );
+              },
+            },
+            0,
+          );
+        // Beats follow the film: the line is drawn, the band unfurls, the form settles.
+        const beats = [0.05, 0.92, 1.72];
+        words.forEach((word, index) => {
+          timeline
+            .to(
+              word,
+              { yPercent: 0, duration: 0.85, ease: "expo.out" },
+              beats[index],
+            )
+            .to(stages[index], { opacity: 1, duration: 0.3 }, beats[index]);
+          if (index < words.length - 1)
+            timeline
+              .to(
+                word,
+                { yPercent: -108, duration: 0.42, ease: "power3.in" },
+                beats[index + 1] - 0.36,
+              )
+              .to(
+                stages[index],
+                { opacity: 0.4, duration: 0.3 },
+                beats[index + 1],
+              );
+        });
+        // The flight overlaps the film's last, almost still frames.
+        timeline.call(() => introContext?.add(land), [], FILM - 0.3);
+      };
 
       const play = contextSafe(() => {
         if (running || preference.matches) return;
@@ -358,88 +559,92 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
             ? document.activeElement
             : null;
         previousOverflow = document.body.style.overflow;
+        previousPadding = document.body.style.paddingRight;
+        // Keep the scrollbar's width, or the page under the landing ribbon shifts on close.
+        const gutter = window.innerWidth - document.documentElement.clientWidth;
+        if (gutter > 0) document.body.style.paddingRight = `${gutter}px`;
         overlay.showModal();
         running = true;
+        const token = ++run;
         document.body.style.overflow = "hidden";
-        watchdog = setTimeout(finish, 4500);
+        // GSAP time, not the wall clock: it stops with the sequence when the tab is hidden.
+        watchdog = gsap.delayedCall(9, finish);
+        overlay.querySelector(".intro-counter b")!.textContent = "000";
         introContext = gsap.context(() => {
-          gsap.set(".intro-stroke", {
-            strokeDasharray: 1,
-            strokeDashoffset: 1,
-          });
-          gsap.set(".intro-grid", { opacity: 0 });
-          gsap.set(".intro-title span", { yPercent: 110 });
-          gsap.set(".intro-accent", { scale: 0, transformOrigin: "81px 12px" });
+          gsap.set([heroForm, heroLastLine], { visibility: "hidden" });
+          gsap.set(".intro-word-text", { yPercent: 108 });
+          gsap.set(".intro-stage", { opacity: 0.4 });
           gsap.set(".intro-progress-fill", {
             scaleX: 0,
             transformOrigin: "left",
           });
-          const sequence = gsap.timeline({
-            // Completing a child context must not record its parent inside itself.
-            onComplete: () => rootContext.ignore(finish),
+          gsap.set(".intro-ribbon-fallback", { autoAlpha: 0 });
+          gsap.from(".intro-top, .intro-bottom", {
+            autoAlpha: 0,
+            y: (index) => (index ? 12 : -12),
+            duration: 0.7,
+            ease: "power3.out",
           });
-          sequence
-            .to(".intro-grid", { opacity: 1, duration: 0.6 }, 0)
-            .to(
-              ".intro-stroke",
-              {
-                strokeDashoffset: 0,
-                duration: 1.45,
-                stagger: 0.2,
-                ease: "power2.inOut",
-              },
-              0.25,
-            )
-            .to(
-              ".intro-title span",
-              {
-                yPercent: 0,
-                duration: 0.85,
-                stagger: 0.16,
-                ease: "power3.out",
-              },
-              0.45,
-            )
-            .to(
-              ".intro-accent",
-              { scale: 1, duration: 0.5, ease: "back.out(1.7)" },
-              1.85,
-            )
-            .set(".intro-stroke", { strokeDasharray: "none" }, 2)
-            .to(".intro-grid", { opacity: 0.22, duration: 0.6 }, 2.1)
-            .to(
-              ".intro-progress-fill",
-              { scaleX: 1, duration: 3.2, ease: "none" },
-              0,
-            )
-            .to(
-              ".intro-sheet",
-              { yPercent: -102, duration: 0.8, ease: "power3.inOut" },
-              3.2,
-            )
-            .to(
-              overlay,
-              { backgroundColor: "transparent", duration: 0.01 },
-              3.2,
-            );
         }, overlay);
+
+        const pixels = ribbon.offsetWidth * window.devicePixelRatio;
+        const current = createRibbonFilm(
+          ribbon.querySelector("canvas")!,
+          pixels > 700 ? 960 : 640,
+        );
+        film = current;
+        // A slow connection or blocked autoplay gets the still form instead of the film.
+        const loaded = Promise.race([
+          current.ready.then(
+            () => true,
+            () => false,
+          ),
+          new Promise<boolean>((resolve) => setTimeout(resolve, 2600, false)),
+        ]);
+        const settle = new Promise((resolve) => setTimeout(resolve, 350));
+        void Promise.all([loaded, settle])
+          .then(([ok]) =>
+            ok && token === run && running
+              ? current.play().then(
+                  () => true,
+                  () => false,
+                )
+              : false,
+          )
+          .then((playing) => {
+            if (token === run && running)
+              introContext?.add(() => sequence(playing));
+          });
       });
 
-      let seen = false;
-      try {
-        seen = window.sessionStorage.getItem(INTRO_SEEN) === "1";
-      } catch {
-        /* Still allow intro. */
-      }
-      if (
-        !seen &&
-        !window.location.hash &&
-        window.scrollY < 100 &&
-        !preference.matches
-      )
-        play();
-      else
-        animatePage(!window.location.hash || window.location.hash === "#top");
+      const start = () => {
+        let seen = true;
+        try {
+          seen = window.sessionStorage.getItem(INTRO_SEEN) === "1";
+        } catch {
+          /* Without storage the intro would repeat on every visit. */
+        }
+        if (
+          !seen &&
+          !window.location.hash &&
+          window.scrollY < 100 &&
+          !preference.matches &&
+          !window.matchMedia("(forced-colors: active)").matches
+        )
+          play();
+        else
+          animatePage(!window.location.hash || window.location.hash === "#top");
+        // The open dialog (or the decision to skip it) replaces the pre-paint cover.
+        document.documentElement.classList.remove("intro-pending");
+      };
+      // A tab opened in the background keeps its intro until it is first seen.
+      const onVisible = () => {
+        if (document.visibilityState !== "visible") return;
+        document.removeEventListener("visibilitychange", onVisible);
+        start();
+      };
+      if (document.visibilityState === "visible") start();
+      else document.addEventListener("visibilitychange", onVisible);
 
       const onPreference = () => {
         if (running) finish();
@@ -477,14 +682,20 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
       return () => {
         active = false;
         dismiss.current = () => {};
-        clearTimeout(watchdog);
+        watchdog?.kill();
+        document.removeEventListener("visibilitychange", onVisible);
         content.removeEventListener("focusin", onFocus);
         window.removeEventListener(REPLAY_EVENT, play);
         preference.removeEventListener("change", onPreference);
         if (running) {
           overlay.close();
           document.body.style.overflow = previousOverflow;
+          document.body.style.paddingRight = previousPadding;
         }
+        // Pending film loads of this run must not animate a remounted page.
+        running = false;
+        run++;
+        film?.destroy();
         introContext?.revert();
         pageMedia?.revert();
       };
@@ -517,68 +728,51 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
               Pomiń intro <span aria-hidden="true">↗</span>
             </button>
           </div>
-          <div className="intro-composition" aria-hidden="true">
-            <div className="intro-specimen">
-              <span className="intro-annotation intro-annotation-top">
-                FIG. 001 - OSOBISTY ZNAK
-              </span>
-              <svg
-                className="intro-monogram"
-                viewBox="-12 -12 112 96"
-                fill="none"
+          <div className="intro-words" aria-hidden="true">
+            {INTRO_WORDS.map((word, index) => (
+              <span
+                key={word}
+                className={
+                  index === INTRO_WORDS.length - 1
+                    ? "intro-word intro-word-final"
+                    : "intro-word"
+                }
               >
-                <g
-                  className="intro-grid"
-                  stroke="currentColor"
-                  strokeWidth="0.15"
-                >
-                  <path d="M-12 8H100M-12 30H100M-12 44H100M-12 58H100M6-12V84M34-12V84M47-12V84M75-12V84M-12-12L100 84M100-12L-12 84" />
-                  <circle cx="20" cy="44" r="20" />
-                  <circle cx="61" cy="44" r="20" />
-                </g>
-                <g stroke="currentColor" strokeWidth="8">
-                  <path
-                    className="intro-stroke"
-                    pathLength="1"
-                    d="M34 8v36a14 14 0 1 1-14-14h14"
-                  />
-                  <circle
-                    className="intro-stroke"
-                    pathLength="1"
-                    cx="61"
-                    cy="44"
-                    r="14"
-                  />
-                </g>
-                <path
-                  className="intro-accent"
-                  d="M77 8h8v8h-8z"
-                  fill="var(--accent-cool)"
-                />
-              </svg>
-              <span className="intro-annotation intro-annotation-bottom">
-                PROPORCJA. RYTM. CHARAKTER.
-              </span>
-            </div>
-            <div className="intro-title">
-              <div>
-                <span>Od kreski.</span>
-              </div>
-              <div>
-                <span>
-                  Do <em>charakteru.</em>
+                <span className="intro-word-text">
+                  {word}
+                  <i>.</i>
                 </span>
-              </div>
-              <p>Dobry projekt zaczyna się od intencji.</p>
-            </div>
+              </span>
+            ))}
           </div>
-          <div className="intro-bottom">
-            <span>KRAKÓW / PRACUJĘ ZDALNIE</span>
-            <div className="intro-progress" aria-hidden="true">
+          <div className="intro-bottom" aria-hidden="true">
+            <ol className="intro-stages">
+              {INTRO_WORDS.map((word, index) => (
+                <li key={word} className="intro-stage">
+                  <span>0{index + 1}</span>
+                  {word}
+                </li>
+              ))}
+            </ol>
+            <div className="intro-progress">
               <span className="intro-progress-fill" />
             </div>
-            <span>STUDIUM FORMY - 04 S</span>
+            <span className="intro-counter">
+              <b>000</b> / {String(RIBBON_FRAMES).padStart(3, "0")}
+            </span>
           </div>
+        </div>
+        <div className="intro-ribbon" aria-hidden="true">
+          <canvas />
+          <Image
+            className="intro-ribbon-fallback"
+            src="/hero-form-blender.webp"
+            alt=""
+            width={1000}
+            height={1100}
+            loading="eager"
+            unoptimized
+          />
         </div>
       </dialog>
       <div className="motion-content">{children}</div>
