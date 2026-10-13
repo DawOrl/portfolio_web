@@ -54,12 +54,19 @@
   justify-content: flex-start;
   gap: 20px;
 }
+/* The chapter folio spans the shell like every other chapter; the tabs hang below it. */
 .about-portrait-top {
   top: 36px;
-  gap: clamp(32px, 5vw, 88px);
+  flex-direction: column;
+  align-items: stretch;
+  gap: 24px;
+}
+.about-portrait-stage .about-portrait-top .section-topline {
+  margin: 0;
 }
 .about-portrait-tabs {
   display: flex;
+  align-self: start;
   align-items: center;
   gap: 6px;
 }
@@ -88,14 +95,6 @@
 .about-portrait-tabs a:hover {
   border-color: var(--accent-cool);
   color: var(--accent-cool);
-}
-.about-portrait-index {
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-label);
-  color: #c4c2be;
-  white-space: nowrap;
-  text-transform: uppercase;
 }
 .about-first-name,
 .about-last-name {
@@ -141,7 +140,7 @@
   position: absolute;
   z-index: 3;
   left: var(--about-gutter);
-  top: 18%;
+  top: calc(18% + 48px);
   max-width: 260px;
   font-size: var(--type-body);
   line-height: var(--leading-body);
@@ -214,7 +213,6 @@
     font-size: 9.4vw;
   }
   .about-portrait-role {
-    top: 18%;
     max-width: 235px;
   }
 }
@@ -234,21 +232,15 @@
   .about-portrait-stage::after {
     height: 200px;
   }
-  /* The section index takes its own row above the tabs. */
   .about-portrait-top {
     top: 25px;
-    flex-wrap: wrap;
-    gap: 14px;
+    gap: 12px;
   }
   .about-portrait-tabs {
     gap: 5px;
   }
   .about-portrait-tabs > * {
     padding-inline: 8px;
-  }
-  .about-portrait-index {
-    order: -1;
-    flex-basis: 100%;
   }
   .about-first-name {
     z-index: 3;
@@ -269,7 +261,7 @@
     font-size: 13.4vw;
   }
   .about-portrait-role {
-    top: 122px;
+    top: 126px;
     width: min(260px, calc(100% - 2 * var(--about-gutter)));
   }
   .about-portrait-role i {

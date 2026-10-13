@@ -428,9 +428,7 @@ export function ProjectsCarousel({ projects }: { projects: Project[] }) {
                   />
                 )}
                 <span className="spatial-card-label">
-                  <span className="spatial-card-number">
-                    {String(index + 1).padStart(2, "0")} / {project.year}
-                  </span>
+                  <span className="spatial-card-number">{project.year}</span>
                   <span className="spatial-card-name">
                     {projectName(project)}
                   </span>

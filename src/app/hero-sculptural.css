@@ -157,17 +157,6 @@
   background: var(--foreground);
   color: var(--background);
 }
-.work-section-featured .section-topline {
-  color: #696560;
-  margin-bottom: 16px;
-}
-.work-section-featured .eyebrow {
-  color: var(--background);
-}
-.work-section-featured .section-heading {
-  align-items: center;
-  gap: 48px;
-}
 .work-section-featured h2 {
   max-width: 700px;
 }
@@ -181,9 +170,9 @@
 .work-section-featured .text-link:hover {
   color: var(--primary);
 }
+/* The chapter folio already opens the gallery; its own label row would repeat it. */
 .work-section-featured .carousel-top {
-  color: #696560;
-  border-color: #1d1d1d24;
+  display: none;
 }
 .work-section-featured .spatial-stage-note {
   color: #696560;
@@ -320,13 +309,6 @@
   }
   .work-section.work-section-featured {
     padding-block: 28px 45px;
-  }
-  .work-section-featured .section-heading {
-    align-items: start;
-    gap: 24px;
-  }
-  .work-section-featured .section-topline > span:last-child {
-    display: none;
   }
 }
 @media (max-width: 360px) {

@@ -320,7 +320,6 @@ export function ProcessBuild() {
                 aria-controls="process-build-preview"
                 onClick={() => chooseStage.current(index)}
               >
-                <span>{String(index + 1).padStart(2, "0")}</span>
                 {step.label}
               </button>
             ))}
@@ -365,7 +364,6 @@ export function ProcessBuild() {
             <span>{stages[stage].title}</span>
             <p>{stages[stage].description}</p>
           </div>
-          <span className="process-build-format">Desktop i&nbsp;mobile</span>
         </div>
       </div>
     </section>

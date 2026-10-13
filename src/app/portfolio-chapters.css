@@ -5,6 +5,118 @@
   --chapter-ink: #1d1d1d;
   --chapter-muted: #696560;
   --chapter-rule: rgb(29 29 29 / 18%);
+  /* One 12-column grid carries every chapter: main blocks end before
+     --main-end and every secondary block starts on the --aside line. */
+  --grid: repeat(12, minmax(0, 1fr));
+  --grid-gap: 32px;
+  --main-end: 7;
+  --aside: 8;
+  --folio-gap: 40px;
+  --heading-gap: 56px;
+  /* Folio tones for graphite chapters; paper and burgundy override them. */
+  --folio-rule: rgb(244 240 235 / 22%);
+  --folio-text: #b0ada9;
+  --folio-label: var(--chapter-paper);
+  --folio-number: var(--accent-cool);
+  --folio-mark: var(--accent-cool);
+}
+.portfolio-home :is(.work-section-featured, .process-section, .faq-section) {
+  --folio-rule: rgb(29 29 29 / 20%);
+  --folio-text: var(--chapter-muted);
+  --folio-label: var(--chapter-ink);
+  --folio-number: var(--primary);
+  --folio-mark: var(--primary);
+}
+.portfolio-home :is(.services-section, .contact-editorial) {
+  --folio-rule: rgb(244 240 235 / 40%);
+  --folio-text: #edced5;
+  --folio-number: var(--chapter-paper);
+}
+
+.portfolio-home
+  :is(
+    .section-topline,
+    .section-heading,
+    .portrait-story,
+    .faq-layout,
+    .contact-layout
+  ) {
+  display: grid;
+  grid-template-columns: var(--grid);
+  gap: 0 var(--grid-gap);
+  align-items: start;
+}
+.portfolio-home
+  :is(
+    .section-topline,
+    .section-heading,
+    .portrait-story,
+    .faq-layout,
+    .contact-layout
+  )
+  > :first-child {
+  grid-column: 1 / var(--main-end);
+}
+.portfolio-home
+  :is(
+    .section-topline,
+    .section-heading,
+    .portrait-story,
+    .faq-layout,
+    .contact-layout
+  )
+  > :nth-child(2) {
+  grid-column: var(--aside) / -1;
+}
+
+/* Chapter folio: a hairline opens every chapter, the number leads the first
+   column and a square pins the --aside line the secondary blocks hang from. */
+.portfolio-home .section-topline {
+  align-items: baseline;
+  margin: 0 0 var(--folio-gap);
+  padding-top: 16px;
+  border-top: 1px solid var(--folio-rule);
+  color: var(--folio-text);
+  font-size: var(--type-label);
+  line-height: var(--leading-ui);
+  letter-spacing: var(--tracking-label);
+}
+/* Explicit rows: the square shares the tagline's cell instead of pushing it down. */
+.portfolio-home .section-topline > * {
+  grid-row: 1;
+}
+.portfolio-home .section-topline::after {
+  content: "";
+  grid-row: 1;
+  grid-column: var(--aside);
+  align-self: start;
+  width: 7px;
+  height: 7px;
+  /* Centred on the rule: 16px padding, half the 1px rule, half the square. */
+  margin-top: -20px;
+  background: var(--folio-mark);
+}
+.portfolio-home .section-topline .eyebrow {
+  color: var(--folio-label);
+}
+.portfolio-home .section-topline .eyebrow b {
+  color: var(--folio-number);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-home .section-heading {
+  margin-bottom: var(--heading-gap);
+}
+/* Every chapter heading shares one role, from the projects to the FAQ. */
+.portfolio-home :is(.section-heading, .faq-section) h2 {
+  font-size: var(--type-section);
+  line-height: 1.06;
+  letter-spacing: -0.055em;
+  font-weight: 500;
+}
+/* Body copy beside a heading starts on the heading's cap line, not above it. */
+.portfolio-home .section-heading > :nth-child(2):not(.process-chapter-form) {
+  padding-top: 0.6em;
 }
 
 .portfolio-home .work-section-featured {
@@ -39,56 +151,21 @@
 .portfolio-home section:is(.process-section, .pricing-section, .faq-section) {
   border-radius: 0;
 }
-.portfolio-home :is(.process-section, .pricing-section) .section-topline {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 24px;
-  margin-bottom: 42px;
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-label);
-}
-/* Every chapter heading shares one role, from the projects to the FAQ. */
-.portfolio-home :is(.section-heading, .faq-section) h2 {
-  font-size: var(--type-section);
-  line-height: 1.06;
-  letter-spacing: -0.055em;
-  font-weight: 500;
-}
-.portfolio-home :is(.process-section, .pricing-section) .section-heading {
-  align-items: center;
-  gap: 64px;
-  margin-bottom: 58px;
-}
-.portfolio-home :is(.process-section, .pricing-section) .section-heading p {
-  max-width: 35ch;
-  font-size: var(--type-body);
-  line-height: 1.7;
-}
 
 /* 04: one chapter from the visual demonstration to the practical steps. */
 .portfolio-home .process-section {
   background: var(--chapter-paper);
   color: var(--chapter-ink);
 }
-.portfolio-home .process-section .section-topline {
-  color: var(--chapter-muted);
-}
-.portfolio-home .process-section .eyebrow {
-  color: var(--chapter-ink);
-}
 .portfolio-home .process-chapter-heading {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 64px;
-}
-.process-chapter-heading > div:first-child {
-  min-width: 0;
+  align-items: center;
 }
 .portfolio-home .process-chapter-heading p {
+  max-width: 35ch;
   margin-top: 25px;
   color: var(--chapter-muted);
+  font-size: var(--type-body);
+  line-height: 1.7;
 }
 .process-chapter-form {
   min-width: 0;
@@ -100,9 +177,10 @@
   height: 100%;
   object-fit: contain;
 }
+/* Four steps of three columns each, on the same grid as the chapter. */
 .portfolio-home .process-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 30px;
+  gap: 30px var(--grid-gap);
   margin-top: 58px;
 }
 .portfolio-home .process-grid article {
@@ -137,173 +215,104 @@
   outline-color: var(--primary);
 }
 
-/* 05: open comparison columns, with one sculpted paper surface. */
+/* 05: a short graphite teaser; the full price list lives on /cennik. */
 .portfolio-home .pricing-section {
   background: var(--background);
-}
-.portfolio-home .pricing-section .section-topline {
-  color: #b0ada9;
 }
 .portfolio-home .pricing-section h2 em {
   color: var(--accent-cool);
 }
-.portfolio-home .pricing-section .section-heading p {
+.portfolio-home .pricing-teaser {
+  row-gap: 32px;
+  margin-bottom: 0;
+}
+.portfolio-home .pricing-teaser > h2 {
+  grid-row: 1 / 3;
+}
+.portfolio-home .pricing-teaser > p {
+  grid-row: 1;
+  max-width: 40ch;
+  margin-top: 0;
   color: #bdb9b4;
+  font-size: var(--type-body);
+  line-height: 1.7;
 }
-.portfolio-home .pricing-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-  border: 0;
-  align-items: stretch;
+.pricing-teaser-list {
+  grid-column: var(--aside) / -1;
+  grid-row: 2 / 4;
+  border-bottom: 1px solid var(--folio-rule);
 }
-.portfolio-home .price-plan {
-  min-width: 0;
-  padding: 32px clamp(24px, 2.5vw, 38px) 35px;
-  border-top: 1px solid rgb(244 240 235 / 22%);
-}
-.portfolio-home .price-plan + .price-plan {
-  border-left: 0;
-}
-.plan-index {
-  display: flex;
-  justify-content: space-between;
+.pricing-teaser-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto 18px;
   align-items: baseline;
-  gap: 12px;
-  margin-bottom: 34px;
-  color: #b0ada9;
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  letter-spacing: var(--tracking-label);
+  gap: 6px 24px;
+  padding-block: 22px 24px;
+  border-top: 1px solid var(--folio-rule);
 }
-.portfolio-home .plan-top h3 {
-  font-size: clamp(28px, 2.6vw, 38px);
-  line-height: 1.1;
-  letter-spacing: -0.05em;
-}
-.portfolio-home .plan-heading {
-  display: block;
-  min-height: 3em;
-  margin-top: 10px;
-  color: #bdb9b4;
-}
-.portfolio-home .plan-heading p {
-  font-size: var(--type-small);
-  line-height: 1.6;
-}
-.portfolio-home .price-plan .plan-price {
-  gap: 10px;
-  margin-block: 28px 25px;
+.pricing-teaser-name {
   color: var(--chapter-paper);
-}
-.portfolio-home .plan-price strong {
-  font-size: clamp(42px, 4.5vw, 64px);
-  letter-spacing: -0.06em;
-  line-height: 1;
-}
-.portfolio-home .plan-price > span {
-  font-size: var(--type-small);
-}
-.portfolio-home .plan-description {
-  min-height: 5.25em;
-  color: #bdb9b4;
-  font-size: var(--type-small);
-  line-height: 1.75;
-}
-.portfolio-home .price-plan ul {
-  gap: 14px;
-  margin-block: 30px 38px;
-  padding-top: 27px;
-  border-top: 1px solid rgb(244 240 235 / 18%);
-}
-.portfolio-home .price-plan li {
-  line-height: 1.65;
-}
-.portfolio-home .price-plan li svg {
-  color: var(--accent-cool);
-  margin-top: 4px;
-}
-.portfolio-home .price-plan .action {
-  justify-content: space-between;
-  gap: 14px;
-  min-height: 54px;
-  padding-inline: 16px;
-  font-size: var(--type-ui);
-  white-space: nowrap;
-}
-.portfolio-home .price-featured {
-  border: 0;
-  border-radius: 0 64px 0 0;
-  background: var(--chapter-paper);
-  color: var(--chapter-ink);
-}
-.portfolio-home .price-featured .plan-index {
-  color: var(--chapter-muted);
-}
-.portfolio-home .price-featured .plan-index > span:last-child {
-  color: var(--primary);
-}
-.portfolio-home .price-featured :is(.plan-heading, .plan-description) {
-  color: var(--chapter-muted);
-}
-.portfolio-home .price-featured .plan-price {
-  color: var(--chapter-ink);
-}
-.portfolio-home .price-featured ul {
-  border-color: var(--chapter-rule);
-}
-.portfolio-home .price-featured li svg {
-  color: var(--primary);
-}
-.portfolio-home .price-featured .action {
-  color: #fff;
-  background: var(--primary);
-  border-color: var(--primary);
-}
-.portfolio-home .price-featured .action:hover {
-  background: #850a28;
-  border-color: #850a28;
-}
-.portfolio-home .price-featured :focus-visible {
-  outline-color: var(--primary);
-}
-.portfolio-home .pricing-included {
-  justify-content: space-between;
-  gap: 28px;
-  margin-top: 45px;
-  padding-block: 26px;
-  border-block: 1px solid rgb(244 240 235 / 18%);
-}
-.portfolio-home .pricing-included p {
-  max-width: 63ch;
-  color: #cbc7c2;
-  font-size: var(--type-small);
-}
-.portfolio-home .pricing-extras {
-  gap: 70px;
-  padding-block: 40px;
-  border-color: rgb(244 240 235 / 18%);
-}
-.portfolio-home .pricing-extras h3 {
-  max-width: 19ch;
-  font-size: clamp(24px, 2.3vw, 32px);
-  line-height: 1.15;
-}
-.portfolio-home .pricing-extras p {
-  font-size: var(--type-small);
-  line-height: 1.75;
-}
-.portfolio-home .pricing-extras dt {
-  font-size: var(--type-small);
-}
-.portfolio-home .pricing-extras dd {
-  color: var(--accent-cool);
   font-size: var(--type-card);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.03em;
+  font-weight: var(--weight-heading);
+  transition: color 150ms;
 }
-.portfolio-home .pricing-note {
-  max-width: 86ch;
-  margin-top: 26px;
+/* An atomic inline, so the flag can drop below the name on the narrowest phones. */
+.pricing-teaser-name small {
+  display: inline-block;
+  margin-left: 14px;
+  color: var(--accent-cool);
+  font-size: var(--type-label);
+  letter-spacing: var(--tracking-label);
+  font-weight: var(--weight-ui);
+  vertical-align: 0.2em;
+}
+.pricing-teaser-tagline {
+  grid-column: 1 / 3;
+  grid-row: 2;
   color: #b0ada9;
-  line-height: 1.75;
+  font-size: var(--type-small);
+  line-height: var(--leading-body);
+}
+.pricing-teaser-price {
+  grid-column: 2;
+  grid-row: 1;
+  color: var(--chapter-paper);
+  font-size: var(--type-card);
+  line-height: var(--leading-heading);
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  transition: color 150ms;
+}
+.pricing-teaser-price small {
+  color: #b0ada9;
+  font-size: var(--type-small);
+  letter-spacing: 0;
+}
+.pricing-teaser-list svg {
+  grid-column: 3;
+  grid-row: 1;
+  align-self: center;
+  color: var(--accent-cool);
+  transition: transform 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.portfolio-home .pricing-teaser > .action {
+  grid-column: 1 / var(--main-end);
+  grid-row: 3;
+  align-self: end;
+  justify-self: start;
+}
+@media (hover: hover) and (pointer: fine) {
+  .pricing-teaser-list
+    a:hover
+    :is(.pricing-teaser-name, .pricing-teaser-price) {
+    color: var(--accent-cool);
+  }
+  .pricing-teaser-list a:hover svg {
+    transform: translate(2px, -2px);
+  }
 }
 
 /* 06: a quiet, readable paper chapter between pricing and contact. */
@@ -315,17 +324,8 @@
 .portfolio-home section.faq-section::before {
   content: none;
 }
-.faq-layout {
-  display: grid;
-  grid-template-columns: 0.85fr 1.15fr;
-  gap: clamp(48px, 7vw, 110px);
-  align-items: start;
-}
-.portfolio-home .faq-section .eyebrow {
-  color: var(--chapter-ink);
-}
 .portfolio-home .faq-section h2 {
-  margin-block: 37px 27px;
+  margin: 0 0 27px;
 }
 .faq-intro {
   max-width: 30ch;
@@ -345,18 +345,12 @@
 }
 .portfolio-home .faq-list summary {
   display: grid;
-  grid-template-columns: 24px minmax(0, 1fr) 22px;
-  gap: 19px;
+  grid-template-columns: minmax(0, 1fr) 22px;
+  gap: 24px;
   padding-block: 25px;
   font-weight: 500;
   line-height: 1.5;
   transition: color 150ms;
-}
-.portfolio-home .faq-number {
-  color: var(--chapter-muted);
-  align-self: start;
-  padding-top: 5px;
-  font-variant-numeric: tabular-nums;
 }
 .portfolio-home .faq-list summary svg {
   color: var(--primary);
@@ -372,7 +366,7 @@
 }
 .portfolio-home .faq-list details p {
   color: var(--chapter-muted);
-  padding: 0 40px 28px 43px;
+  padding: 0 46px 28px 0;
   font-size: var(--type-small);
   line-height: 1.8;
 }
@@ -388,15 +382,6 @@
   background-image: var(--studio-grain);
   background-size: 160px 160px;
   color: var(--chapter-paper);
-}
-.portfolio-home .contact-section-label {
-  color: #edced5;
-  margin-bottom: 65px;
-}
-.portfolio-home .contact-layout {
-  grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
-  align-items: start;
-  gap: clamp(56px, 8vw, 120px);
 }
 .contact-form-heading {
   margin-bottom: 32px;
@@ -531,101 +516,48 @@
 }
 
 @media (max-width: 1100px) {
+  .portfolio-home {
+    --grid-gap: 24px;
+    --aside: 7;
+    --folio-gap: 36px;
+    --heading-gap: 48px;
+  }
   .portfolio-home .process-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 36px;
+    row-gap: 36px;
   }
   .portfolio-home .process-grid h3 {
     min-height: 0;
     max-width: none;
-  }
-  .portfolio-home .process-section .process-chapter-heading {
-    gap: 30px;
-  }
-  .portfolio-home .price-plan {
-    padding-inline: 22px;
-  }
-  .portfolio-home .plan-price strong {
-    font-size: 42px;
-  }
-  .portfolio-home .contact-layout {
-    gap: 55px;
   }
   .portfolio-home .contact-title-art h2 {
     font-size: clamp(52px, 6.3vw, 70px);
   }
 }
 
-/* Portrait tablets: one package per row, the offer beside its feature list. */
-@media (min-width: 761px) and (max-width: 1023px) {
-  .portfolio-home .pricing-section .section-heading {
-    flex-direction: column;
-    align-items: start;
-    gap: 24px;
-  }
-  .portfolio-home .pricing-section .section-heading p {
-    max-width: 46ch;
-  }
-  .portfolio-home .pricing-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .portfolio-home .price-plan {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    grid-template-rows: repeat(5, auto) 1fr auto;
-    column-gap: 48px;
-    padding: 34px 0 40px;
-  }
-  /* Bleeds to the page edge so every package starts on the same axis. */
-  .portfolio-home .price-featured {
-    margin-inline: -32px;
-    padding-inline: 32px;
-  }
-  .portfolio-home .plan-index {
-    grid-column: 1 / -1;
-  }
-  .portfolio-home
-    .price-plan
-    > :is(.plan-top, .plan-heading, .plan-price, .plan-description) {
-    grid-column: 1;
-  }
-  .portfolio-home .plan-top h3 {
-    font-size: 32px;
-  }
-  .portfolio-home .plan-heading,
-  .portfolio-home .plan-description {
-    min-height: 0;
-  }
-  .portfolio-home .plan-price strong {
-    font-size: 56px;
-  }
-  .portfolio-home .price-plan ul {
-    grid-column: 2;
-    grid-row: 2 / 7;
-    margin: 0 0 32px;
-    padding-top: 0;
-    border-top: 0;
-  }
-  .portfolio-home .price-plan .action {
-    grid-column: 2;
-    grid-row: 7;
-  }
-  .portfolio-home .pricing-extras {
-    gap: 48px;
-  }
-}
-
+/* Phones: one column; the folio square moves to the start of the rule. */
 @media (max-width: 760px) {
-  .portfolio-home :is(.process-section, .pricing-section) .section-topline {
-    margin-bottom: 32px;
+  .portfolio-home {
+    --grid: minmax(0, 1fr);
+    --main-end: -1;
+    --aside: 1;
+    --folio-gap: 28px;
+    --heading-gap: 36px;
   }
-  .portfolio-home :is(.process-section, .pricing-section) .section-heading {
-    align-items: start;
-    gap: 25px;
-    margin-bottom: 40px;
+  .portfolio-home .section-topline {
+    padding-top: 14px;
   }
-  .portfolio-home .process-chapter-heading {
-    display: block;
+  .portfolio-home .section-topline::after {
+    margin-top: -18px;
+  }
+  .portfolio-home .section-heading > :nth-child(2):not(.process-chapter-form) {
+    padding-top: 0;
+  }
+  .portfolio-home .services-section .section-heading {
+    row-gap: 24px;
+  }
+  .portfolio-home .portrait-story {
+    row-gap: 28px;
   }
   .process-chapter-form {
     width: min(100%, 340px);
@@ -651,74 +583,32 @@
     margin: 0 0 13px;
     font-size: 23px;
   }
-  .portfolio-home .pricing-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
+  .portfolio-home .pricing-teaser {
+    row-gap: 24px;
   }
-  /* Open packages sit on the page axis; the featured card bleeds to the edge. */
-  .portfolio-home .price-plan {
-    padding: 30px 0;
+  .portfolio-home .pricing-teaser > :is(h2, p, .action),
+  .pricing-teaser-list {
+    grid-row: auto;
   }
-  .portfolio-home .price-featured {
-    margin-inline: -20px;
-    padding-inline: 20px;
-    border-radius: 0 50px 0 0;
+  .portfolio-home .pricing-teaser > .action {
+    margin-top: 8px;
   }
-  .portfolio-home .plan-index {
-    margin-bottom: 28px;
+  .pricing-teaser-list a {
+    column-gap: 16px;
+    padding-block: 20px;
   }
-  .portfolio-home .plan-top h3 {
-    font-size: 32px;
-  }
-  .portfolio-home .plan-heading {
-    min-height: 0;
-  }
-  .portfolio-home .plan-price strong {
-    font-size: 56px;
-  }
-  .portfolio-home .plan-description {
-    min-height: 0;
-  }
-  .portfolio-home .price-plan .action {
-    gap: 12px;
-    padding-inline: 18px;
-  }
-  .portfolio-home .pricing-included {
-    align-items: start;
-    gap: 16px;
-    margin-top: 30px;
-  }
-  .portfolio-home .pricing-extras {
-    gap: 27px;
-    padding-block: 32px;
-  }
-  .portfolio-home .pricing-extras dl > div {
-    gap: 18px;
-  }
-  .portfolio-home .pricing-extras dd {
-    font-size: 20px;
-  }
-  .faq-layout {
-    grid-template-columns: 1fr;
-    gap: 42px;
-  }
-  .portfolio-home .faq-section h2 {
-    margin-top: 30px;
+  .portfolio-home .faq-layout {
+    row-gap: 42px;
   }
   .portfolio-home .faq-list summary {
-    grid-template-columns: 18px minmax(0, 1fr) 20px;
-    gap: 13px;
+    gap: 16px;
     padding-block: 22px;
   }
   .portfolio-home .faq-list details p {
-    padding: 0 20px 25px 31px;
-  }
-  .portfolio-home .contact-section-label {
-    margin-bottom: 40px;
+    padding: 0 20px 25px 0;
   }
   .portfolio-home .contact-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    row-gap: 40px;
   }
   .portfolio-home .contact-invitation,
   .portfolio-home .contact-form-column {
@@ -741,6 +631,13 @@
   }
 }
 
+@media (max-width: 360px) {
+  .pricing-teaser-name small {
+    display: block;
+    margin: 6px 0 0;
+  }
+}
+
 /* Narrow phones: the step number moves above its title to free the full width. */
 @media (max-width: 400px) {
   .portfolio-home .process-grid article {
@@ -754,10 +651,19 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .pricing-teaser-list :is(.pricing-teaser-name, .pricing-teaser-price, svg) {
+    transition: none;
+  }
+}
+
 @media (forced-colors: active) {
   .process-chapter-form,
   .contact-chapter-form {
     display: none;
+  }
+  .portfolio-home .section-topline::after {
+    background: CanvasText;
   }
   .portfolio-home .contact-field select {
     appearance: auto;

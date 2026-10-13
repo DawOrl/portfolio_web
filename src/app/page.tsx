@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, ArrowDown, Check, Plus } from "lucide-react";
+import { ArrowUpRight, ArrowDown, Plus } from "lucide-react";
 import { ProjectsCarousel } from "@/components/blocks/ProjectsCarousel";
 import { AboutPortrait } from "@/components/blocks/AboutPortrait";
 import { ProcessBuild } from "@/components/blocks/ProcessBuild";
@@ -9,7 +9,6 @@ import { Navbar } from "@/components/blocks/Navbar";
 import { SiteFooter } from "@/components/blocks/SiteFooter";
 import { ContactSection } from "@/components/blocks/ContactSection";
 import { PortfolioFlow } from "@/components/blocks/PortfolioFlow";
-import { ContactIntentLink } from "@/components/ui/contact-intent-link";
 import { SectionTransition } from "@/components/ui/SectionTransition";
 import {
   PortfolioMotion,
@@ -123,7 +122,9 @@ export default function Home() {
         <section id="realizacje" className="work-section work-section-featured">
           <div className="shell">
             <div className="section-topline">
-              <span className="eyebrow">01 / WYBRANE PROJEKTY</span>
+              <span className="eyebrow">
+                <b>01</b> / WYBRANE PROJEKTY
+              </span>
               <span>KAŻDA MARKA MA SWÓJ CHARAKTER.</span>
             </div>
             <div className="section-heading">
@@ -152,7 +153,9 @@ export default function Home() {
         <section id="uslugi" className="services-section">
           <div className="shell">
             <div className="section-topline">
-              <span className="eyebrow">02 / W&nbsp;CZYM MOGĘ POMÓC</span>
+              <span className="eyebrow">
+                <b>02</b> / W&nbsp;CZYM MOGĘ POMÓC
+              </span>
               <span>TWÓJ CEL. MOJE ROZWIĄZANIE.</span>
             </div>
             <div className="section-heading">
@@ -224,7 +227,9 @@ export default function Home() {
         >
           <div className="shell">
             <div className="section-topline">
-              <span className="eyebrow">04 / WSPÓŁPRACA KROK PO KROKU</span>
+              <span className="eyebrow">
+                <b>04</b> / WSPÓŁPRACA KROK PO KROKU
+              </span>
               <span>OD PIERWSZEJ ROZMOWY DO PUBLIKACJI.</span>
             </div>
             <div className="section-heading process-chapter-heading">
@@ -270,129 +275,82 @@ export default function Home() {
           <div className="shell">
             <div className="section-topline">
               <span className="eyebrow">
-                05 / INWESTYCJA W&nbsp;TWOJĄ MARKĘ
+                <b>05</b> / CENNIK
               </span>
               <span>ZAKRES ZNASZ. DECYZJA NALEŻY DO CIEBIE.</span>
             </div>
-            <div className="section-heading">
+            <div className="section-heading pricing-teaser">
               <h2 id="pricing-heading">
-                Dobry projekt.
+                Znasz cenę,
                 <br />
-                <em>Uczciwe zasady.</em>
+                <em>zanim zaczniemy.</em>
               </h2>
               <p>
-                Wybierz zakres dopasowany do swojej firmy. Pełną wycenę poznasz
-                przed rozpoczęciem pracy.
+                Trzy pakiety od 990&nbsp;zł, dodatki i&nbsp;zasady współpracy
+                w&nbsp;jednym miejscu.
               </p>
-            </div>
-            <div className="pricing-grid">
-              {cvData.pricing.map((p, i) => (
-                <article
-                  key={p.name}
-                  className={`price-plan ${p.featured ? "price-featured" : ""}`}
-                >
-                  <div className="plan-index">
-                    <span>0{i + 1} / PAKIET</span>
-                    {p.featured && <span>POLECANY</span>}
-                  </div>
-                  <div className="plan-top">
-                    <h3>{p.name}</h3>
-                  </div>
-                  <div className="plan-heading">
-                    <p>{p.tagline}</p>
-                  </div>
-                  <p className="plan-price">
-                    <span>od</span>{" "}
-                    <strong>
-                      {p.price.replace(/^od\s+/, "").replace(/\s+zł$/, "")}
-                    </strong>{" "}
-                    <span>zł</span>
-                  </p>
-                  <p className="plan-description">{p.description}</p>
-                  <ul>
-                    {p.features.map((f) => (
-                      <li key={f}>
-                        <Check size={15} />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <ContactIntentLink
-                    className="action"
-                    href="/#kontakt"
-                    intent={{ kind: "package", label: p.name, value: p.name }}
-                  >
-                    {p.cta}
-                    <ArrowUpRight size={18} />
-                  </ContactIntentLink>
-                </article>
-              ))}
-            </div>
-            <div className="pricing-included">
-              <span className="eyebrow">W&nbsp;KAŻDYM PAKIECIE</span>
-              <p>
-                Dwie rundy poprawek · Drobna redakcja Twoich tekstów · 30 dni
-                pomocy przy błędach wdrożenia
-              </p>
-            </div>
-            <div className="pricing-extras">
-              <div>
-                <h3>Teksty? Wybór należy do Ciebie.</h3>
-                <p>
-                  Możesz dostarczyć własne lub zlecić mi ich przygotowanie na
-                  podstawie informacji o&nbsp;Twojej firmie. Pisanie tekstów
-                  obejmuje jedną rundę korekty.
-                </p>
-              </div>
-              <dl>
-                {cvData.pricingExtras.map((extra) => (
-                  <div key={extra.name}>
-                    <dt>
-                      {extra.name}
-                      <span>{extra.detail}</span>
-                    </dt>
-                    <dd>{extra.price}</dd>
-                  </div>
+              <ul className="pricing-teaser-list">
+                {cvData.pricing.map((p) => (
+                  <li key={p.name}>
+                    <Link href="/cennik">
+                      <span className="pricing-teaser-name">
+                        {p.name}
+                        {p.featured && <small>POLECANY</small>}
+                      </span>
+                      <span className="pricing-teaser-tagline">
+                        {p.tagline}
+                      </span>
+                      <span className="pricing-teaser-price">
+                        <small>od</small>{" "}
+                        {p.price.replace(/^od\s+/, "").replace(/\s+zł$/, "")}{" "}
+                        <small>zł</small>
+                      </span>
+                      <ArrowUpRight size={18} aria-hidden="true" />
+                    </Link>
+                  </li>
                 ))}
-              </dl>
+              </ul>
+              <Link className="action action-brand" href="/cennik">
+                Zobacz cennik <ArrowUpRight size={19} />
+              </Link>
             </div>
-            <p className="pricing-note">
-              Ceny wejściowe dotyczą opisanego zakresu. Końcową kwotę do zapłaty
-              i&nbsp;termin potwierdzam w&nbsp;wycenie. Domena, hosting
-              i&nbsp;płatne usługi zewnętrzne są rozliczane osobno. CMS, sklep,
-              rezerwacje oraz rozbudowane animacje wymagają dodatkowej wyceny.
-            </p>
           </div>
         </section>
         <SectionTransition from="ink" to="paper" shape="fold" size="shallow" />
         <section id="faq" className="faq-section" aria-labelledby="faq-heading">
-          <div className="shell faq-layout">
-            <div>
-              <span className="eyebrow">06 / WARTO WIEDZIEĆ</span>
-              <h2 id="faq-heading">
-                Jeszcze jakieś
-                <br />
-                <em>pytania?</em>
-              </h2>
-              <p className="faq-intro">
-                Kilka konkretów, zanim zaczniemy. Jeśli Twojego pytania nie ma
-                na liście, odezwij się.
-              </p>
-              <a className="text-link" href="#kontakt">
-                Po prostu napisz <ArrowUpRight size={18} />
-              </a>
+          <div className="shell">
+            <div className="section-topline">
+              <span className="eyebrow">
+                <b>06</b> / WARTO WIEDZIEĆ
+              </span>
+              <span>ODPOWIEDZI BEZ DROBNEGO DRUKU.</span>
             </div>
-            <div className="faq-list">
-              {cvData.faq.map((f, i) => (
-                <details key={f.q}>
-                  <summary>
-                    <span className="faq-number">0{i + 1}</span>
-                    <span className="faq-question">{f.q}</span>
-                    <Plus size={20} />
-                  </summary>
-                  <p>{f.a}</p>
-                </details>
-              ))}
+            <div className="faq-layout">
+              <div>
+                <h2 id="faq-heading">
+                  Jeszcze jakieś
+                  <br />
+                  <em>pytania?</em>
+                </h2>
+                <p className="faq-intro">
+                  Kilka konkretów na start. Jeśli Twojego pytania nie ma na
+                  liście, odezwij się.
+                </p>
+                <a className="text-link" href="#kontakt">
+                  Po prostu napisz <ArrowUpRight size={18} />
+                </a>
+              </div>
+              <div className="faq-list">
+                {cvData.faq.map((f) => (
+                  <details key={f.q}>
+                    <summary>
+                      <span className="faq-question">{f.q}</span>
+                      <Plus size={20} />
+                    </summary>
+                    <p>{f.a}</p>
+                  </details>
+                ))}
+              </div>
             </div>
           </div>
         </section>

@@ -28,12 +28,12 @@ import "./contact-intent.css";
 /**
  * Po skonfigurowaniu SMTP i Turnstile formularz wysyła przez /api/contact.
  * Do tego czasu wysyła zapytanie bezpośrednio do Web3Forms.
- * (Darmowy plan Web3Forms dopuszcza wyłącznie wysyłkę po stronie przeglądarki —
+ * (Darmowy plan Web3Forms dopuszcza wyłącznie wysyłkę po stronie przeglądarki -
  * server-side jest zablokowany, dlatego nie używamy własnego API route.)
  *
  * Klucz pochodzi z NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY w .env.local → NIE trafia do
  * repozytorium. Uwaga: klucze Web3Forms są z założenia publiczne (widoczne w
- * przeglądarce) i mają ochronę antyspamową — to standardowe, bezpieczne użycie.
+ * przeglądarce) i mają ochronę antyspamową - to standardowe, bezpieczne użycie.
  * Gdy klucz nie jest ustawiony, formularz robi fallback mailto.
  */
 
@@ -223,8 +223,10 @@ export function ContactSection({
       aria-labelledby="contact-heading"
     >
       <div className="shell">
-        <div className="contact-section-label">
-          <span>07 / KONTAKT</span>
+        <div className="section-topline">
+          <span className="eyebrow">
+            <b>07</b> / KONTAKT
+          </span>
           <span>WSZYSTKO ZACZYNA SIĘ OD ROZMOWY.</span>
         </div>
         <div className="contact-layout">

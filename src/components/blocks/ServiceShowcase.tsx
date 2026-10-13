@@ -42,7 +42,6 @@ export function ServiceShowcase({ services }: { services: Service[] }) {
             }}
             onFocus={() => setActive(index)}
           >
-            <span className="service-number">0{index + 1}</span>
             <h3>{service.title}</h3>
             <div className="service-description">
               <p>{service.description}</p>
@@ -68,13 +67,7 @@ export function ServiceShowcase({ services }: { services: Service[] }) {
             </div>
           ))}
         </div>
-        <div className="service-study-foot">
-          <span className="service-study-count">
-            0{active + 1}
-            <span> / {String(services.length).padStart(2, "0")}</span>
-          </span>
-          <p>{captions[services[active]?.id]}</p>
-        </div>
+        <p className="service-study-foot">{captions[services[active]?.id]}</p>
       </div>
     </div>
   );

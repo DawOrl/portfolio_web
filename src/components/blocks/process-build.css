@@ -14,11 +14,26 @@
   min-width: 0;
 }
 
-.process-build-header {
+/* Header and caption follow the home chapter grid: the stage controls and
+   the stage description start on the shared --aside line. */
+.process-build-header,
+.process-build-caption {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: var(--grid);
+  column-gap: var(--grid-gap);
+}
+.process-build-header > :first-child,
+.process-build-caption > span {
+  grid-column: 1 / var(--main-end);
+}
+.process-build-stage-controls,
+.process-build-caption p {
+  grid-column: var(--aside) / -1;
+}
+
+.process-build-header {
   align-items: center;
-  gap: 32px;
+  row-gap: 20px;
   padding-bottom: 24px;
   border-bottom: 1px solid #1d1d1d20;
 }
@@ -45,6 +60,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 4px;
   align-items: center;
+  justify-self: start;
 }
 
 .process-build-stage-controls button {
@@ -52,7 +68,7 @@
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-width: 110px;
+  min-width: 96px;
   min-height: 50px;
   padding: 12px 16px;
   border: 1px solid transparent;
@@ -64,20 +80,9 @@
   cursor: pointer;
 }
 
-.process-build-stage-controls button > span {
-  color: #756c63;
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  font-variant-numeric: tabular-nums;
-}
-
 .process-build-stage-controls button[aria-pressed="true"] {
   border-color: #a00c30;
   background: #a00c30;
-  color: #fff;
-}
-
-.process-build-stage-controls button[aria-pressed="true"] > span {
   color: #fff;
 }
 
@@ -443,19 +448,12 @@
 }
 
 .process-build-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  gap: 28px;
   padding-top: 24px;
   border-top: 1px solid #1d1d1d20;
 }
 
 .process-build-caption {
-  display: grid;
-  grid-template-columns: minmax(190px, 0.7fr) minmax(0, 1.3fr);
-  gap: 32px;
-  max-width: 900px;
+  row-gap: 6px;
   min-height: 76px;
 }
 
@@ -473,14 +471,6 @@
   font-size: var(--type-body);
   line-height: var(--leading-body);
   text-wrap: pretty;
-}
-
-.process-build-format {
-  padding-top: 4px;
-  color: #655f59;
-  font-size: var(--type-label);
-  line-height: var(--leading-ui);
-  white-space: nowrap;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -555,16 +545,7 @@
 }
 
 @media (max-width: 1023px) {
-  .process-build-header {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 20px;
-  }
-  .process-build-stage-controls {
-    justify-self: start;
-  }
   .process-build-caption {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 6px;
     min-height: 112px;
   }
 }
@@ -627,16 +608,10 @@
     border-radius: 0 0 6px 6px;
   }
   .process-build-footer {
-    flex-direction: column;
-    gap: 18px;
     padding-top: 20px;
   }
   .process-build-caption {
-    width: 100%;
     min-height: 120px;
-  }
-  .process-build-format {
-    display: none;
   }
 }
 
@@ -649,9 +624,6 @@
   .process-build-stage-controls button[aria-pressed="true"] {
     border-color: Highlight;
     background: Highlight;
-    color: HighlightText;
-  }
-  .process-build-stage-controls button[aria-pressed="true"] > span {
     color: HighlightText;
   }
   .build-site-action {

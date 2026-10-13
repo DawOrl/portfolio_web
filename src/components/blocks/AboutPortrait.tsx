@@ -6,6 +6,11 @@ export function AboutPortrait() {
   return (
     <div className="about-portrait-stage">
       <div className="about-portrait-top">
+        <div className="section-topline">
+          <span className="eyebrow">
+            <b>03</b> / CZŁOWIEK ZA PROJEKTEM
+          </span>
+        </div>
         <nav className="about-portrait-tabs" aria-label="Poznaj mnie">
           <span>O&nbsp;mnie</span>
           <a href="#moje-podejscie">Podejście</a>
@@ -17,7 +22,6 @@ export function AboutPortrait() {
             Doświadczenie <ArrowUpRight size={12} />
           </a>
         </nav>
-        <span className="about-portrait-index">03 / Człowiek za projektem</span>
       </div>
 
       <h2 id="about-heading" className="sr-only">

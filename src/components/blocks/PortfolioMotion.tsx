@@ -181,7 +181,7 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
 
             content
               .querySelectorAll<HTMLElement>(
-                ".section-heading, .faq-layout > div:first-child",
+                ".section-heading:not(.pricing-teaser), .pricing-teaser > :is(h2, p), .faq-layout > div:first-child",
               )
               .forEach((heading) => {
                 reveal(heading, {
@@ -230,7 +230,7 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
               });
 
             content
-              .querySelectorAll<HTMLElement>(".price-plan")
+              .querySelectorAll<HTMLElement>(".pricing-teaser-list > li")
               .forEach((plan, index) => {
                 reveal(plan, {
                   y: desktop ? 48 : 28,
@@ -241,9 +241,7 @@ export function PortfolioMotion({ children }: { children: ReactNode }) {
               });
 
             content
-              .querySelectorAll<HTMLElement>(
-                ".pricing-included, .pricing-extras",
-              )
+              .querySelectorAll<HTMLElement>(".pricing-teaser > .action")
               .forEach((details) => {
                 reveal(details, { y: desktop ? 30 : 20 });
               });
