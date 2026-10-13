@@ -15,6 +15,8 @@
 }
 .portfolio-home .about-editorial-section {
   padding-bottom: clamp(32px, 3vw, 48px);
+  /* Flat graphite like its portrait stage and the transitions around it; the page grain lightened it. */
+  background: var(--background);
 }
 
 .portfolio-home .portrait-story h3 {
