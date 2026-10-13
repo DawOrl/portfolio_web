@@ -192,18 +192,27 @@ export function ProcessBuild() {
               },
             });
 
-            timeline
-              .fromTo(
-                ".process-build-wireframe path",
-                { strokeDashoffset: 1 },
-                {
-                  strokeDashoffset: 0,
-                  duration: 0.6,
-                  stagger: 0.014,
-                  ease: "none",
+            // The sketch draws while the scene scrolls in, so "Szkic" is complete
+            // when the scene pins instead of starting as empty frames.
+            gsap.fromTo(
+              ".process-build-wireframe path",
+              { strokeDashoffset: 1 },
+              {
+                strokeDashoffset: 0,
+                // Dashes are fractions of pathLength="1": rounding to whole px skips the drawing.
+                autoRound: false,
+                stagger: 0.08,
+                ease: "none",
+                scrollTrigger: {
+                  trigger: root,
+                  start: "top 80%",
+                  end: "top 12%",
+                  scrub: true,
                 },
-                0,
-              )
+              },
+            );
+
+            timeline
               .fromTo(
                 ".process-build-wireframe",
                 { autoAlpha: 1 },
