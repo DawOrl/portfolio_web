@@ -10,7 +10,7 @@ const links = [
   { label: "Realizacje", href: "/realizacje" },
   { label: "Usługi", href: "/#uslugi" },
   { label: "O mnie", href: "/#o-mnie" },
-  { label: "Cennik", href: "/#cennik" },
+  { label: "Cennik", href: "/cennik" },
 ];
 const mobileLinks = [
   ...links,
@@ -27,7 +27,7 @@ export function Navbar() {
 
   useEffect(() => {
     if (pathname !== "/") return;
-    const sections = ["uslugi", "o-mnie", "proces", "cennik", "kontakt"]
+    const sections = ["uslugi", "o-mnie", "proces", "kontakt"]
       .map((id) => document.getElementById(id))
       .filter((element): element is HTMLElement => element !== null);
     let frame = 0;
@@ -83,6 +83,9 @@ export function Navbar() {
 
   const currentFor = (href: string) => {
     if (href === "/realizacje" && pathname.startsWith("/realizacje")) {
+      return "page" as const;
+    }
+    if (href === "/cennik" && pathname === "/cennik") {
       return "page" as const;
     }
     if (pathname === "/" && section && href === `/#${section}`) {
