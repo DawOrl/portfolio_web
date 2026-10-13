@@ -1,5 +1,6 @@
 import { dashboardConfigured } from "@/lib/dashboard/config";
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Navbar } from "@/components/blocks/Navbar";
@@ -15,6 +16,40 @@ export const metadata: Metadata = {
   alternates: { canonical: "/polityka-prywatnosci" },
 };
 
+/** Quiet vault-dial engraving behind the lock: rings, 72 ticks, one marker. */
+function PrivacyDial() {
+  const ticks = Array.from({ length: 72 }, (_, index) => {
+    const angle = (index / 72) * Math.PI * 2;
+    const major = index % 6 === 0;
+    const at = (radius: number) => ({
+      x: (200 + radius * Math.sin(angle)).toFixed(2),
+      y: (200 - radius * Math.cos(angle)).toFixed(2),
+    });
+    return { from: at(major ? 168 : 176), to: at(184), major };
+  });
+  return (
+    <svg className="privacy-dial" viewBox="0 0 400 400" focusable="false">
+      <circle cx="200" cy="200" r="196" className="privacy-dial-ring" />
+      <circle cx="200" cy="200" r="138" className="privacy-dial-ring" />
+      <path
+        d="M30.26 102 A196 196 0 0 1 149.27 10.68"
+        className="privacy-dial-arc"
+      />
+      {ticks.map(({ from, to, major }, index) => (
+        <line
+          key={index}
+          x1={from.x}
+          y1={from.y}
+          x2={to.x}
+          y2={to.y}
+          className={major ? "privacy-dial-tick is-major" : "privacy-dial-tick"}
+        />
+      ))}
+      <circle cx="200" cy="4" r="3.5" className="privacy-dial-marker" />
+    </svg>
+  );
+}
+
 export default function PrivacyPage() {
   const smtp = smtpContactEnabled();
   const dashboard = dashboardConfigured();
@@ -26,16 +61,38 @@ export default function PrivacyPage() {
           <Link href="/" className="privacy-back">
             <ArrowLeft size={16} /> Strona główna
           </Link>
-          <header className="privacy-header">
-            <p className="privacy-eyebrow">DORLOWSKI.DEV / PRYWATNOŚĆ</p>
-            <h1>
-              Twoje dane.
-              <br />
-              <em>Jasne zasady.</em>
-            </h1>
-            <p>Polityka prywatności serwisu dorlowski.dev</p>
-            <small>Aktualizacja: 21 września 2026 r.</small>
-          </header>
+          <div className="privacy-hero">
+            <header className="privacy-header">
+              <p className="privacy-eyebrow">DORLOWSKI.DEV / PRYWATNOŚĆ</p>
+              <h1>
+                Twoje dane.
+                <br />
+                <em>Jasne zasady.</em>
+              </h1>
+              <p>Polityka prywatności serwisu dorlowski.dev</p>
+              <small>Aktualizacja: 21 września 2026 r.</small>
+            </header>
+            <div className="privacy-hero-art" aria-hidden="true">
+              <PrivacyDial />
+              <picture>
+                <source
+                  media="(max-width: 760px)"
+                  srcSet="/art/privacy-lock-mobile.webp"
+                  width={640}
+                  height={640}
+                />
+                <Image
+                  src="/art/privacy-lock.webp"
+                  alt=""
+                  width={1000}
+                  height={1000}
+                  loading="eager"
+                  fetchPriority="high"
+                  unoptimized
+                />
+              </picture>
+            </div>
+          </div>
         </div>
         <SectionTransition from="ink" to="paper" shape="swell" />
         <div className="privacy-reading-surface">

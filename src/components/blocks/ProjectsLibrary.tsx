@@ -1,8 +1,6 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
 import type { Project } from "@/lib/projects";
 import { ProjectCard } from "./ProjectCard";
 
@@ -72,15 +70,6 @@ export function ProjectsLibrary({
           </button>
         </div>
       )}
-      <Link href="/#kontakt" className="library-invitation">
-        <span>
-          <strong>Twój projekt może być tutaj</strong>
-          <span>
-            Porozmawiajmy o&nbsp;Twojej stronie. Wycena jest bezpłatna.
-          </span>
-        </span>
-        <ArrowUpRight size={28} aria-hidden="true" />
-      </Link>
     </div>
   );
 }

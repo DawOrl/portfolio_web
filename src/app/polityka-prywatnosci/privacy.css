@@ -9,9 +9,97 @@
   color: #bdb9b4;
   gap: 12px;
 }
+.privacy-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 0.7fr);
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+}
 .privacy-page .privacy-header {
   padding-block: 48px 0;
   max-width: 960px;
+  min-width: 0;
+}
+/* Lock on an engraved vault dial: crafted, low-contrast, purely decorative. */
+.privacy-hero-art {
+  position: relative;
+  justify-self: end;
+  width: min(100%, 440px);
+  aspect-ratio: 1;
+  margin-top: clamp(8px, 3vw, 44px);
+  pointer-events: none;
+  user-select: none;
+}
+.privacy-hero-art::before {
+  content: "";
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(
+    closest-side,
+    rgb(159 197 211 / 9%),
+    rgb(159 197 211 / 3%) 60%,
+    transparent
+  );
+}
+.privacy-dial {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.privacy-dial :is(circle, line, path) {
+  vector-effect: non-scaling-stroke;
+}
+.privacy-dial-ring {
+  fill: none;
+  stroke: rgb(244 240 235 / 9%);
+  stroke-width: 1;
+}
+.privacy-dial-arc {
+  fill: none;
+  stroke: var(--accent-cool);
+  stroke-width: 1.5;
+  opacity: 0.7;
+}
+.privacy-dial-tick {
+  stroke: rgb(244 240 235 / 13%);
+  stroke-width: 1;
+}
+.privacy-dial-tick.is-major {
+  stroke: rgb(244 240 235 / 30%);
+}
+.privacy-dial-marker {
+  fill: var(--primary);
+}
+.privacy-hero-art picture {
+  position: absolute;
+  inset: 10% 8% 8% 10%;
+}
+.privacy-hero-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .privacy-hero-art picture {
+    animation: privacy-lock-settle 1.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  .privacy-dial {
+    animation: privacy-dial-turn 1.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+  @keyframes privacy-lock-settle {
+    from {
+      transform: translate3d(0, 18px, 0) rotate(-4deg);
+    }
+  }
+  @keyframes privacy-dial-turn {
+    from {
+      transform: rotate(-40deg);
+    }
+  }
 }
 .privacy-page .privacy-eyebrow {
   color: #bdb9b4;
@@ -152,6 +240,14 @@
   .privacy-page .privacy-header {
     padding-top: 28px;
   }
+  .privacy-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+  .privacy-hero-art {
+    width: min(64vw, 260px);
+    margin: 4px -4px -18px auto;
+  }
   .privacy-reading-layout {
     grid-template-columns: minmax(0, 1fr);
     gap: 38px;
@@ -174,5 +270,15 @@
   .privacy-page .privacy-content :is(p, li) {
     font-size: 16px;
     line-height: 1.75;
+  }
+}
+@media (max-width: 1000px) and (min-width: 761px) {
+  .privacy-hero {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+  }
+}
+@media (forced-colors: active) {
+  .privacy-hero-art {
+    display: none;
   }
 }
