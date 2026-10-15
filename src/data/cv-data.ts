@@ -800,7 +800,7 @@ const rawCvData = {
         },
       ] as const,
       githubUrl: "https://github.com/DawOrl/WorkSmart",
-      liveUrl: "",
+      liveUrl: "https://work-smart-frontend.vercel.app/",
       featured: false,
     },
 

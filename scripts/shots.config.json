@@ -35,6 +35,10 @@
     {
       "slug": "kalkulator-wyceny",
       "url": "https://kalkulator-wyceny-three.vercel.app/"
+    },
+    {
+      "slug": "worksmart",
+      "url": "https://work-smart-frontend.vercel.app/"
     }
   ]
 }
