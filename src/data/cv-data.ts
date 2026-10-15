@@ -233,15 +233,19 @@ const rawCvData = {
     },
   ],
 
-  // Realizacje — jedno źródło prawdy (biblioteka projektów + podstrony case study).
+  // Realizacje: jedno źródło prawdy (biblioteka projektów + podstrony case study).
   //
   // Konwencja zdjęć: pliki trzymamy w public/projects/<slug>/.
   // Zrzuty z live można generować automatycznie: `npm run shots <slug>`
   // (konfiguracja w scripts/shots.config.json) → tworzy desktop.png i mobile.png.
+  // Zrzuty z października 2026 (okładki i features) pochodzą z lokalnych buildów
+  // gałęzi redesign każdego projektu, a `npm run shots` nadpisałby je starą
+  // wersją live, dopóki te projekty nie zostaną wdrożone.
   //
   // Pola: slug (URL), category (filtr), tagline (krótki opis na karcie),
   // problem/solution/result (case study), stack[] + scope[] (zakres),
-  // cover (miniatura/okładka), gallery[] (zdjęcia), liveUrl/githubUrl, featured.
+  // cover (miniatura/okładka), gallery[] (zdjęcia), liveUrl/githubUrl
+  // (pusty tekst = brak przycisku), featured.
   projects: [
     {
       slug: "topauto-serwis",
@@ -273,36 +277,52 @@ const rawCvData = {
       ],
       features: [
         {
-          src: "/projects/topauto-serwis/features/uslugi-podstrony.webp",
-          alt: "Sekcja usług TopAuto Serwis: cztery usługi warsztatu z krótkim opisem i linkiem „Zobacz zakres”",
+          src: "/projects/topauto-serwis/features/zakres-uslug.webp",
+          alt: "Sekcja zakresu usług w ciemnym motywie: nagłówek „Dobra robota. Od podstaw.”, czarno-białe zdjęcie opon i numerowana lista czterech usług",
           caption:
-            "Cztery usługi warsztatu. Każda prowadzi do własnej podstrony z zakresem prac.",
+            "Kierowca od razu widzi cztery usługi warsztatu, opisane bez obietnic, których właściciel nie potwierdził.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
+          src: "/projects/topauto-serwis/features/motyw-jasny.webp",
+          alt: "Pierwszy ekran w jasnym motywie: nagłówek „Mechanika. Wulkanizacja. Po sąsiedzku.”, przyciski Zadzwoń i Dojazd oraz pomarańczowy panel z adresem warsztatu",
+          caption:
+            "Przy pierwszej wizycie strona przejmuje jasny lub ciemny motyw z telefonu, a przełącznik w nagłówku pozwala go zmienić.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/topauto-serwis/features/podstrona-wulkanizacja.webp",
-          alt: "Podstrona wymiany opon i wulkanizacji z nawigacją okruszkową, opisem usługi oraz przyciskami Zadzwoń i Dojazd",
+          src: "/projects/topauto-serwis/features/podstrona-uslugi.webp",
+          alt: "Podstrona wymiany opon i wulkanizacji w okolicach Baćkowic: okruszki nawigacji, przyciski kontaktu, zdjęcie opon i początek listy „Co podać przez telefon”",
           caption:
-            "Podstrona wulkanizacji: opis usługi, a przyciski telefonu i dojazdu tuż pod nagłówkiem.",
+            "Każda usługa ma własną podstronę pod lokalne wyszukiwanie, z listą informacji, które warto podać przez telefon.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/topauto-serwis/features/ciemny-motyw-mobile.webp",
-          alt: "Strona główna TopAuto Serwis na telefonie w ciemnym motywie, z przypiętym na dole paskiem Zadzwoń i Dojazd",
+          src: "/projects/topauto-serwis/features/telefon-kroki-wizyty.webp",
+          alt: "Telefon w ciemnym motywie: trzy kroki umawiania serwisu na pomarańczowej osi i stały pasek Zadzwoń oraz Dojazd na dole ekranu",
           caption:
-            "Na telefonie przyciski Zadzwoń i Dojazd są zawsze pod kciukiem, także w ciemnym motywie.",
+            "Zadzwoń i Dojazd są zawsze pod kciukiem, a wizytę umawia się w trzech krokach.",
           step: "solution",
           device: "mobile",
         },
         {
-          src: "/projects/topauto-serwis/features/kontakt-telefon-mapa.webp",
-          alt: "Sekcja kontaktu z dużym numerem telefonu warsztatu, statusem otwarcia, adresem, godzinami i mapą dojazdu",
+          src: "/projects/topauto-serwis/features/kontakt-i-mapa.webp",
+          alt: "Sekcja kontaktu w jasnym motywie: status otwarcia, adres, godziny, e-mail i mapa okolicy z pinezką TopAuto Serwis oraz odnośnikiem Wyznacz trasę",
           caption:
-            "Numer telefonu, godziny otwarcia i mapa w jednym miejscu. Kierowca dzwoni albo od razu wyznacza trasę.",
+            "Adres, godziny i mapa są w jednym miejscu, a nad nimi widać, czy warsztat jest teraz otwarty.",
           step: "result",
           device: "desktop",
+        },
+        {
+          src: "/projects/topauto-serwis/features/telefon-mapa.webp",
+          alt: "Telefon w jasnym motywie: mapa okolicy z pinezką warsztatu, przyciskami powiększania i odnośnikiem Wyznacz trasę",
+          caption:
+            "Kierowca jednym dotknięciem wyznacza trasę do warsztatu w małej miejscowości.",
+          step: "result",
+          device: "mobile",
         },
       ] as const,
       githubUrl: "",
@@ -344,44 +364,52 @@ const rawCvData = {
       ],
       features: [
         {
-          src: "/projects/restauracja-bella/features/menu-online.webp",
-          alt: "Menu online Bella Cucina z zakładkami kategorii i daniami z działu Antipasti: zdjęcie, opis i cena każdej pozycji",
+          src: "/projects/restauracja-bella/features/karta-dan.webp",
+          alt: "Karta dań na komputerze: przyklejony pasek kategorii od Antipasti do Bevande, przystawki z cenami na kropkowanych liniach i zdjęcie burraty w łukowym kadrze",
           caption:
-            "Menu online podzielone na kategorie, ze zdjęciem, opisem i ceną każdego dania.",
-          step: "solution",
+            "Menu, które krążyło jako zdjęcie kartki, jest teraz czytelną stroną z cenami, oznaczeniami diet i jednym zdjęciem na kategorię.",
+          step: "challenge",
           device: "desktop",
         },
         {
-          src: "/projects/restauracja-bella/features/galeria-dan.webp",
-          alt: "Galeria „Atmosfera i smak” z mozaiką zdjęć dań, wnętrza restauracji i napojów",
+          src: "/projects/restauracja-bella/features/karta-dan-telefon.webp",
+          alt: "Karta dań na telefonie: pasek kategorii pod nagłówkiem, sekcja Pasta ze zdjęciem carbonary i cenami, na dole przyciski Zadzwoń i Zarezerwuj stolik",
           caption:
-            "Galeria dań i wnętrza pokazuje atmosferę lokalu, zanim gość do niego przyjdzie.",
-          step: "solution",
-          device: "desktop",
-        },
-        {
-          src: "/projects/restauracja-bella/features/menu-mobile.webp",
-          alt: "Menu restauracji na telefonie z przypiętym paskiem kategorii i listą makaronów z cenami",
-          caption:
-            "Na telefonie pasek kategorii zostaje u góry ekranu, więc gość nie gubi się w karcie.",
+            "Kategorie zmienia się jednym dotknięciem, a telefon i rezerwacja są pod kciukiem.",
           step: "solution",
           device: "mobile",
         },
         {
-          src: "/projects/restauracja-bella/features/rezerwacja-stolika.webp",
-          alt: "Formularz rezerwacji stolika z wpisanym imieniem, datą 24.10.2026, godziną 19:00, liczbą osób i uwagami",
+          src: "/projects/restauracja-bella/features/galeria.webp",
+          alt: "Galeria na ciemnym tle: sala pod ceglanym sklepieniem ze świecami, piec opalany drewnem i kuchnia z miedzianymi rondlami",
           caption:
-            "Rezerwacja stolika w jednym formularzu: data, godzina, liczba osób i uwagi dla obsługi.",
+            "Spójna seria zdjęć w jednym świetle pokazuje klimat lokalu, zanim gość przekroczy próg.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/restauracja-bella/features/dojazd-plan-starego-miasta.webp",
+          alt: "Sekcja dojazdu: adres przy Floriańskiej, przyciski Wyznacz trasę i Otwórz w Mapach Google, godziny z wyróżnionym dzisiejszym dniem i schematyczny plan Starego Miasta",
+          caption:
+            "Plan Starego Miasta od razu pokazuje drogę, a mapa Google wczytuje się dopiero na życzenie, bez ciasteczek na starcie.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/restauracja-bella/features/rezerwacja-stolika.webp",
+          alt: "Sekcja rezerwacji: numer telefonu i godziny otwarcia obok formularza z imieniem, telefonem, datą, godziną, liczbą osób, uwagami i zgodą",
+          caption:
+            "Formularz podpowiada godziny otwarcia w wybranym dniu i opisuje błędy przy polach, więc prośba o stolik zajmuje chwilę.",
           step: "result",
           device: "desktop",
         },
         {
-          src: "/projects/restauracja-bella/features/dojazd-godziny.webp",
-          alt: "Sekcja „Jak do nas trafić” z adresem, godzinami otwarcia, danymi kontaktowymi i mapą Google",
+          src: "/projects/restauracja-bella/features/rezerwacja-potwierdzenie-telefon.webp",
+          alt: "Potwierdzenie na telefonie: podziękowanie z imieniem gościa, data zapisana słownie, godzina, liczba osób i numer, na który lokal oddzwoni",
           caption:
-            "Adres, godziny otwarcia i mapa dojazdu są na stronie, a nie w nieaktualnym poście.",
+            "Gość widzi podsumowanie prośby i wie, że lokal oddzwoni, żeby ją potwierdzić.",
           step: "result",
-          device: "desktop",
+          device: "mobile",
         },
       ] as const,
       githubUrl: "https://github.com/DawOrl/restauracja-bella",
@@ -418,43 +446,52 @@ const rawCvData = {
       ],
       features: [
         {
-          src: "/projects/salon-glow/features/cennik-uslug.webp",
-          alt: "Cennik Glow Studio z kategoriami Strzyżenie i modelowanie oraz Koloryzacja, z czasem trwania i ceną każdej usługi",
+          src: "/projects/salon-glow/features/rezerwacja-bez-posrednikow.webp",
+          alt: "Sekcja rezerwacji Glow Studio: kącik z lnianymi zasłonami w łuku okna, nagłówek „Umów się bezpośrednio u nas”, cztery kroki rezerwacji i przyciski rezerwacji online oraz telefonu",
           caption:
-            "Pełny cennik: przy każdej usłudze widać czas wizyty i przedział ceny.",
+            "Salon przyjmuje rezerwacje u siebie, więc nie oddaje prowizji platformom i zatrzymuje kontakt do klientek.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
+          src: "/projects/salon-glow/features/metamorfozy-suwak-przed-po.webp",
+          alt: "Suwak przed i po: ta sama klientka przy oknie, z lewej jednolity ciemny brąz, z prawej ciepły balayage, obok usługa, stylistka, czas wizyty i lista sześciu metamorfoz",
+          caption:
+            "Klientka przeciąga suwak i widzi efekt na tej samej osobie, a jednym kliknięciem przechodzi do rezerwacji takiej usługi.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/salon-glow/features/zespol.webp",
-          alt: "Sekcja zespołu ze zdjęciami czworga stylistów, ich rolami, ocenami i specjalizacjami",
-          caption: "Prezentacja zespołu: klientka wie, do kogo się zapisuje.",
+          src: "/projects/salon-glow/features/karta-uslug.webp",
+          alt: "Karta usług jak drukowany cennik: kategorie w zakładkach po lewej, po prawej koloryzacje z kropkową linią, ceną, czasem trwania i linkiem Umów",
+          caption:
+            "Cena i czas każdej usługi są widoczne przed wizytą, więc klientka nie musi dzwonić z pytaniem o koszt.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/salon-glow/features/metamorfozy-przed-po.webp",
-          alt: "Porównanie przed i po koloryzacji z suwakiem, opisem usługi, stylistki i czasu wizyty oraz miniaturami innych metamorfoz",
+          src: "/projects/salon-glow/features/rezerwacja-wybor-terminu.webp",
+          alt: "Trzeci krok rezerwacji: pasek dni, godziny pogrupowane na rano, po południu i wieczorem, zajęte godziny przekreślone, obok podsumowanie wizyty z ceną",
           caption:
-            "Portfolio metamorfoz z suwakiem przed i po. Każda opisana usługą, stylistką i czasem wizyty.",
+            "Kreator pokazuje tylko godziny, w których wizyta zmieści się przed zamknięciem, a podsumowanie z ceną jest cały czas obok.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/salon-glow/features/rezerwacja-stylista-mobile.webp",
-          alt: "Drugi krok rezerwacji na telefonie: wybór stylistki, a pod nim podsumowanie wizyty",
+          src: "/projects/salon-glow/features/rezerwacja-telefon.webp",
+          alt: "Wybór terminu na telefonie: przewijany pasek dni, siatka godzin i przyklejony dolny pasek z usługą, ceną i przyciskiem Dalej",
           caption:
-            "Rezerwacja prowadzi krok po kroku: usługa, stylistka, termin i dane.",
-          step: "result",
+            "Podsumowanie i „Dalej” zostają pod kciukiem, więc rezerwacja zajmuje kilka stuknięć.",
+          step: "solution",
           device: "mobile",
         },
         {
-          src: "/projects/salon-glow/features/rezerwacja-termin.webp",
-          alt: "Trzeci krok rezerwacji online: wybór dnia i godziny, obok podsumowanie z usługą, stylistką, terminem i ceną",
+          src: "/projects/salon-glow/features/potwierdzenie-rezerwacji.webp",
+          alt: "Potwierdzenie na telefonie: nagłówek „Dziękujemy, mamy Twoją prośbę”, usługa, termin, stylistka i czas wizyty oraz przyciski Dodaj do kalendarza i Wróć na stronę główną",
           caption:
-            "Własny kalendarz rezerwacji salonu. Podsumowanie pokazuje termin i cenę, bez prowizji pośrednika.",
+            "Klientka widzi podsumowanie wizyty i jednym kliknięciem dodaje ją do kalendarza.",
           step: "result",
-          device: "desktop",
+          device: "mobile",
         },
       ] as const,
       githubUrl: "https://github.com/DawOrl/salon-glow",
@@ -491,34 +528,50 @@ const rawCvData = {
       ],
       features: [
         {
-          src: "/projects/sklep-craft-coffee/features/katalog-filtry.webp",
-          alt: "Katalog kaw z filtrami palenia, rodzaju i mielenia; aktywny filtr Jasne zawęża listę do czterech kaw",
+          src: "/projects/sklep-craft-coffee/features/hero-ziarna-3d.webp",
+          alt: "Pierwszy ekran sklepu: szeryfowy nagłówek „Kawa, która ma charakter” i unoszące się trójwymiarowe palone ziarna kawy na ciemnobrązowym tle",
           caption:
-            "Katalog z filtrowaniem: po wybraniu jasnego palenia zostają cztery kawy.",
+            "Sklep od pierwszego ekranu wygląda jak palarnia, a lekki model ziaren z Blendera działa też na telefonie.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
+          src: "/projects/sklep-craft-coffee/features/proces-od-ziarna.webp",
+          alt: "Sekcja „Od ziarna do filiżanki” w trakcie przewijania w poziomie: krok 02 Palenie z renderem palonych ziaren i paskiem postępu kroków",
+          caption:
+            "Przewijana w poziomie historia procesu tłumaczy, za co klient płaci, zanim dotrze do cen.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/sklep-craft-coffee/features/katalog-filtry.webp",
+          alt: "Katalog z aktywnym filtrem jasnego palenia: cztery kawy w spójnych zdjęciach toreb, z nutami smakowymi, ocenami i ceną za 250 g",
+          caption:
+            "Filtry zapisują się w adresie strony, więc klient może wysłać znajomemu link do gotowego wyboru.",
           step: "solution",
           device: "desktop",
         },
         {
           src: "/projects/sklep-craft-coffee/features/karta-produktu.webp",
-          alt: "Karta produktu Etiopia Yirgacheffe z wyborem gramatury, mielenia i ilości oraz przyciskiem Dodaj do koszyka",
+          alt: "Karta produktu Kenia AA: zdjęcie torby, wybrana gramatura 1 kg z informacją o 20% oszczędności, mielenie, ilość, cena łączna i przycisk Dodaj do koszyka",
           caption:
-            "Karta produktu: klient wybiera gramaturę, sposób mielenia i ilość.",
+            "Karta produktu od razu liczy cenę wariantu i pokazuje oszczędność na paczce 1 kg, co zachęca do większego zamówienia.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/sklep-craft-coffee/features/koszyk-szuflada.webp",
-          alt: "Wysuwany panel koszyka z dodaną kawą, licznikiem ilości, sumą i przyciskiem Zobacz koszyk",
+          src: "/projects/sklep-craft-coffee/features/o-nas-palarnia.webp",
+          alt: "Strona O nas: zdjęcie małego pieca do palenia kawy w ceglanej hali obok nagłówka „Pięć kilogramów i jeden upór” i historii palarni",
           caption:
-            "Po dodaniu kawy koszyk wysuwa się z boku, bez opuszczania strony produktu.",
-          step: "solution",
+            "Historia palarni opowiedziana zdjęciami buduje zaufanie, którego mała marka potrzebuje, żeby sprzedawać w sieci.",
+          step: "result",
           device: "desktop",
         },
         {
-          src: "/projects/sklep-craft-coffee/features/koszyk-mobile.webp",
-          alt: "Koszyk na telefonie z produktem, sumą, paskiem postępu do darmowej dostawy i przyciskiem Przejdź do zamówienia",
+          src: "/projects/sklep-craft-coffee/features/szuflada-koszyka-mobile.webp",
+          alt: "Koszyk na telefonie z dwiema kawami, licznikami ilości, sumą 123 zł, paskiem postępu do darmowej dostawy i przyciskiem Przejdź do zamówienia",
           caption:
-            "Koszyk na telefonie podpowiada, ile brakuje do darmowej dostawy.",
+            "Koszyk podpowiada, ile brakuje do darmowej dostawy, i prowadzi prosto do zamówienia.",
           step: "result",
           device: "mobile",
         },
@@ -557,28 +610,52 @@ const rawCvData = {
       ],
       features: [
         {
-          src: "/projects/asystent-ai/features/czat-odpowiedz.webp",
-          alt: "Okno czatu z asystentem AI: pytanie „Ile kosztuje wdrożenie?” i odpowiedź z orientacyjnymi cenami usług",
+          src: "/projects/asystent-ai/features/zastosowania-telefon.webp",
+          alt: "Sekcja zastosowań na telefonie: salon fryzjerski po zamknięciu i rozmowa, w której klientka pyta o koloryzację i sobotni termin, a asystent odpowiada w kobaltowym dymku",
           caption:
-            "Czat odpowiada na pytanie o cenę na podstawie wiedzy o firmie, w kilka sekund.",
+            "Klient pyta po godzinach i od razu dostaje odpowiedź, a salon oddzwania rano.",
+          step: "challenge",
+          device: "mobile",
+        },
+        {
+          src: "/projects/asystent-ai/features/czat-na-zywo.webp",
+          alt: "Strona demo czatu: pytania o cenę asystenta i o odpowiedź na opinię 1★, odpowiedzi w kobaltowych dymkach, obok opis działania demo",
+          caption:
+            "Czat odpowiada na żywo na podstawie cennika i zasad firmy, bez zgadywania cen.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/asystent-ai/features/generator-oferty.webp",
-          alt: "Generator ofert: formularz z branżą, zakresem i budżetem, obok wygenerowana oferta z pozycjami i sumą 5200 zł",
+          src: "/projects/asystent-ai/features/generator-ofert.webp",
+          alt: "Generator ofert: branża, zakres i budżet po lewej, po prawej oferta jak kartka dokumentu z pozycjami, sumą 5200 zł, datą ważności i przyciskami Kopiuj ofertę oraz Zapisz jako PDF",
           caption:
-            "Generator ofert: kilka pól po lewej, gotowa oferta z wyceną po prawej.",
+            "Kilka kliknięć wystarczy, żeby powstała spójna oferta do skopiowania albo zapisania jako PDF.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/asystent-ai/features/czat-mobile.webp",
-          alt: "Czat asystenta na telefonie z pytaniem o bezpieczeństwo klucza API i odpowiedzią asystenta",
+          src: "/projects/asystent-ai/features/jak-to-dziala.webp",
+          alt: "Sekcja Jak to działa: wymiana z czatu z trzema dopiskami na marginesie (pytanie klienta, źródła wiedzy, odpowiedź asystenta) i lista zabezpieczeń kosztów oraz danych",
           caption:
-            "Klient dostaje odpowiedź od razu, także na telefonie i poza godzinami pracy.",
+            "Właściciel widzi, skąd asystent bierze odpowiedzi i jak pilnowane są koszty.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/asystent-ai/features/czat-na-telefonie.webp",
+          alt: "Czat na telefonie: przykładowa odpowiedź na opinię 1★, karta Gotowe do wklejenia i rząd gotowych pytań nad polem wiadomości",
+          caption:
+            "Na telefonie cała rozmowa mieści się na ekranie, a gotowe pytania są pod kciukiem.",
           step: "result",
           device: "mobile",
+        },
+        {
+          src: "/projects/asystent-ai/features/cennik.webp",
+          alt: "Cennik jak kartka przy kasie: cztery usługi z cenami od 1900 zł do 4500 zł, czasem wdrożenia i oznaczeniem najczęściej wybieranych na start",
+          caption:
+            "Cennik z czasem wdrożenia odpowiada na pytanie o koszt, a dokładną wycenę klient składa sam w generatorze.",
+          step: "result",
+          device: "desktop",
         },
       ] as const,
       githubUrl: "https://github.com/DawOrl/asystent-ai",
@@ -615,34 +692,50 @@ const rawCvData = {
       ],
       features: [
         {
+          src: "/projects/eko-solar/features/ceny-pradu.webp",
+          alt: "Sekcja o cenach prądu: wykres cen 1 kWh od 2020 do 2026 roku z naklejką +95% i trzy numerowane argumenty obok",
+          caption:
+            "Problem pokazany liczbami: klient widzi, o ile podrożał prąd, zanim przeczyta o panelach.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
           src: "/projects/eko-solar/features/kalkulator-oszczednosci.webp",
-          alt: "Kalkulator oszczędności z suwakiem rachunku ustawionym na 550 zł i wynikiem: 5600 zł oszczędności rocznie i moc 5,5 kWp",
+          alt: "Kalkulator na żółtym tle: suwak rachunku, paski rachunku dziś i po montażu, roczna oszczędność, dobrana moc i zwrot, nad kartą render domu z panelami pod łukiem słońca",
           caption:
-            "Suwak rachunku za prąd od razu przelicza roczną oszczędność i moc instalacji.",
+            "Kalkulator zamienia miesięczny rachunek w roczną oszczędność i od razu prowadzi do wyceny.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/eko-solar/features/proces-4-kroki.webp",
-          alt: "Sekcja procesu w czterech krokach: audyt, projekt i wycena, montaż oraz serwis, z czasem każdego etapu",
+          src: "/projects/eko-solar/features/proces-na-luku-slonca.webp",
+          alt: "Cztery kroki współpracy: audyt, projekt i wycena, montaż oraz serwis, ułożone na kreskowanym łuku drogi słońca, z terminem przy każdym kroku",
           caption:
-            "Proces w czterech krokach, z czasem każdego etapu, odpowiada na pytanie „co dalej?”.",
+            "Cały proces od pierwszego telefonu do własnego prądu widać w jednym spojrzeniu, razem z terminami.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/eko-solar/features/realizacje-okolica.webp",
-          alt: "Sekcja „Ostatnie montaże w Twojej okolicy” z kartami instalacji w Wieliczce i Niepołomicach, mocą i oszczędnością",
+          src: "/projects/eko-solar/features/kalkulator-mobile.webp",
+          alt: "Kalkulator na telefonie: render domu nad kartą, rachunek 550 zł na suwaku, paski przed i po montażu oraz oszczędność 5600 zł rocznie",
           caption:
-            "Montaże z okolicy, z mocą i oszczędnością, budują zaufanie do firmy.",
+            "Kalkulator obsługuje się kciukiem, a wynik jest czytelny bez przybliżania.",
           step: "solution",
+          device: "mobile",
+        },
+        {
+          src: "/projects/eko-solar/features/realizacje-w-okolicy.webp",
+          alt: "Realizacje: duża karta domu z Wieliczki z panelami na dachu i trzy mniejsze karty z Niepołomic, Skawiny i Dobczyc z mocą instalacji i oszczędnością",
+          caption:
+            "Montaże z pobliskich miejscowości budują zaufanie lepiej niż ogólne hasła.",
+          step: "result",
           device: "desktop",
         },
         {
-          src: "/projects/eko-solar/features/wycena-mobile.webp",
-          alt: "Formularz bezpłatnej wyceny na telefonie z polami imię, telefon, kod pocztowy i miesięczny rachunek za prąd",
+          src: "/projects/eko-solar/features/formularz-wyceny-mobile.webp",
+          alt: "Formularz wyceny na telefonie z imieniem, telefonem, kodem pocztowym, rachunkiem przeniesionym z kalkulatora, zgodą i żółtym przyciskiem wysyłki",
           caption:
-            "Na końcu krótki formularz: wystarczy imię, telefon i kod pocztowy, żeby zostawić kontakt.",
+            "Rachunek z kalkulatora sam trafia do formularza, więc zostawienie numeru trwa chwilę.",
           step: "result",
           device: "mobile",
         },
@@ -681,44 +774,52 @@ const rawCvData = {
       ],
       features: [
         {
-          src: "/projects/fotograf-lena/features/portfolio-filtr-sluby.webp",
-          alt: "Portfolio fotografki z aktywnym filtrem Śluby i trzema zdjęciami par młodych",
+          src: "/projects/fotograf-lena/features/galeria-masonry.webp",
+          alt: "Portfolio: filtry Wszystkie, Śluby, Portrety i Rodzinne z licznikami oraz trzy kolumny zdjęć w ciepłej, filmowej gradacji, ze środkową kolumną przesuniętą w dół",
           caption:
-            "Galeria z filtrowaniem kategorii. Tu wybrane są tylko śluby.",
+            "Kadry z różnych sesji wyglądają jak jedna seria jednej autorki, bo przechodzą przez tę samą filmową gradację.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
+          src: "/projects/fotograf-lena/features/lightbox.webp",
+          alt: "Jasny podgląd pełnoekranowy z kadrem pierwszego tańca w stodole, licznikiem 05 / 14, strzałkami po bokach i podpisem z numerem kadru i miejscem",
+          caption:
+            "Zdjęcia przegląda się strzałkami, klawiaturą albo gestem, a po zamknięciu strona wraca do oglądanej miniatury.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/fotograf-lena/features/podglad-zdjecia.webp",
-          alt: "Zdjęcie pary młodej na plaży otwarte w pełnym rozmiarze, z numerem kadru, podpisem i strzałkami nawigacji",
+          src: "/projects/fotograf-lena/features/o-mnie.webp",
+          alt: "Sekcja O mnie: kursywny nagłówek w sepii, portret fotografki z aparatem w łukowej masce, tekst z inicjałem, podpis i trzy liczby w linii",
           caption:
-            "Każdy kadr otwiera się w pełnym rozmiarze, z podpisem i nawigacją strzałkami.",
+            "Historia fotografki opowiedziana jak w magazynie buduje zaufanie, zanim klientka zapyta o termin.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/fotograf-lena/features/pakiety-cennik.webp",
-          alt: "Sekcja oferty z pakietami Portret od 650 zł i Ślub od 4900 zł oraz listą tego, co zawierają",
+          src: "/projects/fotograf-lena/features/oferta-cennik.webp",
+          alt: "Sekcja oferty: nagłówek „Trzy pakiety, zero gwiazdek w cenniku”, render kaset filmu 35 mm z wysuniętą kliszą i cennik z cienkimi liniami oraz cenami „od”",
           caption:
-            "Pakiety z ceną „od” i konkretną zawartością zamiast „ceny do ustalenia”.",
+            "Ceny „od” są podane wprost, a wybór pakietu jednym kliknięciem trafia do formularza.",
           step: "solution",
           device: "desktop",
         },
         {
-          src: "/projects/fotograf-lena/features/portfolio-mobile.webp",
-          alt: "Portfolio na telefonie z filtrami kategorii i pierwszym zdjęciem ślubnym na całą szerokość ekranu",
+          src: "/projects/fotograf-lena/features/lightbox-mobile.webp",
+          alt: "Podgląd zdjęcia na telefonie: kadr zapinania guzików sukni ślubnej, licznik 03 / 14, przycisk Zamknij i strzałki przy podpisie",
           caption:
-            "Na telefonie zdjęcia zajmują całą szerokość ekranu, a filtry są pod ręką.",
-          step: "result",
+            "Kadry przegląda się przesunięciem palca, a duże przyciski są pod kciukiem.",
+          step: "solution",
           device: "mobile",
         },
         {
-          src: "/projects/fotograf-lena/features/zapytanie-o-termin.webp",
-          alt: "Formularz zapytania o termin z wpisanym imieniem, datą wydarzenia 12.06.2027 i wiadomością",
+          src: "/projects/fotograf-lena/features/formularz-mobile.webp",
+          alt: "Formularz zapytania na telefonie z imieniem, adresem e-mail, wybranym pakietem Ślub, datą 19.06.2027, wiadomością i przyciskiem Wyślij zapytanie",
           caption:
-            "Zapytanie od razu zawiera datę wydarzenia, więc fotografka wie, o jaki termin chodzi.",
+            "Zapytanie zajmuje minutę: pakiet jest już wybrany, a błędy mówią, co poprawić.",
           step: "result",
-          device: "desktop",
+          device: "mobile",
         },
       ] as const,
       githubUrl: "https://github.com/DawOrl/fotograf-lena",
@@ -755,36 +856,52 @@ const rawCvData = {
       ],
       features: [
         {
-          src: "/projects/kalkulator-wyceny/features/start-60-sekund.webp",
-          alt: "Ekran startowy kalkulatora z hasłem „Sprawdź orientacyjną cenę swojej strony w 60 sekund” i przyciskiem Zaczynamy",
+          src: "/projects/kalkulator-wyceny/features/pierwsze-pytanie.webp",
+          alt: "Pierwszy krok kalkulatora: pytanie „Czego potrzebujesz?” z pięcioma typami strony i cenami od 990 zł, obok pusta mata makiety i pusty kosztorys wstępny",
           caption:
-            "Pytanie „ile to kosztuje?” dostaje odpowiedź już od pierwszego ekranu.",
+            "Klient nie musi znać cennika, bo zaczyna od prostego pytania, a pusty kosztorys czeka na jego pierwszą decyzję.",
           step: "challenge",
           device: "desktop",
         },
         {
-          src: "/projects/kalkulator-wyceny/features/krok-rodzaj-strony-mobile.webp",
-          alt: "Pierwszy krok kalkulatora na telefonie: wybór rodzaju strony, przy każdej opcji cena od 990 zł wzwyż",
+          src: "/projects/kalkulator-wyceny/features/podglad-opcji.webp",
+          alt: "Krok „Ile podstron?”: kursor nad opcją 6-10 podstron, a na makiecie obok budynku pojawiają się szare, półprzezroczyste skrzydła jako podgląd tej opcji",
           caption:
-            "Jedno pytanie na ekran. Na telefonie odpowiedź to jedno dotknięcie.",
+            "Zanim klient kliknie, widzi szkic tego, co dana opcja dobuduje do jego strony.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/kalkulator-wyceny/features/kosztorys-na-zywo.webp",
+          alt: "Krok funkcji dodatkowych z trzema zaznaczonymi opcjami, obok makieta z budynkiem, skrzydłami i dodatkami oraz kosztorys z siedmioma numerowanymi pozycjami i sumą 8 358 zł netto",
+          caption:
+            "Każda odpowiedź dopisuje pozycję do kosztorysu i element do makiety, a numer w kółku łączy jedno z drugim.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/kalkulator-wyceny/features/krok-z-makieta-mobile.webp",
+          alt: "Telefon: krok „Treści na stronę” z makietą nad pytaniem i dolnym paskiem kosztorysu z sumą 7 350 zł",
+          caption:
+            "Makieta rośnie nad pytaniem, a pełny kosztorys czeka w dolnej szufladzie.",
           step: "solution",
           device: "mobile",
         },
         {
-          src: "/projects/kalkulator-wyceny/features/krok-funkcje-kosztorys.webp",
-          alt: "Piąty krok kalkulatora z wybranymi funkcjami Rezerwacje online i Animacje premium, obok kosztorys wstępny z sześcioma pozycjami",
+          src: "/projects/kalkulator-wyceny/features/wynik-wyceny.webp",
+          alt: "Arkusz wyniku: makieta całego projektu z żurawiem i pieczątką „Wycena wstępna”, przedział od 9 400 do 12 550 zł netto, czas realizacji, suma pozycji i przycisk wysyłki szczegółowej wyceny",
           caption:
-            "Kosztorys obok pytań rośnie pozycja po pozycji z każdym wyborem.",
-          step: "solution",
+            "Klient dostaje widełki, czas realizacji i jeden jasny następny krok zamiast maila z pytaniem o cenę.",
+          step: "result",
           device: "desktop",
         },
         {
-          src: "/projects/kalkulator-wyceny/features/wynik-widelki-kosztorys.webp",
-          alt: "Wynik wyceny: przedział od 5600 do 7500 zł netto, czas realizacji od 2 do 6 tygodni i rozpis sześciu pozycji kosztorysu",
+          src: "/projects/kalkulator-wyceny/features/wynik-mobile.webp",
+          alt: "Wynik na telefonie: tabliczka dokumentu, makieta z ośmioma odnośnikami, przedział od 9 400 do 12 550 zł, czas realizacji i suma pozycji",
           caption:
-            "Wynik od razu: widełki cenowe, czas realizacji i rozpis kosztów.",
+            "Tę samą wycenę na telefonie można wysłać wspólnikowi jako link.",
           step: "result",
-          device: "desktop",
+          device: "mobile",
         },
       ] as const,
       githubUrl: "https://github.com/DawOrl/kalkulator-wyceny",
