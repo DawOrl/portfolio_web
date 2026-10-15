@@ -262,7 +262,7 @@ const rawCvData = {
         "Strona prezentuje wulkanizację, serwis olejowy, klimatyzację i bieżące naprawy na osobnych podstronach. Wyeksponowane przyciski telefonu, informacje o warsztacie, FAQ oraz mapa z dojazdem prowadzą użytkownika od poznania oferty do kontaktu. Projekt obejmuje wersję mobilną oraz jasny i ciemny motyw.",
       result:
         "Warsztat ma jedno miejsce z aktualną ofertą i danymi kontaktowymi. Kierowca może sprawdzić zakres usługi, zadzwonić w sprawie terminu i wyznaczyć trasę do warsztatu.",
-      stack: ["Next.js", "React"],
+      stack: ["Next.js", "React", "TypeScript", "Tailwind CSS", "GSAP"],
       scope: [
         "Projekt UI/UX",
         "Podstrony usług",
