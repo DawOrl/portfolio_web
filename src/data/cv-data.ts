@@ -330,10 +330,102 @@ const rawCvData = {
       featured: false,
     },
 
-    // ───────────── Projekty autorskie (demo) — live na Vercelu ─────────────
-    // Nowy projekt: dodaj wpis do scripts/shots.config.json, uruchom
-    // `npm run shots <slug>`, dodaj obiekt poniżej (draft: true ukrywa
+    // ───────────── Projekty autorskie (demo) ─────────────
+    // Nowy projekt z adresem live: dodaj wpis do scripts/shots.config.json,
+    // uruchom `npm run shots <slug>`, dodaj obiekt poniżej (draft: true ukrywa
     // z biblioteki/teasera/sitemap do czasu uzupełnienia treści).
+    // Projekt bez adresu live: zrzuty kopiujemy ręcznie, a do shots.config.json
+    // trafia dopiero po wdrożeniu.
+
+    {
+      slug: "taxi-opatow",
+      title: "Taxi Opatów - wizytówka lokalnej taksówki",
+      category: "Strona firmowa",
+      kind: "demo" as const,
+      year: "2026",
+      client: "Wersja demonstracyjna (dane przykładowe)",
+      tagline:
+        "Strona lokalnego taksówkarza, w której wszystko prowadzi do telefonu, a cennik wygląda jak paragon z taksometru.",
+      problem:
+        "Klient lokalnej taksówki nie chce instalować aplikacji ani wypełniać długich formularzy. Chce szybko sprawdzić, czy kierowca dojedzie do jego miejscowości i od czego zależy cena, a potem zadzwonić. Mały przewoźnik często ma tylko numer na wizytówce i profil w mediach społecznościowych, więc trudno go znaleźć w Google, a te same pytania o dworzec, lotnisko i ceny wracają przy każdym telefonie.",
+      solution:
+        "Zaprojektowałem stronę, której celem jest telefon. Numer stoi na dużej żółtej „tablicy” w pierwszym ekranie, a na telefonie przyciski Zadzwoń i SMS są zawsze w dolnym pasku. Usługi dzielą się na kursy „na teraz” i wyjazdy umawiane wcześniej, jak dworzec czy lotnisko. Zamawianie w trzech krokach jest narysowane jak trasa, obszar działania to schemat linii zamiast ciężkiej mapy, a cennik jak paragon z taksometru tłumaczy, od czego zależy cena, zamiast obiecywać stawki. Kursy planowane przyjmuje formularz z walidacją, ochroną przed spamem i limitem zapytań. Dane firmy są w jednym pliku konfiguracyjnym, a strona niczego nie zmyśla. Krój Barlow wywodzi się ze znaków drogowych, podświetlany kogut TAXI to render z Blendera, a strona ładuje minimum JavaScriptu i nie używa bibliotek animacji.",
+      result:
+        "Pasażer w kilka sekund sprawdza, czy taksówka do niego dojedzie i od czego zależy cena, a potem dzwoni jednym dotknięciem. Wyjazd na dworzec czy lotnisko zgłasza z wyprzedzeniem, bez czekania na połączenie. Dane strukturalne TaxiService i LocalBusiness przygotowują stronę do lokalnych wyników wyszukiwania. W portfolio strona działa w trybie demonstracyjnym, z przykładowymi danymi kierowcy, auta i stawek.",
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zod",
+        "Blender",
+      ],
+      scope: [
+        "Projekt UI/UX",
+        "Pasek Zadzwoń i SMS",
+        "Formularz kursów planowanych",
+        "SEO lokalne",
+        "Render 3D (Blender)",
+      ],
+      cover: "/projects/taxi-opatow/desktop.png",
+      gallery: [
+        "/projects/taxi-opatow/desktop.png",
+        "/projects/taxi-opatow/mobile.png",
+      ],
+      features: [
+        {
+          src: "/projects/taxi-opatow/features/uslugi-teraz-i-planowane.webp",
+          alt: "Sekcja usług: nagłówek „Taxi w Opatowie: w czym mogę pomóc?”, zdjęcie bagażnika przed dworcem i lista usług z grupy Na teraz",
+          caption:
+            "Klient od razu widzi, czy dzwoni po kurs na teraz, czy umawia wyjazd na dworzec lub lotnisko z wyprzedzeniem.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
+          src: "/projects/taxi-opatow/features/zamawianie-jak-trasa.webp",
+          alt: "Nocna sekcja „Jak zamówić przejazd?”: trzy kroki połączone przerywaną linią jak pas na jezdni, a pod nimi żółta tablica z numerem telefonu",
+          caption:
+            "Zamawianie wytłumaczone w trzech krokach czyta się jak trasę, która kończy się numerem telefonu.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/taxi-opatow/features/obszar-dzialania-schemat.webp",
+          alt: "Obszar działania jako schemat linii: pełna linia z najbliższymi miejscowościami, przerywana z dalszymi kierunkami, obok zdjęcie drogi wśród pól o zmierzchu",
+          caption:
+            "Mieszkaniec okolicznej wsi w kilka sekund sprawdza, czy taksówka do niego dojedzie, bez ładowania ciężkiej mapy.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/taxi-opatow/features/cennik-paragon.webp",
+          alt: "Cennik: trzy numerowane czynniki ceny obok paragonu z taksometru z przykładowymi stawkami oznaczonymi jako dane demonstracyjne",
+          caption:
+            "Cennik tłumaczy, od czego zależy cena, zamiast obiecywać stawki, których kierowca nie może zagwarantować.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/taxi-opatow/features/kierowca-i-auto.webp",
+          alt: "Sekcja O mnie na telefonie: przykładowe zdjęcie kierowcy przy kombi, mniejsze zdjęcie auta z kogutem, nagłówek „Lokalny kierowca, nie anonimowa aplikacja” i dolny pasek z numerem",
+          caption:
+            "Zdjęcie kierowcy i auta buduje zaufanie, którego nie da anonimowa aplikacja.",
+          step: "result",
+          device: "mobile",
+        },
+        {
+          src: "/projects/taxi-opatow/features/formularz-kursu-planowanego.webp",
+          alt: "Formularz „Zapytanie o kurs planowany” na telefonie z żółtą notką, że pilny przejazd zamawia się telefonicznie, oraz polami imienia, telefonu, daty i miejsca odbioru",
+          caption:
+            "Kurs planowany zgłasza się formularzem, a pilny przejazd nadal telefonem.",
+          step: "result",
+          device: "mobile",
+        },
+      ] as const,
+      githubUrl: "",
+      liveUrl: "",
+      featured: false,
+    },
 
     {
       slug: "restauracja-bella",
@@ -699,6 +791,107 @@ const rawCvData = {
       githubUrl: "https://github.com/DawOrl/asystent-ai",
       liveUrl: "https://asystent-ai-three.vercel.app/",
       featured: true,
+    },
+
+    {
+      slug: "worksmart",
+      title: "WorkSmart - AI copilot szukania pracy",
+      category: "Aplikacja & automatyzacja",
+      kind: "demo" as const,
+      year: "2026",
+      client: "Projekt autorski (demo)",
+      tagline:
+        "Aplikacja, która zbiera oferty pracy z pięciu portali, ocenia ich dopasowanie do CV i pomaga zdecydować, gdzie aplikować dziś.",
+      problem:
+        "Szukanie pracy to codzienne przeglądanie kilku portali, te same ogłoszenia w różnych miejscach i zgadywanie, czy CV w ogóle przejdzie przez systemy rekrutacyjne (ATS). Kandydat traci czas na oferty, które do niego nie pasują, gubi się w wysłanych aplikacjach i nie wie, kiedy przypomnieć się firmie, która milczy.",
+      solution:
+        "Zbudowałem aplikację, która przejmuje najbardziej żmudną część szukania pracy. Scrapery Playwright według harmonogramu zbierają oferty z JustJoin.it, Pracuj.pl, NoFluffJobs, RocketJobs i OLX. Analiza CV pokazuje, jak czytają je systemy ATS, i wskazuje najważniejsze poprawki. Każda oferta dostaje wynik dopasowania od 0 do 100, a wymagania, które kandydat spełnia, są zakreślone jak markerem obok tych, których brakuje. Pulpit odpowiada na pytanie „gdzie aplikować dziś”, tracker pilnuje terminów rozmów i przypomina o firmach, które milczą, alerty e-mail informują o nowych dopasowaniach, a generator listów motywacyjnych (Claude API) pisze list pod konkretną ofertę. Backend działa na Express i Supabase (PostgreSQL z pgvector), a płatności obsługuje Stripe w złotówkach. Zamiast neonowej estetyki „AI” aplikacja ma tożsamość papieru, atramentu i zakreślacza, a dopasowanie symbolizuje render klucza i zamka z Blendera.",
+      result:
+        "Kandydat zaczyna dzień od krótkiej listy ofert ułożonych według dopasowania do swojego CV i widzi, dlaczego dana oferta pasuje albo nie. Aplikacje, terminy rozmów i przypomnienia ma w jednym miejscu, a list motywacyjny pod wybraną ofertę dostaje bez pisania od zera. Wersja demonstracyjna działa w całości w przeglądarce, na przykładowych danych i bez żadnych kluczy API.",
+      stack: [
+        "React",
+        "Vite",
+        "TypeScript",
+        "Tailwind CSS",
+        "Express",
+        "Supabase",
+        "Claude API",
+        "Playwright",
+      ],
+      scope: [
+        "Projekt UI/UX",
+        "Scrapery ofert",
+        "Analiza CV pod ATS",
+        "Match score",
+        "Tracker aplikacji",
+        "Integracja LLM",
+      ],
+      cover: "/projects/worksmart/desktop.png",
+      gallery: [
+        "/projects/worksmart/desktop.png",
+        "/projects/worksmart/mobile.png",
+      ],
+      features: [
+        {
+          src: "/projects/worksmart/features/analiza-cv.webp",
+          alt: "Ekran Moje CV: czytelność dla systemów ATS 72 na 100 na linijce z kresek, lista poprawek oznaczonych wpływem oraz umiejętności, doświadczenie i wykształcenie odczytane z CV",
+          caption:
+            "Kandydat od razu widzi, co w CV umyka systemom rekrutacyjnym i od której poprawki zacząć.",
+          step: "challenge",
+          device: "desktop",
+        },
+        {
+          src: "/projects/worksmart/features/pulpit-dopasowania.webp",
+          alt: "Pulpit: ranking sześciu ofert z wynikiem dopasowania, firmą, miejscem, widełkami i portalem źródłowym, obok podsumowanie CV, aplikacji w toku i aktywnego alertu",
+          caption:
+            "Oferty z pięciu portali trafiają do jednej listy, ułożonej według dopasowania do konkretnego CV.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/worksmart/features/oferta-z-dopasowaniem.webp",
+          alt: "Oferta Mid Frontend Developer: pięć wymagań zakreślonych markerem jako obecne w CV, Figma podkreślona jako brakująca, obok wynik 89, rekomendacja i akcje trackera oraz listu",
+          caption:
+            "Dopasowanie da się sprawdzić, bo widać, które wymagania kandydat spełnia, a których mu brakuje.",
+          step: "solution",
+          device: "desktop",
+        },
+        {
+          src: "/projects/worksmart/features/oferta-mobile.webp",
+          alt: "Ta sama oferta na telefonie: wymagania z zakreśleniami i wynik dopasowania 89 z rekomendacją nad dolnym paskiem nawigacji",
+          caption:
+            "Na telefonie decyzja o aplikowaniu zajmuje kilka sekund, bez przewijania ogłoszenia.",
+          step: "solution",
+          device: "mobile",
+        },
+        {
+          src: "/projects/worksmart/features/tracker-aplikacji.webp",
+          alt: "Tracker aplikacji w czterech kolumnach: wysłane, rozmowa, oferta i odmowa, z terminem rozmowy i podpowiedzią przy aplikacji bez odpowiedzi od 11 dni",
+          caption:
+            "Wszystkie aplikacje są w jednym miejscu, a gdy firma milczy dłużej niż tydzień, aplikacja podpowiada, żeby się przypomnieć.",
+          step: "result",
+          device: "desktop",
+        },
+        {
+          src: "/projects/worksmart/features/list-motywacyjny.webp",
+          alt: "Generator listów: wybór oferty, stylu i języka po lewej, a po prawej gotowy list w stylu bezpośrednim złożony szeryfowym krojem, z przyciskami kopiowania i pobrania",
+          caption:
+            "List motywacyjny powstaje pod konkretną ofertę i od razu można go poprawić przed wysłaniem.",
+          step: "result",
+          device: "desktop",
+        },
+        {
+          src: "/projects/worksmart/features/pulpit-mobile.webp",
+          alt: "Pulpit na telefonie: powitanie, liczba ofert dopasowanych w co najmniej 80 procentach i ranking ofert z linijką dopasowania nad dolnym paskiem nawigacji",
+          caption:
+            "Codzienny przegląd nowych dopasowań wygodnie robi się jedną ręką.",
+          step: "result",
+          device: "mobile",
+        },
+      ] as const,
+      githubUrl: "https://github.com/DawOrl/WorkSmart",
+      liveUrl: "",
+      featured: false,
     },
 
     {

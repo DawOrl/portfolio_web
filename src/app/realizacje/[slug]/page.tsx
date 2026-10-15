@@ -187,31 +187,33 @@ export default async function ProjectCaseStudy({
               </h1>
               <div className="case-header-copy">
                 <p>{project.tagline}</p>
-                <div className="case-public-links">
-                  {project.liveUrl && (
-                    <a
-                      className="case-live-link"
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Zobacz na żywo
-                      <ArrowUpRight size={18} aria-hidden="true" />
-                      <span className="sr-only"> (nowa karta)</span>
-                    </a>
-                  )}
-                  {project.githubUrl && (
-                    <a
-                      className="case-code-link"
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <Github size={17} aria-hidden="true" /> Kod na GitHub
-                      <span className="sr-only"> (nowa karta)</span>
-                    </a>
-                  )}
-                </div>
+                {(project.liveUrl || project.githubUrl) && (
+                  <div className="case-public-links">
+                    {project.liveUrl && (
+                      <a
+                        className="case-live-link"
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Zobacz na żywo
+                        <ArrowUpRight size={18} aria-hidden="true" />
+                        <span className="sr-only"> (nowa karta)</span>
+                      </a>
+                    )}
+                    {project.githubUrl && (
+                      <a
+                        className="case-code-link"
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github size={17} aria-hidden="true" /> Kod na GitHub
+                        <span className="sr-only"> (nowa karta)</span>
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </header>
