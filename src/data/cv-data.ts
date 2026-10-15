@@ -343,18 +343,27 @@ const rawCvData = {
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Strona restauracji z menu online, galerią dań i rezerwacją stolika - bez konieczności dzwonienia.",
+        "Strona trattorii złożona jak drukowana karta dań: menu online, spójna seria zdjęć i prośba o stolik bez dzwonienia.",
       problem:
         "Większość lokali gastronomicznych w Polsce działa wyłącznie na Instagramie i Facebooku. Menu krąży jako zdjęcie sprzed miesięcy, nie da się zarezerwować stolika online, a Google nie ma czego zaindeksować - lokal jest niewidoczny dla nowych gości.",
       solution:
-        "Zaprojektowałem stronę, która sprzedaje atmosferę lokalu: apetyczna sekcja hero, menu online łatwe do aktualizacji, galeria dań, godziny otwarcia, mapa dojazdu i prosty formularz rezerwacji stolika. Mobile-first, bo gości najczęściej szukają w telefonie.",
+        "Zaprojektowałem stronę jak drukowaną kartę dań trattorii: hero ze zdjęciem w łuku ceglanego sklepienia, menu z jednym zdjęciem na kategorię i cenami na kropkowanych liniach, a na telefonie przyklejony pasek kategorii. Wszystkie zdjęcia tworzą jedną serię w tym samym świetle świec, z lnem i cegłą, a uzupełnia ją martwa natura z makaronu wyrenderowana w Blenderze. Dojazd pokazuje własny plan Starego Miasta, a mapa Google wczytuje się dopiero po kliknięciu, więc strona nie zapisuje ciasteczek na starcie. Formularz rezerwacji podpowiada godziny zależne od dnia tygodnia.",
       result:
-        "Gość w kilka sekund widzi menu, lokalizację i rezerwuje stolik - bez telefonu i przeszukiwania social mediów. Lokal zyskuje profesjonalny wizerunek i widoczność w Google.",
-      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+        "Gość w kilka sekund widzi menu z cenami i drogę do lokalu, a potem wysyła prośbę o stolik bez dzwonienia i przeszukiwania mediów społecznościowych. Lokal zyskuje spójny wizerunek, a karta dań trafia do Google jako tekst i dane strukturalne.",
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Blender",
+      ],
       scope: [
         "Projekt UI/UX",
+        "Art direction zdjęć",
         "Menu online",
         "Formularz rezerwacji",
+        "Render 3D (Blender)",
         "SEO lokalne",
       ],
       cover: "/projects/restauracja-bella/desktop.png",
@@ -425,18 +434,27 @@ const rawCvData = {
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Strona salonu beauty/barber z cennikiem usług i rezerwacją wizyt online - niezależna od prowizji platform.",
+        "Strona studia fryzjerskiego w duchu drukowanej karty salonu: uczciwe metamorfozy, cennik w zakładkach i własna rezerwacja wizyt bez prowizji platform.",
       problem:
         "Salony fryzjerskie, barber shopy i gabinety beauty są uzależnione od platform typu Booksy, które pobierają prowizje i „pożyczają” im klientów. Brakuje własnego kanału, który buduje markę salonu i nie oddaje bazy klientów pośrednikowi.",
       solution:
-        "Stworzyłem stronę z pełnym cennikiem usług, prezentacją zespołu i portfolio realizacji oraz własnym systemem rezerwacji wizyt (wybór usługi, terminu i pracownika). Klient rezerwuje bezpośrednio u salonu - bez prowizji i przekierowań do zewnętrznych aplikacji.",
+        "Stronę zaprojektowałem jak drukowaną kartę salonu, ze zdjęciami w łuku okna kamienicy i jedną spójną serią zdjęć. Metamorfozy są uczciwe: przed i po to ta sama osoba w tym samym kadrze, a suwak porównania działa myszą, dotykiem i klawiaturą. Cennik w zakładkach pokazuje cenę i czas każdej usługi. Kreator rezerwacji prowadzi przez usługę, stylistkę, termin i dane. Pokazuje tylko wolne godziny wybranej stylistki, w których wizyta zmieści się przed zamknięciem, a na telefonie trzyma podsumowanie i przycisk „Dalej” w dolnym pasku. Klimat dopełnia render terakotowego grzebienia z mosiężnym kosmykiem, wykonany w Blenderze.",
       result:
-        "Salon ma własny, profesjonalny kanał rezerwacji i przestaje oddawać prowizję pośrednikom. Marka buduje rozpoznawalność, a baza klientów należy do salonu.",
-      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+        "Salon ma własny kanał rezerwacji i nie oddaje prowizji pośrednikom, a kontakt do klientek zostaje u niego. Klientka przed wizytą zna cenę, czas i efekt, którego może się spodziewać, a po rezerwacji dodaje termin do kalendarza.",
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zod",
+        "Blender",
+      ],
       scope: [
         "Projekt UI/UX",
+        "Art direction zdjęć",
         "System rezerwacji",
         "Cennik usług",
+        "Render 3D (Blender)",
         "SEO lokalne",
       ],
       cover: "/projects/salon-glow/desktop.png",
@@ -507,19 +525,28 @@ const rawCvData = {
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Sklep e-commerce lokalnej palarni kawy: katalog produktów, koszyk i płatności online.",
+        "Sklep rzemieślniczej palarni kawy: ziarna 3D z Blendera, spójna seria zdjęć produktów, katalog z filtrami i koszyk przygotowany pod płatności online.",
       problem:
         "Małe, lokalne marki (palarnie kawy, rękodzieło, produkty regionalne) sprzedają głównie stacjonarnie lub przez wiadomości na social mediach. Brakuje im sklepu, który przyjmie zamówienie i płatność o każdej porze - tracą sprzedaż poza godzinami otwarcia.",
       solution:
-        "Zbudowałem lekki sklep internetowy: estetyczny katalog produktów z filtrowaniem, koszyk, proces zamówienia i integracja z płatnościami online. Wydajny, szybki i prosty w zarządzaniu asortymentem.",
+        "Zbudowałem sklep, który od pierwszego ekranu wygląda jak palarnia, a nie szablon. W hero unoszą się palone ziarna wymodelowane w Blenderze i pokazane w lekkiej scenie 3D (three.js), która działa też na telefonie. Dziesięć kaw ma spójną serię zdjęć produktów, a przewijana historia „Od ziarna do filiżanki” i strona o palarni pokazują proces na zdjęciach. Katalog filtruje kawy po paleniu, rodzaju i mieleniu i zapisuje wybór w adresie strony. Karta produktu liczy cenę wariantu i oszczędność na paczce 1 kg, a koszyk pokazuje, ile brakuje do darmowej dostawy. Proces zamówienia jest przygotowany pod podpięcie płatności Stripe.",
       result:
-        "Marka sprzedaje online 24/7, przyjmuje płatności automatycznie i dociera poza swój region. Klient zarządza produktami samodzielnie, bez programisty przy każdej zmianie.",
-      stack: ["Next.js", "React", "Tailwind CSS", "Stripe"],
+        "Marka może sprzedawać online o każdej porze i docierać poza swój region, a zdjęcia i historia palarni budują zaufanie, którego mała marka potrzebuje w sieci. Podpowiedzi o oszczędności na większej paczce i progu darmowej dostawy zachęcają do większych zamówień.",
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "three.js",
+        "GSAP",
+        "Blender",
+      ],
       scope: [
         "Projekt UI/UX",
+        "Model 3D (Blender)",
+        "Art direction zdjęć",
         "Katalog i koszyk",
-        "Płatności online",
-        "Panel zarządzania",
+        "Zamówienie gotowe pod Stripe",
       ],
       cover: "/projects/sklep-craft-coffee/desktop.png",
       gallery: [
@@ -589,19 +616,30 @@ const rawCvData = {
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Aplikacja webowa z AI: chatbot odpowiadający na pytania klientów i generator spersonalizowanych ofert.",
+        "Asystent AI dla małych firm: czat, który odpowiada klientom na żywo także po godzinach, i generator ofert z zapisem do PDF.",
       problem:
         "Małe firmy tracą zapytania poza godzinami pracy i marnują czas na powtarzalne pytania klientów (cennik, dostępność, zakres usług). Ręczne przygotowywanie ofert jest wolne i niespójne.",
       solution:
-        "Zbudowałem aplikację webową opartą o model językowy (LLM): chatbot odpowiada na pytania klientów na podstawie wiedzy o firmie 24/7, a generator ofert na podstawie kilku pól tworzy gotową, spersonalizowaną propozycję. Integracja przez API, z naciskiem na szybkość i bezpieczeństwo danych.",
+        "Zamiast ciemnego szablonu „AI” zaprojektowałem tożsamość z papieru i kobaltowego szkliwa: kobalt to głos asystenta, kolor gliny to głos klienta. Bohaterem pierwszego ekranu jest działający czat, który odpowiada na żywo na podstawie cennika i zasad firmy. Sekcja zastosowań pokazuje przykładowe rozmowy w salonie, warsztacie i gabinecie, a „Jak to działa” tłumaczy, skąd asystent bierze odpowiedzi i jak pilnowane są koszty. Generator ofert z kilku pól składa spersonalizowaną propozycję do skopiowania lub zapisania jako PDF, a cennik wygląda jak kartka przy kasie. Model językowy jest wymienny (Claude albo OpenAI), a klucz API zostaje na serwerze. Całość uzupełnia ceramiczna rzeźba dymków rozmowy wyrenderowana w Blenderze.",
       result:
         "Firma odpowiada klientom natychmiast o każdej porze i automatyzuje powtarzalną pracę. Pokazuje praktyczne zastosowanie AI w obsłudze klienta - mój główny wyróżnik jako Fullstack AI Developer.",
-      stack: ["Next.js", "React", "TypeScript", "OpenAI API", "Vercel"],
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel AI SDK",
+        "Claude API",
+        "OpenAI API",
+        "Blender",
+      ],
       scope: [
         "Projekt UI/UX",
         "Integracja LLM",
         "Chatbot Q&A",
         "Generator ofert",
+        "Eksport do PDF",
+        "Render 3D (Blender)",
       ],
       cover: "/projects/asystent-ai/desktop.png",
       gallery: [
@@ -675,15 +713,23 @@ const rawCvData = {
       problem:
         "Firmy usługowe (fotowoltaika, ocieplenia, instalacje) płacą za reklamy Google i Facebook, a ruch kierują na ogólną stronę firmową, która nie prowadzi do żadnej akcji. Klient klika, błądzi i wychodzi - budżet reklamowy się pali, a zapytań brak.",
       solution:
-        "Zaprojektowałem landing skupiony na jednej akcji: bezpłatnej wycenie. Interaktywny kalkulator oszczędności (suwak rachunku → dobrana moc instalacji i roczne oszczędności) angażuje i prowadzi prosto do formularza. Po drodze: liczby budujące zaufanie, proces w 4 krokach, realizacje z okolicy, opinie z Google, sekcja dotacji i FAQ rozwiewające obiekcje.",
+        "Zaprojektowałem landing skupiony na jednej akcji: bezpłatnej wycenie. Styl „solar print” prowadzi przez stronę motyw łuku drogi słońca, a sekcje mają różne układy zamiast ciągu identycznych kart. Kalkulator zamienia miesięczny rachunek na paski „dziś” i „po montażu”, roczną oszczędność i dobraną moc instalacji, nad nim stoi izometryczny render domu z panelami z Blendera, a wpisana kwota sama trafia do formularza. Po drodze: wykres cen prądu, proces w 4 krokach na łuku słońca, montaże na domach z Małopolski zamiast stockowej farmy, opinie, sekcja dotacji i FAQ rozwiewające obiekcje.",
       result:
         "Każdy element strony pracuje na konwersję - odwiedzający z reklamy w kilkadziesiąt sekund rozumie korzyść, sprawdza oszczędności na własnym rachunku i zostawia kontakt. Wzorzec gotowy do adaptacji dla dowolnej usługi lokalnej rozliczanej z leadów.",
-      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Blender",
+      ],
       scope: [
         "Projekt UI/UX",
         "Kalkulator oszczędności",
         "Formularz leadowy",
         "Optymalizacja konwersji",
+        "Render 3D (Blender)",
       ],
       cover: "/projects/eko-solar/desktop.png",
       gallery: [
@@ -753,19 +799,28 @@ const rawCvData = {
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Jasne, magazynowe portfolio fotografki ślubnej: galeria z filtrowaniem, pakiety i zapytania o terminy.",
+        "Portfolio fotografki ślubnej złożone jak numer magazynu: jedna seria zdjęć w filmowej gradacji, galeria z filtrami, pakiety i zapytania o termin.",
       problem:
         "Fotografowie i inni twórcy pokazują prace głównie na Instagramie, gdzie portfolio miesza się z relacjami, a algorytm decyduje, co zobaczy klientka. Brakuje miejsca, które prezentuje dorobek w pełnej jakości, porządkuje ofertę i zbiera zapytania o terminy.",
       solution:
-        "Zbudowałem stronę, w której bohaterem są zdjęcia: minimalistyczny, jasny layout z serifową typografią, galeria z filtrowaniem kategorii (śluby, portrety, rodzinne), czytelne pakiety cenowe i formularz zapytania z datą wydarzenia. Estetyka „editorial” zamiast szablonu - strona ma wyglądać jak rozkładówka magazynu.",
+        "Zbudowałem stronę, w której bohaterem są zdjęcia, złożoną jak numer magazynu ślubnego. Wszystkie kadry przechodzą przez jedną filmową gradację w stylu negatywu Portra, więc wyglądają jak praca jednej autorki. Hero ma spis „W tym numerze”, który prowadzi prosto do filtrów galerii (śluby, portrety, rodzinne). Galeria w układzie masonry nadaje kadrom stałe numery jak na stykówce, a nowy podgląd zdjęć obsługuje klawiaturę, przeciąganie myszą i przesunięcie palcem, po czym wraca do oglądanej miniatury. Oferta to redakcyjny cennik z renderem kaset 35 mm z Blendera, a „Zapytaj o ten pakiet” od razu wybiera pakiet w formularzu.",
       result:
         "Klientka w minutę ogląda wyselekcjonowane portfolio, zna ceny pakietów i wysyła zapytanie z konkretną datą. Fotografka dostaje profesjonalną wizytówkę niezależną od algorytmów - wzorzec dla każdej branży kreatywnej.",
-      stack: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Blender",
+      ],
       scope: [
         "Projekt UI/UX",
+        "Gradacja serii zdjęć",
         "Galeria z filtrowaniem",
         "Pakiety i cennik",
         "Formularz zapytań",
+        "Render 3D (Blender)",
       ],
       cover: "/projects/fotograf-lena/desktop.png",
       gallery: [
@@ -835,19 +890,27 @@ const rawCvData = {
       year: "2026",
       client: "Projekt autorski (demo)",
       tagline:
-        "Interaktywny wizard: 6 pytań i klient widzi widełki cenowe z rozpisem kosztów - automatyzacja pierwszego kontaktu.",
+        "Interaktywny wizard: 6 pytań, makieta z Blendera, która rośnie z każdą odpowiedzią, i kosztorys na żywo zakończony widełkami cenowymi.",
       problem:
         "Pierwsze pytanie każdego klienta brzmi „ile to kosztuje?”, a odpowiedź wymaga maili, telefonów i ręcznego liczenia. Część zainteresowanych odpada, zanim dostanie jakąkolwiek liczbę, a usługodawca traci czas na wyceny, z których nic nie wynika.",
       solution:
-        "Zbudowałem konwersacyjny kalkulator: jedno pytanie na ekran (typ strony, podstrony, design, treści, funkcje, termin), płynne przejścia między krokami i wynik od razu - widełki cenowe, szacowany czas realizacji i kosztorys pozycja po pozycji. Bez żargonu, bez podawania maila, bez zobowiązań.",
+        "Zbudowałem kalkulator w estetyce rysunku technicznego: jedno pytanie na ekran (typ strony, podstrony, design, treści, funkcje, termin), a obok pytań rośnie makieta placu budowy złożona z 18 warstw wyrenderowanych w Blenderze. Każda odpowiedź dokłada element makiety, a najechanie na opcję pokazuje jej szkic, zanim klient ją wybierze. Kosztorys dopisuje pozycje na żywo, suma nalicza się jak na taksometrze, a numer w kółku przy pozycji wskazuje ten sam element na makiecie, jak na rysunku złożeniowym. Kalkulator obsłużysz z klawiatury, a na telefonie kosztorys czeka w dolnej szufladzie. Wynik to arkusz z widełkami, czasem realizacji, założeniami i przyciskiem „Zmień” przy każdym kroku. Bez żargonu, bez podawania maila, bez zobowiązań.",
       result:
         "Klient dostaje orientacyjną cenę w 60 sekund o dowolnej porze, a do rozmowy trafia już z realnymi oczekiwaniami. Wzorzec automatyzacji pierwszego kontaktu do wpięcia w stronę dowolnej firmy usługowej.",
-      stack: ["Next.js", "React", "TypeScript", "Framer Motion"],
+      stack: [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Framer Motion",
+        "Blender",
+      ],
       scope: [
         "Projekt UI/UX",
         "Wizard 6 kroków",
         "Silnik wyceny",
         "Kosztorys pozycja po pozycji",
+        "Makieta 3D (Blender)",
       ],
       cover: "/projects/kalkulator-wyceny/desktop.png",
       gallery: [
